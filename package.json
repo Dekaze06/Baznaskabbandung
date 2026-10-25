@@ -17,6 +17,7 @@
   "dependencies": {
     "@astrojs/node": "^11.1.9",
     "@astrojs/react": "^7.1.1",
+    "@astrojs/vercel": "^11.0.16",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
