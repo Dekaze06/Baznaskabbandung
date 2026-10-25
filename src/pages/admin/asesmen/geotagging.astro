@@ -1,0 +1,192 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Geotagging & Foto Rumah - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Geotagging GPS & Bukti Foto Rumah Mustahik" activeRoute="asesmen/geotagging">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- GPS Telemetry Bar -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-4 border-b border-[#ececee]">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">pin_drop</span>
+          </div>
+          <div>
+            <h1 class="text-lg font-bold text-[#09090b]">Titik Koordinat GPS Satelit Terverifikasi</h1>
+            <p class="text-xs text-[#71717a] mt-0.5">Survei Lapangan: <strong>SURV-2026-0412 • Ibu Ai Siti Rohimah</strong></p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1.5 rounded-xl bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">
+            Akurasi GPS: &plusmn; 2.8 Meter
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 text-xs">
+        <div class="p-3.5 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Garis Lintang (Latitude):</span>
+          <strong class="font-mono text-sm text-[#09090b] block mt-0.5">-7.025283</strong>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Garis Bujur (Longitude):</span>
+          <strong class="font-mono text-sm text-[#09090b] block mt-0.5">107.518621</strong>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Elevasi Ketinggian:</span>
+          <strong class="font-mono text-sm text-[#09090b] block mt-0.5">732 mdpl</strong>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Wilayah Zonasi:</span>
+          <strong class="text-sm text-[#064e3b] block mt-0.5">Kecamatan Soreang</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Photographic Evidence Cards -->
+    <section class="space-y-4">
+      <h2 class="text-base font-bold text-[#09090b]">Dokumentasi Foto Faktual Kondisi Fisik Rumah (Rutilahu)</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Foto 1 -->
+        <div class="bg-white rounded-3xl border border-[#ececee] p-5 space-y-3 shadow-xs">
+          <div class="aspect-video w-full rounded-2xl bg-[#f4f4f5] border border-[#ececee] overflow-hidden flex flex-col items-center justify-center relative">
+            <span class="material-symbols-outlined text-4xl text-[#a1a1aa]">cottage</span>
+            <span class="text-xs text-[#71717a] font-medium mt-1">Foto Bukti 1: Fasad Tampak Depan</span>
+            <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[10px] font-mono">
+              24-10-2026 10:14 WIB • -7.02528, 107.51862
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#09090b]">Kondisi Tampak Depan &amp; Struktur Bangunan</h3>
+            <p class="text-xs text-[#71717a] mt-1 leading-relaxed">
+              Dinding depan menggunakan anyaman bilik bambu yang telah lapuk dan bolong. Tiang penyangga kayu miring 15 derajat ke sisi kanan.
+            </p>
+          </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="bg-white rounded-3xl border border-[#ececee] p-5 space-y-3 shadow-xs">
+          <div class="aspect-video w-full rounded-2xl bg-[#f4f4f5] border border-[#ececee] overflow-hidden flex flex-col items-center justify-center relative">
+            <span class="material-symbols-outlined text-4xl text-[#a1a1aa]">foundation</span>
+            <span class="text-xs text-[#71717a] font-medium mt-1">Foto Bukti 2: Ruang Tengah &amp; Lantai</span>
+            <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[10px] font-mono">
+              24-10-2026 10:18 WIB • -7.02528, 107.51862
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#09090b]">Lantai &amp; Atap Ruang Keluarga</h3>
+            <p class="text-xs text-[#71717a] mt-1 leading-relaxed">
+              Lantai plesteran semen tipis telah mengelupas hingga ke tanah liat dasar. Atap genteng tanah tanpa plafon, bocor di 4 titik utama.
+            </p>
+          </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="bg-white rounded-3xl border border-[#ececee] p-5 space-y-3 shadow-xs">
+          <div class="aspect-video w-full rounded-2xl bg-[#f4f4f5] border border-[#ececee] overflow-hidden flex flex-col items-center justify-center relative">
+            <span class="material-symbols-outlined text-4xl text-[#a1a1aa]">soup_kitchen</span>
+            <span class="text-xs text-[#71717a] font-medium mt-1">Foto Bukti 3: Dapur &amp; Sirkulasi</span>
+            <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[10px] font-mono">
+              24-10-2026 10:22 WIB • -7.02528, 107.51862
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#09090b]">Dapur Memasak &amp; Risiko Kebakaran</h3>
+            <p class="text-xs text-[#71717a] mt-1 leading-relaxed">
+              Memasak masih menggunakan tungku kayu bakar di samping dinding bilik kering tanpa ventilasi memadai, sangat rawan korsleting dan kebakaran.
+            </p>
+          </div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="bg-white rounded-3xl border border-[#ececee] p-5 space-y-3 shadow-xs">
+          <div class="aspect-video w-full rounded-2xl bg-[#f4f4f5] border border-[#ececee] overflow-hidden flex flex-col items-center justify-center relative">
+            <span class="material-symbols-outlined text-4xl text-[#a1a1aa]">wc</span>
+            <span class="text-xs text-[#71717a] font-medium mt-1">Foto Bukti 4: Fasilitas Sanitasi / MCK</span>
+            <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/70 text-white text-[10px] font-mono">
+              24-10-2026 10:26 WIB • -7.02528, 107.51862
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#09090b]">Kondisi Sanitasi &amp; Jamban Keluarga</h3>
+            <p class="text-xs text-[#71717a] mt-1 leading-relaxed">
+              Jamban luar sederhana bertutup karung plastik, mengalir langsung ke parit terbuka tanpa septic tank. Sangat mendesak perbaikan MCK sehat.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technical Housing Parameters Table -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <h3 class="font-bold text-base text-[#09090b] pb-2 border-b border-[#ececee]">Parameter Teknis Rekayasa Bedah Rutilahu BAZNAS</h3>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Luas Bangunan:</span>
+          <strong class="text-base font-bold text-[#09090b] block mt-1">32 m² (4 x 8 m)</strong>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Luas Lahan AJB:</span>
+          <strong class="text-base font-bold text-[#09090b] block mt-1">45 m² (Milik Pribadi)</strong>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">RAB Estimasi BAZNAS:</span>
+          <strong class="text-base font-bold text-[#064e3b] block mt-1">Rp 25.000.000</strong>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+          <span class="text-[#71717a] block">Waktu Pengerjaan:</span>
+          <strong class="text-base font-bold text-[#09090b] block mt-1">14 Hari Kerja (Gotong Royong)</strong>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-4 border-t border-[#ececee] text-xs">
+        <a href="/admin/asesmen/verifikasi" class="font-bold text-[#064e3b] hover:underline flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">arrow_back</span>
+          <span>Kembali ke Dossier Verifikasi</span>
+        </a>
+        <a href="/admin/command-center/tte" class="px-4 py-2 rounded-xl bg-[#064e3b] text-white font-semibold hover:bg-[#006a4e]">
+          Lanjut Pengesahan TTE Ketua &rarr;
+        </a>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

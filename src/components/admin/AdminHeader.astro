@@ -1,0 +1,120 @@
+---
+interface Props {
+  sectionName?: string;
+  pageTitle?: string;
+}
+
+const {
+  sectionName = "Ringkasan Strategis",
+  pageTitle = "Executive Command Center"
+} = Astro.props;
+---
+
+<header id="app-admin-header" class="h-20 bg-white/95 backdrop-blur-md border-b border-[#ececee] px-5 lg:px-8 flex items-center justify-between gap-4 sticky top-0 z-40 shrink-0">
+      <div class="flex items-center gap-3 min-w-0">
+        <button id="app-btn-open-sidebar" class="lg:hidden p-2 rounded-[14px] bg-[#f4f4f5] text-[#52525b]" aria-label="Buka menu navigasi">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-1.5 text-[11px] text-[#71717a] font-medium">
+            <span>Panel Admin BAZNAS</span><span>/</span>
+            <span id="app-section-name" class="text-[#064e3b] font-semibold truncate">{sectionName}</span>
+          </div>
+          <h1 id="app-page-title" class="text-base lg:text-lg font-bold tracking-tight text-[#09090b] truncate">{pageTitle}</h1>
+        </div>
+      </div>
+
+      <!-- Quick Command Search (Ctrl+K) -->
+      <div class="hidden xl:flex items-center flex-1 max-w-md mx-4">
+        <button id="app-btn-cmd-trigger" class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] text-xs text-[#71717a] hover:border-[#d4d4d8] transition-colors shadow-xs">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base">search</span>
+            <span>Cari NIK Mustahik, No. SK UPZ, atau Akun PSAK 109...</span>
+          </span>
+          <kbd class="px-2 py-0.5 rounded bg-white border border-[#ececee] font-mono text-[10px] font-semibold text-[#52525b]">Ctrl K</kbd>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <!-- Live TTE BSrE Security Badge -->
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/20 text-[11px] font-mono text-[#064e3b] font-semibold" title="Balai Sertifikasi Elektronik - Badan Siber dan Sandi Negara">
+          <span class="material-symbols-outlined text-sm">verified_user</span>
+          <span>TTE BSrE Aktif</span>
+        </div>
+
+        <!-- Dropdown Aksi Cepat Amil -->
+        <div class="relative">
+          <button id="app-btn-quick-actions" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors shadow-xs active:scale-95">
+            <span class="material-symbols-outlined text-base">bolt</span>
+            <span class="hidden sm:inline">Aksi Cepat</span>
+            <span class="material-symbols-outlined text-xs">expand_more</span>
+          </button>
+          <div id="app-quick-actions-menu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 z-50 text-xs">
+            <button id="action-trigger-tte" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">signature</span>
+              <div>
+                <span class="font-bold text-[#09090b]">Disposisi TTE Pimpinan</span>
+                <p class="text-[10px] text-[#71717a]">Pengesahan 8 berkas bantuan</p>
+              </div>
+            </button>
+            <button id="action-trigger-journal" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">post_add</span>
+              <div>
+                <span class="font-bold text-[#09090b]">Posting Jurnal PSAK 109</span>
+                <p class="text-[10px] text-[#71717a]">Entri debit / kredit transaksi kas</p>
+              </div>
+            </button>
+            <button id="action-trigger-upz" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">domain_add</span>
+              <div>
+                <span class="font-bold text-[#09090b]">Registrasi SK UPZ Baru</span>
+                <p class="text-[10px] text-[#71717a]">Pendaftaran UPZ DKM / Dinas</p>
+              </div>
+            </button>
+            <div class="border-t border-[#ececee] my-1"></div>
+            <button id="action-trigger-zis" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors text-[#064e3b]">
+              <span class="material-symbols-outlined text-base">receipt_long</span>
+              <span class="font-bold">Kasir Penerimaan ZIS</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CTA Ke Website Publik (Tanpa Emoji) -->
+        <a href="/" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-xs font-bold text-[#09090b] transition-all" title="Buka Website Publik">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">language</span>
+          <span class="hidden md:inline">Website Publik</span>
+          <span class="material-symbols-outlined text-sm text-[#71717a]">arrow_forward</span>
+        </a>
+
+        <!-- Notifications -->
+        <div class="relative">
+          <button id="app-btn-notif" class="relative flex items-center justify-center w-9 h-9 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#09090b]" aria-label="Notifikasi sistem" aria-expanded="false">
+            <span class="material-symbols-outlined text-lg">notifications</span>
+            <span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[#ff5a00] animate-pulse"></span>
+          </button>
+          <div id="app-notif-popover" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-3xl border border-[#ececee] shadow-xl p-4 z-50">
+            <div class="flex items-center justify-between pb-2 border-b border-[#ececee]">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#09090b]">Notifikasi Operasional</span>
+              <span class="text-[10px] font-mono bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-full font-bold">3 baru</span>
+            </div>
+            <ul class="space-y-2 pt-3 text-xs">
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ebebee] transition-colors cursor-pointer" id="notif-item-disdik">
+                <div class="font-bold text-[#09090b]">Setoran ASN Disdik Masuk</div>
+                <div class="text-[11px] text-[#71717a]">Rp 348.650.000 tervalidasi Rekening Kas BJB Syariah</div>
+              </li>
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ebebee] transition-colors cursor-pointer" id="notif-item-upz">
+                <div class="font-bold text-[#09090b]">Peringatan SK UPZ Masjid</div>
+                <div class="text-[11px] text-[#71717a]">DKM Al-Fathu sisa masa berlaku 30 hari</div>
+              </li>
+              <li class="p-2.5 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/15 hover:bg-[#d1fae5] transition-colors cursor-pointer" id="notif-item-tte">
+                <div class="font-bold text-[#064e3b] flex items-center justify-between">
+                  <span>8 Dokumen Menunggu TTE Ketua</span>
+                  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </div>
+                <div class="text-[11px] text-[#064e3b]/80">Klik untuk membuka dialog tanda tangan digital</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>

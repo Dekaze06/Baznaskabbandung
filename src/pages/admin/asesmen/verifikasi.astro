@@ -1,0 +1,213 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Verifikasi On-Site Mustahik - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Dossier Verifikasi On-Site Faktual Mustahik" activeRoute="asesmen/verifikasi">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- Header Dossier Info -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-[#064e3b] flex items-center justify-center text-white shrink-0 shadow-md">
+          <span class="material-symbols-outlined text-[28px]">folder_shared</span>
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <h1 class="text-xl font-bold text-[#09090b]">Dossier Faktual: Ibu Ai Siti Rohimah</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">TERVERIFIKASI ASESOR</span>
+          </div>
+          <p class="text-xs text-[#71717a] mt-1">
+            Nomor Tugas: <strong>SURV-2026-0412</strong> • NIK: <strong>3204126508920004</strong> • Lokasi: <strong>Kp. Cikoneng RT 03/RW 08, Desa Pamekaran, Kec. Soreang</strong>
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/admin/command-center/tte" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs">
+          <span class="material-symbols-outlined text-sm">signature</span>
+          <span>Ajukan TTE Disposisi</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Factual Verification Checklist & Telemetry -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Factual Legal Documents Card -->
+      <div class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs">
+        <h3 class="font-bold text-sm text-[#09090b] flex items-center gap-2 pb-2 border-b border-[#ececee]">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">assignment_turned_in</span>
+          <span>Uji Petik Legalitas &amp; Dokumen</span>
+        </h3>
+        <ul class="space-y-3 text-xs">
+          <li class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee]">
+            <span class="text-[#71717a] block">Status Kepemilikan Tanah:</span>
+            <strong class="text-[#09090b] block mt-0.5">AJB Garapan Kades No. 593/PMK/2018</strong>
+            <span class="text-[10px] text-[#064e3b] font-semibold">Bebas Sengketa (Memenuhi Syarat Rutilahu)</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee]">
+            <span class="text-[#71717a] block">Rekening Listrik PLN:</span>
+            <strong class="text-[#09090b] block mt-0.5">IDPEL 537110982312 • 450VA Bersubsidi</strong>
+            <span class="text-[10px] text-[#064e3b] font-semibold">Tervalidasi Daya Rumah Tangga Miskin</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee]">
+            <span class="text-[#71717a] block">Status DTKS / P3KE:</span>
+            <strong class="text-[#09090b] block mt-0.5">P3KE Desil 1 (Kemiskinan Ekstrem)</strong>
+            <span class="text-[10px] text-[#ff5a00] font-semibold">Non-PKH / Belum Tersentuh Bansos Pusat</span>
+          </li>
+          <li class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee]">
+            <span class="text-[#71717a] block">Kondisi Sanitasi &amp; Air Bersih:</span>
+            <strong class="text-[#09090b] block mt-0.5">Jamban Luar Tanpa Septic Tank</strong>
+            <span class="text-[10px] text-[#ff5a00] font-semibold">Tidak Memenuhi Standar Kesehatan</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Family Dependency Table (2 Cols Wide) -->
+      <div class="lg:col-span-2 bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs">
+        <h3 class="font-bold text-sm text-[#09090b] flex items-center gap-2 pb-2 border-b border-[#ececee]">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">diversity_3</span>
+          <span>Daftar Anggota Keluarga &amp; Beban Tanggungan (5 Jiwa)</span>
+        </h3>
+        
+        <div class="overflow-x-auto rounded-xl border border-[#ececee]">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+              <tr>
+                <th class="py-2.5 px-3">Nama Anggota</th>
+                <th class="py-2.5 px-3">Status Hubungan</th>
+                <th class="py-2.5 px-3">Usia</th>
+                <th class="py-2.5 px-3">Pendidikan / Pekerjaan</th>
+                <th class="py-2.5 px-3 text-right">Pendapatan Riil</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-[#09090b]">Ai Siti Rohimah</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Kepala Keluarga (Janda)</td>
+                <td class="py-2.5 px-3 font-mono">48 Thn</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Buruh Cuci Harian</td>
+                <td class="py-2.5 px-3 text-right font-mono font-semibold text-[#064e3b]">Rp 450.000 / bln</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-[#09090b]">M. Ramdan</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Anak Kandung ke-1</td>
+                <td class="py-2.5 px-3 font-mono">16 Thn</td>
+                <td class="py-2.5 px-3 text-[#ff5a00]">Putus Sekolah (Biaya)</td>
+                <td class="py-2.5 px-3 text-right font-mono text-[#71717a]">Rp 0</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-[#09090b]">Siti Aisyah</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Anak Kandung ke-2</td>
+                <td class="py-2.5 px-3 font-mono">13 Thn</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Siswi SMPN 1 Soreang</td>
+                <td class="py-2.5 px-3 text-right font-mono text-[#71717a]">Rp 0</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-[#09090b]">Rizki Pratama</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Anak Kandung ke-3</td>
+                <td class="py-2.5 px-3 font-mono">9 Thn</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Siswa SDN Soreang</td>
+                <td class="py-2.5 px-3 text-right font-mono text-[#71717a]">Rp 0</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3 font-bold text-[#09090b]">Mak Umi</td>
+                <td class="py-2.5 px-3 text-[#71717a]">Ibu Kandung (Lansia)</td>
+                <td class="py-2.5 px-3 font-mono">78 Thn</td>
+                <td class="py-2.5 px-3 text-[#ff5a00]">Sakit Menahun (Bedridden)</td>
+                <td class="py-2.5 px-3 text-right font-mono text-[#71717a]">Rp 0</td>
+              </tr>
+            </tbody>
+            <tfoot class="bg-[#f8fafc] font-bold text-xs border-t border-[#ececee]">
+              <tr>
+                <td class="py-2.5 px-3 text-[#09090b]" colspan="4">TOTAL PENDAPATAN KELUARGA (5 JIWA)</td>
+                <td class="py-2.5 px-3 text-right font-mono font-bold text-[#ff5a00]">Rp 450.000 / bln</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Had Kifayah Deficit Summary Callout -->
+        <div class="p-4 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs text-[#064e3b] font-bold uppercase tracking-wider block">Kebutuhan Had Kifayah Keluarga (5 Jiwa)</span>
+            <div class="flex items-baseline gap-2 mt-0.5">
+              <span class="text-xl font-bold font-mono text-[#09090b]">Rp 3.925.000 / bln</span>
+              <span class="text-xs text-[#71717a]">(Rp 785.000 x 5 Jiwa)</span>
+            </div>
+            <p class="text-xs text-[#ff5a00] font-semibold mt-1">
+              Defisit Kebutuhan Riil: <strong>Rp 3.475.000 (88.5% Defisit)</strong> &rarr; Klasifikasi: <strong>Fakir Mutlak</strong>
+            </p>
+          </div>
+          <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-xl bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] shrink-0">
+            Kalkulator Lengkap &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Surveyor Recommendation & Signature Card -->
+    <section class="bg-white rounded-3xl border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <h3 class="font-bold text-sm text-[#09090b] flex items-center gap-2 pb-2 border-b border-[#ececee]">
+        <span class="material-symbols-outlined text-base text-[#064e3b]">rate_review</span>
+        <span>Catatan Surveyor Lapangan &amp; Rekomendasi Kelayakan Asnaf</span>
+      </h3>
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] text-xs text-[#52525b] leading-relaxed space-y-2">
+        <p>
+          <strong>Hasil Pemeriksaan Lapangan (24 Oktober 2026):</strong> Rumah mustahik berdinding bilik bambu yang telah lapuk dan bolong di beberapa titik. Sebagian atap dapur bocor parah dan rawan ambruk jika hujan deras disertai angin kencang. Ibu Ai Siti Rohimah merupakan orang tua tunggal yang menanggung 3 orang anak dan 1 ibu lansia yang terbaring sakit.
+        </p>
+        <p>
+          <strong>Kesimpulan &amp; Rekomendasi Asesor:</strong> Sangat Layak menerima intervensi Program <strong>Bandung Peduli</strong> berupa Rehabilitasi Rutilahu Darurat senilai <strong>Rp 25.000.000</strong>, santunan sembako berkala, serta advokasi beasiswa pendidikan untuk anak-anaknya melalui Program <strong>Bandung Cerdas</strong>.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#ececee] text-xs">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">person</span>
+          <span>Asesor Lapangan: <strong>Ahmad Fauzi, S.Sos. (ID: SURV-3204-12)</strong></span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/admin/asesmen/geotagging" class="px-3.5 py-1.5 rounded-xl bg-[#f4f4f5] text-[#52525b] font-semibold hover:bg-[#ececee]">
+            Lihat Foto Lapangan
+          </a>
+          <a href="/admin/command-center/tte" class="px-4 py-2 rounded-xl bg-[#064e3b] text-white font-semibold hover:bg-[#006a4e]">
+            Lanjutkan ke Disposisi TTE &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

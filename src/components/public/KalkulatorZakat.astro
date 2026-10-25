@@ -1,0 +1,491 @@
+<section id="view-kalkulator" class="spa-view inactive" tabindex="-1" aria-hidden="true">
+  <div class="flex-1 w-full max-w-[1400px] mx-auto px-6 py-8 space-y-8">
+    
+<!-- EDITORIAL HERO / STEPPER BAR -->
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal-on-scroll card-hover-lift">
+<div>
+<h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">Hitung Fikih &amp; Tunaikan ZIS</h1>
+<p class="text-sm text-zinc-500 mt-1">Perhitungan akurat fatwa MUI, terhubung langsung tanda bukti e-BSZ sah pengurang pajak.</p>
+</div>
+<!-- Concise Step Trackers -->
+<div class="flex items-center gap-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-[14px] bg-[#064e3b] text-white text-xs font-semibold">
+<span class="w-5 h-5 rounded-full bg-white text-[#064e3b] text-xs flex items-center justify-center font-bold">1</span>
+<span>Hitung &amp; Pilih</span>
+</div>
+<span class="text-zinc-300">→</span>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-[14px] bg-zinc-100 text-zinc-600 text-xs font-medium">
+<span class="w-5 h-5 rounded-full bg-zinc-200 text-zinc-700 text-xs flex items-center justify-center font-bold">2</span>
+<span>Niat &amp; Data</span>
+</div>
+<span class="text-zinc-300">→</span>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-[14px] bg-zinc-100 text-zinc-600 text-xs font-medium">
+<span class="w-5 h-5 rounded-full bg-zinc-200 text-zinc-700 text-xs flex items-center justify-center font-bold">3</span>
+<span>e-BSZ</span>
+</div>
+</div>
+</div>
+<!-- MAIN TWO-COLUMN EDITORIAL GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: FIKIH CALCULATOR (7 Cols) -->
+<div class="lg:col-span-7 space-y-6 reveal-left">
+<!-- Calculator Card Container -->
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border space-y-6 card-hover-lift">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#064e3b] text-xl">calculate</span>
+<h2 class="text-lg font-bold text-zinc-900 tracking-tight">Kalkulator Zakat Fikih</h2>
+</div>
+<p class="text-xs text-zinc-400 mt-0.5">Sesuai Fatwa MUI &amp; Standar BAZNAS Kab. Bandung</p>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[12px] bg-zinc-50 border border-zinc-200 text-xs text-zinc-700 font-mono">
+<span class="material-symbols-outlined text-sm text-[#064e3b]">balance</span>
+<span>Nisab: <strong class="text-zinc-900 font-semibold">85 gr Emas</strong></span>
+</div>
+</div>
+<!-- Segmented Pill Tabs -->
+<div class="p-1 bg-[#f4f4f5] rounded-[14px] grid grid-cols-2 sm:grid-cols-4 gap-1 font-medium text-xs">
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition bg-white text-zinc-900 font-semibold shadow-none border border-zinc-200/60" id="tab-btn-profesi" onclick="switchCalcTab('profesi')" type="button">
+              Penghasilan
+            </button>
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium" id="tab-btn-maal" onclick="switchCalcTab('maal')" type="button">
+              Zakat Maal
+            </button>
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium" id="tab-btn-fitrah" onclick="switchCalcTab('fitrah')" type="button">
+              Fitrah
+            </button>
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium" id="tab-btn-fidyah" onclick="switchCalcTab('fidyah')" type="button">
+              Fidyah
+            </button>
+</div>
+<!-- TAB 1: PENGHASILAN (PROFESI) -->
+<div class="calc-panel space-y-5" id="panel-profesi">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Batas Nisab Bulanan:</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 9.562.500 <span class="font-normal text-zinc-400">/ bln</span></span>
+</div>
+<div class="space-y-4 text-xs font-medium">
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Penghasilan / Gaji Pokok per Bulan</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b] transition" id="input-gaji" oninput="calculateProfesi()" placeholder="0" type="number" value="12000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Bonus, Tunjangan &amp; Pendapatan Lain</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b] transition" id="input-bonus" oninput="calculateProfesi()" placeholder="0" type="number" value="3000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Pengeluaran Pokok Mendesak / Hutang Jatuh Tempo</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b] transition" id="input-pengeluaran" oninput="calculateProfesi()" placeholder="0" type="number" value="4500000"/>
+</div>
+</div>
+</div>
+<!-- Result Box -->
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] space-y-4">
+<div class="flex items-center justify-between text-xs">
+<div class="inline-flex items-center gap-1.5 text-[#064e3b] font-semibold" id="badge-status-profesi">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>WAJIB ZAKAT (2,5%)</span>
+</div>
+<div class="text-zinc-500 font-mono">Netto: <span class="font-semibold text-zinc-800" id="label-netto-profesi">Rp 10.500.000</span></div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Kewajiban Zakat Anda:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b] tracking-tight" id="text-zakat-profesi">Rp 262.500</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2 self-start sm:self-auto" onclick="applyToCheckout(262500, 'Zakat Penghasilan')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB 2: MAAL -->
+<div class="calc-panel hidden space-y-5" id="panel-maal">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Nisab Haul (85g Emas Tahunan):</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 114.750.000 <span class="font-normal text-zinc-400">/ thn</span></span>
+</div>
+<div class="space-y-4 text-xs font-medium">
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Tabungan / Deposito Mengendap 1 Tahun</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-tabungan-maal" oninput="calculateMaal()" type="number" value="150000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Emas / Logam Mulia (Konversi Rupiah)</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-emas-maal" oninput="calculateMaal()" type="number" value="25000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Hutang Jatuh Tempo</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-hutang-maal" oninput="calculateMaal()" type="number" value="10000000"/>
+</div>
+</div>
+</div>
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] space-y-4">
+<div class="flex items-center justify-between text-xs">
+<span class="text-[#064e3b] font-semibold">WAJIB ZAKAT MAAL (2,5%)</span>
+<span class="text-zinc-500 font-mono">Netto: <span class="font-semibold text-zinc-800" id="label-netto-maal">Rp 165.000.000</span></span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Kewajiban Zakat Maal:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b]" id="text-zakat-maal">Rp 4.125.000</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2" onclick="applyToCheckout(4125000, 'Zakat Maal')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB 3: FITRAH -->
+<div class="calc-panel hidden space-y-5" id="panel-fitrah">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Standar Beras Kab. Bandung (2,5 kg):</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 40.000 <span class="font-normal text-zinc-400">/ jiwa</span></span>
+</div>
+<div>
+<label class="block text-zinc-700 text-xs font-semibold mb-2">Jumlah Tanggungan Jiwa</label>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-[14px] bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold text-base flex items-center justify-center transition" onclick="adjustJiwa(-1)" type="button">-</button>
+<input class="w-24 text-center py-2 bg-white border border-zinc-200 rounded-[14px] font-mono font-bold text-base text-zinc-900" id="input-jiwa" min="1" oninput="calculateFitrah()" type="number" value="4"/>
+<button class="w-10 h-10 rounded-[14px] bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold text-base flex items-center justify-center transition" onclick="adjustJiwa(1)" type="button">+</button>
+<span class="text-xs text-zinc-500 font-medium">Jiwa (termasuk kepala keluarga)</span>
+</div>
+</div>
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Total Zakat Fitrah:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b]" id="text-zakat-fitrah">Rp 160.000</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2" onclick="applyToCheckout(160000, 'Zakat Fitrah')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- TAB 4: FIDYAH -->
+<div class="calc-panel hidden space-y-5" id="panel-fidyah">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Tarif Fidyah Konsumsi Harian:</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 30.000 <span class="font-normal text-zinc-400">/ hari</span></span>
+</div>
+<div>
+<label class="block text-zinc-700 text-xs font-semibold mb-2">Jumlah Hari Ditinggalkan</label>
+<div class="flex items-center gap-3">
+<input class="w-28 text-center py-2.5 bg-white border border-zinc-200 rounded-[14px] font-mono font-bold text-base text-zinc-900" id="input-fidyah-hari" min="1" oninput="calculateFidyah()" type="number" value="7"/>
+<span class="text-xs text-zinc-500 font-medium">Hari Tertinggal</span>
+</div>
+</div>
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Total Fidyah:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b]" id="text-zakat-fidyah">Rp 210.000</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2" onclick="applyToCheckout(210000, 'Fidyah &amp; Kafarat')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Syariah Legal Notice & Tax Deductible Banner -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-white rounded-[24px] p-5 custom-border">
+<div class="flex items-center gap-2 text-[#064e3b] text-xs font-bold mb-1">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>PENGURANG PAJAK SAH (SPT PPh 21)</span>
+</div>
+<p class="text-xs text-zinc-500 leading-relaxed">
+              Sesuai PP No. 60/2010, e-BSZ BAZNAS resmi diakui Ditjen Pajak sebagai pengurang penghasilan bruto kena pajak.
+            </p>
+</div>
+<div class="bg-white rounded-[24px] p-5 custom-border">
+<div class="flex items-center gap-2 text-zinc-800 text-xs font-bold mb-1">
+<span class="material-symbols-outlined text-sm text-[#064e3b]">menu_book</span>
+<span>PENYALURAN 8 ASNAF</span>
+</div>
+<p class="text-xs text-zinc-500 leading-relaxed italic">
+              "Ambillah zakat dari sebagian harta mereka, guna membersihkan dan mensucikan..." (QS. At-Taubah: 103).
+            </p>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: STREAMLINED CHECKOUT (5 Cols) -->
+<div class="lg:col-span-5 space-y-6 reveal-right">
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-lg font-bold text-zinc-900 tracking-tight">Formulir Setor ZIS</h2>
+<p class="text-xs text-zinc-400">Pembayaran aman &amp; instan e-BSZ</p>
+</div>
+<span class="text-[11px] font-mono font-medium px-2.5 py-1 rounded-[12px] bg-emerald-50 text-emerald-800 border border-emerald-200/50">
+              INSTAN BSZ
+            </span>
+</div>
+<!-- Select Program -->
+<div class="space-y-1.5">
+<label class="block text-xs font-semibold text-zinc-700">Pilih Akad / Program</label>
+<select class="w-full py-2.5 px-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs font-medium text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="select-dana-kategori" onchange="updateSelectedProgram(this.value)">
+<option selected="" value="Zakat Penghasilan">Zakat Penghasilan (Profesi)</option>
+<option value="Zakat Maal">Zakat Maal (Tabungan &amp; Harta)</option>
+<option value="Zakat Fitrah">Zakat Fitrah (Beras / Tunai)</option>
+<option value="Infak Rutilahu Soreang">Infak Terikat: Rutilahu Soreang</option>
+<option value="Infak Z-Auto">Infak Produktif: Bengkel Z-Auto</option>
+<option value="Beasiswa Santri">Pendidikan: Santri Tahfidz</option>
+<option value="Fidyah &amp; Kafarat">Fidyah &amp; Kafarat</option>
+</select>
+</div>
+<!-- Quick Nominal Selector Chips -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-zinc-700">Nominal Donasi</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(100000)" type="button">Rp 100 rb</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#064e3b] text-white border border-[#064e3b] text-xs font-mono font-semibold transition" onclick="setNominal(250000)" type="button">Rp 250 rb</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(500000)" type="button">Rp 500 rb</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(1000000)" type="button">Rp 1 jt</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(2500000)" type="button">Rp 2,5 jt</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(5000000)" type="button">Rp 5 jt</button>
+</div>
+<div class="relative pt-1">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 font-mono text-sm">Rp</span>
+<input class="w-full pl-11 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-base font-bold font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-final-nominal" oninput="updateLiveNominal()" placeholder="Nominal Lainnya" type="number" value="250000"/>
+</div>
+</div>
+<!-- Concise Syariah Niat Box -->
+<div class="p-4 rounded-[20px] bg-[#f9f9fa] border border-[#ececee] space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="font-bold text-[#064e3b]" id="niat-title">Niat Zakat Penghasilan</span>
+<span class="text-[11px] text-zinc-400 font-medium">Tuntunan Syar'i</span>
+</div>
+<p class="text-right text-base font-serif text-zinc-900 leading-relaxed" dir="rtl" id="niat-arab">
+              نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ مَالِي فَرْضًا لِلَّهِ تَعَالَى
+            </p>
+<p class="text-[11px] text-zinc-500 italic" id="niat-latin">
+              "Nawaitu an ukhrija zakaata maali fardhan lillaahi ta'aalaa"
+            </p>
+<p class="text-xs text-zinc-600 border-t border-zinc-200/60 pt-1.5" id="niat-arti">
+<strong class="font-semibold text-zinc-800">Arti:</strong> "Saya niat mengeluarkan zakat hartaku, fardu karena Allah Ta'ala."
+            </p>
+</div>
+<!-- Muzaki Form -->
+<div class="space-y-3 text-xs">
+<div>
+<label class="block text-zinc-700 font-semibold mb-1">Nama Lengkap (KTP)</label>
+<input class="w-full px-3.5 py-2.5 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs text-zinc-900 font-medium focus:outline-none focus:border-[#064e3b]" id="muzaki-nama" type="text" value="H. Rachmat Hidayat, S.E."/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-zinc-700 font-semibold mb-1">WhatsApp</label>
+<input class="w-full px-3.5 py-2.5 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="muzaki-wa" type="text" value="0812-9876-5432"/>
+</div>
+<div>
+<label class="block text-zinc-700 font-semibold mb-1">Email Bukti e-BSZ</label>
+<input class="w-full px-3.5 py-2.5 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="muzaki-email" type="email" value="rachmat.hidayat@gmail.com"/>
+</div>
+</div>
+<!-- Tax Option Toggle -->
+<div class="p-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between">
+<div>
+<span class="font-semibold text-zinc-800 block text-xs">Bukti Pengurang Pajak (SPT)</span>
+<span class="text-[11px] text-zinc-400">Cantumkan NPWP/NIK untuk sinkronisasi</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="tax-toggle" onchange="toggleTaxInput()" type="checkbox"/>
+<div class="w-9 h-5 bg-zinc-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#064e3b]"></div>
+</label>
+</div>
+<div class="space-y-1" id="tax-input-container">
+<label class="block text-zinc-600 text-[11px]">Nomor NPWP / NIK 16-Digit</label>
+<input class="w-full px-3.5 py-2 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="muzaki-npwp" type="text" value="3204123456780001"/>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<input class="w-3.5 h-3.5 rounded border-zinc-300 text-[#064e3b] focus:ring-[#064e3b]" id="check-anonim" type="checkbox"/>
+<label class="text-xs text-zinc-600 select-none cursor-pointer" for="check-anonim">
+                Samarkan identitas publik (<span class="italic text-zinc-400">Hamba Allah</span>)
+              </label>
+</div>
+</div>
+<!-- Payment Channel Selection -->
+<div class="space-y-2.5">
+<span class="block text-xs font-semibold text-zinc-700">Kanal Pembayaran</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] text-center flex flex-col items-center justify-center gap-1 transition border-2 border-[#064e3b]" id="pay-qris" onclick="selectPaymentChannel('qris')" type="button">
+<span class="material-symbols-outlined text-[#064e3b] text-xl">qr_code_scanner</span>
+<span class="text-xs font-bold text-zinc-900">QRIS</span>
+<span class="text-[10px] text-zinc-400">e-Wallet</span>
+</button>
+<button class="payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] hover:bg-zinc-100 text-center flex flex-col items-center justify-center gap-1 transition border border-[#e4e4e7]" id="pay-va" onclick="selectPaymentChannel('va')" type="button">
+<span class="material-symbols-outlined text-zinc-500 text-xl">account_balance</span>
+<span class="text-xs font-bold text-zinc-700">Virtual Acc</span>
+<span class="text-[10px] text-zinc-400">BSI, BJB</span>
+</button>
+<button class="payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] hover:bg-zinc-100 text-center flex flex-col items-center justify-center gap-1 transition border border-[#e4e4e7]" id="pay-transfer" onclick="selectPaymentChannel('transfer')" type="button">
+<span class="material-symbols-outlined text-zinc-500 text-xl">credit_card</span>
+<span class="text-xs font-bold text-zinc-700">Bank Transfer</span>
+<span class="text-[10px] text-zinc-400">Manual</span>
+</button>
+</div>
+<div class="px-3.5 py-2.5 bg-emerald-50/60 rounded-[14px] border border-emerald-200/40 flex items-center justify-between text-xs" id="payment-details-box">
+<span class="text-emerald-900 font-medium">Validasi instan SIMBA &lt; 15 detik</span>
+<span class="text-[11px] font-mono text-emerald-700 font-semibold">0% Biaya Amil</span>
+</div>
+</div>
+<!-- Checkout CTA -->
+<div class="space-y-2 pt-1">
+<button class="w-full py-4 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white font-semibold text-sm transition flex items-center justify-center gap-2" onclick="triggerCheckoutSuccess()" type="button">
+<span class="material-symbols-outlined text-base">volunteer_activism</span>
+<span>Tunaikan Sekarang (Rp <span id="btn-total-display">250.000</span>)</span>
+</button>
+<p class="text-[11px] text-zinc-400 text-center">
+              Amanah disalurkan sah menurut Syariat Islam kepada 8 Asnaf.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- PREVIEW BUKTI SETOR ZAKAT (e-BSZ) -->
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#064e3b] text-xl">mark_email_read</span>
+<h2 class="text-lg font-bold text-zinc-900 tracking-tight">Spesimen Resmi Bukti Setor Zakat Elektronik (e-BSZ)</h2>
+</div>
+<p class="text-xs text-zinc-400 mt-0.5">Dokumen digital sah dengan Tanda Tangan Elektronik (TTE) Pimpinan BAZNAS Kab. Bandung</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[12px] bg-zinc-100 text-zinc-700 text-xs font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-[#064e3b]"></span>
+          Format Resmi SIMBA Kemenag RI
+        </span>
+</div>
+<!-- Modern Specimen Certificate Card -->
+<div class="max-w-3xl mx-auto rounded-[24px] p-6 sm:p-8 bg-[#f9f9fa] border border-[#e4e4e7] space-y-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-[#ececee] gap-4">
+<div class="flex items-center gap-3">
+<img alt="BAZNAS Kabupaten Bandung" class="h-9 w-auto object-contain" src="/logo-baznas-navbar.webp" width="120" height="36" loading="lazy"/>
+<div>
+<span class="font-bold text-xs tracking-tight text-zinc-900 block">BADAN AMIL ZAKAT NASIONAL</span>
+<span class="text-[11px] font-mono text-[#064e3b] font-semibold">KABUPATEN BANDUNG - JAWA BARAT</span>
+</div>
+</div>
+<div class="text-left sm:text-right font-mono">
+<span class="text-[10px] text-zinc-400 uppercase block">NOMOR REGISTER BSZ:</span>
+<span class="text-xs font-bold text-zinc-900" id="preview-bsz-num">BSZ-3204-2025-05841</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<div class="md:col-span-8 space-y-2 text-xs">
+<div class="grid grid-cols-2 gap-y-1.5">
+<span class="text-zinc-400">Nama Muzaki:</span>
+<span class="font-bold text-zinc-900" id="preview-nama">H. Rachmat Hidayat, S.E.</span>
+<span class="text-zinc-400">NPWZ:</span>
+<span class="font-mono text-zinc-800">32.04.09.004821</span>
+<span class="text-zinc-400">NIK / NPWP Pengurang SPT:</span>
+<span class="font-mono text-zinc-800" id="preview-npwp">3204123456780001</span>
+<span class="text-zinc-400">Akad / Jenis Dana:</span>
+<span class="font-semibold text-[#064e3b]" id="preview-jenis-dana">Zakat Penghasilan (Profesi)</span>
+<span class="text-zinc-400">Tanggal Transaksi:</span>
+<span class="font-mono text-zinc-700">24 Mei 2025 - 14:32 WIB</span>
+<span class="text-zinc-400">Kanal Pembayaran:</span>
+<span class="text-zinc-800" id="preview-kanal">QRIS Dinamis BAZNAS</span>
+</div>
+<!-- Total Box -->
+<div class="mt-4 p-4 rounded-[16px] bg-white border border-[#e4e4e7] flex items-center justify-between">
+<span class="text-[11px] font-mono text-zinc-500 uppercase">JUMLAH SETORAN:</span>
+<span class="text-2xl font-bold font-mono text-[#064e3b]" id="preview-nominal">Rp 250.000</span>
+</div>
+<p class="text-[11px] text-zinc-400 italic" id="preview-terbilang">Terbilang: "Dua Ratus Lima Puluh Ribu Rupiah"</p>
+</div>
+<!-- Stamped TTE QR Mockup -->
+<div class="md:col-span-4 flex flex-col items-center justify-center p-4 bg-white rounded-[20px] border border-[#e4e4e7] text-center space-y-2">
+<div class="w-20 h-20 p-1 rounded-[12px] border border-zinc-200 flex items-center justify-center bg-zinc-50">
+<svg class="w-full h-full text-[#064e3b]" fill="currentColor" viewBox="0 0 100 100">
+<path d="M0,0 h35 v35 h-35 z M5,5 v25 h25 v-25 z M10,10 h15 v15 h-15 z"></path>
+<path d="M65,0 h35 v35 h-35 z M70,5 v25 h25 v-25 z M75,10 h15 v15 h-15 z"></path>
+<path d="M0,65 h35 v35 h-35 z M5,70 v25 h25 v-25 z M10,75 h15 v15 h-15 z"></path>
+<rect height="20" width="8" x="42" y="10"></rect>
+<rect height="15" width="8" x="52" y="5"></rect>
+<rect height="20" width="20" x="40" y="40"></rect>
+<rect height="15" width="10" x="65" y="45"></rect>
+<rect height="10" width="15" x="80" y="50"></rect>
+<rect height="10" width="15" x="45" y="70"></rect>
+<rect height="25" width="25" x="70" y="70"></rect>
+</svg>
+</div>
+<span class="text-[10px] font-mono font-bold text-[#064e3b]">BSrE-TTE VALID</span>
+<div class="text-[11px] text-zinc-500">
+<span class="block text-[10px] text-zinc-400">Tanda Tangan Elektronik:</span>
+<strong class="font-semibold text-zinc-900">Drs. H. M. Yusuf</strong>
+<span class="block text-[10px] text-zinc-500">Ketua BAZNAS Kab. Bandung</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between pt-3 border-t border-[#ececee] gap-3 text-xs text-zinc-400">
+<span class="flex items-center gap-1 font-mono text-[11px]">
+<span class="material-symbols-outlined text-sm text-[#064e3b]">lock</span>
+            Enkripsi SHA-256 Balai Sertifikasi Elektronik BSSN
+          </span>
+<button class="px-4 py-2 rounded-[12px] bg-white hover:bg-zinc-50 text-zinc-700 font-semibold text-xs border border-zinc-200 transition flex items-center gap-1.5" onclick="alert('Simulasi: Mengunduh e-BSZ PDF resmi.')" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Unduh Contoh PDF</span>
+</button>
+</div>
+</div>
+</div>
+
+  </div>
+  <!-- SUCCESS MODAL (Editorial Clean Style) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-900/40 backdrop-blur-sm" id="checkout-modal">
+<div class="bg-white max-w-md w-full rounded-[36px] p-6 lg:p-8 custom-border space-y-5">
+<div class="w-12 h-12 rounded-full bg-emerald-50 text-[#064e3b] flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+<div class="text-center space-y-1">
+<span class="text-xs font-mono font-bold text-[#064e3b]">ALHAMDULILLAH</span>
+<h3 class="text-xl font-bold text-zinc-900">Setoran ZIS Berhasil Tercatat</h3>
+<p class="text-xs text-zinc-500">Nomor Registrasi SIMBA RI:</p>
+<span class="text-sm font-mono font-bold text-zinc-900 block py-0.5">TRX-2025-05841</span>
+</div>
+<div class="p-4 bg-[#f9f9fa] rounded-[20px] border border-[#ececee] space-y-1.5 text-xs">
+<div class="flex justify-between">
+<span class="text-zinc-400">Muzaki:</span>
+<span class="font-semibold text-zinc-900" id="modal-muzaki">H. Rachmat Hidayat</span>
+</div>
+<div class="flex justify-between">
+<span class="text-zinc-400">Akad:</span>
+<span class="font-semibold text-zinc-900" id="modal-program">Zakat Penghasilan</span>
+</div>
+<div class="flex justify-between">
+<span class="text-zinc-400">Jumlah Dana:</span>
+<span class="font-mono font-bold text-[#064e3b]" id="modal-total">Rp 250.000</span>
+</div>
+</div>
+<div class="space-y-2 pt-1">
+<button class="w-full py-3.5 rounded-[14px] bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#053d2e] transition" onclick="closeModalAndShowSpecimen()" type="button">
+          Lihat &amp; Cetak Bukti e-BSZ
+        </button>
+<button class="w-full py-2.5 rounded-[14px] bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition" onclick="document.getElementById('checkout-modal').classList.add('hidden')" type="button">
+          Tutup
+        </button>
+</div>
+</div>
+</div>
+</section>

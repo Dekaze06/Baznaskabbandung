@@ -1,0 +1,194 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Buku Jurnal PSAK 109 - Panel Admin BAZNAS" sectionName="Tata Kelola & Akuntansi" pageTitle="Buku Jurnal Umum Double-Entry PSAK 109" activeRoute="keuangan/jurnal">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 3 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi keuangan">
+      <a href="/admin/keuangan" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Keuangan</span>
+      </a>
+      <a href="/admin/keuangan/segregated-funds" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">account_tree</span>
+        <span>Kas 5 Segregated Funds</span>
+      </a>
+      <a href="/admin/keuangan/jurnal" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">menu_book</span>
+        <span>Buku Jurnal PSAK 109</span>
+      </a>
+      <a href="/admin/keuangan/transfer" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">send</span>
+        <span>Antrean Transfer H2H</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">6</span>
+      </a>
+      <a href="/admin/keuangan/rekonsiliasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">sync_alt</span>
+        <span>Rekonsiliasi Bank</span>
+      </a>
+      <a href="/admin/keuangan/neraca" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">pie_chart</span>
+        <span>Laporan Neraca</span>
+      </a>
+    </nav>
+
+    <!-- Toolbar & Filter Bar -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-3 border-b border-[#ececee]">
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Buku Jurnal Memorial Transaksi PSAK 109</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Seluruh entri debit dan kredit tercatat secara kekal dengan hash kriptografi SHA-256</p>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <button type="button" data-action="open-journal" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs">
+            <span class="material-symbols-outlined text-base">post_add</span>
+            <span>Posting Jurnal Baru</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Search & Period Filters -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 flex-wrap">
+          <button class="px-3.5 py-1.5 rounded-full bg-[#064e3b] text-white font-bold">Semua Akun COA</button>
+          <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] font-semibold">1-1100 (Kas Bank)</button>
+          <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] font-semibold">4-1000 (Penerimaan ZIS)</button>
+          <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] font-semibold">5-1000 (Penyaluran Asnaf)</button>
+        </div>
+        <div class="text-[#71717a] font-mono">
+          Periode: <strong>Oktober 2026 (YTD)</strong> • 110 Transaksi
+        </div>
+      </div>
+
+      <!-- Journal Table -->
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">Tanggal &amp; No. Bukti</th>
+              <th class="py-3 px-4">Kode COA &amp; Nama Akun PSAK 109</th>
+              <th class="py-3 px-4">Uraian / Keterangan Transaksi</th>
+              <th class="py-3 px-4 text-right">Debit (Rp)</th>
+              <th class="py-3 px-4 text-right">Kredit (Rp)</th>
+              <th class="py-3 px-4 text-center">Status SIMBA</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            <!-- Row 1 -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">24/10/2026</strong>
+                <span class="text-[11px] text-[#71717a]">#BKM-2026-1042</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono font-bold text-[#09090b]">1-1102 • Kas Bank BJB Syariah</div>
+                <div class="font-mono text-[11px] text-[#71717a] pl-3">4-1101 • Penerimaan Zakat Profesi ASN</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#52525b]">
+                Penerimaan payroll zakat profesi ASN Pemkab Bandung via UPZ Setda (Bulan Oktober 2026)
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">348.650.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">348.650.000</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Synchronized</span>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">24/10/2026</strong>
+                <span class="text-[11px] text-[#71717a]">#BKK-2026-0891</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono font-bold text-[#09090b]">5-1101 • Penyaluran Zakat Fakir Miskin</div>
+                <div class="font-mono text-[11px] text-[#71717a] pl-3">1-1101 • Kas Bank BSI Giro Zakat</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#52525b]">
+                Penyaluran Bantuan Rutilahu Darurat Ciwidey Ibu Aminah (#DISB-2026-0891 TTE Ketua)
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">25.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#ff5a00]">25.000.000</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Synchronized</span>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">23/10/2026</strong>
+                <span class="text-[11px] text-[#71717a]">#BM-2026-0312</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono font-bold text-[#09090b]">5-1801 • Alokasi Hak Kelola Amil (Syar'i)</div>
+                <div class="font-mono text-[11px] text-[#71717a] pl-3">3-1401 • Saldo Dana Bagian Amil 12.5%</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#52525b]">
+                Reklasifikasi hak amil 12.5% atas setoran ZIS kolektif UPZ Disdik Korwil Soreang
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">43.581.250</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">43.581.250</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Synchronized</span>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">23/10/2026</strong>
+                <span class="text-[11px] text-[#71717a]">#BKM-2026-1041</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono font-bold text-[#09090b]">1-1103 • Kas Bank Muamalat Infak</div>
+                <div class="font-mono text-[11px] text-[#71717a] pl-3">4-2102 • Infak Terikat Campaign Kebencanaan</div>
+              </td>
+              <td class="py-3.5 px-4 text-[#52525b]">
+                Penerimaan donasi publik QRIS &amp; Transfer Campaign Darurat Kertasari &amp; Banjir Citarum
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">86.400.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">86.400.000</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Synchronized</span>
+              </td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">22/10/2026</strong>
+                <span class="text-[11px] text-[#71717a]">#BKK-2026-0890</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-mono font-bold text-[#09090b]">5-1301 • Penyaluran Beasiswa SKSS Cerdas</div>
+                <div class="font-mono text-[11px] text-[#71717a] pl-3">1-1101 • Kas Bank BSI Giro Zakat</div>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#52525b]">
+                Transfer langsung host-to-host biaya pendidikan 12 mahasiswa santri dhuafa PTN
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">72.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#ff5a00]">72.000.000</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Synchronized</span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="bg-[#f8fafc] font-bold text-xs border-t-2 border-[#ececee]">
+            <tr>
+              <td class="py-3.5 px-4 text-[#09090b]" colspan="3">TOTAL BALANCE TRIAL DEBIT &amp; KREDIT (BALANCE 100%)</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#064e3b] text-sm">Rp 575.631.250</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#064e3b] text-sm">Rp 575.631.250</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white text-[10px] font-bold">WTP Audit Ready</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

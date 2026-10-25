@@ -1,0 +1,285 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Tentang Kami - Profil Lembaga BAZNAS Kabupaten Bandung"
+  description="Sejarah, visi, misi, landasan hukum, struktur komisioner pimpinan periode 2021-2026, dewan pengawas syariah, prinsip 3A, dan komitmen tata kelola WTP BAZNAS Kabupaten Bandung."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-16">
+      
+      <!-- BREADCRUMB & HERO SECTION -->
+      <section class="space-y-8">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Profil</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Tentang BAZNAS Kab. Bandung</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight leading-[1.15]">
+              Lembaga Pengelola Zakat Resmi Pemerintah Kabupaten Bandung
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed max-w-2xl">
+              Badan Amil Zakat Nasional (BAZNAS) Kabupaten Bandung dibentuk berdasarkan amanat Undang-Undang Republik Indonesia Nomor 23 Tahun 2011 sebagai lembaga pemerintah nonstruktural yang berwenang mengelola dana Zakat, Infak, Sedekah (ZIS), dan dana sosial keagamaan lainnya secara profesional, transparan, dan terintegrasi nasional.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="/layanan/kantor" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-sm active:scale-95">
+                <span class="material-symbols-outlined text-base">storefront</span>
+                <span>Kunjungi Kantor Layanan</span>
+              </a>
+              <button onclick="window.showAppToast?.('Mengunduh Profil Kelembagaan Resmi BAZNAS Kab. Bandung (PDF)...', 'download');" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all shadow-xs">
+                <span class="material-symbols-outlined text-base text-[#064e3b]">picture_as_pdf</span>
+                <span>Unduh Profil Lembaga (PDF)</span>
+              </button>
+            </div>
+
+            <!-- 3 Stat Metrics -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#e4e4e7]">
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Akreditasi Kemenag</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#064e3b]">Predikat A</span>
+                <span class="text-[11px] text-[#71717a] block">Kepatuhan Syariah 99.8%</span>
+              </div>
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Audit Keuangan KAP</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#09090b]">Opini WTP</span>
+                <span class="text-[11px] text-[#71717a] block">5 Tahun Berturut-turut</span>
+              </div>
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Sertifikasi Mutu</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#064e3b]">ISO 9001</span>
+                <span class="text-[11px] text-[#71717a] block">Standar Manajemen Mutu</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right: Gedung Kantor BAZNAS Soreang Visual -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden border border-[#e4e4e7] shadow-xl group aspect-4/3 bg-[#f4f4f5]">
+              <img 
+                src="/images/tentang-gedung.webp" 
+                alt="Gedung Sekretariat Kantor BAZNAS Kabupaten Bandung di Kompleks Pemkab Soreang" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              
+              <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-lg text-xs space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-[#09090b]">Kantor Sekretariat Utama Soreang</span>
+                  <span class="font-mono text-[10px] text-[#064e3b] font-bold">PUSAT LAYANAN</span>
+                </div>
+                <p class="text-[11px] text-[#52525b]">
+                  Gedung Ormas Islam BAZNAS, Jl. Terusan Al-Fathu No. 2, Kompleks Pemkab Bandung.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRINSIP UTAMA: 3A TATA KELOLA BAZNAS RI -->
+      <section class="space-y-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Prinsip Fundamental 3A Tata Kelola Zakat
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1 max-w-2xl">
+            Tiga pilar integritas yang menjadi panduan mutlak bagi seluruh amil BAZNAS Kabupaten Bandung dalam menjalankan amanah keumatan.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-8 space-y-4 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">menu_book</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#09090b]">1. Aman Syar'i</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Pengelolaan dana ZIS wajib selaras dengan ketentuan hukum Islam, Al-Qur'an, As-Sunnah, dan Fatwa Majelis Ulama Indonesia (MUI). Penyaluran dana zakat terbatas hanya pada 8 asnaf penerima sah.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-8 space-y-4 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">gavel</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#09090b]">2. Aman Regulasi</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Kepatuhan penuh terhadap UU No. 23 Tahun 2011, Peraturan Pemerintah No. 14 Tahun 2014, audit akuntansi PSAK 109, dan pengawasan berkala oleh Inspektorat Daerah serta Kementerian Agama RI.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-8 space-y-4 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">shield</span>
+            </div>
+            <h3 class="text-lg font-bold text-[#09090b]">3. Aman NKRI</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Pengelolaan dana ZIS ditujukan memperkokoh kedaulatan sosial, persatuan bangsa, serta pengentasan kemiskinan daerah tanpa terafiliasi dengan gerakan politik praktis maupun organisasi terlarang.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISI & MISI LEMBAGA -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-10 space-y-4 shadow-xs flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">visibility</span>
+            </div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Visi Lembaga</h2>
+            <p class="text-xs sm:text-sm text-[#52525b] leading-relaxed">
+              "Menjadi Lembaga Pengelola Zakat Terpercaya, Terkuat, dan Terdepan dalam Mewujudkan Kesejahteraan dan Kemandirian Umat di Kabupaten Bandung yang Bangkit, Edukatif, Dinamis, Agamis, dan Sejahtera (BEDAS)."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#f4f4f5] text-[11px] text-[#71717a]">
+            Rencana Strategis (Renstra) BAZNAS Kabupaten Bandung 2021-2026
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-10 space-y-4 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-2xl">flag</span>
+          </div>
+          <h2 class="text-2xl font-bold text-[#09090b]">Misi Utama</h2>
+          <ul class="space-y-3 text-xs text-[#52525b] leading-relaxed">
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-base text-[#064e3b] shrink-0 mt-0.5">check_circle</span>
+              <span>Membangun kelembagaan amil yang modern, berintegritas tinggi, dan transparan berbasis sistem informasi digital SIMBA BAZNAS RI.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-base text-[#064e3b] shrink-0 mt-0.5">check_circle</span>
+              <span>Mengoptimalkan potensi penghimpunan zakat, infak, dan CSR melalui kemitraan strategis UPZ di 31 kecamatan dan dinas instansi pemerintah.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-base text-[#064e3b] shrink-0 mt-0.5">check_circle</span>
+              <span>Menyalurkan ZIS secara tepat sasaran melalui 5 Pilar Program tematik guna mempercepat pengentasan kemiskinan ekstrem di pelosok wilayah.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-base text-[#064e3b] shrink-0 mt-0.5">check_circle</span>
+              <span>Menerapkan prinsip tata kelola keuangan yang akuntabel dengan mempertahankan opini audit WTP dan standar mutu ISO 9001:2015.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- STRUKTUR KOMISIONER PIMPINAN (PERIODE 2021-2026) -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-12 space-y-8 shadow-xs">
+        <div class="border-b border-[#f4f4f5] pb-5">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Pimpinan Komisioner BAZNAS Periode 2021-2026
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1">
+            Ditetapkan berdasarkan Surat Keputusan Bupati Bandung atas Pertimbangan dan Rekomendasi Resmi BAZNAS RI
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 text-xs text-center">
+          <!-- Ketua -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3">
+            <div class="w-16 h-16 rounded-2xl bg-[#064e3b] text-white flex items-center justify-center mx-auto text-xl font-bold font-mono shadow-sm">
+              MY
+            </div>
+            <div>
+              <strong class="text-sm font-bold text-[#09090b] block">Drs. H. M. Yusuf</strong>
+              <span class="text-[11px] font-bold text-[#064e3b] block mt-0.5">Ketua BAZNAS</span>
+              <span class="text-[10px] text-[#71717a] block mt-1">Koordinator Umum &amp; Hubungan Antar Lembaga</span>
+            </div>
+          </div>
+
+          <!-- Waka I -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3">
+            <div class="w-16 h-16 rounded-2xl bg-white border border-[#e4e4e7] text-[#09090b] flex items-center justify-center mx-auto text-xl font-bold font-mono shadow-2xs">
+              AS
+            </div>
+            <div>
+              <strong class="text-sm font-bold text-[#09090b] block">H. Asep Supriatna, S.E.</strong>
+              <span class="text-[11px] font-semibold text-[#52525b] block mt-0.5">Wakil Ketua I</span>
+              <span class="text-[10px] text-[#71717a] block mt-1">Bidang Penghimpunan Dana &amp; CSR</span>
+            </div>
+          </div>
+
+          <!-- Waka II -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3">
+            <div class="w-16 h-16 rounded-2xl bg-white border border-[#e4e4e7] text-[#09090b] flex items-center justify-center mx-auto text-xl font-bold font-mono shadow-2xs">
+              SL
+            </div>
+            <div>
+              <strong class="text-sm font-bold text-[#09090b] block">Drs. H. Sulaeman</strong>
+              <span class="text-[11px] font-semibold text-[#52525b] block mt-0.5">Wakil Ketua II</span>
+              <span class="text-[10px] text-[#71717a] block mt-1">Bidang Pendistribusian &amp; Pendayagunaan</span>
+            </div>
+          </div>
+
+          <!-- Waka III -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3">
+            <div class="w-16 h-16 rounded-2xl bg-white border border-[#e4e4e7] text-[#09090b] flex items-center justify-center mx-auto text-xl font-bold font-mono shadow-2xs">
+              DK
+            </div>
+            <div>
+              <strong class="text-sm font-bold text-[#09090b] block">H. Dedi Kusnadi, S.Ag.</strong>
+              <span class="text-[11px] font-semibold text-[#52525b] block mt-0.5">Wakil Ketua III</span>
+              <span class="text-[10px] text-[#71717a] block mt-1">Bidang Perencanaan, Keuangan &amp; Pelaporan</span>
+            </div>
+          </div>
+
+          <!-- Waka IV -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3">
+            <div class="w-16 h-16 rounded-2xl bg-white border border-[#e4e4e7] text-[#09090b] flex items-center justify-center mx-auto text-xl font-bold font-mono shadow-2xs">
+              RM
+            </div>
+            <div>
+              <strong class="text-sm font-bold text-[#09090b] block">Hj. Rina Marlina, M.M.</strong>
+              <span class="text-[11px] font-semibold text-[#52525b] block mt-0.5">Wakil Ketua IV</span>
+              <span class="text-[10px] text-[#71717a] block mt-1">Bidang Administrasi, SDM &amp; Umum</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LANDASAN HUKUM & KEPATUHAN FORMAL -->
+      <section class="space-y-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Dasar Hukum &amp; Akreditasi Kelembagaan
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1 max-w-2xl">
+            Penyelenggaraan perzakatan di Kabupaten Bandung bertumpu pada payung hukum yang kokoh dan tersertifikasi resmi.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-[#52525b]">
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-2 shadow-xs">
+            <span class="text-sm font-bold text-[#09090b] block">Undang-Undang RI</span>
+            <p class="leading-relaxed">
+              UU No. 23 Tahun 2011 tentang Pengelolaan Zakat dan Peraturan Pemerintah No. 14 Tahun 2014.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-2 shadow-xs">
+            <span class="text-sm font-bold text-[#09090b] block">Peraturan Daerah &amp; Perbup</span>
+            <p class="leading-relaxed">
+              Perda Kab. Bandung No. 12/2014 &amp; Perbup No. 12/2023 tentang Pengelolaan ZIS ASN dan Instansi BUMD.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-2 shadow-xs">
+            <span class="text-sm font-bold text-[#09090b] block">Standar Akuntansi PSAK 109</span>
+            <p class="leading-relaxed">
+              Pernyataan Standar Akuntansi Keuangan (PSAK) 109 serta diaudit berkala oleh Kantor Akuntan Publik independen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</PublicLayout>

@@ -1,0 +1,306 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Pengajuan Bantuan Mustahik - Layanan Terpadu BAZNAS Kabupaten Bandung"
+  description="Layanan permohonan bantuan bagi 8 asnaf di Kabupaten Bandung: beasiswa, rutilahu, modal usaha, dan kesehatan. Dilengkapi fitur pelacakan status permohonan NIK real-time."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-12">
+      
+      <!-- BREADCRUMB & HERO SECTION -->
+      <section class="space-y-8">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Layanan</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Pengajuan Bantuan Mustahik</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight leading-[1.15]">
+              Layanan Permohonan &amp; Pelacakan Bantuan NIK
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed max-w-2xl">
+              Hak 8 asnaf fakir, miskin, fi sabilillah, dan gharimin di 31 kecamatan Kabupaten Bandung diproses secara objektif, bebas pungutan liar, menggunakan standar garis Had Kifayah dan verifikasi faktual lapangan BAZNAS RI.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button onclick="document.getElementById('form-pengajuan-box')?.scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-sm active:scale-95">
+                <span class="material-symbols-outlined text-base">assignment</span>
+                <span>Isi Formulir Bantuan</span>
+              </button>
+              <button onclick="document.getElementById('lacak-nik-section')?.scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all shadow-xs">
+                <span class="material-symbols-outlined text-base text-[#064e3b]">track_changes</span>
+                <span>Lacak Status NIK</span>
+              </button>
+            </div>
+
+            <!-- 3 Stat Metrics -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#e4e4e7]">
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Biaya Layanan</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#064e3b]">Gratis (Rp 0)</span>
+                <span class="text-[11px] text-[#71717a] block">Tanpa Potongan Apapun</span>
+              </div>
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Waktu Respon</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#09090b]">3-7 Hari</span>
+                <span class="text-[11px] text-[#71717a] block">Asesmen Faktual CIBEST</span>
+              </div>
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Kanal Pengaduan</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#064e3b]">24 Jam</span>
+                <span class="text-[11px] text-[#71717a] block">Ambulans &amp; Tanggap Bencana</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right: Photorealistic Dignified Visual -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden border border-[#e4e4e7] shadow-xl group aspect-4/3 bg-[#f4f4f5]">
+              <img 
+                src="/images/bantuan-mustahik.webp" 
+                alt="Amil BAZNAS menyerahkan bantuan pendidikan dan kesehatan kepada keluarga mustahik di Kabupaten Bandung" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              
+              <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-lg text-xs space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-[#09090b]">Survei Faktual Asesor BAZNAS</span>
+                  <span class="font-mono text-[10px] text-[#064e3b] font-bold">TERVERIFIKASI</span>
+                </div>
+                <p class="text-[11px] text-[#52525b]">
+                  Memastikan bantuan sampai langsung ke tangan mereka yang berhak (asnaf syar'i).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2-COLUMN SECTION: FORMULIR PENGAJUAN & LACAK STATUS NIK -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Formulir Permohonan (7 cols) -->
+        <div id="form-pengajuan-box" class="lg:col-span-7 bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-6 shadow-xs">
+          <div class="border-b border-[#f4f4f5] pb-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-[#09090b]">Formulir Permohonan Bantuan Mustahik</h2>
+            <p class="text-xs text-[#71717a] mt-1">Pastikan data identitas sesuai dengan KTP Elektronik &amp; Kartu Keluarga Kabupaten Bandung.</p>
+          </div>
+
+          <form id="public-bantuan-form" class="space-y-5 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1.5">Nomor Induk Kependudukan (NIK) *</label>
+                <input id="form-nik" type="text" maxlength="16" placeholder="16 digit NIK Dukcapil" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-mono text-[#09090b] text-xs outline-none focus:border-[#064e3b] transition-colors" required />
+              </div>
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1.5">Nama Lengkap Pemohon *</label>
+                <input id="form-nama" type="text" placeholder="Sesuai KTP" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] text-xs outline-none focus:border-[#064e3b] transition-colors" required />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1.5">Nomor WhatsApp Aktif *</label>
+                <input id="form-telepon" type="tel" placeholder="08xxxxxxxxxx" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] text-xs outline-none focus:border-[#064e3b] transition-colors" required />
+              </div>
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1.5">Kategori Kluster Bantuan *</label>
+                <select id="form-kategori" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] text-xs outline-none focus:border-[#064e3b] transition-colors">
+                  <option>Bandung Sehat - Bantuan Pengobatan &amp; Cuci Darah</option>
+                  <option>Bandung Cerdas - Beasiswa SKSS / Santri Dhuafa</option>
+                  <option>Bandung Peduli - Rutilahu &amp; Kedaruratan</option>
+                  <option>Bandung Makmur - Modal Usaha Mikro Mustahik</option>
+                  <option>Bandung Taqwa - Bantuan Guru Ngaji &amp; Fisabilillah</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Alamat Lengkap Domisili (RT/RW, Desa, Kecamatan) *</label>
+              <textarea id="form-alamat" rows="2" placeholder="Contoh: Kp. Sukamaju RT 02/04, Ds. Pamekaran, Kec. Soreang" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] text-xs outline-none focus:border-[#064e3b] transition-colors" required></textarea>
+            </div>
+
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Uraian Kebutuhan &amp; Alasan Permohonan</label>
+              <textarea id="form-deskripsi" rows="3" placeholder="Jelaskan secara ringkas kondisi ekonomi keluarga, tanggungan anak, dan urgensi bantuan yang dimohonkan..." class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] text-xs outline-none focus:border-[#064e3b] transition-colors"></textarea>
+            </div>
+
+            <div class="p-4 bg-[#fafafa] rounded-2xl border border-[#e4e4e7] text-[11px] text-[#52525b] space-y-1.5">
+              <strong class="text-[#09090b] block">Kelengkapan Berkas yang Disiapkan untuk Verifikasi Asesor:</strong>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 text-[11px]">
+                <span>1. Fotokopi KTP &amp; Kartu Keluarga</span>
+                <span>2. Surat Keterangan Tidak Mampu (SKTM) Desa</span>
+                <span>3. Resume medis / tagihan RS (Bandung Sehat)</span>
+                <span>4. Keterangan sekolah/pesantren (Bandung Cerdas)</span>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-base">send</span>
+              <span>Kirim Permohonan Rekomendasi</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Pelacakan Status NIK Real-Time (5 cols) -->
+        <div id="lacak-nik-section" class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-8 space-y-5 shadow-xs">
+            <div>
+              <h2 class="text-xl font-bold text-[#09090b]">Lacak Status Berkas NIK</h2>
+              <p class="text-xs text-[#71717a] mt-1">Pantau perkembangan asesmen lapangan dan disposisi pimpinan secara transparan.</p>
+            </div>
+
+            <div class="flex gap-2">
+              <input id="lacak-nik-input" type="text" maxlength="16" placeholder="Masukkan 16 digit NIK..." class="flex-1 bg-[#fafafa] border border-[#e4e4e7] py-2.5 px-3.5 rounded-xl text-[#09090b] font-mono text-xs outline-none focus:border-[#064e3b] transition-colors" />
+              <button id="btn-lacak-nik" type="button" class="px-5 py-2.5 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shrink-0">
+                Lacak
+              </button>
+            </div>
+
+            <!-- Hasil Lacak Card (Auto Populated) -->
+            <div id="hasil-lacak-box" class="p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3 hidden">
+              <div class="flex items-center justify-between border-b border-[#e4e4e7] pb-2">
+                <span class="font-bold text-xs text-[#09090b]" id="lacak-nama">-</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold font-mono border border-[#064e3b]/20" id="lacak-status">Diproses</span>
+              </div>
+              <div class="space-y-1.5 text-xs text-[#52525b]">
+                <div class="flex justify-between">
+                  <span class="text-[#71717a]">Program:</span>
+                  <span class="font-semibold text-[#09090b]" id="lacak-kategori">-</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[#71717a]">Tanggal Masuk:</span>
+                  <span class="font-mono text-[#09090b]" id="lacak-tanggal">-</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[#71717a]">Asesor Lapangan:</span>
+                  <span class="font-semibold text-[#09090b]" id="lacak-surveyor">-</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contoh NIK Uji Coba -->
+            <div class="text-[11px] text-[#71717a] bg-[#fafafa] p-3.5 rounded-2xl border border-[#e4e4e7] space-y-1.5">
+              <span class="font-semibold text-[#09090b] block">Contoh NIK Pengujian Terdaftar:</span>
+              <div class="flex flex-wrap gap-1.5 font-mono">
+                <button type="button" class="px-2.5 py-1 bg-white rounded-lg border border-[#e4e4e7] text-[#064e3b] hover:bg-[#ecfdf5] transition-colors" onclick="document.getElementById('lacak-nik-input').value = '3204121908750003'; document.getElementById('btn-lacak-nik').click();">3204121908750003</button>
+                <button type="button" class="px-2.5 py-1 bg-white rounded-lg border border-[#e4e4e7] text-[#064e3b] hover:bg-[#ecfdf5] transition-colors" onclick="document.getElementById('lacak-nik-input').value = '3204055204820001'; document.getElementById('btn-lacak-nik').click();">3204055204820001</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layanan Call Center & Ambulans Darurat -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 lg:p-7 space-y-3 shadow-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">emergency</span>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-[#09090b]">Layanan Tanggap Darurat &amp; Medis</h3>
+                <span class="text-[11px] text-[#71717a]">Ambulans Dhuafa BAZNAS Kabupaten Bandung</span>
+              </div>
+            </div>
+            <div class="text-xs text-[#52525b] space-y-2 pt-1">
+              <div class="flex justify-between py-1 border-b border-[#f4f4f5]">
+                <span class="text-[#71717a]">Hotline Layanan Mustahik:</span>
+                <strong class="font-mono text-[#064e3b]">0811-2233-4455</strong>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-[#71717a]">Ambulans Darurat 24 Jam:</span>
+                <strong class="font-mono text-[#064e3b]">0812-3456-7890</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script is:inline>
+    // Lacak NIK logic
+    const lacakBtn = document.getElementById('btn-lacak-nik');
+    const lacakInput = document.getElementById('lacak-nik-input');
+    const hasilBox = document.getElementById('hasil-lacak-box');
+
+    const checkNik = async () => {
+      const nik = lacakInput?.value.trim() || '';
+      if (!nik || nik.length < 10) {
+        window.showAppToast?.('Masukkan minimal 16 digit NIK', 'error');
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/mustahik.json?nik=${encodeURIComponent(nik)}`);
+        const data = await res.json();
+        if (data.success && data.data) {
+          const elNama = document.getElementById('lacak-nama');
+          const elStatus = document.getElementById('lacak-status');
+          const elKategori = document.getElementById('lacak-kategori');
+          const elTanggal = document.getElementById('lacak-tanggal');
+          const elSurveyor = document.getElementById('lacak-surveyor');
+
+          if (elNama) elNama.textContent = data.data.nama;
+          if (elStatus) elStatus.textContent = data.data.status;
+          if (elKategori) elKategori.textContent = data.data.kategori;
+          if (elTanggal) elTanggal.textContent = data.data.tanggalDaftar;
+          if (elSurveyor) elSurveyor.textContent = data.data.surveyor;
+          hasilBox?.classList.remove('hidden');
+          window.showAppToast?.(`Data berkas atas nama ${data.data.nama} ditemukan.`, 'check_circle');
+        } else {
+          window.showAppToast?.(data.message || 'Data NIK tidak ditemukan dalam sistem.', 'info');
+          hasilBox?.classList.add('hidden');
+        }
+      } catch (err) {
+        window.showAppToast?.('Gagal menghubungi server SIMBA BAZNAS.', 'error');
+      }
+    };
+
+    lacakBtn?.addEventListener('click', checkNik);
+    lacakInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') checkNik(); });
+
+    // Handle Form Submit
+    const form = document.getElementById('public-bantuan-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = {
+        nik: document.getElementById('form-nik')?.value || '',
+        nama: document.getElementById('form-nama')?.value || '',
+        telepon: document.getElementById('form-telepon')?.value || '',
+        kategori: document.getElementById('form-kategori')?.value || '',
+        alamat: document.getElementById('form-alamat')?.value || '',
+        deskripsi: document.getElementById('form-deskripsi')?.value || ''
+      };
+
+      try {
+        const res = await fetch('/api/mustahik.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.showAppToast?.(`Permohonan atas nama ${payload.nama} berhasil didaftarkan! Status: Menunggu Survei Lapangan.`, 'check_circle');
+          form?.reset();
+          if (lacakInput) {
+            lacakInput.value = payload.nik;
+            checkNik();
+          }
+        } else {
+          window.showAppToast?.(data.message || 'Gagal menyimpan pengajuan.', 'error');
+        }
+      } catch (err) {
+        window.showAppToast?.('Terjadi kesalahan koneksi saat mengirim formulir.', 'error');
+      }
+    });
+  </script>
+</PublicLayout>

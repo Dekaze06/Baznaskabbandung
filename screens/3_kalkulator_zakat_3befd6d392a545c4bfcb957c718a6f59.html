@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>Kalkulator &amp; Bayar ZIS - BAZNAS Kab. Bandung</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#046c50",
+            "fog": "#71717a",
+            "mist": "#e4e4e7",
+            "surface-container-low": "#f4f4f5",
+            "surface-container-high": "#ececee",
+            "emerald-deep": "#064e3b",
+            "emerald-vibrant": "#006a4e",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#9ef4d0",
+            "primary": "#064e3b",
+            "primary-container": "#064e3b",
+            "on-primary": "#ffffff",
+            "background": "#f4f4f5",
+            "surface": "#ffffff",
+            "on-surface": "#18181b",
+            "on-surface-variant": "#71717a",
+            "gold-warm": "#d97706",
+            "amber-soft": "#fef3c7",
+            "ember": "#d97706",
+            "outline": "#e4e4e7",
+            "outline-light": "#ececee"
+          },
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          borderRadius: {
+            "card": "36px",
+            "input": "14px",
+            "btn": "14px",
+            "pill": "12px",
+            "tag": "12px"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f5;
+        font-family: 'DM Sans', sans-serif;
+        color: #18181b;
+        -webkit-font-smoothing: antialiased;
+      }
+      input[type=number]::-webkit-inner-spin-button, 
+      input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+      }
+    }
+    .custom-border {
+      border: 1px solid #ececee;
+    }
+  </style>
+</head>
+<body class="bg-[#f4f4f5] text-zinc-900 min-h-screen flex flex-col selection:bg-emerald-800 selection:text-white">
+<!-- TOP HEADER / TICKER BAR -->
+<div class="w-full bg-[#064e3b] text-emerald-50 text-xs py-2 px-6">
+<div class="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-4 font-mono">
+<div class="flex items-center gap-6 overflow-x-auto text-[13px]">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+          Nisab Emas 85g: <span class="text-white font-semibold">Rp82.350.000 / thn</span>
+</span>
+<span class="text-emerald-400/50">/</span>
+<span class="flex items-center gap-1.5">
+          Beras Fitrah Kab. Bandung: <span class="text-white font-semibold">Rp40.000 / jiwa</span>
+</span>
+</div>
+<div class="flex items-center gap-4 text-emerald-200 text-xs">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-emerald-300">verified</span>
+          SIMBA Terakreditasi PSAK 109
+        </span>
+<span class="hidden sm:inline text-emerald-400/50">|</span>
+<span class="hidden sm:flex items-center gap-1 text-emerald-100 font-semibold">
+          Hotline: 0811-2234-567
+        </span>
+</div>
+</div>
+</div>
+<!-- NAVIGATION BAR -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#ececee]">
+<div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-6">
+<div class="flex items-center gap-3.5">
+<img alt="BAZNAS Kabupaten Bandung" class="h-11 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg tracking-tight text-zinc-900">BAZNAS</span>
+<span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded-[12px] bg-zinc-100 text-zinc-600">KAB. BANDUNG</span>
+</div>
+<p class="text-xs text-zinc-400 font-medium">Amanah, Profesional &amp; Transparan</p>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-zinc-600">
+<a class="px-3.5 py-2 rounded-[14px] hover:text-zinc-900 hover:bg-zinc-100 transition" href="#">Beranda</a>
+<a class="px-3.5 py-2 rounded-[14px] bg-[#064e3b] text-white font-semibold shadow-none" href="#">Kalkulator &amp; ZIS</a>
+<a class="px-3.5 py-2 rounded-[14px] hover:text-zinc-900 hover:bg-zinc-100 transition" href="#">Layanan Mustahik</a>
+<a class="px-3.5 py-2 rounded-[14px] hover:text-zinc-900 hover:bg-zinc-100 transition" href="#">Command Center</a>
+<a class="px-3.5 py-2 rounded-[14px] hover:text-zinc-900 hover:bg-zinc-100 transition" href="#">Penyaluran</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2.5 pl-3 border-l border-zinc-200">
+<img alt="Profil Pengguna" class="w-8 h-8 rounded-full object-cover ring-1 ring-zinc-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+<div class="text-left text-xs">
+<span class="font-semibold block text-zinc-800 leading-tight">Drs. H. M. Yusuf</span>
+<span class="text-[10px] text-zinc-400 font-mono">PIMPINAN</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN WORKSPACE -->
+<main class="flex-1 w-full max-w-[1400px] mx-auto px-6 py-8 space-y-8">
+<!-- EDITORIAL HERO / STEPPER BAR -->
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-[12px] bg-emerald-50 text-emerald-800 text-xs font-semibold mb-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+          PORTAL RESMI LEMBAGA AMIL ZAKAT KABUPATEN BANDUNG
+        </div>
+<h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">Hitung Fikih &amp; Tunaikan ZIS</h1>
+<p class="text-sm text-zinc-500 mt-1">Perhitungan akurat fatwa MUI, terhubung langsung tanda bukti e-BSZ sah pengurang pajak.</p>
+</div>
+<!-- Concise Step Trackers -->
+<div class="flex items-center gap-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-[14px] bg-[#064e3b] text-white text-xs font-semibold">
+<span class="w-5 h-5 rounded-full bg-white text-[#064e3b] text-xs flex items-center justify-center font-bold">1</span>
+<span>Hitung &amp; Pilih</span>
+</div>
+<span class="text-zinc-300">→</span>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-[14px] bg-zinc-100 text-zinc-600 text-xs font-medium">
+<span class="w-5 h-5 rounded-full bg-zinc-200 text-zinc-700 text-xs flex items-center justify-center font-bold">2</span>
+<span>Niat &amp; Data</span>
+</div>
+<span class="text-zinc-300">→</span>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-[14px] bg-zinc-100 text-zinc-600 text-xs font-medium">
+<span class="w-5 h-5 rounded-full bg-zinc-200 text-zinc-700 text-xs flex items-center justify-center font-bold">3</span>
+<span>e-BSZ</span>
+</div>
+</div>
+</div>
+<!-- MAIN TWO-COLUMN EDITORIAL GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: FIKIH CALCULATOR (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Calculator Card Container -->
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border space-y-6">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#064e3b] text-xl">calculate</span>
+<h2 class="text-lg font-bold text-zinc-900 tracking-tight">Kalkulator Zakat Fikih</h2>
+</div>
+<p class="text-xs text-zinc-400 mt-0.5">Sesuai Fatwa MUI &amp; Standar BAZNAS Kab. Bandung</p>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[12px] bg-zinc-50 border border-zinc-200 text-xs text-zinc-700 font-mono">
+<span class="material-symbols-outlined text-sm text-[#064e3b]">balance</span>
+<span>Nisab: <strong class="text-zinc-900 font-semibold">85 gr Emas</strong></span>
+</div>
+</div>
+<!-- Segmented Pill Tabs -->
+<div class="p-1 bg-[#f4f4f5] rounded-[14px] grid grid-cols-2 sm:grid-cols-4 gap-1 font-medium text-xs">
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition bg-white text-zinc-900 font-semibold shadow-none border border-zinc-200/60" id="tab-btn-profesi" onclick="switchCalcTab('profesi')" type="button">
+              Penghasilan
+            </button>
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium" id="tab-btn-maal" onclick="switchCalcTab('maal')" type="button">
+              Zakat Maal
+            </button>
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium" id="tab-btn-fitrah" onclick="switchCalcTab('fitrah')" type="button">
+              Fitrah
+            </button>
+<button class="calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium" id="tab-btn-fidyah" onclick="switchCalcTab('fidyah')" type="button">
+              Fidyah
+            </button>
+</div>
+<!-- TAB 1: PENGHASILAN (PROFESI) -->
+<div class="calc-panel space-y-5" id="panel-profesi">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Batas Nisab Bulanan:</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 9.562.500 <span class="font-normal text-zinc-400">/ bln</span></span>
+</div>
+<div class="space-y-4 text-xs font-medium">
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Penghasilan / Gaji Pokok per Bulan</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b] transition" id="input-gaji" oninput="calculateProfesi()" placeholder="0" type="number" value="12000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Bonus, Tunjangan &amp; Pendapatan Lain</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b] transition" id="input-bonus" oninput="calculateProfesi()" placeholder="0" type="number" value="3000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Pengeluaran Pokok Mendesak / Hutang Jatuh Tempo</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b] transition" id="input-pengeluaran" oninput="calculateProfesi()" placeholder="0" type="number" value="4500000"/>
+</div>
+</div>
+</div>
+<!-- Result Box -->
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] space-y-4">
+<div class="flex items-center justify-between text-xs">
+<div class="inline-flex items-center gap-1.5 text-[#064e3b] font-semibold" id="badge-status-profesi">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>WAJIB ZAKAT (2,5%)</span>
+</div>
+<div class="text-zinc-500 font-mono">Netto: <span class="font-semibold text-zinc-800" id="label-netto-profesi">Rp 10.500.000</span></div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Kewajiban Zakat Anda:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b] tracking-tight" id="text-zakat-profesi">Rp 262.500</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2 self-start sm:self-auto" onclick="applyToCheckout(262500, 'Zakat Penghasilan')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB 2: MAAL -->
+<div class="calc-panel hidden space-y-5" id="panel-maal">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Nisab Haul (85g Emas Tahunan):</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 114.750.000 <span class="font-normal text-zinc-400">/ thn</span></span>
+</div>
+<div class="space-y-4 text-xs font-medium">
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Tabungan / Deposito Mengendap 1 Tahun</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-tabungan-maal" oninput="calculateMaal()" type="number" value="150000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Emas / Logam Mulia (Konversi Rupiah)</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-emas-maal" oninput="calculateMaal()" type="number" value="25000000"/>
+</div>
+</div>
+<div>
+<label class="block text-zinc-700 mb-1.5 font-semibold">Hutang Jatuh Tempo</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-xs">Rp</span>
+<input class="w-full pl-10 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-sm font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-hutang-maal" oninput="calculateMaal()" type="number" value="10000000"/>
+</div>
+</div>
+</div>
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] space-y-4">
+<div class="flex items-center justify-between text-xs">
+<span class="text-[#064e3b] font-semibold">WAJIB ZAKAT MAAL (2,5%)</span>
+<span class="text-zinc-500 font-mono">Netto: <span class="font-semibold text-zinc-800" id="label-netto-maal">Rp 165.000.000</span></span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Kewajiban Zakat Maal:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b]" id="text-zakat-maal">Rp 4.125.000</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2" onclick="applyToCheckout(4125000, 'Zakat Maal')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB 3: FITRAH -->
+<div class="calc-panel hidden space-y-5" id="panel-fitrah">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Standar Beras Kab. Bandung (2,5 kg):</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 40.000 <span class="font-normal text-zinc-400">/ jiwa</span></span>
+</div>
+<div>
+<label class="block text-zinc-700 text-xs font-semibold mb-2">Jumlah Tanggungan Jiwa</label>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-[14px] bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold text-base flex items-center justify-center transition" onclick="adjustJiwa(-1)" type="button">-</button>
+<input class="w-24 text-center py-2 bg-white border border-zinc-200 rounded-[14px] font-mono font-bold text-base text-zinc-900" id="input-jiwa" min="1" oninput="calculateFitrah()" type="number" value="4"/>
+<button class="w-10 h-10 rounded-[14px] bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold text-base flex items-center justify-center transition" onclick="adjustJiwa(1)" type="button">+</button>
+<span class="text-xs text-zinc-500 font-medium">Jiwa (termasuk kepala keluarga)</span>
+</div>
+</div>
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Total Zakat Fitrah:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b]" id="text-zakat-fitrah">Rp 160.000</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2" onclick="applyToCheckout(160000, 'Zakat Fitrah')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- TAB 4: FIDYAH -->
+<div class="calc-panel hidden space-y-5" id="panel-fidyah">
+<div class="px-4 py-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-zinc-500 font-medium">Tarif Fidyah Konsumsi Harian:</span>
+<span class="font-mono font-bold text-zinc-800 text-[13px]">Rp 30.000 <span class="font-normal text-zinc-400">/ hari</span></span>
+</div>
+<div>
+<label class="block text-zinc-700 text-xs font-semibold mb-2">Jumlah Hari Ditinggalkan</label>
+<div class="flex items-center gap-3">
+<input class="w-28 text-center py-2.5 bg-white border border-zinc-200 rounded-[14px] font-mono font-bold text-base text-zinc-900" id="input-fidyah-hari" min="1" oninput="calculateFidyah()" type="number" value="7"/>
+<span class="text-xs text-zinc-500 font-medium">Hari Tertinggal</span>
+</div>
+</div>
+<div class="p-5 rounded-[24px] bg-[#f9f9fa] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<span class="text-xs text-zinc-400 block font-medium">Total Fidyah:</span>
+<div class="text-3xl font-bold font-mono text-[#064e3b]" id="text-zakat-fidyah">Rp 210.000</div>
+</div>
+<button class="px-5 py-3 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white text-xs font-semibold transition flex items-center justify-center gap-2" onclick="applyToCheckout(210000, 'Fidyah &amp; Kafarat')" type="button">
+<span>Terapkan ke ZIS</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Syariah Legal Notice & Tax Deductible Banner -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-white rounded-[24px] p-5 custom-border">
+<div class="flex items-center gap-2 text-[#064e3b] text-xs font-bold mb-1">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>PENGURANG PAJAK SAH (SPT PPh 21)</span>
+</div>
+<p class="text-xs text-zinc-500 leading-relaxed">
+              Sesuai PP No. 60/2010, e-BSZ BAZNAS resmi diakui Ditjen Pajak sebagai pengurang penghasilan bruto kena pajak.
+            </p>
+</div>
+<div class="bg-white rounded-[24px] p-5 custom-border">
+<div class="flex items-center gap-2 text-zinc-800 text-xs font-bold mb-1">
+<span class="material-symbols-outlined text-sm text-[#064e3b]">menu_book</span>
+<span>PENYALURAN 8 ASNAF</span>
+</div>
+<p class="text-xs text-zinc-500 leading-relaxed italic">
+              "Ambillah zakat dari sebagian harta mereka, guna membersihkan dan mensucikan..." (QS. At-Taubah: 103).
+            </p>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: STREAMLINED CHECKOUT (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-lg font-bold text-zinc-900 tracking-tight">Formulir Setor ZIS</h2>
+<p class="text-xs text-zinc-400">Pembayaran aman &amp; instan e-BSZ</p>
+</div>
+<span class="text-[11px] font-mono font-medium px-2.5 py-1 rounded-[12px] bg-emerald-50 text-emerald-800 border border-emerald-200/50">
+              INSTAN BSZ
+            </span>
+</div>
+<!-- Select Program -->
+<div class="space-y-1.5">
+<label class="block text-xs font-semibold text-zinc-700">Pilih Akad / Program</label>
+<select class="w-full py-2.5 px-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs font-medium text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="select-dana-kategori" onchange="updateSelectedProgram(this.value)">
+<option selected="" value="Zakat Penghasilan">Zakat Penghasilan (Profesi)</option>
+<option value="Zakat Maal">Zakat Maal (Tabungan &amp; Harta)</option>
+<option value="Zakat Fitrah">Zakat Fitrah (Beras / Tunai)</option>
+<option value="Infak Rutilahu Soreang">Infak Terikat: Rutilahu Soreang</option>
+<option value="Infak Z-Auto">Infak Produktif: Bengkel Z-Auto</option>
+<option value="Beasiswa Santri">Pendidikan: Santri Tahfidz</option>
+<option value="Fidyah &amp; Kafarat">Fidyah &amp; Kafarat</option>
+</select>
+</div>
+<!-- Quick Nominal Selector Chips -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-zinc-700">Nominal Donasi</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(100000)" type="button">Rp 100 rb</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#064e3b] text-white border border-[#064e3b] text-xs font-mono font-semibold transition" onclick="setNominal(250000)" type="button">Rp 250 rb</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(500000)" type="button">Rp 500 rb</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(1000000)" type="button">Rp 1 jt</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(2500000)" type="button">Rp 2,5 jt</button>
+<button class="quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition" onclick="setNominal(5000000)" type="button">Rp 5 jt</button>
+</div>
+<div class="relative pt-1">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 font-mono text-sm">Rp</span>
+<input class="w-full pl-11 pr-4 py-3 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-base font-bold font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="input-final-nominal" oninput="updateLiveNominal()" placeholder="Nominal Lainnya" type="number" value="250000"/>
+</div>
+</div>
+<!-- Concise Syariah Niat Box -->
+<div class="p-4 rounded-[20px] bg-[#f9f9fa] border border-[#ececee] space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="font-bold text-[#064e3b]" id="niat-title">Niat Zakat Penghasilan</span>
+<span class="text-[11px] text-zinc-400 font-medium">Tuntunan Syar'i</span>
+</div>
+<p class="text-right text-base font-serif text-zinc-900 leading-relaxed" dir="rtl" id="niat-arab">
+              نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ مَالِي فَرْضًا لِلَّهِ تَعَالَى
+            </p>
+<p class="text-[11px] text-zinc-500 italic" id="niat-latin">
+              "Nawaitu an ukhrija zakaata maali fardhan lillaahi ta'aalaa"
+            </p>
+<p class="text-xs text-zinc-600 border-t border-zinc-200/60 pt-1.5" id="niat-arti">
+<strong class="font-semibold text-zinc-800">Arti:</strong> "Saya niat mengeluarkan zakat hartaku, fardu karena Allah Ta'ala."
+            </p>
+</div>
+<!-- Muzaki Form -->
+<div class="space-y-3 text-xs">
+<div>
+<label class="block text-zinc-700 font-semibold mb-1">Nama Lengkap (KTP)</label>
+<input class="w-full px-3.5 py-2.5 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs text-zinc-900 font-medium focus:outline-none focus:border-[#064e3b]" id="muzaki-nama" type="text" value="H. Rachmat Hidayat, S.E."/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-zinc-700 font-semibold mb-1">WhatsApp</label>
+<input class="w-full px-3.5 py-2.5 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="muzaki-wa" type="text" value="0812-9876-5432"/>
+</div>
+<div>
+<label class="block text-zinc-700 font-semibold mb-1">Email Bukti e-BSZ</label>
+<input class="w-full px-3.5 py-2.5 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="muzaki-email" type="email" value="rachmat.hidayat@gmail.com"/>
+</div>
+</div>
+<!-- Tax Option Toggle -->
+<div class="p-3 rounded-[14px] bg-[#f9f9fa] border border-[#ececee] flex items-center justify-between">
+<div>
+<span class="font-semibold text-zinc-800 block text-xs">Bukti Pengurang Pajak (SPT)</span>
+<span class="text-[11px] text-zinc-400">Cantumkan NPWP/NIK untuk sinkronisasi</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="tax-toggle" onchange="toggleTaxInput()" type="checkbox"/>
+<div class="w-9 h-5 bg-zinc-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#064e3b]"></div>
+</label>
+</div>
+<div class="space-y-1" id="tax-input-container">
+<label class="block text-zinc-600 text-[11px]">Nomor NPWP / NIK 16-Digit</label>
+<input class="w-full px-3.5 py-2 bg-[#f9f9fa] border border-[#e4e4e7] rounded-[14px] text-xs font-mono text-zinc-900 focus:outline-none focus:border-[#064e3b]" id="muzaki-npwp" type="text" value="3204123456780001"/>
+</div>
+<div class="flex items-center gap-2 pt-0.5">
+<input class="w-3.5 h-3.5 rounded border-zinc-300 text-[#064e3b] focus:ring-[#064e3b]" id="check-anonim" type="checkbox"/>
+<label class="text-xs text-zinc-600 select-none cursor-pointer" for="check-anonim">
+                Samarkan identitas publik (<span class="italic text-zinc-400">Hamba Allah</span>)
+              </label>
+</div>
+</div>
+<!-- Payment Channel Selection -->
+<div class="space-y-2.5">
+<span class="block text-xs font-semibold text-zinc-700">Kanal Pembayaran</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] text-center flex flex-col items-center justify-center gap-1 transition border-2 border-[#064e3b]" id="pay-qris" onclick="selectPaymentChannel('qris')" type="button">
+<span class="material-symbols-outlined text-[#064e3b] text-xl">qr_code_scanner</span>
+<span class="text-xs font-bold text-zinc-900">QRIS</span>
+<span class="text-[10px] text-zinc-400">e-Wallet</span>
+</button>
+<button class="payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] hover:bg-zinc-100 text-center flex flex-col items-center justify-center gap-1 transition border border-[#e4e4e7]" id="pay-va" onclick="selectPaymentChannel('va')" type="button">
+<span class="material-symbols-outlined text-zinc-500 text-xl">account_balance</span>
+<span class="text-xs font-bold text-zinc-700">Virtual Acc</span>
+<span class="text-[10px] text-zinc-400">BSI, BJB</span>
+</button>
+<button class="payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] hover:bg-zinc-100 text-center flex flex-col items-center justify-center gap-1 transition border border-[#e4e4e7]" id="pay-transfer" onclick="selectPaymentChannel('transfer')" type="button">
+<span class="material-symbols-outlined text-zinc-500 text-xl">credit_card</span>
+<span class="text-xs font-bold text-zinc-700">Bank Transfer</span>
+<span class="text-[10px] text-zinc-400">Manual</span>
+</button>
+</div>
+<div class="px-3.5 py-2.5 bg-emerald-50/60 rounded-[14px] border border-emerald-200/40 flex items-center justify-between text-xs" id="payment-details-box">
+<span class="text-emerald-900 font-medium">Validasi instan SIMBA &lt; 15 detik</span>
+<span class="text-[11px] font-mono text-emerald-700 font-semibold">0% Biaya Amil</span>
+</div>
+</div>
+<!-- Checkout CTA -->
+<div class="space-y-2 pt-1">
+<button class="w-full py-4 rounded-[14px] bg-[#064e3b] hover:bg-[#053d2e] text-white font-semibold text-sm transition flex items-center justify-center gap-2" onclick="triggerCheckoutSuccess()" type="button">
+<span class="material-symbols-outlined text-base">volunteer_activism</span>
+<span>Tunaikan Sekarang (Rp <span id="btn-total-display">250.000</span>)</span>
+</button>
+<p class="text-[11px] text-zinc-400 text-center">
+              Amanah disalurkan sah menurut Syariat Islam kepada 8 Asnaf.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- PREVIEW BUKTI SETOR ZAKAT (e-BSZ) -->
+<div class="bg-white rounded-[36px] p-6 lg:p-8 custom-border space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#064e3b] text-xl">mark_email_read</span>
+<h2 class="text-lg font-bold text-zinc-900 tracking-tight">Spesimen Resmi Bukti Setor Zakat Elektronik (e-BSZ)</h2>
+</div>
+<p class="text-xs text-zinc-400 mt-0.5">Dokumen digital sah dengan Tanda Tangan Elektronik (TTE) Pimpinan BAZNAS Kab. Bandung</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[12px] bg-zinc-100 text-zinc-700 text-xs font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-[#064e3b]"></span>
+          Format Resmi SIMBA Kemenag RI
+        </span>
+</div>
+<!-- Modern Specimen Certificate Card -->
+<div class="max-w-3xl mx-auto rounded-[24px] p-6 sm:p-8 bg-[#f9f9fa] border border-[#e4e4e7] space-y-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-[#ececee] gap-4">
+<div class="flex items-center gap-3">
+<img alt="BAZNAS Kabupaten Bandung" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<div>
+<span class="font-bold text-xs tracking-tight text-zinc-900 block">BADAN AMIL ZAKAT NASIONAL</span>
+<span class="text-[11px] font-mono text-[#064e3b] font-semibold">KABUPATEN BANDUNG - JAWA BARAT</span>
+</div>
+</div>
+<div class="text-left sm:text-right font-mono">
+<span class="text-[10px] text-zinc-400 uppercase block">NOMOR REGISTER BSZ:</span>
+<span class="text-xs font-bold text-zinc-900" id="preview-bsz-num">BSZ-3204-2025-05841</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<div class="md:col-span-8 space-y-2 text-xs">
+<div class="grid grid-cols-2 gap-y-1.5">
+<span class="text-zinc-400">Nama Muzaki:</span>
+<span class="font-bold text-zinc-900" id="preview-nama">H. Rachmat Hidayat, S.E.</span>
+<span class="text-zinc-400">NPWZ:</span>
+<span class="font-mono text-zinc-800">32.04.09.004821</span>
+<span class="text-zinc-400">NIK / NPWP Pengurang SPT:</span>
+<span class="font-mono text-zinc-800" id="preview-npwp">3204123456780001</span>
+<span class="text-zinc-400">Akad / Jenis Dana:</span>
+<span class="font-semibold text-[#064e3b]" id="preview-jenis-dana">Zakat Penghasilan (Profesi)</span>
+<span class="text-zinc-400">Tanggal Transaksi:</span>
+<span class="font-mono text-zinc-700">24 Mei 2025 - 14:32 WIB</span>
+<span class="text-zinc-400">Kanal Pembayaran:</span>
+<span class="text-zinc-800" id="preview-kanal">QRIS Dinamis BAZNAS</span>
+</div>
+<!-- Total Box -->
+<div class="mt-4 p-4 rounded-[16px] bg-white border border-[#e4e4e7] flex items-center justify-between">
+<span class="text-[11px] font-mono text-zinc-500 uppercase">JUMLAH SETORAN:</span>
+<span class="text-2xl font-bold font-mono text-[#064e3b]" id="preview-nominal">Rp 250.000</span>
+</div>
+<p class="text-[11px] text-zinc-400 italic" id="preview-terbilang">Terbilang: "Dua Ratus Lima Puluh Ribu Rupiah"</p>
+</div>
+<!-- Stamped TTE QR Mockup -->
+<div class="md:col-span-4 flex flex-col items-center justify-center p-4 bg-white rounded-[20px] border border-[#e4e4e7] text-center space-y-2">
+<div class="w-20 h-20 p-1 rounded-[12px] border border-zinc-200 flex items-center justify-center bg-zinc-50">
+<svg class="w-full h-full text-[#064e3b]" fill="currentColor" viewbox="0 0 100 100">
+<path d="M0,0 h35 v35 h-35 z M5,5 v25 h25 v-25 z M10,10 h15 v15 h-15 z"></path>
+<path d="M65,0 h35 v35 h-35 z M70,5 v25 h25 v-25 z M75,10 h15 v15 h-15 z"></path>
+<path d="M0,65 h35 v35 h-35 z M5,70 v25 h25 v-25 z M10,75 h15 v15 h-15 z"></path>
+<rect height="20" width="8" x="42" y="10"></rect>
+<rect height="15" width="8" x="52" y="5"></rect>
+<rect height="20" width="20" x="40" y="40"></rect>
+<rect height="15" width="10" x="65" y="45"></rect>
+<rect height="10" width="15" x="80" y="50"></rect>
+<rect height="10" width="15" x="45" y="70"></rect>
+<rect height="25" width="25" x="70" y="70"></rect>
+</svg>
+</div>
+<span class="text-[10px] font-mono font-bold text-[#064e3b]">BSrE-TTE VALID</span>
+<div class="text-[11px] text-zinc-500">
+<span class="block text-[10px] text-zinc-400">Tanda Tangan Elektronik:</span>
+<strong class="font-semibold text-zinc-900">Drs. H. M. Yusuf</strong>
+<span class="block text-[10px] text-zinc-500">Ketua BAZNAS Kab. Bandung</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between pt-3 border-t border-[#ececee] gap-3 text-xs text-zinc-400">
+<span class="flex items-center gap-1 font-mono text-[11px]">
+<span class="material-symbols-outlined text-sm text-[#064e3b]">lock</span>
+            Enkripsi SHA-256 Balai Sertifikasi Elektronik BSSN
+          </span>
+<button class="px-4 py-2 rounded-[12px] bg-white hover:bg-zinc-50 text-zinc-700 font-semibold text-xs border border-zinc-200 transition flex items-center gap-1.5" onclick="alert('Simulasi: Mengunduh e-BSZ PDF resmi.')" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Unduh Contoh PDF</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- SUCCESS MODAL (Editorial Clean Style) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-900/40 backdrop-blur-sm" id="checkout-modal">
+<div class="bg-white max-w-md w-full rounded-[36px] p-6 lg:p-8 custom-border space-y-5">
+<div class="w-12 h-12 rounded-full bg-emerald-50 text-[#064e3b] flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+<div class="text-center space-y-1">
+<span class="text-xs font-mono font-bold text-[#064e3b]">ALHAMDULILLAH</span>
+<h3 class="text-xl font-bold text-zinc-900">Setoran ZIS Berhasil Tercatat</h3>
+<p class="text-xs text-zinc-500">Nomor Registrasi SIMBA RI:</p>
+<span class="text-sm font-mono font-bold text-zinc-900 block py-0.5">TRX-2025-05841</span>
+</div>
+<div class="p-4 bg-[#f9f9fa] rounded-[20px] border border-[#ececee] space-y-1.5 text-xs">
+<div class="flex justify-between">
+<span class="text-zinc-400">Muzaki:</span>
+<span class="font-semibold text-zinc-900" id="modal-muzaki">H. Rachmat Hidayat</span>
+</div>
+<div class="flex justify-between">
+<span class="text-zinc-400">Akad:</span>
+<span class="font-semibold text-zinc-900" id="modal-program">Zakat Penghasilan</span>
+</div>
+<div class="flex justify-between">
+<span class="text-zinc-400">Jumlah Dana:</span>
+<span class="font-mono font-bold text-[#064e3b]" id="modal-total">Rp 250.000</span>
+</div>
+</div>
+<div class="space-y-2 pt-1">
+<button class="w-full py-3.5 rounded-[14px] bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#053d2e] transition" onclick="closeModalAndShowSpecimen()" type="button">
+          Lihat &amp; Cetak Bukti e-BSZ
+        </button>
+<button class="w-full py-2.5 rounded-[14px] bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition" onclick="document.getElementById('checkout-modal').classList.add('hidden')" type="button">
+          Tutup
+        </button>
+</div>
+</div>
+</div>
+<!-- EDITORIAL FOOTER -->
+<footer class="bg-white border-t border-[#ececee] mt-12 text-zinc-600">
+<div class="max-w-[1400px] mx-auto px-6 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
+<div class="space-y-3">
+<div class="flex items-center gap-2.5">
+<img alt="BAZNAS" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<span class="font-bold text-sm text-zinc-900">BAZNAS Kab. Bandung</span>
+</div>
+<p class="text-zinc-400 leading-relaxed">
+            Lembaga pemerintah nonstruktural pengelola ZIS tingkat Kabupaten Bandung berlandaskan UU No. 23/2011 dan PSAK 109.
+          </p>
+</div>
+<div class="space-y-2">
+<span class="font-bold text-zinc-900 block text-xs">Sekretariat Soreang</span>
+<p class="text-zinc-400 leading-relaxed">
+            Kompleks Pemkab Bandung, Jl. Raya Soreang Km. 17, Soreang, Kab. Bandung 40911
+          </p>
+<p class="text-zinc-400 font-mono text-[11px]">(022) 589-2041 / WA 0811-2234-567</p>
+</div>
+<div class="space-y-2">
+<span class="font-bold text-zinc-900 block text-xs">Integrasi &amp; Standar</span>
+<ul class="space-y-1.5 text-zinc-500">
+<li><a class="hover:text-[#064e3b]" href="#">SIMBA Kemenag RI</a></li>
+<li><a class="hover:text-[#064e3b]" href="#">Audit Kepatuhan Syariah PSAK 109</a></li>
+<li><a class="hover:text-[#064e3b]" href="#">Penyaluran 8 Asnaf 31 Kecamatan</a></li>
+</ul>
+</div>
+<div class="space-y-2">
+<span class="font-bold text-zinc-900 block text-xs">Layanan Pengaduan (SAI)</span>
+<p class="text-zinc-400 leading-relaxed">
+            Kanal Whistleblowing sistem akuntabilitas internal:
+          </p>
+<span class="font-mono text-zinc-800 font-medium block">pengaduan@baznaskabbdr.id</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-[#ececee] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
+<p>© 2025 BAZNAS Kabupaten Bandung. Hak Cipta Dilindungi Undang-Undang RI.</p>
+<div class="flex items-center gap-4">
+<a class="hover:text-zinc-700" href="#">Kebijakan Privasi</a>
+<span>•</span>
+<a class="hover:text-zinc-700" href="#">Laporan Publik</a>
+<span>•</span>
+<span class="font-mono text-emerald-700">SIMBA Online (99.98%)</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- SCRIPT LOGIC -->
+<script>
+    const NISAB_BULANAN = 9562500;
+    const NISAB_TAHUNAN = 114750000;
+    const TARIF_FITRAH_JIWA = 40000;
+    const TARIF_FIDYAH_HARI = 30000;
+
+    function formatRupiah(num) {
+      return 'Rp ' + Number(num).toLocaleString('id-ID');
+    }
+
+    function switchCalcTab(tabKey) {
+      const tabs = ['profesi', 'maal', 'fitrah', 'fidyah'];
+      tabs.forEach(key => {
+        const panel = document.getElementById('panel-' + key);
+        const btn = document.getElementById('tab-btn-' + key);
+        if (key === tabKey) {
+          panel.classList.remove('hidden');
+          btn.className = "calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition bg-white text-zinc-900 font-semibold shadow-none border border-zinc-200/60";
+        } else {
+          panel.classList.add('hidden');
+          btn.className = "calc-tab-btn py-2.5 px-3 rounded-[12px] text-center transition text-zinc-500 hover:text-zinc-900 font-medium";
+        }
+      });
+    }
+
+    function calculateProfesi() {
+      const gaji = Number(document.getElementById('input-gaji').value) || 0;
+      const bonus = Number(document.getElementById('input-bonus').value) || 0;
+      const pengeluaran = Number(document.getElementById('input-pengeluaran').value) || 0;
+      const netto = (gaji + bonus) - pengeluaran;
+      document.getElementById('label-netto-profesi').innerText = formatRupiah(netto);
+
+      const statusBadge = document.getElementById('badge-status-profesi');
+      const textZakat = document.getElementById('text-zakat-profesi');
+
+      if (netto >= NISAB_BULANAN) {
+        const zakat = Math.round(netto * 0.025);
+        statusBadge.innerHTML = '<span class="material-symbols-outlined text-base">check_circle</span><span>WAJIB ZAKAT (2,5%)</span>';
+        statusBadge.className = 'inline-flex items-center gap-1.5 text-[#064e3b] font-semibold';
+        textZakat.innerText = formatRupiah(zakat);
+      } else {
+        statusBadge.innerHTML = '<span class="material-symbols-outlined text-base">info</span><span>BELUM MENCAPAI NISAB (DISARANKAN INFAK)</span>';
+        statusBadge.className = 'inline-flex items-center gap-1.5 text-amber-700 font-semibold';
+        textZakat.innerText = formatRupiah(50000);
+      }
+    }
+
+    function calculateMaal() {
+      const tabungan = Number(document.getElementById('input-tabungan-maal').value) || 0;
+      const emas = Number(document.getElementById('input-emas-maal').value) || 0;
+      const hutang = Number(document.getElementById('input-hutang-maal').value) || 0;
+      const totalHarta = (tabungan + emas) - hutang;
+
+      document.getElementById('label-netto-maal').innerText = formatRupiah(totalHarta);
+      const textZakat = document.getElementById('text-zakat-maal');
+
+      if (totalHarta >= NISAB_TAHUNAN) {
+        const zakat = Math.round(totalHarta * 0.025);
+        textZakat.innerText = formatRupiah(zakat);
+      } else {
+        textZakat.innerText = formatRupiah(0) + ' (Belum Capai Nisab)';
+      }
+    }
+
+    function adjustJiwa(delta) {
+      const input = document.getElementById('input-jiwa');
+      let val = (Number(input.value) || 1) + delta;
+      if (val < 1) val = 1;
+      input.value = val;
+      calculateFitrah();
+    }
+
+    function calculateFitrah() {
+      const jiwa = Number(document.getElementById('input-jiwa').value) || 1;
+      const total = jiwa * TARIF_FITRAH_JIWA;
+      document.getElementById('text-zakat-fitrah').innerText = formatRupiah(total);
+    }
+
+    function calculateFidyah() {
+      const hari = Number(document.getElementById('input-fidyah-hari').value) || 1;
+      const total = hari * TARIF_FIDYAH_HARI;
+      document.getElementById('text-zakat-fidyah').innerText = formatRupiah(total);
+    }
+
+    function applyToCheckout(amount, programName) {
+      document.getElementById('input-final-nominal').value = amount;
+      document.getElementById('btn-total-display').innerText = Number(amount).toLocaleString('id-ID');
+      document.getElementById('preview-nominal').innerText = formatRupiah(amount);
+
+      const selectDana = document.getElementById('select-dana-kategori');
+      for (let i = 0; i < selectDana.options.length; i++) {
+        if (selectDana.options[i].text.includes(programName)) {
+          selectDana.selectedIndex = i;
+          break;
+        }
+      }
+      updateSelectedProgram(programName);
+      window.scrollTo({ top: 320, behavior: 'smooth' });
+    }
+
+    function setNominal(amount) {
+      document.getElementById('input-final-nominal').value = amount;
+      document.getElementById('btn-total-display').innerText = Number(amount).toLocaleString('id-ID');
+      document.getElementById('preview-nominal').innerText = formatRupiah(amount);
+
+      // Update button styling
+      const btns = document.querySelectorAll('.quick-nom-btn');
+      btns.forEach(b => {
+        b.className = "quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#f9f9fa] hover:bg-zinc-100 border border-zinc-200 text-xs font-mono font-medium text-zinc-700 transition";
+      });
+      event.target.className = "quick-nom-btn py-2 px-1 text-center rounded-[12px] bg-[#064e3b] text-white border border-[#064e3b] text-xs font-mono font-semibold transition";
+    }
+
+    function updateLiveNominal() {
+      const val = Number(document.getElementById('input-final-nominal').value) || 0;
+      document.getElementById('btn-total-display').innerText = val.toLocaleString('id-ID');
+      document.getElementById('preview-nominal').innerText = formatRupiah(val);
+    }
+
+    function updateSelectedProgram(programName) {
+      document.getElementById('preview-jenis-dana').innerText = programName;
+      const niatTitle = document.getElementById('niat-title');
+      const niatArab = document.getElementById('niat-arab');
+      const niatLatin = document.getElementById('niat-latin');
+      const niatArti = document.getElementById('niat-arti');
+
+      if (programName.includes('Fitrah')) {
+        niatTitle.innerText = 'Niat Zakat Fitrah';
+        niatArab.innerText = 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنِّيْ وَعَنْ جَمِيْعِ مَا يَلْزَمُنِيْ نَفَقَتُهُمْ فَرْضًا لِلَّهِ تَعَالَى';
+        niatLatin.innerText = '"Nawaitu an ukhrija zakaatal fithri \'annii wa \'an jamii\'i maa yalzamunii nafaqatuhum fardhan lillaahi ta\'aalaa"';
+        niatArti.innerHTML = '<strong class="font-semibold text-zinc-800">Arti:</strong> "Saya niat mengeluarkan zakat fitrah untuk diriku dan seluruh tanggungan, fardu karena Allah Ta\'ala."';
+      } else if (programName.includes('Infak') || programName.includes('Sedekah')) {
+        niatTitle.innerText = 'Niat Infak & Sedekah';
+        niatArab.innerText = 'رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ';
+        niatLatin.innerText = '"Rabbanaa taqabbal minnaa innaka antas samii\'ul \'aliim"';
+        niatArti.innerHTML = '<strong class="font-semibold text-zinc-800">Arti:</strong> "Ya Tuhan kami, terimalah amal dari kami. Sungguh Engkau Maha Mendengar lagi Maha Mengetahui."';
+      } else {
+        niatTitle.innerText = 'Niat Zakat Penghasilan & Maal';
+        niatArab.innerText = 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ مَالِي فَرْضًا لِلَّهِ تَعَالَى';
+        niatLatin.innerText = '"Nawaitu an ukhrija zakaata maali fardhan lillaahi ta\'aalaa"';
+        niatArti.innerHTML = '<strong class="font-semibold text-zinc-800">Arti:</strong> "Saya niat mengeluarkan zakat hartaku, fardu karena Allah Ta\'ala."';
+      }
+    }
+
+    function toggleTaxInput() {
+      const isChecked = document.getElementById('tax-toggle').checked;
+      const container = document.getElementById('tax-input-container');
+      if (isChecked) {
+        container.classList.remove('hidden');
+      } else {
+        container.classList.add('hidden');
+      }
+    }
+
+    function selectPaymentChannel(channel) {
+      const qrisBtn = document.getElementById('pay-qris');
+      const vaBtn = document.getElementById('pay-va');
+      const trfBtn = document.getElementById('pay-transfer');
+      const details = document.getElementById('payment-details-box');
+      const previewKanal = document.getElementById('preview-kanal');
+
+      [qrisBtn, vaBtn, trfBtn].forEach(b => {
+        b.className = "payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] hover:bg-zinc-100 text-center flex flex-col items-center justify-center gap-1 transition border border-[#e4e4e7]";
+        const icon = b.querySelector('.material-symbols-outlined');
+        if (icon) icon.className = "material-symbols-outlined text-zinc-500 text-xl";
+      });
+
+      if (channel === 'qris') {
+        qrisBtn.className = "payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] text-center flex flex-col items-center justify-center gap-1 transition border-2 border-[#064e3b]";
+        qrisBtn.querySelector('.material-symbols-outlined').className = "material-symbols-outlined text-[#064e3b] text-xl";
+        details.innerHTML = '<span class="text-emerald-900 font-medium">Validasi instan SIMBA &lt; 15 detik</span><span class="text-[11px] font-mono text-emerald-700 font-semibold">0% Biaya Amil</span>';
+        previewKanal.innerText = 'QRIS Dinamis BAZNAS';
+      } else if (channel === 'va') {
+        vaBtn.className = "payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] text-center flex flex-col items-center justify-center gap-1 transition border-2 border-[#064e3b]";
+        vaBtn.querySelector('.material-symbols-outlined').className = "material-symbols-outlined text-[#064e3b] text-xl";
+        details.innerHTML = '<span class="text-emerald-900 font-medium">Virtual Account BSI / BJB Syariah otomatis terbit</span><span class="text-[11px] font-mono text-emerald-700 font-semibold">Multi-Bank</span>';
+        previewKanal.innerText = 'Virtual Account BSI Syariah';
+      } else {
+        trfBtn.className = "payment-method-btn p-3 rounded-[14px] bg-[#f9f9fa] text-center flex flex-col items-center justify-center gap-1 transition border-2 border-[#064e3b]";
+        trfBtn.querySelector('.material-symbols-outlined').className = "material-symbols-outlined text-[#064e3b] text-xl";
+        details.innerHTML = '<span class="text-emerald-900 font-medium">Transfer manual ke Rekening Kas BAZNAS Kab. Bandung</span><span class="text-[11px] font-mono text-emerald-700 font-semibold">Manual</span>';
+        previewKanal.innerText = 'Transfer Bank Kas Daerah';
+      }
+    }
+
+    function triggerCheckoutSuccess() {
+      const isAnon = document.getElementById('check-anonim').checked;
+      const nama = isAnon ? 'Hamba Allah (Anonim)' : document.getElementById('muzaki-nama').value;
+      const program = document.getElementById('select-dana-kategori').value;
+      const nominal = Number(document.getElementById('input-final-nominal').value) || 0;
+
+      document.getElementById('modal-muzaki').innerText = nama;
+      document.getElementById('modal-program').innerText = program;
+      document.getElementById('modal-total').innerText = formatRupiah(nominal);
+
+      document.getElementById('preview-nama').innerText = nama;
+      document.getElementById('preview-jenis-dana').innerText = program;
+      document.getElementById('preview-nominal').innerText = formatRupiah(nominal);
+
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeModalAndShowSpecimen() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+  <script src="/screens/shared-nav.js"></script>
+</body></html>

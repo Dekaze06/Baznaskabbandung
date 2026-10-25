@@ -1,0 +1,249 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Antrean Transfer H2H - Panel Admin BAZNAS" sectionName="Tata Kelola & Akuntansi" pageTitle="Antrean Disposisi Transfer H2H Bank Syariah" activeRoute="keuangan/transfer">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 3 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi keuangan">
+      <a href="/admin/keuangan" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Keuangan</span>
+      </a>
+      <a href="/admin/keuangan/segregated-funds" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">account_tree</span>
+        <span>Kas 5 Segregated Funds</span>
+      </a>
+      <a href="/admin/keuangan/jurnal" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">menu_book</span>
+        <span>Buku Jurnal PSAK 109</span>
+      </a>
+      <a href="/admin/keuangan/transfer" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">send</span>
+        <span>Antrean Transfer H2H</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">6</span>
+      </a>
+      <a href="/admin/keuangan/rekonsiliasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">sync_alt</span>
+        <span>Rekonsiliasi Bank</span>
+      </a>
+      <a href="/admin/keuangan/neraca" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">pie_chart</span>
+        <span>Laporan Neraca</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">send</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Antrean Transfer Penyaluran Host-to-Host (BI-FAST Gateway)</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Integrasi langsung API Bank Syariah Indonesia (BSI) dan Bank BJB Syariah tanpa perantara</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="px-3.5 py-2 rounded-xl bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">
+          H2H Gateway Online (Latency 42ms)
+        </span>
+      </div>
+    </section>
+
+    <!-- Transfer Queue Table -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#ececee]">
+        <div>
+          <h2 class="text-base font-bold text-[#09090b]">6 Disposisi Siap Eksekusi Transfer</h2>
+          <p class="text-xs text-[#71717a] mt-0.5">Telah mendapatkan disposisi TTE Ketua BAZNAS dan siap ditransfer langsung ke rekening penerima</p>
+        </div>
+        <div class="font-mono text-xs text-[#71717a]">
+          Total Transfer: <strong class="text-[#064e3b] font-bold">Rp 124.350.000</strong>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">No. SP2D &amp; Tanggal</th>
+              <th class="py-3 px-4">Nama Mustahik / Rekening Tujuan</th>
+              <th class="py-3 px-4">Bank Mitra &amp; Channel</th>
+              <th class="py-3 px-4 text-right">Nominal (Rp)</th>
+              <th class="py-3 px-4 text-center">Status Verifikasi</th>
+              <th class="py-3 px-4 text-center">Aksi Eksekusi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            
+            <!-- Transfer 1 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">#SP2D-2026-0891</strong>
+                <span class="text-[11px] text-[#71717a]">24/10/2026 14:10</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Ibu Aminah</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Rek: 7182991024 (BSI) • Rutilahu Ciwidey</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#09090b]">Bank Syariah Indonesia</span>
+                <span class="text-[10px] text-[#064e3b] block font-mono">BI-FAST H2H (Fee Rp 0)</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b] text-sm">
+                25.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">TTE Sah Ketua</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <button type="button" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors">
+                  Transfer Sekarang
+                </button>
+              </td>
+            </tr>
+
+            <!-- Transfer 2 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">#SP2D-2026-0892</strong>
+                <span class="text-[11px] text-[#71717a]">24/10/2026 14:15</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Bpk. Suryana (RSUD Al-Ihsan)</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Rek: 5180029110 (BJB Syariah) • Medis Ginjal</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#09090b]">Bank BJB Syariah</span>
+                <span class="text-[10px] text-[#064e3b] block font-mono">Intrabank H2H (Fee Rp 0)</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b] text-sm">
+                18.500.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">TTE Sah Ketua</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <button type="button" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors">
+                  Transfer Sekarang
+                </button>
+              </td>
+            </tr>
+
+            <!-- Transfer 3 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">#SP2D-2026-0893</strong>
+                <span class="text-[11px] text-[#71717a]">24/10/2026 14:20</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Kelompok Tani Kopi Ciwidey</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Rek: 7199201123 (BSI) • Modal Pertanian</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#09090b]">Bank Syariah Indonesia</span>
+                <span class="text-[10px] text-[#064e3b] block font-mono">Intrabank H2H (Fee Rp 0)</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b] text-sm">
+                20.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">TTE Sah Ketua</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <button type="button" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors">
+                  Transfer Sekarang
+                </button>
+              </td>
+            </tr>
+
+            <!-- Transfer 4 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">#SP2D-2026-0894</strong>
+                <span class="text-[11px] text-[#71717a]">24/10/2026 14:25</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Neng Siti Rohimah (SKSS ITB)</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Rek: 7200192831 (BSI) • Beasiswa Pendidikan</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#09090b]">Bank Syariah Indonesia</span>
+                <span class="text-[10px] text-[#064e3b] block font-mono">BI-FAST H2H (Fee Rp 0)</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b] text-sm">
+                16.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">TTE Sah Ketua</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <button type="button" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors">
+                  Transfer Sekarang
+                </button>
+              </td>
+            </tr>
+
+            <!-- Transfer 5 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">#SP2D-2026-0895</strong>
+                <span class="text-[11px] text-[#71717a]">24/10/2026 14:30</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Satgas Tanggap Bencana BTB</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Rek: 5180018274 (BJB Syariah) • Banjir Dayeuhkolot</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#09090b]">Bank BJB Syariah</span>
+                <span class="text-[10px] text-[#064e3b] block font-mono">Intrabank H2H (Fee Rp 0)</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b] text-sm">
+                30.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">TTE Sah Ketua</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <button type="button" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors">
+                  Transfer Sekarang
+                </button>
+              </td>
+            </tr>
+
+            <!-- Transfer 6 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4 font-mono">
+                <strong class="text-[#09090b] block">#SP2D-2026-0896</strong>
+                <span class="text-[11px] text-[#71717a]">24/10/2026 14:35</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Kecamatan Pasirjambu</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Rek: 7149001924 (BSI) • Hak Kelola Unit 6.5%</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#09090b]">Bank Syariah Indonesia</span>
+                <span class="text-[10px] text-[#064e3b] block font-mono">BI-FAST H2H (Fee Rp 0)</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b] text-sm">
+                14.850.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">TTE Sah Ketua</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <button type="button" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors">
+                  Transfer Sekarang
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

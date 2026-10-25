@@ -1,0 +1,189 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Radar Sebaran 31 Kecamatan - Panel Admin BAZNAS" sectionName="Ringkasan Strategis" pageTitle="Radar Sebaran Kemiskinan 31 Kecamatan" activeRoute="command-center/radar-wilayah">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi ringkasan eksekutif">
+      <a href="/admin/command-center" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Eksekutif</span>
+      </a>
+      <a href="/admin/command-center/tte" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#ff5a00]">signature</span>
+        <span>Otorisasi &amp; Disposisi TTE</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ff5a00] text-white text-[10px] font-bold">8</span>
+      </a>
+      <a href="/admin/command-center/radar-wilayah" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">map</span>
+        <span>Radar Sebaran 31 Kec.</span>
+      </a>
+      <a href="/admin/command-center/rkat" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">trending_up</span>
+        <span>Capaian RKAT 2026</span>
+      </a>
+    </nav>
+
+    <!-- Header Stats Bar -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Wilayah Administratif</span>
+        <strong class="text-2xl font-bold text-[#09090b]">31 Kecamatan</strong>
+        <span class="text-[11px] text-[#064e3b] font-semibold mt-1 block">280 Desa &amp; Kelurahan</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Total Mustahik P3KE Desil 1</span>
+        <strong class="text-2xl font-bold text-[#09090b]">43.890 Jiwa</strong>
+        <span class="text-[11px] text-[#064e3b] font-semibold mt-1 block">Terdata By Name By Address</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Realisasi Penyaluran</span>
+        <strong class="text-2xl font-bold text-[#064e3b]">Rp 48,72 M</strong>
+        <span class="text-[11px] text-[#71717a] mt-1 block">Dari Pagu Rp 57,50 M (84,7%)</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Survei Faktual On-Site</span>
+        <strong class="text-2xl font-bold text-[#09090b]">98.4%</strong>
+        <span class="text-[11px] text-[#064e3b] font-semibold mt-1 block">Geotagged &amp; Terverifikasi</span>
+      </div>
+    </section>
+
+    <!-- Radar Table with Zone Filters -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-3 border-b border-[#ececee]">
+        <div>
+          <h2 class="text-base font-bold text-[#09090b]">Peta Radar Distribusi Bantuan &amp; Kemiskinan 31 Kecamatan</h2>
+          <p class="text-xs text-[#71717a] mt-0.5">Data terverifikasi bersama Dukcapil &amp; Dinas Sosial Kabupaten Bandung</p>
+        </div>
+        
+        <!-- Regional Filter Tabs -->
+        <div class="flex items-center gap-1.5 flex-wrap" id="radar-region-filters">
+          <button class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-bold radar-filter-btn active" data-region="all">Semua Zona (31 Kec)</button>
+          <button class="px-3.5 py-1.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold radar-filter-btn" data-region="selatan-barat">Selatan &amp; Barat (7)</button>
+          <button class="px-3.5 py-1.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold radar-filter-btn" data-region="tengah">Bandung Tengah (11)</button>
+          <button class="px-3.5 py-1.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold radar-filter-btn" data-region="timur">Bandung Timur (13)</button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">Kecamatan &amp; Wilayah</th>
+              <th class="py-3 px-4">Koordinat Geotag &amp; Elevasi</th>
+              <th class="py-3 px-4 text-right">Mustahik P3KE Desil 1</th>
+              <th class="py-3 px-4 text-right">Target Penyaluran (Rp)</th>
+              <th class="py-3 px-4 text-right">Realisasi (Rp)</th>
+              <th class="py-3 px-4 text-center">Persentase</th>
+              <th class="py-3 px-4 text-center">Indeks Kemiskinan</th>
+              <th class="py-3 px-4 text-center">Status Survei</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]" id="radar-table-body">
+            <!-- 1. Soreang -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="tengah">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Soreang</div>
+                <div class="text-[11px] text-[#71717a]">Ibukota Pemkab • 10 Desa/Kelurahan</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-7.0312, 107.5189 • 732 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">1.820 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">2.400.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">2.140.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">89,2%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">Sedang (0.42)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Terverifikasi</span></td>
+            </tr>
+            <!-- 2. Ciwidey -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="selatan-barat">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Ciwidey</div>
+                <div class="text-[11px] text-[#71717a]">Kawasan Pegunungan • 7 Desa</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-7.1512, 107.4891 • 1.150 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">2.450 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">3.200.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">2.880.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">90,0%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/15 text-[#ff5a00] text-[10px] font-bold">Tinggi (0.84)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Terverifikasi</span></td>
+            </tr>
+            <!-- 3. Pangalengan -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="selatan-barat">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Pangalengan</div>
+                <div class="text-[11px] text-[#71717a]">Perkebunan &amp; Peternak • 13 Desa</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-7.1724, 107.5612 • 1.420 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">2.910 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">3.800.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">3.250.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">85,5%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/15 text-[#ff5a00] text-[10px] font-bold">Tinggi (0.78)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">96% Terverifikasi</span></td>
+            </tr>
+            <!-- 4. Baleendah -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="tengah">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Baleendah</div>
+                <div class="text-[11px] text-[#71717a]">Bantaran Citarum • 8 Kelurahan</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-6.9982, 107.6251 • 660 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">3.120 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">4.100.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">3.510.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">85,6%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/15 text-[#ff5a00] text-[10px] font-bold">Rawan Banjir (0.76)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Terverifikasi</span></td>
+            </tr>
+            <!-- 5. Majalaya -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="timur">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Majalaya</div>
+                <div class="text-[11px] text-[#71717a]">Tekstil &amp; Buruh Harian • 14 Desa</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-7.0512, 107.7423 • 680 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">3.650 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">4.800.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">4.120.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">85,8%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/15 text-[#ff5a00] text-[10px] font-bold">Tinggi (0.81)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">99% Terverifikasi</span></td>
+            </tr>
+            <!-- 6. Kertasari -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="selatan-barat">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Kertasari</div>
+                <div class="text-[11px] text-[#71717a]">Hulu Citarum • Pascagempa • 8 Desa</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-7.2189, 107.6712 • 1.580 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">2.820 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">3.700.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">3.380.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">91,4%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/15 text-[#ff5a00] text-[10px] font-bold">Pascagempa (0.88)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Terverifikasi</span></td>
+            </tr>
+            <!-- 7. Cicalengka -->
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors radar-row" data-region="timur">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] text-sm">Kec. Cicalengka</div>
+                <div class="text-[11px] text-[#71717a]">Wilayah Perbatasan Timur • 12 Desa</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[#71717a]">-6.9841, 107.8341 • 690 mdpl</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold">2.340 Jiwa</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#71717a]">3.100.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">2.610.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">84,2%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">Sedang (0.51)</span></td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">95% Terverifikasi</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

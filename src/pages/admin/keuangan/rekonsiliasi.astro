@@ -1,0 +1,166 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Rekonsiliasi Bank Syariah - Panel Admin BAZNAS" sectionName="Tata Kelola & Akuntansi" pageTitle="Rekonsiliasi Bank Syariah Otomatis (Zero-Delta)" activeRoute="keuangan/rekonsiliasi">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 3 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi keuangan">
+      <a href="/admin/keuangan" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Keuangan</span>
+      </a>
+      <a href="/admin/keuangan/segregated-funds" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">account_tree</span>
+        <span>Kas 5 Segregated Funds</span>
+      </a>
+      <a href="/admin/keuangan/jurnal" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">menu_book</span>
+        <span>Buku Jurnal PSAK 109</span>
+      </a>
+      <a href="/admin/keuangan/transfer" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">send</span>
+        <span>Antrean Transfer H2H</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">6</span>
+      </a>
+      <a href="/admin/keuangan/rekonsiliasi" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">sync_alt</span>
+        <span>Rekonsiliasi Bank</span>
+      </a>
+      <a href="/admin/keuangan/neraca" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">pie_chart</span>
+        <span>Laporan Neraca</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">sync_alt</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Rekonsiliasi Mutasi Bank Syariah Otomatis</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Pencocokan rekening koran bank mitra syariah vs ledger pembukuan internal PSAK 109</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button type="button" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-2 shadow-xs transition-all">
+          <span class="material-symbols-outlined text-base">refresh</span>
+          <span>Jalankan Rekonsiliasi Otomatis</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 4 Telemetry Metrics -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Tingkat Kecocokan Mutasi</span>
+        <strong class="text-2xl font-bold font-mono text-[#064e3b] mt-1 block">99.8%</strong>
+        <span class="text-[11px] text-[#064e3b] font-semibold mt-0.5 block">Audit KAP Ready</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Selisih Delta (Discrepancy)</span>
+        <strong class="text-2xl font-bold font-mono text-[#09090b] mt-1 block">Rp 0</strong>
+        <span class="text-[11px] text-[#064e3b] font-semibold mt-0.5 block">Nol Selisih Pembukuan</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Total Mutasi Tercocokkan</span>
+        <strong class="text-2xl font-bold font-mono text-[#09090b] mt-1 block">1.428 Transaksi</strong>
+        <span class="text-[11px] text-[#71717a] mt-0.5 block">Periode Berjalan 2026</span>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-[#ececee] shadow-xs">
+        <span class="text-xs text-[#71717a] block">Status Kriptografi SHA-256</span>
+        <strong class="text-2xl font-bold font-mono text-[#064e3b] mt-1 block">Chained</strong>
+        <span class="text-[11px] text-[#064e3b] font-semibold mt-0.5 block">Tervalidasi BSSN BSrE</span>
+      </div>
+    </section>
+
+    <!-- Bank Feeds Table -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <h2 class="text-base font-bold text-[#09090b] pb-2 border-b border-[#ececee]">Status Rekonsiliasi 4 Rekening Bank Syariah Mitra</h2>
+      
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">Bank Mitra &amp; Nomor Rekening</th>
+              <th class="py-3 px-4">Kantong Kas Syariah</th>
+              <th class="py-3 px-4 text-right">Saldo Rekening Koran (Rp)</th>
+              <th class="py-3 px-4 text-right">Saldo Buku Besar (Rp)</th>
+              <th class="py-3 px-4 text-center">Selisih (Delta)</th>
+              <th class="py-3 px-4 text-center">Status Audit</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            <tr>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Bank Syariah Indonesia (BSI)</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Giro: 714-2024-001 a.n. Zakat BAZNAS</div>
+              </td>
+              <td class="py-3.5 px-4 font-semibold text-[#064e3b]">Dana Zakat (8 Asnaf)</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">4.821.450.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">4.821.450.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">Rp 0</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Matched</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Bank BJB Syariah</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Giro: 518-002-1920 a.n. Infak BAZNAS</div>
+              </td>
+              <td class="py-3.5 px-4 font-semibold text-[#09090b]">Dana Infak &amp; Sedekah</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">2.115.800.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">2.115.800.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">Rp 0</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Matched</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Bank Muamalat Indonesia</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Giro: 102-004-8891 a.n. DSKL BAZNAS</div>
+              </td>
+              <td class="py-3.5 px-4 font-semibold text-[#09090b]">Dana DSKL &amp; Fidyah</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">430.120.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">430.120.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">Rp 0</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Matched</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">Bank Syariah Indonesia (BSI)</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Tabungan: 714-2024-009 a.n. Amil BAZNAS</div>
+              </td>
+              <td class="py-3.5 px-4 font-semibold text-[#d97706]">Dana Amil (Operasional)</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">612.800.000</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">612.800.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">Rp 0</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">100% Matched</span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="bg-[#f8fafc] font-bold text-xs border-t-2 border-[#ececee]">
+            <tr>
+              <td class="py-3.5 px-4 text-[#09090b]" colspan="2">TOTAL KONSOLIDASI SALDO KAS BANK SYARIAH</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#064e3b] text-sm">Rp 7.980.170.000</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#064e3b] text-sm">Rp 7.980.170.000</td>
+              <td class="py-3.5 px-4 text-center font-mono font-bold text-[#064e3b]">Rp 0</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white text-[10px] font-bold">KAP WTP Ready</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

@@ -1,0 +1,452 @@
+---
+// src/pages/login.astro
+---
+
+<!doctype html>
+<html lang="id" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk &amp; Pendaftaran Akun - BAZNAS Kabupaten Bandung</title>
+    <meta name="description" content="Masuk ke portal terpadu BAZNAS Kabupaten Bandung menggunakan Akun Google atau email resmi untuk layanan amil, muzaki, dan UPZ kecamatan." />
+    
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
+    
+    <!-- Google Fonts: Inter, Plus Jakarta Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Google Material Symbols Outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+
+  <body class="h-full bg-[#fcfcfc] text-[#09090b] font-sans antialiased selection:bg-[#064e3b] selection:text-white">
+    
+    <!-- Toast Feedback Notification -->
+    <div id="login-toast" role="status" aria-live="polite" class="fixed top-6 right-6 z-50 -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-[#09090b] text-white shadow-2xl text-xs font-medium max-w-sm">
+      <span id="login-toast-icon" class="material-symbols-outlined text-[#a7f3d0] text-lg">check_circle</span>
+      <span id="login-toast-msg">Memproses autentikasi...</span>
+    </div>
+
+    <div class="min-h-full flex flex-col lg:flex-row">
+      
+      <!-- LEFT COLUMN: AUTHENTICATION FORM (55% on desktop) -->
+      <div class="flex-1 flex flex-col justify-between p-6 sm:p-10 lg:p-16 max-w-2xl mx-auto w-full">
+        
+        <!-- Top Header Navigation -->
+        <div class="flex items-center justify-between">
+          <a href="/" class="flex items-center gap-3 group" aria-label="Kembali ke Beranda">
+            <img src="/logo-baznas.webp" alt="Logo Resmi BAZNAS Kabupaten Bandung" class="h-10 w-auto object-contain" width="160" height="48" />
+            <div class="border-l border-[#e4e4e7] pl-3">
+              <span class="text-sm font-bold tracking-tight text-[#09090b] block">BAZNAS</span>
+              <span class="text-[10px] text-[#71717a] block uppercase font-medium">Kabupaten Bandung</span>
+            </div>
+          </a>
+
+          <a href="/" class="inline-flex items-center gap-1 text-xs font-semibold text-[#71717a] hover:text-[#09090b] transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            <span>Kembali ke Beranda</span>
+          </a>
+        </div>
+
+        <!-- Center Form Box -->
+        <div class="my-auto py-8 space-y-6">
+          
+          <!-- Headings (Strictly NO Eyebrow Text) -->
+          <div class="space-y-2">
+            <h1 id="auth-heading" class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+              Masuk ke Portal Terpadu
+            </h1>
+            <p id="auth-subheading" class="text-xs sm:text-sm text-[#52525b] leading-relaxed">
+              Akses akun amil, muzaki, UPZ kecamatan, dan layanan digital BAZNAS Kabupaten Bandung.
+            </p>
+          </div>
+
+          <!-- Auth Mode Toggle (Masuk vs Daftar Akun) -->
+          <div class="p-1 bg-[#f4f4f5] rounded-2xl flex items-center gap-1 text-xs font-semibold">
+            <button id="tab-login" class="flex-1 py-2.5 rounded-xl bg-white text-[#09090b] shadow-xs transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">login</span>
+              <span>Masuk</span>
+            </button>
+            <button id="tab-register" class="flex-1 py-2.5 rounded-xl text-[#71717a] hover:text-[#09090b] transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">person_add</span>
+              <span>Daftar Akun</span>
+            </button>
+          </div>
+
+          <!-- PRIMARY ACTION: LOGIN DENGAN GOOGLE (CLEAN & SUPER PREMIUM) -->
+          <button id="btn-google-auth" class="w-full py-3.5 px-4 rounded-2xl bg-white hover:bg-[#fafafa] border border-[#e4e4e7] hover:border-[#a1a1aa] text-[#09090b] text-xs font-semibold transition-all shadow-xs flex items-center justify-center gap-3 group active:scale-[0.99]">
+            <!-- Authentic Google 4-Color SVG -->
+            <svg class="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span id="txt-google-btn">Lanjutkan dengan Google</span>
+          </button>
+
+          <!-- Subtle Divider -->
+          <div class="relative flex items-center justify-center">
+            <div class="border-t border-[#e4e4e7] w-full"></div>
+            <span class="bg-[#fcfcfc] px-3 text-[11px] text-[#71717a] uppercase font-mono tracking-wider shrink-0">atau melalui kredensial</span>
+          </div>
+
+          <!-- FORM: MASUK (LOGIN) -->
+          <form id="form-login" class="space-y-4">
+            <div>
+              <label for="login-identifier" class="block text-xs font-bold text-[#09090b] mb-1.5">
+                Email, NIK, atau Nomor WhatsApp
+              </label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">account_circle</span>
+                <input 
+                  type="text" 
+                  id="login-identifier" 
+                  required 
+                  placeholder="nama@email.com atau 3204xxxxxxxxxxxx"
+                  class="w-full bg-white border border-[#e4e4e7] focus:border-[#064e3b] focus:ring-2 focus:ring-[#064e3b]/10 rounded-xl py-3 pl-10 pr-4 text-xs font-medium text-[#09090b] placeholder:text-[#a1a1aa] outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="login-password" class="block text-xs font-bold text-[#09090b]">Kata Sandi</label>
+                <a href="#lupa-sandi" id="btn-forgot-pass" class="text-[11px] font-semibold text-[#064e3b] hover:underline">Lupa sandi?</a>
+              </div>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">lock</span>
+                <input 
+                  type="password" 
+                  id="login-password" 
+                  required 
+                  placeholder="Masukkan kata sandi akun Anda"
+                  class="w-full bg-white border border-[#e4e4e7] focus:border-[#064e3b] focus:ring-2 focus:ring-[#064e3b]/10 rounded-xl py-3 pl-10 pr-10 text-xs font-medium text-[#09090b] placeholder:text-[#a1a1aa] outline-none transition-all"
+                />
+                <button type="button" id="toggle-password" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#71717a] hover:text-[#09090b]" aria-label="Tampilkan sandi">
+                  <span class="material-symbols-outlined text-base">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+              <label class="flex items-center gap-2 cursor-pointer text-xs text-[#52525b]">
+                <input type="checkbox" id="remember-me" checked class="w-4 h-4 rounded border-[#e4e4e7] text-[#064e3b] focus:ring-[#064e3b]" />
+                <span>Ingat sesi masuk pada perangkat ini</span>
+              </label>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-sm active:scale-[0.99]">
+              <span>Masuk ke Akun</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </form>
+
+          <!-- FORM: DAFTAR AKUN BARU (REGISTER - HIDDEN BY DEFAULT) -->
+          <form id="form-register" class="space-y-4 hidden">
+            
+            <!-- Pilihan Tipe Akun -->
+            <div>
+              <label class="block text-xs font-bold text-[#09090b] mb-1.5">Kategori Pendaftar</label>
+              <div class="grid grid-cols-3 gap-2">
+                <label class="p-2.5 rounded-xl border border-[#064e3b] bg-[#ecfdf5] text-center cursor-pointer text-xs font-semibold text-[#064e3b] role-option">
+                  <input type="radio" name="account-type" value="muzaki" checked class="hidden" />
+                  <span>Muzaki</span>
+                </label>
+                <label class="p-2.5 rounded-xl border border-[#e4e4e7] bg-white hover:bg-[#f4f4f5] text-center cursor-pointer text-xs font-semibold text-[#52525b] role-option">
+                  <input type="radio" name="account-type" value="upz" class="hidden" />
+                  <span>UPZ Desa/DKM</span>
+                </label>
+                <label class="p-2.5 rounded-xl border border-[#e4e4e7] bg-white hover:bg-[#f4f4f5] text-center cursor-pointer text-xs font-semibold text-[#52525b] role-option">
+                  <input type="radio" name="account-type" value="lembaga" class="hidden" />
+                  <span>Mitra / CSR</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="reg-name" class="block text-xs font-bold text-[#09090b] mb-1.5">Nama Lengkap (Sesuai KTP)</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">person</span>
+                <input 
+                  type="text" 
+                  id="reg-name" 
+                  required 
+                  placeholder="Contoh: H. Ahmad Hidayat"
+                  class="w-full bg-white border border-[#e4e4e7] focus:border-[#064e3b] focus:ring-2 focus:ring-[#064e3b]/10 rounded-xl py-3 pl-10 pr-4 text-xs font-medium text-[#09090b] placeholder:text-[#a1a1aa] outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="reg-whatsapp" class="block text-xs font-bold text-[#09090b] mb-1.5">Nomor WhatsApp Aktif</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">chat</span>
+                  <input 
+                    type="tel" 
+                    id="reg-whatsapp" 
+                    required 
+                    placeholder="0812xxxxxxxx"
+                    class="w-full bg-white border border-[#e4e4e7] focus:border-[#064e3b] focus:ring-2 focus:ring-[#064e3b]/10 rounded-xl py-2.5 pl-10 pr-4 text-xs font-medium text-[#09090b] placeholder:text-[#a1a1aa] outline-none transition-all"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="reg-email" class="block text-xs font-bold text-[#09090b] mb-1.5">Email Aktif</label>
+                <div class="relative">
+                  <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">mail</span>
+                  <input 
+                    type="email" 
+                    id="reg-email" 
+                    required 
+                    placeholder="nama@email.com"
+                    class="w-full bg-white border border-[#e4e4e7] focus:border-[#064e3b] focus:ring-2 focus:ring-[#064e3b]/10 rounded-xl py-2.5 pl-10 pr-4 text-xs font-medium text-[#09090b] placeholder:text-[#a1a1aa] outline-none transition-all"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="reg-password" class="block text-xs font-bold text-[#09090b] mb-1.5">Buat Kata Sandi</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">lock</span>
+                <input 
+                  type="password" 
+                  id="reg-password" 
+                  required 
+                  minlength="8"
+                  placeholder="Minimal 8 karakter kombinasi"
+                  class="w-full bg-white border border-[#e4e4e7] focus:border-[#064e3b] focus:ring-2 focus:ring-[#064e3b]/10 rounded-xl py-3 pl-10 pr-4 text-xs font-medium text-[#09090b] placeholder:text-[#a1a1aa] outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2 pt-1 text-[11px] text-[#52525b]">
+              <input type="checkbox" id="reg-terms" required class="mt-0.5 w-4 h-4 rounded border-[#e4e4e7] text-[#064e3b] focus:ring-[#064e3b]" />
+              <label for="reg-terms" class="cursor-pointer leading-relaxed">
+                Saya menyetujui kebijakan privasi dan pengelolaan data donasi sesuai syariat Islam &amp; perundangan BAZNAS RI.
+              </label>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-sm active:scale-[0.99]">
+              <span>Daftar Akun Baru</span>
+              <span class="material-symbols-outlined text-sm">how_to_reg</span>
+            </button>
+          </form>
+
+          <!-- Quick Guest Access / Amil Portal Link -->
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">shield_person</span>
+              <div>
+                <span class="font-bold text-[#09090b] block">Akses Amil &amp; Pengurus</span>
+                <span class="text-[11px] text-[#71717a] block">Masuk langsung ke Executive Command Center</span>
+              </div>
+            </div>
+            <a href="/admin" class="px-3 py-1.5 rounded-lg bg-white border border-[#e4e4e7] hover:bg-[#f4f4f5] text-[#09090b] font-semibold text-xs transition-colors shrink-0">
+              Buka Admin →
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Bottom Security & Legal Note -->
+        <div class="pt-6 border-t border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#71717a]">
+          <span>&copy; 2026 BAZNAS Kabupaten Bandung. Hak Cipta Dilindungi.</span>
+          <div class="flex items-center gap-3 font-mono">
+            <span>Enkripsi TLS 1.3</span>
+            <span>•</span>
+            <span>Single Sign-On SIMBA</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: EDITORIAL VISUAL SHOWCASE (45% on desktop) -->
+      <div class="hidden lg:block lg:w-[45%] relative bg-[#064e3b] overflow-hidden">
+        
+        <!-- Architectural Backdrop Image -->
+        <img 
+          src="/images/auth-bg.webp" 
+          alt="Interior gedung layanan BAZNAS Kabupaten Bandung" 
+          class="absolute inset-0 w-full h-full object-cover object-center mix-blend-overlay opacity-50"
+          loading="eager"
+          width="1200"
+          height="1600"
+        />
+
+        <div class="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-[#064e3b]/80 to-transparent"></div>
+
+        <!-- Editorial Content Overlay -->
+        <div class="relative h-full flex flex-col justify-between p-12 xl:p-16 text-white z-10">
+          
+          <!-- Top Badge -->
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono font-medium text-white">
+              Sistem Tata Kelola Amanah
+            </span>
+            <div class="flex items-center gap-2 text-xs font-mono text-[#a7f3d0]">
+              <span class="material-symbols-outlined text-sm">lock</span>
+              <span>Terakreditasi A Kemenag</span>
+            </div>
+          </div>
+
+          <!-- Bottom Quote & Mission -->
+          <div class="space-y-6">
+            <blockquote class="text-xl xl:text-2xl font-bold leading-relaxed text-white">
+              "Ambillah zakat dari sebagian harta mereka, dengan zakat itu kamu membersihkan dan mensucikan mereka."
+            </blockquote>
+            
+            <div class="flex items-center gap-4 text-xs font-mono text-[#a7f3d0]">
+              <span>QS. At-Taubah: 103</span>
+              <span>•</span>
+              <span>Prinsip 3A Resmi BAZNAS</span>
+            </div>
+
+            <!-- 3 Aman Governance Cards -->
+            <div class="grid grid-cols-3 gap-3 pt-4 border-t border-white/20">
+              <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15">
+                <span class="text-sm font-bold block text-white">Aman Syar'i</span>
+                <span class="text-[11px] text-[#d1fae5] block mt-0.5">Sesuai fikih 8 asnaf</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15">
+                <span class="text-sm font-bold block text-white">Aman Regulasi</span>
+                <span class="text-[11px] text-[#d1fae5] block mt-0.5">UU No. 23 Tahun 2011</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15">
+                <span class="text-sm font-bold block text-white">Aman NKRI</span>
+                <span class="text-[11px] text-[#d1fae5] block mt-0.5">Kemandirian umat</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Client-Side Interactive Auth Script -->
+    <script is:inline>
+      (function initAuthPage() {
+        const tabLogin = document.getElementById('tab-login');
+        const tabRegister = document.getElementById('tab-register');
+        const formLogin = document.getElementById('form-login');
+        const formRegister = document.getElementById('form-register');
+        const authHeading = document.getElementById('auth-heading');
+        const authSubheading = document.getElementById('auth-subheading');
+        const txtGoogleBtn = document.getElementById('txt-google-btn');
+        const btnGoogle = document.getElementById('btn-google-auth');
+
+        const toast = document.getElementById('login-toast');
+        const toastMsg = document.getElementById('login-toast-msg');
+        const toastIcon = document.getElementById('login-toast-icon');
+
+        function showToast(msg, icon = 'check_circle') {
+          if (!toast) return;
+          if (toastMsg) toastMsg.textContent = msg;
+          if (toastIcon) toastIcon.textContent = icon;
+          toast.classList.remove('-translate-y-20', 'opacity-0');
+          setTimeout(() => {
+            toast.classList.add('-translate-y-20', 'opacity-0');
+          }, 3500);
+        }
+
+        // Tab Switching
+        tabLogin?.addEventListener('click', () => {
+          tabLogin.className = 'flex-1 py-2.5 rounded-xl bg-white text-[#09090b] shadow-xs transition-all flex items-center justify-center gap-2';
+          tabRegister.className = 'flex-1 py-2.5 rounded-xl text-[#71717a] hover:text-[#09090b] transition-all flex items-center justify-center gap-2';
+          formLogin?.classList.remove('hidden');
+          formRegister?.classList.add('hidden');
+          if (authHeading) authHeading.textContent = 'Masuk ke Portal Terpadu';
+          if (authSubheading) authSubheading.textContent = 'Akses akun amil, muzaki, UPZ kecamatan, dan layanan digital BAZNAS Kabupaten Bandung.';
+          if (txtGoogleBtn) txtGoogleBtn.textContent = 'Lanjutkan dengan Google';
+        });
+
+        tabRegister?.addEventListener('click', () => {
+          tabRegister.className = 'flex-1 py-2.5 rounded-xl bg-white text-[#09090b] shadow-xs transition-all flex items-center justify-center gap-2';
+          tabLogin.className = 'flex-1 py-2.5 rounded-xl text-[#71717a] hover:text-[#09090b] transition-all flex items-center justify-center gap-2';
+          formRegister?.classList.remove('hidden');
+          formLogin?.classList.add('hidden');
+          if (authHeading) authHeading.textContent = 'Pendaftaran Akun Baru';
+          if (authSubheading) authSubheading.textContent = 'Daftarkan akun muzaki atau entitas UPZ untuk memantau riwayat penyaluran dan e-BSZ.';
+          if (txtGoogleBtn) txtGoogleBtn.textContent = 'Daftar Cepat dengan Google';
+        });
+
+        // Role option styling in register
+        document.querySelectorAll('.role-option').forEach(label => {
+          label.addEventListener('click', () => {
+            document.querySelectorAll('.role-option').forEach(l => {
+              l.className = 'p-2.5 rounded-xl border border-[#e4e4e7] bg-white hover:bg-[#f4f4f5] text-center cursor-pointer text-xs font-semibold text-[#52525b] role-option';
+            });
+            label.className = 'p-2.5 rounded-xl border border-[#064e3b] bg-[#ecfdf5] text-center cursor-pointer text-xs font-semibold text-[#064e3b] role-option';
+          });
+        });
+
+        // Password visibility toggle
+        const togglePass = document.getElementById('toggle-password');
+        const inPass = document.getElementById('login-password');
+        togglePass?.addEventListener('click', () => {
+          if (!inPass) return;
+          const isPass = inPass.type === 'password';
+          inPass.type = isPass ? 'text' : 'password';
+          const icon = togglePass.querySelector('.material-symbols-outlined');
+          if (icon) icon.textContent = isPass ? 'visibility_off' : 'visibility';
+        });
+
+        // Google Sign-In Action
+        btnGoogle?.addEventListener('click', () => {
+          showToast('Menghubungkan ke Akun Google...', 'sync');
+          setTimeout(() => {
+            showToast('Autentikasi Google berhasil! Membuka Panel Akun Publik...', 'check_circle');
+            setTimeout(() => {
+              window.location.href = '/akun';
+            }, 1000);
+          }, 800);
+        });
+
+        // Submit Login Form
+        formLogin?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const identifier = document.getElementById('login-identifier')?.value;
+          showToast(`Selamat datang! Membuka sesi untuk ${identifier}...`, 'check_circle');
+          setTimeout(() => {
+            window.location.href = '/akun';
+          }, 900);
+        });
+
+        // Submit Register Form
+        formRegister?.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('reg-name')?.value;
+          const selectedRole = document.querySelector('input[name="account-type"]:checked')?.value;
+          showToast(`Akun atas nama ${name} berhasil didaftarkan! Mengalihkan...`, 'how_to_reg');
+          setTimeout(() => {
+            if (selectedRole === 'upz') {
+              window.location.href = '/admin';
+            } else {
+              window.location.href = '/akun';
+            }
+          }, 1100);
+        });
+
+        // Forgot Password
+        document.getElementById('btn-forgot-pass')?.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = document.getElementById('login-identifier')?.value;
+          if (id) {
+            showToast(`Tautan reset kata sandi telah dikirimkan ke ${id}`, 'mail');
+          } else {
+            showToast('Silakan isi kolom Email atau WhatsApp terlebih dahulu.', 'info');
+            document.getElementById('login-identifier')?.focus();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

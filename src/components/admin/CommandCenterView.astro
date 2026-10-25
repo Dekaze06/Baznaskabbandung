@@ -1,0 +1,880 @@
+<section id="view-command-center" class="spa-view" tabindex="-1" aria-hidden="false">
+  <div class="p-8 space-y-7">
+    
+<!-- Executive Authority Banner (Pure White, 36px Rounding, Hairline Border) -->
+<section class="bg-snow rounded-card border border-cloud p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal-on-scroll card-hover-lift">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 rounded-2xl bg-emerald-deep flex items-center justify-center text-snow shrink-0">
+<span class="material-symbols-outlined text-[28px]">shield_person</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2.5">
+<h1 class="text-xl font-bold text-graphite tracking-tight">Drs. H. M. Yusuf</h1>
+<span class="px-2.5 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep font-mono text-[11px] font-bold">PIMPINAN_KETUA</span>
+<span class="px-2 py-0.5 rounded-tag bg-paper text-fog font-mono text-[11px]">ID: AMIL-3204-001</span>
+</div>
+<p class="text-xs text-fog mt-1">
+              Plafon Otorisasi: <strong class="text-graphite font-semibold">Otoritas Final Tanpa Batas (Kuorum Pleno)</strong>
+</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="px-3.5 py-2 rounded-tag bg-paper border border-cloud flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[16px]">phonelink_lock</span>
+<span class="font-mono text-xs text-graphite font-medium">MFA Active</span>
+</div>
+<div class="px-3.5 py-2 rounded-tag bg-paper border border-cloud flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[16px]">vpn_key</span>
+<span class="font-mono text-xs text-graphite font-medium">SHA-256 Chained</span>
+</div>
+<button class="px-3.5 py-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-xs font-semibold text-graphite transition-colors inline-flex items-center gap-1.5" onclick="toggleQuickDisbModal()">
+<span class="material-symbols-outlined text-[15px] text-emerald-deep">history</span>
+<span>Log Sesi</span>
+</button>
+</div>
+</section>
+<!-- 4 Core Executive Metric Cards & RKAT 5-Pillar Breakdown Table -->
+<section id="rkat-metrics" class="space-y-6 reveal-on-scroll">
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 stagger-container">
+    <!-- Metric 1: Penghimpunan ZIS -->
+    <div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+        <span>Penghimpunan RKAT</span>
+        <span class="material-symbols-outlined text-emerald-deep text-[18px]">account_balance_wallet</span>
+      </div>
+      <div class="my-4">
+        <div class="text-3xl font-bold tracking-tight text-graphite">Rp 48,72 M</div>
+        <div class="text-xs text-fog mt-1 flex items-center justify-between">
+          <span>Target: Rp 57,5 M</span>
+          <span class="font-bold text-emerald-deep font-mono">84,7%</span>
+        </div>
+      </div>
+      <div class="w-full bg-paper h-2 rounded-full overflow-hidden">
+        <div class="bg-emerald-deep h-full rounded-full" style="width: 84.7%"></div>
+      </div>
+    </div>
+    <!-- Metric 2: Rasio ACR -->
+    <div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+        <span>Rasio ACR Penyaluran</span>
+        <span class="material-symbols-outlined text-emerald-deep text-[18px]">verified</span>
+      </div>
+      <div class="my-4">
+        <div class="flex items-baseline gap-2">
+          <span class="text-3xl font-bold tracking-tight text-emerald-deep">84,70%</span>
+          <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[11px] font-bold">Grade A</span>
+        </div>
+        <div class="text-xs text-fog mt-1">Standar Kemenag RI (&gt;80% Efektif)</div>
+      </div>
+      <div class="pt-2 border-t border-cloud flex items-center justify-between text-xs">
+        <span class="text-fog">Indeks Zakat (IZN)</span>
+        <span class="font-bold text-graphite font-mono">0.82 (Baik)</span>
+      </div>
+    </div>
+    <!-- Metric 3: Saldo Kas Terpisah (PSAK 109) -->
+    <div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+        <span>Kas Terpisah PSAK 109</span>
+        <span class="material-symbols-outlined text-emerald-deep text-[18px]">account_tree</span>
+      </div>
+      <div class="my-3 space-y-1">
+        <div class="text-3xl font-bold tracking-tight text-graphite">Rp 7,97 M</div>
+        <div class="flex items-center justify-between text-xs text-fog pt-1">
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-deep"></span> Kas Zakat</span>
+          <span class="font-mono font-semibold text-graphite">Rp 4,82 M</span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-fog">
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span> Kas Infak / DSKL</span>
+          <span class="font-mono font-semibold text-graphite">Rp 2,54 M</span>
+        </div>
+      </div>
+      <div class="pt-2 border-t border-cloud flex items-center justify-between text-xs">
+        <span class="text-fog">Hak Amil (Maks 12.5%)</span>
+        <span class="font-bold text-emerald-deep font-mono">8.9% (Tercukupi)</span>
+      </div>
+    </div>
+    <!-- Metric 4: Total Mustahik -->
+    <div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+        <span>Penerima Manfaat</span>
+        <span class="material-symbols-outlined text-emerald-deep text-[18px]">groups</span>
+      </div>
+      <div class="my-4">
+        <div class="text-3xl font-bold tracking-tight text-graphite">43.890 <span class="text-lg font-normal text-fog">Jiwa</span></div>
+        <div class="text-xs text-fog mt-1">Tersebar di 31 Kecamatan &amp; 280 Desa</div>
+      </div>
+      <div class="pt-2 border-t border-cloud flex items-center justify-between text-xs">
+        <span class="text-fog">Klasifikasi Prioritas</span>
+        <span class="font-bold text-graphite font-mono">CIBEST I-II</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed RKAT 2026 5-Pillar Realization Table -->
+  <div class="bg-snow rounded-card border border-cloud p-6 lg:p-7 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-cloud">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-emerald-deep text-xl">trending_up</span>
+          <h3 class="font-bold text-base text-graphite">Capaian Realisasi RKAT 2026 Berdasarkan 5 Pilar BAZNAS</h3>
+        </div>
+        <p class="text-xs text-fog mt-0.5">Disahkan dalam Rapat Kerja Tahunan BAZNAS Kabupaten Bandung &amp; Terintegrasi ke SIMBA BAZNAS RI</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="px-3 py-1 rounded-pill bg-emerald-deep/10 text-emerald-deep font-mono text-xs font-bold border border-emerald-deep/20">
+          Target Total: Rp 57,5 Miliar
+        </span>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto rounded-xl border border-cloud">
+      <table class="w-full text-left text-xs">
+        <thead class="bg-paper text-fog uppercase font-bold text-[10px] tracking-wider border-b border-cloud">
+          <tr>
+            <th class="py-3 px-4">Pilar Program BAZNAS</th>
+            <th class="py-3 px-4">Fokus Intervensi &amp; Program Utama</th>
+            <th class="py-3 px-4 text-right">Pagu RKAT (Rp)</th>
+            <th class="py-3 px-4 text-right">Realisasi (Rp)</th>
+            <th class="py-3 px-4 text-center">Persentase</th>
+            <th class="py-3 px-4 text-right">Penerima (Mustahik)</th>
+            <th class="py-3 px-4 text-center">Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-cloud bg-snow text-charcoal">
+          <!-- Pilar 1: Bandung Peduli -->
+          <tr class="hover:bg-paper/60 transition-colors">
+            <td class="py-3 px-4 font-bold text-graphite">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-deep"></span>
+                <span>Bandung Peduli</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-fog">Rehabilitasi Rutilahu, Tanggap Bencana Banjir Citarum, Santunan Sembako Fakir</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">18.500.000.000</td>
+            <td class="py-3 px-4 text-right font-mono font-bold text-emerald-deep">15.670.000.000</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-emerald-deep">84,7%</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">18.420 Jiwa</td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">Tepat Sasaran</span>
+            </td>
+          </tr>
+          <!-- Pilar 2: Bandung Sehat -->
+          <tr class="hover:bg-paper/60 transition-colors">
+            <td class="py-3 px-4 font-bold text-graphite">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-deep"></span>
+                <span>Bandung Sehat</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-fog">Subsidi Cuci Darah RSUD Otista &amp; Al-Ihsan, Penanganan Stunting 31 Kec, Kursi Roda</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">8.200.000.000</td>
+            <td class="py-3 px-4 text-right font-mono font-bold text-emerald-deep">7.120.000.000</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-emerald-deep">86,8%</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">6.890 Jiwa</td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">Tepat Sasaran</span>
+            </td>
+          </tr>
+          <!-- Pilar 3: Bandung Cerdas -->
+          <tr class="hover:bg-paper/60 transition-colors">
+            <td class="py-3 px-4 font-bold text-graphite">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-deep"></span>
+                <span>Bandung Cerdas</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-fog">Satu Keluarga Satu Sarjana (SKSS), Beasiswa Santri Tahfidz, Bantuan SPP/LKS Siswa Dhuafa</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">9.800.000.000</td>
+            <td class="py-3 px-4 text-right font-mono font-bold text-emerald-deep">8.250.000.000</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-emerald-deep">84,2%</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">8.120 Siswa</td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">Tepat Sasaran</span>
+            </td>
+          </tr>
+          <!-- Pilar 4: Bandung Makmur -->
+          <tr class="hover:bg-paper/60 transition-colors">
+            <td class="py-3 px-4 font-bold text-graphite">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-deep"></span>
+                <span>Bandung Makmur</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-fog">Pemberdayaan Modal Bengkel Z-Auto, Z-Chicken Majalaya, Lumbung Pangan Pertanian Ciwidey</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">12.000.000.000</td>
+            <td class="py-3 px-4 text-right font-mono font-bold text-emerald-deep">10.180.000.000</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-emerald-deep">84,8%</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">3.450 Usaha</td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">Produktif</span>
+            </td>
+          </tr>
+          <!-- Pilar 5: Bandung Taqwa -->
+          <tr class="hover:bg-paper/60 transition-colors">
+            <td class="py-3 px-4 font-bold text-graphite">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-deep"></span>
+                <span>Bandung Taqwa</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-fog">Iuran BPJS Ketenagakerjaan Marbot Masjid, Bisyarah Guru Ngaji Tradisional, Dai Pelosok</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">9.000.000.000</td>
+            <td class="py-3 px-4 text-right font-mono font-bold text-emerald-deep">7.500.000.000</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-emerald-deep">83,3%</td>
+            <td class="py-3 px-4 text-right font-mono font-semibold text-graphite">7.010 Amil/Dai</td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">Fisabilillah</span>
+            </td>
+          </tr>
+          <!-- Hak Amil Syar'i (Maks 12.5%) -->
+          <tr class="bg-paper/40 font-semibold">
+            <td class="py-3 px-4 text-graphite">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-warm"></span>
+                <span>Hak Kelola Amil (Syar'i)</span>
+              </div>
+            </td>
+            <td class="py-3 px-4 text-fog italic">Operasional 31 Kecamatan, Honor Surveyor, SIMBA IT, Audit KAP (Maks 12.5%)</td>
+            <td class="py-3 px-4 text-right font-mono text-graphite">7.187.500.000</td>
+            <td class="py-3 px-4 text-right font-mono text-emerald-deep">4.336.080.000</td>
+            <td class="py-3 px-4 text-center font-mono text-emerald-deep">8,9% <span class="text-[10px] text-fog font-normal">(Efisien)</span></td>
+            <td class="py-3 px-4 text-right font-mono text-graphite">487 UPZ + Amil</td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">Sangat Efisien</span>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot class="bg-paper font-bold text-xs border-t-2 border-cloud">
+          <tr>
+            <td class="py-3.5 px-4 text-graphite" colspan="2">TOTAL PENYALURAN ZIS RKAT 2026</td>
+            <td class="py-3.5 px-4 text-right font-mono text-graphite">Rp 57.500.000.000</td>
+            <td class="py-3.5 px-4 text-right font-mono text-emerald-deep text-sm">Rp 48.720.000.000</td>
+            <td class="py-3.5 px-4 text-center font-mono text-emerald-deep text-sm">84,7%</td>
+            <td class="py-3.5 px-4 text-right font-mono text-graphite">43.890 Jiwa</td>
+            <td class="py-3.5 px-4 text-center">
+              <span class="px-2.5 py-1 rounded-tag bg-emerald-deep text-snow text-[10px] font-bold">WTP Audit Ready</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Main Columns: Approvals (Left 8 Cols) & Sidebar Radar + Audit (Right 4 Cols) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start reveal-on-scroll">
+<!-- Left Column: Priority Approvals (8 Dossiers) -->
+<div id="disposisi-queue" class="lg:col-span-8 space-y-5 reveal-left">
+<!-- Queue Filter Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 bg-snow p-3 rounded-card border border-cloud">
+<div class="flex items-center gap-1.5">
+<button class="px-4 py-2 rounded-btn bg-emerald-deep text-snow text-xs font-bold transition-all flex items-center gap-1.5" id="btn-tab-tier3" onclick="filterQueue('tier3')">
+<span class="material-symbols-outlined text-[14px]">gavel</span>
+<span>Tier 3: &gt; Rp 15 Jt (Ketua - 5)</span>
+</button>
+<button class="px-4 py-2 rounded-btn bg-paper hover:bg-cloud text-iron text-xs font-medium transition-all" id="btn-tab-tier2" onclick="filterQueue('tier2')">
+  Tier 2: Rp 2,5 Jt - 15 Jt (3)
+</button>
+<button class="px-4 py-2 rounded-btn bg-paper hover:bg-cloud text-iron text-xs font-medium transition-all" id="btn-tab-all" onclick="filterQueue('all')">
+  Semua (8 Berkas)
+</button>
+</div>
+<div class="text-xs text-fog font-mono pr-2">8 Pengajuan Menunggu TTE Pimpinan</div>
+</div>
+
+<!-- Card 1: Critical Rutilahu Ciwidey -->
+<article class="bg-snow rounded-card border border-cloud p-6 space-y-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier3">
+<div class="flex flex-wrap items-center justify-between gap-2">
+  <div class="flex items-center gap-2">
+    <span class="px-3 py-1 rounded-tag bg-emerald-deep text-snow text-[11px] font-bold tracking-wide uppercase">
+      Tier 3 • Otorisasi Mutlak Ketua
+    </span>
+    <span class="px-2.5 py-1 rounded-tag bg-ember/10 text-ember text-[11px] font-bold uppercase">
+      Mendesak (Rawan Longsor)
+    </span>
+  </div>
+  <span class="font-mono text-xs text-fog">#DISB-2026-0891</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+  <div class="md:col-span-7 space-y-2">
+    <h3 class="text-lg font-bold text-graphite tracking-tight leading-snug">
+      Bedah 5 Unit Rutilahu Terpadu Desa Rawabogo Kec. Ciwidey
+    </h3>
+    <p class="text-xs text-fog leading-relaxed">
+      Program Bandung Peduli: Rehabilitasi total hunian bilik bambu reyot bagi 5 KK asnaf fakir miskin ekstrem akibat ancaman longsor di kawasan Ciwidey Selatan.
+    </p>
+    <div class="grid grid-cols-3 gap-2 pt-1">
+      <div class="p-2 rounded-tag bg-paper border border-cloud text-center">
+        <span class="text-[10px] uppercase font-mono text-fog block">Asnaf</span>
+        <span class="text-xs font-bold text-graphite">Fakir Miskin</span>
+      </div>
+      <div class="p-2 rounded-tag bg-paper border border-cloud text-center">
+        <span class="text-[10px] uppercase font-mono text-fog block">Had Kifayah</span>
+        <span class="text-xs font-bold text-emerald-deep">0.88 (Darurat)</span>
+      </div>
+      <div class="p-2 rounded-tag bg-paper border border-cloud text-center">
+        <span class="text-[10px] uppercase font-mono text-fog block">CIBEST</span>
+        <span class="text-xs font-bold text-ember">Kuadran I</span>
+      </div>
+    </div>
+  </div>
+  <div class="md:col-span-5 flex flex-col justify-between gap-3 p-4 rounded-2xl bg-paper border border-cloud">
+    <div>
+      <div class="text-[11px] font-mono uppercase text-fog">Plafon Disposisi</div>
+      <div class="text-xl font-bold text-graphite font-mono">Rp 100.000.000</div>
+      <div class="text-[11px] text-fog mt-0.5">Rp 20 Jt / unit • 5 Penerima Manfaat</div>
+    </div>
+    <div class="space-y-1.5">
+      <button class="w-full py-2.5 px-3 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors flex items-center justify-center gap-1.5" onclick="openSigningModal('#DISB-2026-0891', 'Rp 100.000.000', 'Bedah 5 Rutilahu Rawabogo Ciwidey')">
+        <span class="material-symbols-outlined text-[16px]">draw</span>
+        <span>Tanda Tangani &amp; Setujui (TTE)</span>
+      </button>
+      <button class="w-full py-1.5 px-3 rounded-btn bg-snow hover:bg-cloud border border-cloud text-graphite font-medium text-xs transition-colors text-center" onclick="showAppToast('Membuka Berkas 5 KK Mustahik Rutilahu Rawabogo...', 'folder_open')">
+        Tinjau Berkas &amp; Dokumen (5 KK)
+      </button>
+    </div>
+  </div>
+</div>
+</article>
+
+<!-- Card 2: Z-Auto Modal Usaha -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier3">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 3</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0904</span>
+    <span class="text-xs text-fog">• 3 Mustahik Kec. Banjaran</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Pemberdayaan Ekonomi Mustahik: Modal Bengkel Motor Z-Auto
+  </h4>
+  <p class="text-xs text-fog">
+    Program Bandung Makmur • Rekomendasi Waka II Siap • Non-Tunai H2H BJB Syariah
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 45.000.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0904', 'Rp 45.000.000', 'Bantuan Bengkel Z-Auto Banjaran')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan berkas survei Z-Auto Banjaran', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+
+<!-- Card 3: BPJS Ketenagakerjaan Marbot -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier3">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 3</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0912</span>
+    <span class="text-xs text-fog">• 120 Marbot Masjid Kec. Pangalengan</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Iuran Jaminan Sosial BPJS TK Marbot Masjid (Bandung Taqwa)
+  </h4>
+  <p class="text-xs text-fog">
+    Asnaf: Fisabilillah • Verifikasi Kemenag &amp; DMI Terkonfirmasi • Jurnal COA 5.1.05.01
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 28.800.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0912', 'Rp 28.800.000', 'BPJS Ketenagakerjaan 120 Marbot')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan 120 daftar marbot Pangalengan', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+
+<!-- Card 4: Beasiswa SKSS Mahasiswa -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier3">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 3</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0925</span>
+    <span class="text-xs text-fog">• 15 Mahasiswa Semester V-VIII</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Beasiswa Satu Keluarga Satu Sarjana (SKSS) Bandung Cerdas
+  </h4>
+  <p class="text-xs text-fog">
+    Asnaf: Ibnu Sabil / Fisabilillah • Mahasiswa UIN Sunan Gunung Djati &amp; Telkom Univ ber-KTP Kab. Bandung
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 37.500.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0925', 'Rp 37.500.000', 'Beasiswa SKSS 15 Mahasiswa')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan berkas akademik & SKTM mahasiswa', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+
+<!-- Card 5: Tanggap Bencana Banjir Citarum Kertasari -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier3">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 3</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0940</span>
+    <span class="text-xs text-fog">• Posko Tanggap Bencana Kertasari</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Bantuan Darurat Logistik &amp; Dapur Umum Banjir Bandang Hulu Citarum
+  </h4>
+  <p class="text-xs text-fog">
+    Program Bandung Peduli • Logistik Sembako &amp; Selimut untuk 240 Jiwa Terdampak Bencana Alam
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 50.000.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0940', 'Rp 50.000.000', 'Bantuan Darurat Logistik Banjir Kertasari')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan berita acara BPBD & BAZNAS Tanggap Bencana', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+
+<!-- Card 6: Bantuan Medis Cuci Darah RSUD Soreang (Tier 2) -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier2">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 2</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0931</span>
+    <span class="text-xs text-fog">• 8 Pasien Lansia RSUD Soreang</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Bantuan Subsidi Cuci Darah &amp; Obat Non-BPJS Lansia Dhuafa
+  </h4>
+  <p class="text-xs text-fog">
+    Program Bandung Sehat • Asnaf: Fakir • Rekomendasi Dokter Spesialis Penyakit Dalam
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 28.000.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0931', 'Rp 28.000.000', 'Bantuan Cuci Darah 8 Lansia RSUD Soreang')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan rekam medis & verifikasi RSUD Soreang', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+
+<!-- Card 7: Z-Chicken 10 Gerobak Majalaya (Tier 2) -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier2">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 2</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0948</span>
+    <span class="text-xs text-fog">• 10 Pelaku Usaha Mikro Kec. Majalaya</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Paket Booth &amp; Bahan Baku Usaha Z-Chicken BAZNAS Majalaya
+  </h4>
+  <p class="text-xs text-fog">
+    Program Bandung Makmur • Pelatihan Higienitas &amp; Sertifikasi Halal MUI Mandiri
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 35.000.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0948', 'Rp 35.000.000', 'Paket Z-Chicken 10 Booth Majalaya')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan proposal kelompok Z-Chicken', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+
+<!-- Card 8: Alat Bantu Kursi Roda Difabel Baleendah (Tier 2) -->
+<article class="bg-snow rounded-card border border-cloud p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-emerald-deep/40 queue-item" data-tier="tier2">
+<div class="space-y-1.5 flex-1">
+  <div class="flex items-center gap-2">
+    <span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 2</span>
+    <span class="text-xs text-fog font-mono">#DISB-2026-0955</span>
+    <span class="text-xs text-fog">• 6 Anak Dhuafa Difabel Baleendah</span>
+  </div>
+  <h4 class="text-base font-bold text-graphite tracking-tight">
+    Bantuan Kursi Roda Adaptif &amp; Alat Bantu Dengar Difabel Dhuafa
+  </h4>
+  <p class="text-xs text-fog">
+    Program Bandung Sehat • Kerjasama Dinas Sosial &amp; SLB Baleendah Kab. Bandung
+  </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-2.5 shrink-0">
+  <div class="text-lg font-bold font-mono text-graphite">Rp 18.500.000</div>
+  <div class="flex items-center gap-2">
+    <button class="px-3.5 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0955', 'Rp 18.500.000', 'Alat Bantu Difabel Dhuafa Baleendah')">
+      Setujui Cepat
+    </button>
+    <button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron" onclick="showAppToast('Menampilkan berkas asesmen SLB Baleendah', 'visibility')">
+      <span class="material-symbols-outlined text-[16px]">visibility</span>
+    </button>
+  </div>
+</div>
+</article>
+</div>
+
+<!-- Right Column: Radar Wilayah & Audit Trail -->
+<div class="lg:col-span-4 space-y-6 reveal-right">
+<!-- 31 Kecamatan Radar Overview -->
+<div id="radar-wilayah" class="bg-snow rounded-card border border-cloud p-6 space-y-4 card-hover-lift">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[20px]">map</span>
+<h3 class="font-bold text-sm text-graphite">Radar Penyaluran Wilayah</h3>
+</div>
+<span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep font-mono text-[10px] font-bold uppercase">31 Kec.</span>
+</div>
+<div class="relative h-44 rounded-2xl overflow-hidden bg-paper border border-cloud">
+<img class="w-full h-full object-cover" data-alt="Peta topografi Kabupaten Bandung digital bergradasi hijau gelap institusional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw9jiP_r7NSJzTTiMharn6CB8BC7zOduUVcCrj2ijMIXRUzbWVcnW-GKqR6RiXtaAv9Ui6EIUdWXAHsOVK9AcSHOpAe_VYvsJv45Qd8I1LniuW85yZrRib_J6-havCmsXvFsL-8vXfIe_QyuzkQvwq4lbI3GAz5-9bReDiqoJMuPb2XZoWf9rwQMkSsogXaKWmlRm7oG4niJ-O-hq3cn0Dk2yM3rTTIFJFSeMOZCb4SpwShR3XSrygSA"/>
+<div class="absolute bottom-2 left-2 right-2 bg-snow/90 backdrop-blur-md px-3 py-2 rounded-tag border border-cloud flex items-center justify-between text-xs">
+<span class="text-fog font-medium">Fokus Hari Ini</span>
+<span class="font-bold text-emerald-deep">Ciwidey, Pangalengan</span>
+</div>
+</div>
+<!-- Compact Metrics Row -->
+<div class="grid grid-cols-2 gap-2 text-xs pt-1">
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] text-fog font-mono block">Cakupan Wilayah</span>
+<span class="font-bold text-graphite">100% (31/31)</span>
+</div>
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] text-fog font-mono block">Desa Terlayani</span>
+<span class="font-bold text-graphite">280 Desa</span>
+</div>
+</div>
+</div>
+<!-- Compact SHA-256 Audit Trail -->
+<div id="audit-trail-card" class="bg-snow rounded-card border border-cloud p-6 space-y-4 card-hover-lift">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[20px]">lock_clock</span>
+<h3 class="font-bold text-sm text-graphite">Audit Trail Terenkripsi</h3>
+</div>
+<span class="font-mono text-[10px] text-fog">SHA-256</span>
+</div>
+<div class="space-y-3">
+<div class="p-3 rounded-tag bg-paper border border-cloud space-y-1">
+<div class="flex items-center justify-between text-xs font-semibold text-graphite">
+<span>Validasi Waka II #DISB-0888</span>
+<span class="font-mono text-[10px] text-fog">10:14 WIB</span>
+</div>
+<div class="text-[11px] text-fog">Beasiswa Tahfidz 15 Mahasiswa • Jurnal Otomatis</div>
+<div class="font-mono text-[10px] text-emerald-deep font-medium truncate">Hash: 8f9b...a12c (Valid)</div>
+</div>
+<div class="p-3 rounded-tag bg-paper border border-cloud space-y-1">
+<div class="flex items-center justify-between text-xs font-semibold text-graphite">
+<span>Batch Sync SIMBA BAZNAS RI</span>
+<span class="font-mono text-[10px] text-fog">09:00 WIB</span>
+</div>
+<div class="text-[11px] text-fog">42 Mustahik &amp; 110 Transaksi Terunggah</div>
+<div class="font-mono text-[10px] text-emerald-deep font-medium">Status: ACK 200 OK • Node 3204</div>
+</div>
+<div class="p-3 rounded-tag bg-paper border border-cloud space-y-1">
+<div class="flex items-center justify-between text-xs font-semibold text-graphite">
+<span>Rekonsiliasi BSI &amp; BJB Syariah</span>
+<span class="font-mono text-[10px] text-fog">08:15 WIB</span>
+</div>
+<div class="text-[11px] text-fog">Penerimaan QRIS &amp; VA 24 Jam Selaras 100%</div>
+<div class="font-mono text-[10px] text-emerald-deep font-medium">Selisih: Rp 0 (Match Mutlak)</div>
+</div>
+</div>
+<button class="w-full py-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-graphite text-xs font-semibold transition-colors" onclick="showAppToast('Menampilkan seluruh log audit keamanan SHA-256', 'security')">
+Lihat Seluruh Log Keamanan
+</button>
+</div>
+</div>
+</section>
+
+<!-- SECTION: RADAR SEBARAN & DISTRIBUSI 31 KECAMATAN SE-KABUPATEN BANDUNG -->
+<section class="bg-snow rounded-card border border-cloud p-6 lg:p-8 space-y-6 reveal-on-scroll">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-3 border-b border-cloud">
+    <div>
+      <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-deep mb-1">
+        <span class="material-symbols-outlined text-base">map</span>
+        <span>Peta Faktual Geografis &amp; Mustahik 31 Kecamatan</span>
+      </div>
+      <h3 class="text-xl font-bold text-graphite tracking-tight">Sebaran Penyaluran ZIS &amp; Pemetaan Kemiskinan Ekstrem</h3>
+      <p class="text-xs text-fog mt-0.5">Basis data P3KE Kemenko PMK &amp; Rekonsiliasi Lapangan Asesor BAZNAS Kabupaten Bandung 2026</p>
+    </div>
+    <!-- Regional Filter Tabs -->
+    <div class="flex items-center gap-1.5 flex-wrap" id="radar-region-filters">
+      <button class="px-3.5 py-1.5 rounded-tag bg-emerald-deep text-snow text-xs font-bold transition-colors radar-filter-btn active" data-region="all">Semua Zona (31 Kec)</button>
+      <button class="px-3.5 py-1.5 rounded-tag bg-paper hover:bg-cloud text-iron text-xs font-semibold transition-colors radar-filter-btn" data-region="selatan-barat">Selatan &amp; Barat (7)</button>
+      <button class="px-3.5 py-1.5 rounded-tag bg-paper hover:bg-cloud text-iron text-xs font-semibold transition-colors radar-filter-btn" data-region="tengah">Bandung Tengah (11)</button>
+      <button class="px-3.5 py-1.5 rounded-tag bg-paper hover:bg-cloud text-iron text-xs font-semibold transition-colors radar-filter-btn" data-region="timur">Bandung Timur (13)</button>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto rounded-xl border border-cloud">
+    <table class="w-full text-left text-xs">
+      <thead class="bg-paper text-fog uppercase font-bold text-[10px] tracking-wider border-b border-cloud">
+        <tr>
+          <th class="py-3 px-4">Kecamatan &amp; Wilayah</th>
+          <th class="py-3 px-4">Titik Geotagging &amp; Ketinggian</th>
+          <th class="py-3 px-4 text-right">Mustahik P3KE Desil 1</th>
+          <th class="py-3 px-4 text-right">Target Penyaluran (Rp)</th>
+          <th class="py-3 px-4 text-right">Realisasi (Rp)</th>
+          <th class="py-3 px-4 text-center">Persentase</th>
+          <th class="py-3 px-4 text-center">Indeks Kemiskinan</th>
+          <th class="py-3 px-4 text-center">Status Survei</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-cloud bg-snow text-charcoal" id="radar-table-body">
+        <!-- 1. Soreang -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="tengah">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Soreang</div>
+            <div class="text-[11px] text-fog">Ibukota Pemkab • 10 Desa/Kelurahan</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -7.0312, 107.5189 • 732 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">1.820 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">2.400.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">2.140.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">89,2%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-amber-warm/15 text-amber-warm text-[10px] font-bold">Sedang (0.42)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">100% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 2. Ciwidey -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="selatan-barat">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Ciwidey</div>
+            <div class="text-[11px] text-fog">Kawasan Pegunungan • 7 Desa</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -7.1512, 107.4891 • 1.150 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">2.450 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">3.200.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">2.880.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">90,0%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-ember/15 text-ember text-[10px] font-bold">Tinggi (0.84)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">100% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 3. Pangalengan -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="selatan-barat">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Pangalengan</div>
+            <div class="text-[11px] text-fog">Perkebunan &amp; Peternak • 13 Desa</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -7.1724, 107.5612 • 1.420 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">2.910 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">3.800.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">3.250.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">85,5%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-ember/15 text-ember text-[10px] font-bold">Tinggi (0.78)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">96% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 4. Baleendah -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="tengah">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Baleendah</div>
+            <div class="text-[11px] text-fog">Bantaran Citarum • 8 Kelurahan</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -6.9982, 107.6251 • 660 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">3.120 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">4.100.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">3.510.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">85,6%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-ember/15 text-ember text-[10px] font-bold">Rawan Banjir (0.76)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">100% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 5. Banjaran -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="tengah">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Banjaran</div>
+            <div class="text-[11px] text-fog">Pusat UMKM &amp; Pasar • 11 Desa</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -7.0421, 107.5894 • 710 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">2.180 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">2.800.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">2.410.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">86,1%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-amber-warm/15 text-amber-warm text-[10px] font-bold">Sedang (0.55)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">98% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 6. Majalaya -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="timur">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Majalaya</div>
+            <div class="text-[11px] text-fog">Tekstil &amp; Buruh Harian • 14 Desa</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -7.0518, 107.7534 • 675 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">3.480 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">4.500.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">3.820.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">84,9%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-ember/15 text-ember text-[10px] font-bold">Tinggi (0.81)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">100% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 7. Kertasari -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="selatan-barat">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Kertasari</div>
+            <div class="text-[11px] text-fog">Hulu Citarum Situ Cisanti • 8 Desa</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -7.2145, 107.6892 • 1.550 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">1.940 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">2.600.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">2.280.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">87,7%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-ember/15 text-ember text-[10px] font-bold">Ekstrem (0.89)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">100% Terverifikasi</span>
+          </td>
+        </tr>
+        <!-- 8. Cileunyi -->
+        <tr class="hover:bg-paper/60 transition-colors radar-row" data-region="timur">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite text-sm">Kec. Cileunyi</div>
+            <div class="text-[11px] text-fog">Pintu Tol &amp; Perbatasan Kota • 6 Desa</div>
+          </td>
+          <td class="py-3.5 px-4 font-mono text-fog">
+            -6.9421, 107.7412 • 680 mdpl
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">1.750 Jiwa</td>
+          <td class="py-3.5 px-4 text-right font-mono text-fog">2.300.000.000</td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-emerald-deep">1.950.000.000</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-deep">84,8%</td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-amber-warm/15 text-amber-warm text-[10px] font-bold">Sedang (0.48)</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[10px] font-bold">94% Terverifikasi</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+  </div>
+<!-- TTE PIN Signature Modal Drawer (Clean Editorial Modal) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/40 backdrop-blur-sm hidden transition-all" id="signingModal">
+<div class="relative w-full max-w-md rounded-card bg-snow p-8 border border-cloud space-y-6">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-emerald-deep text-snow flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+</div>
+<div>
+<h3 class="font-bold text-base text-graphite">Tanda Tangan Elektronik</h3>
+<span class="font-mono text-xs text-fog">Otorisasi SK Penyaluran (TTE)</span>
+</div>
+</div>
+<button class="p-1 rounded-btn hover:bg-paper text-fog hover:text-graphite transition-colors" onclick="closeSigningModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Ticket Summary Box -->
+<div class="p-4 rounded-2xl bg-paper border border-cloud space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="text-fog">Nomor Tiket</span>
+<span class="font-mono font-bold text-graphite" id="modalTicketId">#DISB-2026-0891</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-fog">Program</span>
+<span class="font-semibold text-graphite truncate max-w-[200px]" id="modalProgramName">Bedah 5 Rutilahu Rawabogo</span>
+</div>
+<div class="pt-2 border-t border-cloud flex items-center justify-between">
+<span class="text-xs font-bold text-graphite">Nominal Disposisi</span>
+<span class="font-mono font-bold text-base text-emerald-deep" id="modalAmount">Rp 100.000.000</span>
+</div>
+</div>
+<!-- PIN Inputs -->
+<div class="space-y-3 text-center">
+<label class="text-xs font-semibold text-graphite block">Masukkan 6-Digit Master PIN Pimpinan</label>
+<div class="flex items-center justify-center gap-2">
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+</div>
+<div class="text-[11px] font-mono text-fog flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-emerald-deep">lock</span> Sertifikasi Elektronik BSrE / BSSN
+        </div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 pt-2">
+<button class="flex-1 py-2.5 rounded-btn bg-paper hover:bg-cloud border border-cloud text-graphite text-xs font-semibold transition-colors" onclick="closeSigningModal()">
+          Batal
+        </button>
+<button class="flex-1 py-2.5 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow text-xs font-bold transition-colors flex items-center justify-center gap-2" onclick="submitApprovalProcess()">
+<span class="material-symbols-outlined text-[15px]">lock_open</span>
+<span>Sahkan &amp; TTE</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast -->
+<div class="fixed bottom-6 right-6 z-50 hidden transition-all" id="toastNotification">
+<div class="flex items-center gap-3 bg-emerald-deep text-snow px-5 py-3 rounded-card shadow-lg border border-cloud/20">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="text-xs font-bold">Otorisasi Berhasil Disahkan</span>
+<span class="font-mono text-[10px] text-snow/80">SK Penyaluran otomatis terbit &amp; tersinkron ke SIMBA RI.</span>
+</div>
+</div>
+</div>
+</section>

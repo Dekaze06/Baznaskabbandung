@@ -1,0 +1,172 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Kuadran CIBEST I - IV - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Model Pengukuran Kemiskinan CIBEST I - IV" activeRoute="asesmen/cibest">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">grid_view</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Matriks Kuadran CIBEST (Center for Islamic Business &amp; Economic Studies)</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Pendekatan holistik pengukuran kemiskinan material dan spiritual sesuai pedoman riset BAZNAS RI &amp; IPB</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 CIBEST Quadrants Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Kuadran I: Rumah Tangga Sejahtera -->
+      <div class="p-6 rounded-3xl bg-white border border-[#ececee] space-y-3 shadow-xs">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-bold">KUADRAN I (SEJAHTERA)</span>
+          <span class="font-mono text-xs text-[#71717a]">MV &ge; MV0 • SV &ge; SV0</span>
+        </div>
+        <h3 class="font-bold text-base text-[#09090b]">Kaya Material &amp; Kaya Spiritual</h3>
+        <p class="text-xs text-[#71717a] leading-relaxed">
+          Keluarga mampu memenuhi seluruh standar kebutuhan Had Kifayah material dan memiliki ketaatan ibadah yang baik (shalat berjamaah, zakat, puasa).
+        </p>
+        <div class="p-3 rounded-xl bg-[#f8fafc] text-xs text-[#064e3b] font-semibold border border-[#ececee]">
+          Rekomendasi BAZNAS: Ditransformasikan menjadi Muzaki / Munfiq pendukung program.
+        </div>
+      </div>
+
+      <!-- Kuadran II: Miskin Material -->
+      <div class="p-6 rounded-3xl bg-white border-2 border-[#064e3b] space-y-3 shadow-xs relative">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white text-[11px] font-bold">KUADRAN II (PRIORITAS PEMBERDAYAAN)</span>
+          <span class="font-mono text-xs text-[#064e3b]">MV &lt; MV0 • SV &ge; SV0</span>
+        </div>
+        <h3 class="font-bold text-base text-[#09090b]">Miskin Material Namun Kaya Spiritual</h3>
+        <p class="text-xs text-[#71717a] leading-relaxed">
+          Pendapatan di bawah Had Kifayah, namun memiliki integritas spiritual tinggi, shalat tepat waktu, dan semangat berwirausaha yang amanah.
+        </p>
+        <div class="p-3 rounded-xl bg-[#ecfdf5] text-xs text-[#064e3b] font-semibold border border-[#064e3b]/20">
+          Rekomendasi BAZNAS: Intervensi Program <strong>Bandung Makmur</strong> (Modal Z-Auto, Z-Chicken Majalaya).
+        </div>
+      </div>
+
+      <!-- Kuadran III: Miskin Spiritual -->
+      <div class="p-6 rounded-3xl bg-white border border-[#ececee] space-y-3 shadow-xs">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#fef3c7] text-[#d97706] text-[11px] font-bold">KUADRAN III (MISKIN SPIRITUAL)</span>
+          <span class="font-mono text-xs text-[#71717a]">MV &ge; MV0 • SV &lt; SV0</span>
+        </div>
+        <h3 class="font-bold text-base text-[#09090b]">Kaya Material Namun Miskin Spiritual</h3>
+        <p class="text-xs text-[#71717a] leading-relaxed">
+          Kebutuhan fisik tercukupi, tetapi lalai dalam ibadah fardhu shalat 5 waktu dan tidak menunaikan kewajiban zakat atau infak syar'i.
+        </p>
+        <div class="p-3 rounded-xl bg-[#f8fafc] text-xs text-[#d97706] font-semibold border border-[#ececee]">
+          Rekomendasi BAZNAS: Intervensi Program <strong>Bandung Taqwa</strong> (Dakwah Amil &amp; Pembinaan Dai).
+        </div>
+      </div>
+
+      <!-- Kuadran IV: Miskin Mutlak -->
+      <div class="p-6 rounded-3xl bg-white border border-[#ff5a00]/30 space-y-3 shadow-xs">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] text-[11px] font-bold">KUADRAN IV (MISKIN MUTLAK)</span>
+          <span class="font-mono text-xs text-[#ff5a00]">MV &lt; MV0 • SV &lt; SV0</span>
+        </div>
+        <h3 class="font-bold text-base text-[#09090b]">Miskin Material &amp; Miskin Spiritual</h3>
+        <p class="text-xs text-[#71717a] leading-relaxed">
+          Kondisi paling darurat. Berada di bawah garis Had Kifayah serta mengalami disorientasi nilai keagamaan dan keputusasaan hidup.
+        </p>
+        <div class="p-3 rounded-xl bg-[#fff7ed] text-xs text-[#ea580c] font-semibold border border-[#ffedd5]">
+          Rekomendasi BAZNAS: Intervensi Terpadu Bantuan Pangan Konsumtif + Bedah Rutilahu + Bimbingan Ruhani.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Spiritual Scoring Matrix Table -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <h3 class="font-bold text-base text-[#09090b] flex items-center gap-2 pb-2 border-b border-[#ececee]">
+        <span class="material-symbols-outlined text-xl text-[#064e3b]">checklist_rtl</span>
+        <span>Parameter Penilaian Garis Spiritual (SV0 = Skor Minimum 3.0)</span>
+      </h3>
+      
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">Variabel Spiritual CIBEST</th>
+              <th class="py-3 px-4">Indikator Lapangan</th>
+              <th class="py-3 px-4 text-center">Bobot</th>
+              <th class="py-3 px-4 text-center">Skala Skor (1 - 5)</th>
+              <th class="py-3 px-4 text-center">Metode Verifikasi Asesor</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#09090b]">Shalat Fardhu 5 Waktu</td>
+              <td class="py-3 px-4 text-[#71717a]">Konsistensi seluruh anggota keluarga mukallaf menjalankan shalat wajib</td>
+              <td class="py-3 px-4 text-center font-mono font-bold">40%</td>
+              <td class="py-3 px-4 text-center font-mono">1 = Tidak Shalat, 5 = Tepat Waktu Berjamaah</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] text-[10px]">Wawancara &amp; Cek DKM</span></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#09090b]">Puasa Ramadhan</td>
+              <td class="py-3 px-4 text-[#71717a]">Menjalankan ibadah shaum sebulan penuh bagi yang memenuhi syarat kesehatan</td>
+              <td class="py-3 px-4 text-center font-mono font-bold">25%</td>
+              <td class="py-3 px-4 text-center font-mono">1 = Tidak Puasa, 5 = Full Ramadhan</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] text-[10px]">Wawancara Mustahik</span></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#09090b]">Zakat Fitrah &amp; Sedekah</td>
+              <td class="py-3 px-4 text-[#71717a]">Menunaikan zakat fitrah saat Idul Fitri dan kebiasaan bersedekah walau minim</td>
+              <td class="py-3 px-4 text-center font-mono font-bold">20%</td>
+              <td class="py-3 px-4 text-center font-mono">1 = Tidak Pernah, 5 = Selalu Tunaikan</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] text-[10px]">Data UPZ DKM Masjid</span></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#09090b]">Akhlak &amp; Kerukunan</td>
+              <td class="py-3 px-4 text-[#71717a]">Bebas dari miras, judi online, rentenir, serta rukun dengan tetangga RT/RW</td>
+              <td class="py-3 px-4 text-center font-mono font-bold">15%</td>
+              <td class="py-3 px-4 text-center font-mono">1 = Masalah Sosial, 5 = Teladan Warga</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] text-[10px]">Keterangan Ketua RT/RW</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

@@ -1,0 +1,141 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Breakdown 7 Norma Had Kifayah - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Standar 7 Norma Kebutuhan Pokok Had Kifayah BAZNAS RI" activeRoute="asesmen/had-kifayah">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">menu_book</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Tabel Komponen &amp; 7 Norma Kebutuhan Had Kifayah</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Penetapan besaran Had Kifayah BAZNAS Kabupaten Bandung disesuaikan dengan Indeks Harga Konsumen (IHK) Jawa Barat</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of 7 Norms -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3.5 px-4">No</th>
+              <th class="py-3.5 px-4">Unsur Norma Kebutuhan</th>
+              <th class="py-3.5 px-4">Standar Kelayakan Syar'i &amp; Fisik</th>
+              <th class="py-3.5 px-4 text-right">Norma / Jiwa / Bln (Rp)</th>
+              <th class="py-3.5 px-4 text-center">Porsi (%)</th>
+              <th class="py-3.5 px-4 text-center">Fokus Intervensi BAZNAS</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">1</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Makanan &amp; Minuman Halal</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Kecukupan kalori 2.100 kkal / hari per jiwa, beras fitrah &amp; lauk pauk gizi seimbang</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">385.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">49,0%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Bandung Peduli</span></td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">2</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Pakaian Sesuai Syariat</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Menutup aurat, 2 stel pakaian harian layak per tahun, mukena/sarung ibadah</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">65.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">8,3%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Bandung Peduli</span></td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">3</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Tempat Tinggal &amp; Sanitasi</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Atap kokoh, lantai kedap air, dinding permanen, jamban leher angsa, listrik 450VA</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">135.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">17,2%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] text-[10px] font-bold">Bedah Rutilahu</span></td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">4</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Ibadah &amp; Sosial</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Al-Quran, perlengkapan shalat, iuran keagamaan DKM masjid lingkungan</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">35.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">4,5%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Bandung Taqwa</span></td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">5</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Pendidikan Dasar 12 Thn</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Seragam, buku tulis, transportasi sekolah, biaya praktikum siswa dhuafa</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">75.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">9,6%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Bandung Cerdas</span></td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">6</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Kesehatan Dasar</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Biaya transport rujukan RS, obat kronis tidak ditanggung BPJS PBI, vitamin anak</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">55.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">7,0%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Bandung Sehat</span></td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 font-mono font-bold">7</td>
+              <td class="py-3.5 px-4 font-bold text-[#09090b]">Transportasi Lokal</td>
+              <td class="py-3.5 px-4 text-[#71717a]">Ongkos angkutan umum mencari nafkah harian &amp; mobilitas ekonomi dasar</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">35.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">4,4%</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Bandung Makmur</span></td>
+            </tr>
+          </tbody>
+          <tfoot class="bg-[#f8fafc] font-bold text-xs border-t-2 border-[#ececee]">
+            <tr>
+              <td class="py-3.5 px-4 text-[#09090b]" colspan="3">TOTAL NORMA HAD KIFAYAH (PER JIWA / BULAN)</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#064e3b] text-sm">Rp 785.000</td>
+              <td class="py-3.5 px-4 text-center font-mono">100.0%</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white text-[10px] font-bold">Standar BAZNAS RI</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

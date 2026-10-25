@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f5;
+        font-family: 'DM Sans', sans-serif;
+      }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .font-mono-num { font-family: 'JetBrains Mono', monospace; font-feature-settings: 'tnum' on, 'zero' on; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "paper": "#f4f4f5",
+            "cloud": "#ececee",
+            "emerald-deep": "#064e3b",
+            "emerald-vibrant": "#006a4e",
+            "secondary-container": "#9ef4d0",
+            "obsidian": "#09090b",
+            "graphite": "#18181b",
+            "slate": "#27272a",
+            "steel": "#52525b",
+            "fog": "#71717a",
+            "ash": "#a1a1aa",
+            "mist": "#d4d4d8",
+            "ember": "#ff5a00"
+          },
+          borderRadius: {
+            'card': '36px',
+            'btn': '14px',
+            'badge': '12px'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f4f4f5] text-obsidian antialiased selection:bg-[#064e3b] selection:text-white">
+<!-- Left Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-white z-50 flex flex-col border-r border-[#ececee]">
+<!-- Brand Header -->
+<div class="h-20 px-6 flex items-center gap-3 border-b border-[#ececee]">
+<img alt="Logo Resmi BAZNAS Kab Bandung" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-obsidian tracking-tight">BAZNAS Bandung</span>
+<span class="text-[11px] font-medium text-fog tracking-wide uppercase">Core System v2.0</span>
+</div>
+</div>
+<!-- Simba Sync Indicator Pill -->
+<div class="px-5 pt-5 pb-2">
+<div class="flex items-center justify-between px-3.5 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#064e3b]"></span>
+<span class="text-xs font-semibold text-obsidian">SIMBA RI Node 3204</span>
+</div>
+<span class="text-[11px] font-mono-num text-fog">Online</span>
+</div>
+</div>
+<!-- Nav Items -->
+<nav class="flex-1 px-3 py-2 space-y-1 overflow-y-auto">
+<div class="px-3 pt-3 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-ash">Operasional &amp; Pimpinan</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-[14px] text-steel hover:text-obsidian hover:bg-[#f4f4f5] transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Executive Command</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-[14px] text-steel hover:text-obsidian hover:bg-[#f4f4f5] transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>Asesmen &amp; Penyaluran</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-[14px] bg-[#064e3b] text-white font-semibold text-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+<span>Keuangan &amp; PSAK 109</span>
+</a>
+<div class="px-3 pt-6 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-ash">Layanan Publik BAZNAS</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-[14px] text-steel hover:text-obsidian hover:bg-[#f4f4f5] transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+<span>Beranda &amp; Transparansi</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-[14px] text-steel hover:text-obsidian hover:bg-[#f4f4f5] transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+<span>Kalkulator &amp; Kasir ZIS</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-[14px] text-steel hover:text-obsidian hover:bg-[#f4f4f5] transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<span>Lacak Mustahik (NIK)</span>
+</a>
+</nav>
+<!-- User Profile Bar -->
+<div class="p-4 border-t border-[#ececee]">
+<div class="flex items-center gap-3">
+<img alt="Profile" class="w-9 h-9 rounded-full object-cover border border-[#ececee]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+<div class="flex flex-col min-w-0">
+<span class="text-xs font-bold text-obsidian truncate">Drs. H. M. Yusuf</span>
+<span class="text-[11px] font-medium text-fog uppercase truncate">Ketua BAZNAS</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Container -->
+<div class="pl-64 min-h-screen">
+<!-- Top Bar -->
+<header class="h-20 bg-white border-b border-[#ececee] px-8 flex items-center justify-between sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-[12px] bg-[#f4f4f5] border border-[#ececee]">
+<span class="w-2 h-2 rounded-full bg-[#064e3b]"></span>
+<span class="text-xs font-semibold text-obsidian tracking-tight">PSAK 109 &amp; SIMBA RI Certified</span>
+</div>
+<span class="text-xs font-medium text-fog">Tahun Buku 2026 (RKAT Aktif)</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[14px] bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-colors" data-path="kalkulator-dan-bayar-zis">
+<span class="material-symbols-outlined text-base">add_circle</span>
+<span>Penerimaan ZIS Cepat</span>
+</button>
+<button class="w-10 h-10 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] flex items-center justify-center text-steel hover:text-obsidian hover:bg-[#ececee] transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-[#ff5a00]"></span>
+</button>
+</div>
+</header>
+<main class="p-8 space-y-8 max-w-7xl mx-auto">
+<!-- Title & High-Level Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#064e3b] mb-1">
+<span>Direktorat Keuangan &amp; Akuntansi</span>
+<span class="text-ash">•</span>
+<span class="text-fog font-medium">Node 3204</span>
+</div>
+<h1 class="text-3xl font-extrabold text-obsidian tracking-tight">Akuntansi Syariah &amp; Kas PSAK 109</h1>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[14px] bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-colors" id="btn-sync-simba">
+<span class="material-symbols-outlined text-base" id="sync-icon">sync</span>
+<span>Sinkronisasi SIMBA RI</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[14px] bg-white border border-[#ececee] text-obsidian text-xs font-semibold hover:bg-[#f4f4f5] transition-colors" id="btn-modal-jurnal">
+<span class="material-symbols-outlined text-base text-[#064e3b]">post_add</span>
+<span>Jurnal Manual</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-[14px] bg-white border border-[#ececee] text-obsidian text-xs font-semibold hover:bg-[#f4f4f5] transition-colors">
+<span class="material-symbols-outlined text-base text-fog">file_download</span>
+<span>Ekspor PSAK</span>
+</button>
+</div>
+</div>
+<!-- SECTION 1: FINANCIAL BALANCES - 5 SEGREGATED FUNDS -->
+<div>
+<div class="flex items-center justify-between mb-4 px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#064e3b] text-[20px]">account_tree</span>
+<h2 class="text-sm font-bold uppercase tracking-wider text-obsidian">Pemisahan Kas &amp; Alokasi Dana Syariah</h2>
+</div>
+<span class="text-xs font-medium text-fog">Prinsip Strict Fund Segregation</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+<!-- 1. Dana Zakat -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold uppercase tracking-wider text-fog">Dana Zakat</span>
+<span class="px-2.5 py-1 rounded-[12px] bg-[#f4f4f5] text-[#064e3b] text-[11px] font-bold">8 Asnaf</span>
+</div>
+<div class="text-2xl font-extrabold text-obsidian font-mono-num tracking-tight mb-1">
+                Rp 4,82 M
+              </div>
+<div class="text-xs text-fog font-medium">Rp 4.821.450.000</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-fog">Tersalurkan</span>
+<span class="font-bold text-[#064e3b]">82% RKAT</span>
+</div>
+</div>
+<!-- 2. Dana Infak / Sedekah -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold uppercase tracking-wider text-fog">Infak / Sedekah</span>
+<span class="px-2.5 py-1 rounded-[12px] bg-[#f4f4f5] text-steel text-[11px] font-bold">Terikat &amp; Bebas</span>
+</div>
+<div class="text-2xl font-extrabold text-obsidian font-mono-num tracking-tight mb-1">
+                Rp 2,11 M
+              </div>
+<div class="text-xs text-fog font-medium">Rp 2.115.800.000</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-fog">Infak Terikat</span>
+<span class="font-semibold text-obsidian">Rp 850 Jt</span>
+</div>
+</div>
+<!-- 3. Dana DSKL -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold uppercase tracking-wider text-fog">DSKL &amp; Fidyah</span>
+<span class="px-2.5 py-1 rounded-[12px] bg-[#f4f4f5] text-steel text-[11px] font-bold">Sosial</span>
+</div>
+<div class="text-2xl font-extrabold text-obsidian font-mono-num tracking-tight mb-1">
+                Rp 430 Jt
+              </div>
+<div class="text-xs text-fog font-medium">Rp 430.120.000</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-fog">Salur Sosial</span>
+<span class="font-semibold text-obsidian">Rp 640 Jt</span>
+</div>
+</div>
+<!-- 4. Dana Amil -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold uppercase tracking-wider text-fog">Dana Amil</span>
+<span class="px-2.5 py-1 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">Maks 12.5%</span>
+</div>
+<div class="text-2xl font-extrabold text-[#064e3b] font-mono-num tracking-tight mb-1">
+                Rp 612 Jt
+              </div>
+<div class="text-xs text-fog font-medium">Rp 612.800.000</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-fog">Porsi Real</span>
+<span class="font-bold text-[#064e3b]">10.4% (Aman)</span>
+</div>
+</div>
+<!-- 5. Hibah APBD -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold uppercase tracking-wider text-fog">Hibah APBD</span>
+<span class="px-2.5 py-1 rounded-[12px] bg-[#f4f4f5] text-steel text-[11px] font-bold">DBO 2026</span>
+</div>
+<div class="text-2xl font-extrabold text-obsidian font-mono-num tracking-tight mb-1">
+                Rp 609 Jt
+              </div>
+<div class="text-xs text-fog font-medium">Rp 609.600.000</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#ececee] flex items-center justify-between text-xs">
+<span class="text-fog">Pagu APBD</span>
+<span class="font-semibold text-obsidian">Rp 1,50 M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: DISBURSEMENT DISPATCH QUEUE -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-[14px] bg-[#f4f4f5] flex items-center justify-center text-[#064e3b]">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-obsidian">Pencairan Dana Siap Bayar</h3>
+<p class="text-xs text-fog">Disetujui Ketua &amp; Waka 2 BAZNAS Kab. Bandung</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-xs font-bold">3 Siap Salur</span>
+<button class="px-3.5 py-1.5 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel text-xs font-semibold transition-colors">
+              Filter Asnaf
+            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="text-fog border-b border-[#ececee]">
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">Tiket &amp; Penerima</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">Program &amp; Asnaf</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">Rekening Bank</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px] text-right">Plafon Disetujui</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px] text-center">Aksi Kasir</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#ececee]">
+<!-- Item 1 -->
+<tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+<td class="py-4 px-4">
+<div class="font-bold text-obsidian text-sm">Ibu Ai Siti Rohimah</div>
+<div class="font-mono-num text-[11px] text-fog mt-0.5">#DISB-2026-0891 • NIK: 3204126105820004</div>
+</td>
+<td class="py-4 px-4">
+<div class="text-obsidian font-medium">Bantuan Cuci Darah RSUD Soreang</div>
+<div class="mt-1 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-[12px] bg-red-50 text-red-700 text-[10px] font-bold">Fakir</span>
+<span class="text-fog text-[11px] font-mono-num">COA 5.1.01.02.04</span>
+</div>
+</td>
+<td class="py-4 px-4 font-mono-num">
+<div class="text-obsidian font-semibold">Bank BJB Syariah</div>
+<div class="text-fog text-[11px]">5120-2201-94819</div>
+</td>
+<td class="py-4 px-4 text-right font-mono-num font-bold text-sm text-obsidian">
+                  Rp 3.500.000
+                </td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white font-semibold text-xs transition-colors" onclick="executeTransfer('#DISB-2026-0891', 'Rp 3.500.000', 'Ibu Ai Siti Rohimah', 'BJB Syariah')">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Transfer H2H</span>
+</button>
+<button class="w-8 h-8 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel hover:text-obsidian flex items-center justify-center transition-colors" onclick="printBKK('#DISB-2026-0891')" title="Cetak Bukti Kas Keluar">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+<td class="py-4 px-4">
+<div class="font-bold text-obsidian text-sm">Bedah Rutilahu Ciwidey</div>
+<div class="font-mono-num text-[11px] text-fog mt-0.5">#DISB-2026-0892 • Pokmas Sukalaksana</div>
+</td>
+<td class="py-4 px-4">
+<div class="text-obsidian font-medium">Rehab Rumah Fakir Miskin 4 Unit</div>
+<div class="mt-1 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-[12px] bg-amber-50 text-amber-800 text-[10px] font-bold">Miskin</span>
+<span class="text-fog text-[11px] font-mono-num">COA 5.1.01.04.01</span>
+</div>
+</td>
+<td class="py-4 px-4 font-mono-num">
+<div class="text-obsidian font-semibold">Bank Syariah Indonesia</div>
+<div class="text-fog text-[11px]">7119-0021-4820</div>
+</td>
+<td class="py-4 px-4 text-right font-mono-num font-bold text-sm text-obsidian">
+                  Rp 100.000.000
+                </td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white font-semibold text-xs transition-colors" onclick="executeTransfer('#DISB-2026-0892', 'Rp 100.000.000', 'Pokmas Rutilahu Ciwidey', 'BSI')">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Transfer H2H</span>
+</button>
+<button class="w-8 h-8 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel hover:text-obsidian flex items-center justify-center transition-colors" onclick="printBKK('#DISB-2026-0892')" title="Cetak Bukti Kas Keluar">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+<td class="py-4 px-4">
+<div class="font-bold text-obsidian text-sm">Z-Auto Banjaran (3 Pemuda)</div>
+<div class="font-mono-num text-[11px] text-fog mt-0.5">#DISB-2026-0893 • Bengkel Binaan</div>
+</td>
+<td class="py-4 px-4">
+<div class="text-obsidian font-medium">Bantuan Modal Usaha Produktif</div>
+<div class="mt-1 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-[12px] bg-amber-50 text-amber-800 text-[10px] font-bold">Produktif</span>
+<span class="text-fog text-[11px] font-mono-num">COA 5.1.01.03.02</span>
+</div>
+</td>
+<td class="py-4 px-4 font-mono-num">
+<div class="text-obsidian font-semibold">Bank BJB Syariah</div>
+<div class="text-fog text-[11px]">5120-8819-33210</div>
+</td>
+<td class="py-4 px-4 text-right font-mono-num font-bold text-sm text-obsidian">
+                  Rp 45.000.000
+                </td>
+<td class="py-4 px-4 text-center">
+<div class="flex items-center justify-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white font-semibold text-xs transition-colors" onclick="executeTransfer('#DISB-2026-0893', 'Rp 45.000.000', 'Kelompok Z-Auto Banjaran', 'BJB Syariah')">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Transfer H2H</span>
+</button>
+<button class="w-8 h-8 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel hover:text-obsidian flex items-center justify-center transition-colors" onclick="printBKK('#DISB-2026-0893')" title="Cetak Bukti Kas Keluar">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 3: PSAK 109 DOUBLE ENTRY JOURNAL -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-8 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-[14px] bg-[#f4f4f5] flex items-center justify-center text-[#064e3b]">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-obsidian">Buku Jurnal PSAK 109</h3>
+<p class="text-xs text-fog">Auto-Double Entry Terverifikasi BAZNAS RI</p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+  <!-- Search Box -->
+  <div class="relative flex-1 max-w-sm">
+    <span class="material-symbols-outlined absolute left-3 top-2.5 text-fog text-base">search</span>
+    <input type="text" id="jurnal-search-input" placeholder="Cari ref ID, COA akun, atau uraian transaksi..." class="w-full bg-[#f4f4f5] border border-[#ececee] text-obsidian text-xs pl-9 pr-3.5 py-2 rounded-[14px] focus:outline-none focus:ring-1 focus:ring-[#064e3b]"/>
+  </div>
+  <!-- Filter Kolam Dana -->
+  <div class="flex flex-wrap items-center gap-1.5" id="jurnal-filter-buttons">
+    <button class="px-3 py-1.5 rounded-[12px] bg-[#064e3b] text-white text-xs font-bold transition-colors jrn-filter active" data-pool="all">Semua Kolam (8)</button>
+    <button class="px-3 py-1.5 rounded-[12px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel text-xs font-semibold transition-colors jrn-filter" data-pool="zakat">Dana Zakat (1-xxxx)</button>
+    <button class="px-3 py-1.5 rounded-[12px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel text-xs font-semibold transition-colors jrn-filter" data-pool="infak">Dana Infak (2-xxxx)</button>
+    <button class="px-3 py-1.5 rounded-[12px] bg-[#f4f4f5] hover:bg-[#ececee] text-steel text-xs font-semibold transition-colors jrn-filter" data-pool="amil">Hak Amil (4-xxxx)</button>
+  </div>
+</div>
+</div>
+<!-- Ledger Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="text-fog border-b border-[#ececee]">
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">Ref ID &amp; Waktu</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">COA &amp; Uraian Transaksi Double-Entry</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">Kolam</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px] text-right">Debit (Rp)</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px] text-right">Kredit (Rp)</th>
+<th class="py-3 px-4 font-bold uppercase tracking-wider text-[11px] text-center">Audit Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#ececee]" id="ledger-table-body">
+<!-- Entry 1 -->
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors ledger-row" data-pool="zakat">
+<td class="py-3.5 px-4 align-top font-mono-num text-[11px] text-fog">
+<span class="font-bold text-[#064e3b] block">#JV-1024-001</span>
+08:22 WIB
+</td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-obsidian">Kas Bank BSI Giro Zakat <span class="text-fog font-mono-num font-normal">(1.1.01.02.01)</span></div>
+<div class="text-[11px] text-fog mt-0.5">Penerimaan Zakat Profesi ASN Setda Bandung (QRIS Batch)</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[10px] font-bold">ZAKAT</span>
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+124.500.000
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-3.5 px-4 align-top text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">cloud_done</span> SIMBA OK
+</span>
+</td>
+</tr>
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors bg-[#f4f4f5]/30 ledger-row" data-pool="zakat">
+<td class="py-2.5 px-4 align-top"></td>
+<td class="py-2.5 px-4 align-top pl-8">
+<div class="font-medium text-steel">Pendapatan Zakat Profesi Individu <span class="text-ash font-mono-num">(4.1.01.01.01)</span></div>
+<div class="text-[11px] text-fog italic">Pengakuan Hak Syar'i 8 Asnaf</div>
+</td>
+<td class="py-2.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[10px] font-bold">ZAKAT</span>
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+124.500.000
+</td>
+<td class="py-2.5 px-4 align-top text-center text-ash text-[11px] font-mono-num">Synced</td>
+</tr>
+
+<!-- Entry 2 -->
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors ledger-row" data-pool="zakat">
+<td class="py-3.5 px-4 align-top font-mono-num text-[11px] text-fog">
+<span class="font-bold text-[#064e3b] block">#JV-1024-002</span>
+09:50 WIB
+</td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-obsidian">Beban Penyaluran Zakat - Asnaf Fakir <span class="text-fog font-mono-num font-normal">(5.1.01.01.01)</span></div>
+<div class="text-[11px] text-fog mt-0.5">Tanggap Darurat Longsor &amp; Rutilahu Kp. Cikoneng Soreang</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[10px] font-bold">ZAKAT</span>
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+75.000.000
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-3.5 px-4 align-top text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">cloud_done</span> SIMBA OK
+</span>
+</td>
+</tr>
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors bg-[#f4f4f5]/30 ledger-row" data-pool="zakat">
+<td class="py-2.5 px-4 align-top"></td>
+<td class="py-2.5 px-4 align-top pl-8">
+<div class="font-medium text-steel">Kas Bank BJB Syariah Giro Zakat <span class="text-ash font-mono-num">(1.1.01.02.02)</span></div>
+<div class="text-[11px] text-fog italic">Transfer H2H Pokmas Bencana</div>
+</td>
+<td class="py-2.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[10px] font-bold">ZAKAT</span>
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+75.000.000
+</td>
+<td class="py-2.5 px-4 align-top text-center text-ash text-[11px] font-mono-num">Synced</td>
+</tr>
+
+<!-- Entry 3: Setoran UPZ Disdik -->
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors ledger-row" data-pool="zakat">
+<td class="py-3.5 px-4 align-top font-mono-num text-[11px] text-fog">
+<span class="font-bold text-[#064e3b] block">#JV-1024-003</span>
+11:15 WIB
+</td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-obsidian">Kas Bank BJB Syariah Giro Zakat <span class="text-fog font-mono-num font-normal">(1.1.01.02.02)</span></div>
+<div class="text-[11px] text-fog mt-0.5">Setoran Kolektif Zakat Profesi ASN Disdik Kab. Bandung (584 Guru)</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[10px] font-bold">ZAKAT</span>
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+312.400.000
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-3.5 px-4 align-top text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">cloud_done</span> SIMBA OK
+</span>
+</td>
+</tr>
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors bg-[#f4f4f5]/30 ledger-row" data-pool="zakat">
+<td class="py-2.5 px-4 align-top"></td>
+<td class="py-2.5 px-4 align-top pl-8">
+<div class="font-medium text-steel">Pendapatan Zakat Profesi Entitas UPZ <span class="text-ash font-mono-num">(4.1.01.01.02)</span></div>
+<div class="text-[11px] text-fog italic">Rekap Payroll Bank BJB Syariah</div>
+</td>
+<td class="py-2.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[10px] font-bold">ZAKAT</span>
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+312.400.000
+</td>
+<td class="py-2.5 px-4 align-top text-center text-ash text-[11px] font-mono-num">Synced</td>
+</tr>
+
+<!-- Entry 4: Hak Amil Syar'i (12.5%) -->
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors ledger-row" data-pool="amil">
+<td class="py-3.5 px-4 align-top font-mono-num text-[11px] text-fog">
+<span class="font-bold text-[#064e3b] block">#JV-1024-004</span>
+11:20 WIB
+</td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-obsidian">Bagian Amil atas Penerimaan Zakat <span class="text-fog font-mono-num font-normal">(5.1.08.01.01)</span></div>
+<div class="text-[11px] text-fog mt-0.5">Alokasi Hak Syar'i Amil 12.5% atas Setoran Zakat Disdik</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-amber-50 text-amber-800 text-[10px] font-bold">AMIL</span>
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+39.050.000
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-3.5 px-4 align-top text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">cloud_done</span> SIMBA OK
+</span>
+</td>
+</tr>
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors bg-[#f4f4f5]/30 ledger-row" data-pool="amil">
+<td class="py-2.5 px-4 align-top"></td>
+<td class="py-2.5 px-4 align-top pl-8">
+<div class="font-medium text-steel">Pendapatan Bagian Amil Dana Zakat <span class="text-ash font-mono-num">(4.4.01.01.01)</span></div>
+<div class="text-[11px] text-fog italic">Pemisahan ke Rekening Giro Amil BJB Syariah</div>
+</td>
+<td class="py-2.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-amber-50 text-amber-800 text-[10px] font-bold">AMIL</span>
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+39.050.000
+</td>
+<td class="py-2.5 px-4 align-top text-center text-ash text-[11px] font-mono-num">Synced</td>
+</tr>
+
+<!-- Entry 5: Penyaluran Modal Produktif Infak Z-Auto -->
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors ledger-row" data-pool="infak">
+<td class="py-3.5 px-4 align-top font-mono-num text-[11px] text-fog">
+<span class="font-bold text-[#064e3b] block">#JV-1024-005</span>
+13:10 WIB
+</td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-obsidian">Beban Penyaluran Infak Produktif Bandung Makmur <span class="text-fog font-mono-num font-normal">(5.2.01.03.02)</span></div>
+<div class="text-[11px] text-fog mt-0.5">Bantuan Sarana Bengkel &amp; Kompresor Z-Auto Banjaran (3 Pemuda)</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-emerald-50 text-emerald-800 text-[10px] font-bold">INFAK</span>
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+45.000.000
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-3.5 px-4 align-top text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">cloud_done</span> SIMBA OK
+</span>
+</td>
+</tr>
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors bg-[#f4f4f5]/30 ledger-row" data-pool="infak">
+<td class="py-2.5 px-4 align-top"></td>
+<td class="py-2.5 px-4 align-top pl-8">
+<div class="font-medium text-steel">Kas Bank BSI Giro Infak <span class="text-ash font-mono-num">(1.1.02.02.01)</span></div>
+<div class="text-[11px] text-fog italic">Transfer H2H Bank Syariah Indonesia</div>
+</td>
+<td class="py-2.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-emerald-50 text-emerald-800 text-[10px] font-bold">INFAK</span>
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+45.000.000
+</td>
+<td class="py-2.5 px-4 align-top text-center text-ash text-[11px] font-mono-num">Synced</td>
+</tr>
+
+<!-- Entry 6: Infak Sedekah QRIS Berkah Masjid Al-Fathu -->
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors ledger-row" data-pool="infak">
+<td class="py-3.5 px-4 align-top font-mono-num text-[11px] text-fog">
+<span class="font-bold text-[#064e3b] block">#JV-1024-006</span>
+14:05 WIB
+</td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-obsidian">Kas Bank BJB Syariah QRIS <span class="text-fog font-mono-num font-normal">(1.1.02.01.03)</span></div>
+<div class="text-[11px] text-fog mt-0.5">Penghimpunan Sedekah Jumat Berkah via QRIS Masjid Agung Al-Fathu Soreang</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-emerald-50 text-emerald-800 text-[10px] font-bold">INFAK</span>
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+18.250.000
+</td>
+<td class="py-3.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-3.5 px-4 align-top text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-[11px] font-bold">
+<span class="material-symbols-outlined text-[13px]">cloud_done</span> SIMBA OK
+</span>
+</td>
+</tr>
+<tr class="hover:bg-[#f4f4f5]/40 transition-colors bg-[#f4f4f5]/30 ledger-row" data-pool="infak">
+<td class="py-2.5 px-4 align-top"></td>
+<td class="py-2.5 px-4 align-top pl-8">
+<div class="font-medium text-steel">Pendapatan Infak Tidak Terikat <span class="text-ash font-mono-num">(4.2.01.01.01)</span></div>
+<div class="text-[11px] text-fog italic">Settlement QRIS Merchant BJB Syariah</div>
+</td>
+<td class="py-2.5 px-4 align-top">
+<span class="px-2 py-0.5 rounded-[12px] bg-emerald-50 text-emerald-800 text-[10px] font-bold">INFAK</span>
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num text-ash">
+-
+</td>
+<td class="py-2.5 px-4 align-top text-right font-mono-num font-bold text-obsidian">
+18.250.000
+</td>
+<td class="py-2.5 px-4 align-top text-center text-ash text-[11px] font-mono-num">Synced</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- BALANCED TOTAL STATUS FOOTER -->
+<div class="p-6 rounded-[36px] bg-[#f4f4f5] border border-[#ececee] flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-[#064e3b]"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-obsidian">Trial Balance Status:</span>
+<span class="px-2.5 py-0.5 rounded-[12px] bg-[#064e3b] text-white text-[11px] font-bold">SEIMBANG (0 VARIANCE)</span>
+</div>
+<p class="text-xs text-fog mt-0.5">Seluruh debit dan kredit teralokasi simetris pada kolam PSAK 109.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 font-mono-num">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-fog block">Total Debit</span>
+<span class="text-base font-bold text-obsidian">Rp 54.892.400.000</span>
+</div>
+<span class="text-ash font-bold text-lg">=</span>
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-fog block">Total Kredit</span>
+<span class="text-base font-bold text-[#064e3b]">Rp 54.892.400.000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: SIMBA TELEMETRY & BANK RECONCILIATION -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- SIMBA Connector Compact Status -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-[14px] bg-[#f4f4f5] flex items-center justify-center text-[#064e3b]">
+<span class="material-symbols-outlined text-[20px]">cloud_sync</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-obsidian">Gateway SIMBA BAZNAS RI</h3>
+<p class="text-xs text-fog">API Endpoint Node 3204 (Kab. Bandung)</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-xs font-bold">Active</span>
+</div>
+<!-- Stats Bar -->
+<div class="grid grid-cols-3 gap-3 mb-4">
+<div class="p-4 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-center">
+<div class="text-[11px] font-bold uppercase tracking-wider text-fog">Batch Hari Ini</div>
+<div class="text-xl font-bold font-mono-num text-obsidian mt-1">24 Batch</div>
+</div>
+<div class="p-4 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-center">
+<div class="text-[11px] font-bold uppercase tracking-wider text-fog">Error Rate</div>
+<div class="text-xl font-bold font-mono-num text-[#064e3b] mt-1">0%</div>
+</div>
+<div class="p-4 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-center">
+<div class="text-[11px] font-bold uppercase tracking-wider text-fog">Latency</div>
+<div class="text-xl font-bold font-mono-num text-obsidian mt-1">28 ms</div>
+</div>
+</div>
+<p class="text-xs text-fog leading-relaxed">
+              Semua mutasi otomatis ditandatangani menggunakan SHA-256 Checksum dan terdaftar pada Master Ledger Nasional BAZNAS RI.
+            </p>
+</div>
+<div class="pt-6 mt-4 border-t border-[#ececee] flex items-center justify-between">
+<span class="text-xs font-mono-num text-fog">ID Lembaga: BAZNAS-3204</span>
+<button class="text-xs font-bold text-[#064e3b] hover:underline">
+              Unduh Manifest JSON →
+            </button>
+</div>
+</div>
+<!-- Bank Recon H2H -->
+<div class="bg-white rounded-[36px] border border-[#ececee] p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-[14px] bg-[#f4f4f5] flex items-center justify-center text-[#064e3b]">
+<span class="material-symbols-outlined text-[20px]">sync_alt</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-obsidian">Rekonsiliasi Bank H2H</h3>
+<p class="text-xs text-fog">Sinkronisasi Realtime Rekening Giro Syariah</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-[12px] bg-[#064e3b]/10 text-[#064e3b] text-xs font-bold">100% Match</span>
+</div>
+<div class="space-y-3">
+<!-- BSI Giro -->
+<div class="p-4 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] flex items-center justify-between">
+<div>
+<div class="text-xs font-bold text-obsidian">BSI Giro Zakat Utama</div>
+<div class="text-[11px] font-mono-num text-fog">Rek: 100-249-3204</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold font-mono-num text-obsidian">Rp 3.910.420.000</div>
+<div class="text-[10px] font-bold text-[#064e3b]">Selisih Rp 0</div>
+</div>
+</div>
+<!-- BJB Syariah Giro -->
+<div class="p-4 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] flex items-center justify-between">
+<div>
+<div class="text-xs font-bold text-obsidian">BJB Syariah Giro Infak &amp; Amil</div>
+<div class="text-[11px] font-mono-num text-fog">Rek: 512-001-94819</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold font-mono-num text-obsidian">Rp 2.840.110.000</div>
+<div class="text-[10px] font-bold text-[#064e3b]">Selisih Rp 0</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 mt-4 border-t border-[#ececee] flex items-center justify-between">
+<span class="text-xs text-fog">Interval Update: Tiap 60 Detik</span>
+<button class="text-xs font-bold text-[#064e3b] hover:underline">
+              Buka Riwayat Mutasi →
+            </button>
+</div>
+<!-- SECTION 5: LAPORAN POSISI KEUANGAN & NERACA PSAK 109 -->
+<div id="neraca-psak" class="bg-white rounded-[36px] border border-[#ececee] p-8 space-y-6 shadow-xs">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#ececee]">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-[14px] bg-[#f4f4f5] flex items-center justify-center text-[#064e3b]">
+        <span class="material-symbols-outlined text-[22px]">account_balance</span>
+      </div>
+      <div>
+        <h3 class="text-base font-bold text-obsidian">Laporan Posisi Keuangan &amp; Neraca PSAK 109</h3>
+        <p class="text-xs text-fog">Ikhtisar Aset Kelolaan Zakat, Infak, DSKL, dan Realisasi Program RKAT 2026</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="px-3 py-1 rounded-[12px] bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/15">Opini Audit: WTP</span>
+      <button type="button" class="px-3.5 py-1.5 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] text-obsidian text-xs font-semibold border border-[#ececee] transition-colors" onclick="showAppToast('Menyiapkan Berkas Laporan Keuangan PSAK 109 Format PDF BAZNAS RI...', 'download')">
+        Unduh PDF Laporan
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Card 1: Aset Kas Kelolaan -->
+    <div class="p-5 rounded-[24px] bg-[#f8fafc] border border-[#ececee] flex flex-col justify-between gap-4">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-fog block mb-1">Aset Kas &amp; Bank Syariah</span>
+        <div class="text-2xl font-extrabold font-mono-num text-obsidian tracking-tight">Rp 7,97 M</div>
+        <div class="text-xs text-[#064e3b] font-semibold mt-0.5">Total Kas Tersedia di Bank</div>
+      </div>
+      <div class="space-y-2 text-xs pt-3 border-t border-[#ececee]">
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Giro BJB Syariah (Zakat &amp; Amil):</span>
+          <span class="font-mono-num font-semibold text-obsidian">Rp 4,12 M</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Giro BSI (Infak &amp; Sedekah):</span>
+          <span class="font-mono-num font-semibold text-obsidian">Rp 3,24 M</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Kas QRIS &amp; Unit Operasional:</span>
+          <span class="font-mono-num font-semibold text-obsidian">Rp 612 Jt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Saldo Dana PSAK 109 -->
+    <div class="p-5 rounded-[24px] bg-[#f8fafc] border border-[#ececee] flex flex-col justify-between gap-4">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-fog block mb-1">Alokasi Saldo Dana Kelolaan</span>
+        <div class="text-2xl font-extrabold font-mono-num text-[#064e3b] tracking-tight">100% Syar'i</div>
+        <div class="text-xs text-fog font-medium mt-0.5">Strict Segregation 5 Kolam Dana</div>
+      </div>
+      <div class="space-y-2 text-xs pt-3 border-t border-[#ececee]">
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Saldo Dana Zakat (8 Asnaf):</span>
+          <span class="font-mono-num font-bold text-obsidian">Rp 4,82 M</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Saldo Dana Infak / Sedekah:</span>
+          <span class="font-mono-num font-bold text-obsidian">Rp 2,11 M</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Saldo Hak Amil (Realisasi 10.4%):</span>
+          <span class="font-mono-num font-bold text-[#064e3b]">Rp 612 Jt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Capaian Penyaluran 5 Program -->
+    <div class="p-5 rounded-[24px] bg-[#f8fafc] border border-[#ececee] flex flex-col justify-between gap-4">
+      <div>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-fog block mb-1">Penyaluran 5 Program BAZNAS</span>
+        <div class="text-2xl font-extrabold font-mono-num text-obsidian tracking-tight">Rp 20,05 M</div>
+        <div class="text-xs text-[#064e3b] font-semibold mt-0.5">Capaian: 87.2% Target RKAT 2026</div>
+      </div>
+      <div class="space-y-1.5 text-xs pt-3 border-t border-[#ececee]">
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Bandung Peduli (Rutilahu/Darurat):</span>
+          <span class="font-mono-num font-semibold text-obsidian">Rp 8,42 M</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Bandung Makmur (Ekonomi Produktif):</span>
+          <span class="font-mono-num font-semibold text-obsidian">Rp 3,85 M</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-fog">Bandung Cerdas &amp; Sehat:</span>
+          <span class="font-mono-num font-semibold text-obsidian">Rp 5,83 M</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+</div>
+<!-- MODAL: INPUT JURNAL MANUAL MEMORIAL -->
+<div class="fixed inset-0 z-50 bg-obsidian/40 backdrop-blur-sm hidden items-center justify-center p-4" id="modal-jurnal">
+<div class="bg-white rounded-[36px] border border-[#ececee] max-w-xl w-full p-8 space-y-6">
+<div class="flex items-center justify-between pb-4 border-b border-[#ececee]">
+<div>
+<h3 class="text-lg font-bold text-obsidian">Input Jurnal Memorial PSAK 109</h3>
+<p class="text-xs text-fog mt-0.5">Pastikan pemisahan dana zakat, infak, dan amil ditaati.</p>
+</div>
+<button class="w-8 h-8 rounded-[14px] bg-[#f4f4f5] flex items-center justify-center text-steel hover:text-obsidian" id="close-modal">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="space-y-4 text-xs">
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Kolam Dana</label>
+<select class="w-full bg-[#f4f4f5] border border-[#ececee] p-3 rounded-[14px] text-obsidian font-medium outline-none">
+<option>Dana Zakat (Terikat 8 Asnaf)</option>
+<option>Dana Infak / Sedekah (Terikat)</option>
+<option>Dana Infak / Sedekah (Bebas)</option>
+<option>Dana Amil (Operasional)</option>
+<option>Dana DSKL / Fidyah</option>
+</select>
+</div>
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Dokumen Sumber / Memo</label>
+<input class="w-full bg-[#f4f4f5] border border-[#ececee] p-3 rounded-[14px] text-obsidian outline-none font-medium" placeholder="Contoh: MEMO-2026-X-042 / BKK-1843" type="text"/>
+</div>
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Keterangan Transaksi</label>
+<input class="w-full bg-[#f4f4f5] border border-[#ececee] p-3 rounded-[14px] text-obsidian outline-none font-medium" placeholder="Rincian peruntukan atau nama program" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Akun Debit</label>
+<select class="w-full bg-[#f4f4f5] border border-[#ececee] p-2.5 rounded-[14px] text-obsidian">
+<option>5.1.01.01.01 - Penyaluran Asnaf Fakir</option>
+<option>5.1.01.02.01 - Penyaluran Asnaf Miskin</option>
+<option>1.1.01.02.01 - Kas BSI Giro Zakat</option>
+</select>
+</div>
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Nilai Debit (Rp)</label>
+<input class="w-full bg-[#f4f4f5] border border-[#ececee] p-2.5 rounded-[14px] text-obsidian font-mono-num font-bold text-right" placeholder="0" type="number"/>
+</div>
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Akun Kredit</label>
+<select class="w-full bg-[#f4f4f5] border border-[#ececee] p-2.5 rounded-[14px] text-obsidian">
+<option>1.1.01.02.02 - Kas Giro BJB Syariah</option>
+<option>4.1.01.01.01 - Pendapatan Zakat</option>
+</select>
+</div>
+<div>
+<label class="font-bold uppercase tracking-wider text-fog block mb-1 text-[11px]">Nilai Kredit (Rp)</label>
+<input class="w-full bg-[#f4f4f5] border border-[#ececee] p-2.5 rounded-[14px] text-obsidian font-mono-num font-bold text-right" placeholder="0" type="number"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 pt-4 border-t border-[#ececee]">
+<button class="px-4 py-2.5 rounded-[14px] bg-[#f4f4f5] text-steel hover:text-obsidian text-xs font-semibold" id="cancel-modal">
+          Batal
+        </button>
+<button class="px-5 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors" onclick="saveJurnalManual()">
+          Simpan &amp; Posting SIMBA
+        </button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 hidden transition-all" id="toast">
+<div class="flex items-center gap-3 px-5 py-3.5 rounded-[14px] bg-obsidian text-white text-xs font-medium border border-slate">
+<span class="material-symbols-outlined text-[#9ef4d0] text-base" id="toast-icon">check_circle</span>
+<span id="toast-message">Operasi akuntansi berhasil diproses.</span>
+</div>
+</div>
+<!-- JavaScript Interactivity -->
+<script>
+    const modal = document.getElementById('modal-jurnal');
+    const btnOpenModal = document.getElementById('btn-modal-jurnal');
+    const btnCloseModal = document.getElementById('close-modal');
+    const btnCancelModal = document.getElementById('cancel-modal');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    btnOpenModal.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelModal.addEventListener('click', closeModal);
+
+    function showToast(msg, icon = 'check_circle') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      
+      toastMsg.textContent = msg;
+      toastIcon.textContent = icon;
+      toast.classList.remove('hidden');
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+
+    function executeTransfer(ticket, amount, mustahik, bank) {
+      if (confirm(`Konfirmasi Transfer H2H:\nTiket: ${ticket}\nMustahik: ${mustahik}\nNominal: ${amount}\nBank: ${bank}\n\nEksekusi pencairan PSAK 109?`)) {
+        showToast(`Disbursement ${ticket} (${amount}) untuk ${mustahik} berhasil ditransfer via ${bank}!`, 'verified');
+      }
+    }
+
+    function printBKK(ticket) {
+      showToast(`Bukti Kas Keluar (BKK) ${ticket} disiapkan untuk dicetak.`, 'print');
+    }
+
+    function saveJurnalManual() {
+      closeModal();
+      showToast('Jurnal memorial tersimpan seimbang dan dijadwalkan ke Node SIMBA RI!', 'cloud_done');
+    }
+
+    const btnSyncSimba = document.getElementById('btn-sync-simba');
+    const syncIcon = document.getElementById('sync-icon');
+
+    btnSyncSimba.addEventListener('click', () => {
+      syncIcon.classList.add('animate-spin');
+      btnSyncSimba.disabled = true;
+
+      setTimeout(() => {
+        syncIcon.classList.remove('animate-spin');
+        btnSyncSimba.disabled = false;
+        showToast('Sinkronisasi SIMBA RI Selesai: Seluruh mutasi telah tervalidasi SHA-256.', 'verified');
+      }, 1500);
+    });
+  </script>
+  <script src="/screens/shared-nav.js"></script>
+</body></html>

@@ -1,0 +1,219 @@
+---
+interface Props {
+  activeRoute?: string;
+}
+
+const { activeRoute = "" } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
+
+const isModActive = (prefix: string) => {
+  if (prefix === '/admin' && (currentPath === '/admin' || currentPath === '')) return true;
+  return currentPath.startsWith(prefix);
+};
+
+const isSubActive = (path: string) => {
+  return currentPath === path;
+};
+---
+
+<!-- ==================== SIDEBAR ADMIN (SaaS BACKOFFICE) ==================== -->
+  <aside id="app-sidebar" class="fixed left-0 top-0 h-screen w-72 bg-white z-50 flex flex-col border-r border-[#ececee] shadow-xs">
+    <!-- Brand / Header -->
+    <div class="h-20 px-6 flex items-center justify-between border-b border-[#ececee] shrink-0">
+      <a href="/admin" class="flex items-center gap-3 min-w-0">
+        <img alt="Logo BAZNAS Kabupaten Bandung" class="h-10 w-auto object-contain shrink-0" src="/logo-baznas-navbar.webp" width="128" height="40" loading="eager"/>
+        <div class="flex flex-col min-w-0">
+          <span class="font-bold text-[15px] tracking-tight leading-tight text-[#064e3b] truncate">BAZNAS Bandung</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-[#71717a] font-semibold">Panel Admin v2.0</span>
+        </div>
+      </a>
+      <button id="app-btn-close-sidebar" class="lg:hidden p-1.5 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup menu">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+
+    <!-- Simba Sync Status Pill -->
+    <div class="px-5 pt-3 pb-2 shrink-0">
+      <div class="px-3.5 py-2 rounded-xl bg-[#f8fafc] border border-[#ececee] flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#064e3b] animate-pulse"></span>
+          <span class="text-xs font-semibold">SIMBA Node 3204</span>
+        </div>
+        <span class="font-mono text-[10px] font-bold text-[#064e3b] bg-[#ecfdf5] px-2 py-0.5 rounded border border-[#064e3b]/15">PSAK 109 WTP</span>
+      </div>
+    </div>
+
+    <!-- Role Switcher (Tanpa Emoji) -->
+    <div class="px-5 py-2 shrink-0">
+      <label for="app-role-selector" class="block text-[10px] font-bold uppercase tracking-wider text-[#71717a] mb-1">Peran Akses Amil</label>
+      <select id="app-role-selector" class="w-full bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold rounded-xl px-3 py-2 cursor-pointer focus:ring-1 focus:ring-[#064e3b] focus:border-[#064e3b]">
+        <option value="pimpinan">Pimpinan (Ketua &amp; Wakil Ketua)</option>
+        <option value="keuangan">Staf / Kabag Keuangan (PSAK 109)</option>
+        <option value="surveyor">Asesor Lapangan &amp; Pendistribusian</option>
+        <option value="upz">Operator UPZ Daerah (Kecamatan / OPD)</option>
+      </select>
+    </div>
+
+    <!-- Navigation List (Categorized & Badged) -->
+    <nav id="app-nav" class="flex-1 px-4 py-2 space-y-1 overflow-y-auto" aria-label="Navigasi modul admin">
+      <!-- Section 1: Executive Command -->
+      <div class="space-y-0.5">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold flex items-center justify-between">
+          <span>Ringkasan Eksekutif</span>
+        </div>
+        <a href="/admin/command-center" class={`app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium transition-all ${isModActive('/admin/command-center') || currentPath === '/admin' ? 'active' : ''}`}>
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">dashboard</span>
+          <span class="flex-1 truncate">Executive Command</span>
+          <span id="badge-pending-tte" class="text-[10px] bg-[#ff5a00] text-white px-2 py-0.5 rounded-full font-bold">8 TTE</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="/admin/command-center/tte" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/command-center/tte') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Otorisasi &amp; Disposisi TTE</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">signature</span>
+          </a>
+          <a href="/admin/command-center/radar-wilayah" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/command-center/radar-wilayah') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Radar Sebaran 31 Kec.</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">map</span>
+          </a>
+          <a href="/admin/command-center/rkat" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/command-center/rkat') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Capaian RKAT 2026</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">trending_up</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 2: Asesmen Lapangan & Had Kifayah -->
+      <div class="space-y-0.5 pt-2">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Operasional Lapangan</div>
+        <a href="/admin/asesmen" class={`app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium transition-all ${isModActive('/admin/asesmen') ? 'active' : ''}`}>
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">verified_user</span>
+          <span class="flex-1 truncate">Asesmen &amp; Had Kifayah</span>
+          <span class="text-[10px] bg-[#ecfdf5] text-[#064e3b] border border-[#064e3b]/15 px-2 py-0.5 rounded-full font-bold font-mono">CIBEST</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="/admin/asesmen/antrean" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/asesmen/antrean') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Antrean 48 Mustahik</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">view_list</span>
+          </a>
+          <a href="/admin/asesmen/verifikasi" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/asesmen/verifikasi') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Verifikasi On-Site Mustahik</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">badge</span>
+          </a>
+          <a href="/admin/asesmen/kalkulator" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/asesmen/kalkulator') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Kalkulator Had Kifayah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">calculate</span>
+          </a>
+          <a href="/admin/asesmen/had-kifayah" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/asesmen/had-kifayah') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Breakdown Norma Kebutuhan</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">table_chart</span>
+          </a>
+          <a href="/admin/asesmen/cibest" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/asesmen/cibest') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Kuadran CIBEST I - IV</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">grid_view</span>
+          </a>
+          <a href="/admin/asesmen/geotagging" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/asesmen/geotagging') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Geotagging &amp; Foto Rumah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">satellite_alt</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 3: Keuangan & Akuntansi PSAK 109 -->
+      <div class="space-y-0.5 pt-2">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Tata Kelola &amp; Akuntansi</div>
+        <a href="/admin/keuangan" class={`app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium transition-all ${isModActive('/admin/keuangan') ? 'active' : ''}`}>
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">account_balance</span>
+          <span class="flex-1 truncate">Keuangan &amp; PSAK 109</span>
+          <span class="text-[10px] bg-[#f4f4f5] text-[#52525b] border border-[#ececee] px-2 py-0.5 rounded-full font-mono">Ledger</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="/admin/keuangan/segregated-funds" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/keuangan/segregated-funds') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Kas 5 Segregated Funds</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">account_tree</span>
+          </a>
+          <a href="/admin/keuangan/jurnal" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/keuangan/jurnal') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Buku Jurnal PSAK 109</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">menu_book</span>
+          </a>
+          <a href="/admin/keuangan/transfer" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/keuangan/transfer') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Antrean Transfer H2H</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">send</span>
+          </a>
+          <a href="/admin/keuangan/rekonsiliasi" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/keuangan/rekonsiliasi') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Rekonsiliasi Bank Syariah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">sync_alt</span>
+          </a>
+          <a href="/admin/keuangan/neraca" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/keuangan/neraca') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Laporan Neraca PSAK 109</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">pie_chart</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 4: Jaringan UPZ Daerah -->
+      <div class="space-y-0.5 pt-2">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Jaringan Penghimpunan</div>
+        <a href="/admin/upz" class={`app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium transition-all ${isModActive('/admin/upz') ? 'active' : ''}`}>
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">corporate_fare</span>
+          <span class="flex-1 truncate">Manajemen UPZ Daerah</span>
+          <span class="text-[10px] bg-[#f4f4f5] text-[#52525b] border border-[#ececee] px-2 py-0.5 rounded-full font-bold">487</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="/admin/upz/direktori" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/upz/direktori') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Direktori 487 UPZ Daerah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">folder_shared</span>
+          </a>
+          <a href="/admin/upz/registrasi" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/upz/registrasi') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Registrasi &amp; SK UPZ</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">domain_add</span>
+          </a>
+          <a href="/admin/upz/setoran" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/upz/setoran') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Pemrosesan Setoran ASN</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">cloud_upload</span>
+          </a>
+          <a href="/admin/upz/hak-kelola" class={`app-subnav-item flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${isSubActive('/admin/upz/hak-kelola') ? 'active' : 'text-[#52525b]'}`}>
+            <span class="truncate">Bagi Hasil Hak Amil Syar'i</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">price_check</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shortcut & Link Publik -->
+      <div class="pt-4 px-2 space-y-2">
+        <div class="border-t border-[#ececee] pt-3">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold mb-2 px-1">Layanan Luar</div>
+          <a href="/" class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-[14px] text-xs font-semibold text-[#064e3b] bg-[#ecfdf5] border border-[#064e3b]/15 hover:bg-[#d1fae5] transition-all">
+            <span class="material-symbols-outlined text-base">language</span>
+            <span>Lihat Website Publik</span>
+            <span class="material-symbols-outlined text-sm ml-auto">arrow_outward</span>
+          </a>
+        </div>
+
+        <!-- System Health Box -->
+        <div class="p-3 rounded-2xl bg-[#f8fafc] border border-[#ececee] text-[11px] text-[#52525b] space-y-1.5">
+          <div class="flex items-center justify-between text-[#71717a]">
+            <span>Audit Trail SHA-256</span>
+            <span class="font-mono text-[#064e3b] font-semibold">Tersinkron</span>
+          </div>
+          <div class="flex items-center justify-between text-[#71717a]">
+            <span>Capaian RKAT 2026</span>
+            <span class="font-mono font-bold text-[#09090b]">86.4%</span>
+          </div>
+          <div class="w-full bg-[#ececee] h-1.5 rounded-full overflow-hidden">
+            <div class="bg-[#064e3b] h-full rounded-full" style="width: 86.4%"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Profile Footer -->
+    <div class="p-4 border-t border-[#ececee] shrink-0">
+      <div class="flex items-center gap-3 p-2 rounded-[20px] bg-[#f4f4f5] border border-[#ececee]">
+        <img alt="Foto profil amil" class="w-9 h-9 rounded-full object-cover ring-2 ring-[#064e3b]/20 shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+        <div class="flex flex-col min-w-0">
+          <span id="app-profile-name" class="text-xs font-bold truncate">Drs. H. M. Yusuf</span>
+          <span id="app-profile-role" class="text-[10px] font-mono font-semibold text-[#064e3b] uppercase truncate">Ketua BAZNAS Kab. Bandung</span>
+        </div>
+      </div>
+    </div>
+  </aside>

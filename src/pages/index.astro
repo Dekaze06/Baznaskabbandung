@@ -1,0 +1,15 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+import BerandaTransparansi from '../components/public/BerandaTransparansi.astro';
+import KalkulatorZakat from '../components/public/KalkulatorZakat.astro';
+import LayananMustahik from '../components/public/LayananMustahik.astro';
+---
+
+<PublicLayout>
+  <!-- ==================== VIEWS PUBLIK (3 LAYAR) ==================== -->
+  <main id="app-views" class="flex-1 min-w-0">
+    <BerandaTransparansi />
+    <KalkulatorZakat />
+    <LayananMustahik />
+  </main>
+</PublicLayout>

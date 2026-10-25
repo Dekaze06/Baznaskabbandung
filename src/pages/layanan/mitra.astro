@@ -1,0 +1,413 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Kolaborasi Mitra & CSR Lembaga - BAZNAS Kabupaten Bandung"
+  description="Kemitraan strategis pengelolaan dana CSR & ZIS perusahaan bersama BAZNAS Kabupaten Bandung. Transparan, terukur, berdampak nyata, dan resmi menjadi pengurang pajak penghasilan (Tax Deductible PP 60/2010)."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-16">
+      
+      <!-- BREADCRUMB & HERO SECTION -->
+      <section class="space-y-8">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Layanan</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Kolaborasi Mitra &amp; CSR</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight leading-[1.15]">
+              Kemitraan Strategis CSR &amp; ZIS Korporasi
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed max-w-2xl">
+              BAZNAS Kabupaten Bandung membuka sinergi terpadu bagi BUMD, BUMN, korporasi swasta, perbankan syariah, dan yayasan dalam menyalurkan dana tanggung jawab sosial (CSR) yang terarah, berdaya ungkit ekonomi mustahik, dan sah sebagai pengurang penghasilan bruto perpajakan.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button onclick="document.getElementById('form-mitra-section')?.scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-sm active:scale-95">
+                <span class="material-symbols-outlined text-base">handshake</span>
+                <span>Ajukan Kemitraan CSR</span>
+              </button>
+              <button onclick="window.showAppToast?.('Mengunduh Profil & Proposal Kit Kemitraan CSR 2026...', 'download');" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all shadow-xs">
+                <span class="material-symbols-outlined text-base text-[#064e3b]">picture_as_pdf</span>
+                <span>Unduh Proposal Kit (PDF)</span>
+              </button>
+            </div>
+
+            <!-- 3 Stat Minimalist Highlights -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#e4e4e7]">
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Total CSR Dikelola</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#064e3b]">Rp 14.8 M</span>
+                <span class="text-[11px] text-[#71717a] block">Realisasi 2024-2026</span>
+              </div>
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Mitra Terdaftar</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#09090b]">48 Korporasi</span>
+                <span class="text-[11px] text-[#71717a] block">BUMD, BUMN &amp; Swasta</span>
+              </div>
+              <div>
+                <span class="text-xs text-[#71717a] font-medium block">Opini Keuangan</span>
+                <span class="text-xl sm:text-2xl font-extrabold font-mono text-[#064e3b]">WTP 5x</span>
+                <span class="text-[11px] text-[#71717a] block">Audit KAP Independen</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right: Photorealistic Visual Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden border border-[#e4e4e7] shadow-xl group aspect-4/3 bg-[#f4f4f5]">
+              <img 
+                src="/images/mitra-csr.webp" 
+                alt="Penandatanganan Nota Kesepahaman (MoU) CSR Kemitraan BAZNAS Kabupaten Bandung" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              
+              <!-- Bottom Float Card -->
+              <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 shadow-lg text-xs space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-[#09090b]">MoU &amp; Sinergi Kelembagaan</span>
+                  <span class="font-mono text-[10px] text-[#064e3b] font-bold">AKUNTABEL</span>
+                </div>
+                <p class="text-[11px] text-[#52525b]">
+                  Seluruh penyaluran CSR mitra diaudit transparan dan diterbitkan Bukti Setor Zakat (e-BSZ) resmi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 VALUE PROPOSITIONS (KENAPA BERMITRA DENGAN BAZNAS) -->
+      <section class="space-y-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Keunggulan Bermitra Bersama BAZNAS Kab. Bandung
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1 max-w-2xl">
+            Solusi tata kelola CSR korporasi profesional, akuntabel sesuai regulasi negara, serta langsung menyentuh akar permasalahan sosial di 31 kecamatan.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-3 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">receipt_long</span>
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Insentif Pengurang Pajak</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Berdasarkan UU No. 23/2011 &amp; PP No. 60/2010, zakat dan donasi keagamaan melalui BAZNAS sah menjadi faktor pengurang penghasilan bruto pajak perusahaan.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-3 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">verified</span>
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Audit Syariah &amp; Keuangan WTP</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Laporan pertanggungjawaban program diaudit independen secara reguler oleh Kantor Akuntan Publik (KAP) dengan opini WTP berturut-turut serta kepatuhan syariah ketat.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-3 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">share_location</span>
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Jangkauan 31 Kecamatan</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Didukung 31 Unit Pengumpul Zakat (UPZ) kecamatan dan relawan surveyor di 270 desa, memastikan penerima manfaat benar-benar terverifikasi kelayakan Had Kifayah.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-3 shadow-xs">
+            <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+              <span class="material-symbols-outlined text-2xl">co_present</span>
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Publikasi &amp; BAZNAS Award</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Mendapatkan rekognisi resmi, eksposur positif pada kanal media pemerintah, dokumentasi infografis profesional, serta penganugerahan piagam tahunan BAZNAS Award.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 PILAR PROGRAM KEMITRAAN TEMATIK -->
+      <section class="space-y-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Pilihan Kluster Program Kemitraan CSR
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1 max-w-2xl">
+            Perusahaan Anda dapat menyesuaikan arah kebijakan ESG (Environmental, Social, Governance) dengan 5 pilar program unggulan daerah.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Pilar 1 -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-4 shadow-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">medical_services</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#09090b]">Bandung Sehat</h3>
+                <span class="text-[11px] text-[#71717a]">Kesehatan &amp; Fasilitas Kritis</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Pengadaan unit ambulans gratis, bantuan biaya pengobatan penyakit kritis hemodialisa, operasi katarak massal dhuafa, dan program penanganan stunting balita pedesaan.
+            </p>
+            <div class="pt-2 border-t border-[#f4f4f5] text-[11px] font-mono text-[#064e3b]">
+              Sasaran: Pasien tidak mampu di 31 kecamatan
+            </div>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-4 shadow-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">school</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#09090b]">Bandung Cerdas</h3>
+                <span class="text-[11px] text-[#71717a]">Pendidikan &amp; Generasi Emas</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Beasiswa dhuafa berprestasi tingkat SD hingga Perguruan Tinggi, tebus ijazah tertahan, renovasi madrasah terpencil, dan pembekalan vokasi siap kerja.
+            </p>
+            <div class="pt-2 border-t border-[#f4f4f5] text-[11px] font-mono text-[#064e3b]">
+              Sasaran: 1.250 santri &amp; pelajar dhuafa / tahun
+            </div>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-4 shadow-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">storefront</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#09090b]">Bandung Makmur</h3>
+                <span class="text-[11px] text-[#71717a]">Pemberdayaan Ekonomi UMKM</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Bantuan modal bergulir tanpa bunga, program bengkel binaan Z-Auto, program Z-Chicken, pelatihan wirausaha santri, dan pengentasan jeratan rentenir.
+            </p>
+            <div class="pt-2 border-t border-[#f4f4f5] text-[11px] font-mono text-[#064e3b]">
+              Sasaran: Transformasi mustahik menjadi muzaki mandiri
+            </div>
+          </div>
+
+          <!-- Pilar 4 -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-4 shadow-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">home_repair_service</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#09090b]">Bandung Peduli</h3>
+                <span class="text-[11px] text-[#71717a]">Rutilahu &amp; Tanggap Bencana</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Renovasi Rumah Tidak Layak Huni (Rutilahu), logistik tanggap darurat banjir dan longsor bersama BAZNAS Tanggap Bencana (BTB), serta bantuan lansia sebatang kara.
+            </p>
+            <div class="pt-2 border-t border-[#f4f4f5] text-[11px] font-mono text-[#064e3b]">
+              Sasaran: Hunian layak &amp; mitigasi bencana daerah
+            </div>
+          </div>
+
+          <!-- Pilar 5 -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-4 shadow-xs md:col-span-2 lg:col-span-2">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">mosque</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#09090b]">Bandung Taqwa</h3>
+                <span class="text-[11px] text-[#71717a]">Dakwah &amp; Advokasi Sosial Keagamaan</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Bantuan sarana masjid dan mushola pedesaan, insentif marbot masjid dhuafa, pembinaan muallaf perbatasan, dan program dakwah keagamaan inklusif se-Kabupaten Bandung.
+            </p>
+            <div class="pt-2 border-t border-[#f4f4f5] text-[11px] font-mono text-[#064e3b]">
+              Sasaran: Penguatan nilai spiritual dan sarana ibadah masyarakat
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 TAHAPAN KERJASAMA MITRA -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-12 space-y-8 shadow-xs">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Alur Kerjasama Sederhana &amp; Profesional
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1">
+            Proses kemitraan yang transparan dan terstandarisasi mulai dari perencanaan hingga pelaporan resmi.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <span class="font-mono text-xl font-extrabold text-[#064e3b]">01</span>
+            <h3 class="text-sm font-bold text-[#09090b]">Konsultasi &amp; Perencanaan</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Diskusi penjajakan kebutuhan program, lokasi fokus sasaran, dan penyesuaian regulasi ESG korporasi.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <span class="font-mono text-xl font-extrabold text-[#064e3b]">02</span>
+            <h3 class="text-sm font-bold text-[#09090b]">Penandatanganan MoU &amp; PKS</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Penyusunan Perjanjian Kerjasama (PKS) legal formal memuat hak, kewajiban, dan indikator keberhasilan program.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <span class="font-mono text-xl font-extrabold text-[#064e3b]">03</span>
+            <h3 class="text-sm font-bold text-[#09090b]">Implementasi Lapangan</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Eksekusi program terukur bersama tim amil BAZNAS, melibatkan perwakilan mitra dalam seremoni peresmian.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <span class="font-mono text-xl font-extrabold text-[#064e3b]">04</span>
+            <h3 class="text-sm font-bold text-[#09090b]">Laporan &amp; Bukti Setor (e-BSZ)</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Penerbitan Laporan Pertanggungjawaban (LPJ) komprehensif dilengkapi dokumen e-BSZ sah pengurang pajak.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMULIR PENJAJAKAN KERJASAMA MITRA & CSR -->
+      <section id="form-mitra-section" class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-12 space-y-8 shadow-xs">
+        <div class="border-b border-[#f4f4f5] pb-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#09090b] tracking-tight">
+            Formulir Penjajakan Kemitraan CSR Lembaga
+          </h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1">
+            Isi formulir di bawah ini. Tim Direktorat Penghimpunan &amp; Kemitraan BAZNAS akan menghubungi PIC Anda dalam 1x24 jam kerja.
+          </p>
+        </div>
+
+        <form id="form-mitra-csr" class="space-y-6 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Nama Perusahaan / Lembaga *</label>
+              <input type="text" id="mitra-company" required placeholder="PT / CV / BUMD / BUMN / Yayasan" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Kategori Lembaga *</label>
+              <select id="mitra-category" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors">
+                <option value="bumd">BUMD / Badan Usaha Milik Daerah</option>
+                <option value="bumn">BUMN / Perusahaan Negara</option>
+                <option value="swasta">Perusahaan Swasta Nasional / Multinasional</option>
+                <option value="perbankan">Perbankan Syariah / Lembaga Keuangan</option>
+                <option value="yayasan">Yayasan / Organisasi Kemasyarakatan</option>
+                <option value="kampus">Perguruan Tinggi / Sivitas Akademika</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Nama Contact Person (PIC) *</label>
+              <input type="text" id="mitra-pic" required placeholder="Nama Lengkap & Jabatan" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Nomor WhatsApp PIC *</label>
+              <input type="tel" id="mitra-phone" required placeholder="08xxxxxxxxxx" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+            </div>
+
+            <div>
+              <label class="block font-semibold text-[#09090b] mb-1.5">Email Resmi Lembaga *</label>
+              <input type="email" id="mitra-email" required placeholder="corporate@perusahaan.co.id" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-[#09090b] mb-2">Fokus Kluster CSR yang Diminati</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <label class="flex items-center gap-2 p-3 bg-[#fafafa] rounded-xl border border-[#e4e4e7] cursor-pointer hover:bg-white transition-colors">
+                <input type="checkbox" checked class="rounded text-[#064e3b] focus:ring-[#064e3b]" />
+                <span class="text-xs font-medium text-[#09090b]">Bedah Rutilahu</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 bg-[#fafafa] rounded-xl border border-[#e4e4e7] cursor-pointer hover:bg-white transition-colors">
+                <input type="checkbox" checked class="rounded text-[#064e3b] focus:ring-[#064e3b]" />
+                <span class="text-xs font-medium text-[#09090b]">Beasiswa Pendidikan</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 bg-[#fafafa] rounded-xl border border-[#e4e4e7] cursor-pointer hover:bg-white transition-colors">
+                <input type="checkbox" class="rounded text-[#064e3b] focus:ring-[#064e3b]" />
+                <span class="text-xs font-medium text-[#09090b]">Kesehatan &amp; Ambulans</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 bg-[#fafafa] rounded-xl border border-[#e4e4e7] cursor-pointer hover:bg-white transition-colors">
+                <input type="checkbox" class="rounded text-[#064e3b] focus:ring-[#064e3b]" />
+                <span class="text-xs font-medium text-[#09090b]">Pemberdayaan UMKM</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-[#09090b] mb-1.5">Deskripsi Rencana Kerjasama / Catatan Tambahan</label>
+            <textarea id="mitra-notes" rows="3" placeholder="Sampaikan perkiraan anggaran, prioritas wilayah kecamatan, atau gagasan kolaborasi yang ingin dibahas..." class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors"></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+            <span class="text-[11px] text-[#71717a]">
+              Data permohonan kemitraan bersifat rahasia dan hanya digunakan untuk keperluan komunikasi dinas.
+            </span>
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">send</span>
+              <span>Kirim Permohonan Kemitraan</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- INSTITUTIONAL CONTACT STRIP -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+        <div class="space-y-1">
+          <h3 class="text-base font-bold text-[#09090b]">Hubungi Langsung Direktorat Kemitraan</h3>
+          <p class="text-xs text-[#52525b]">Gedung Ormas Islam BAZNAS Kab. Bandung, Kompleks Pemkab Bandung, Soreang 40911</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="tel:0225892345" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#fafafa] border border-[#e4e4e7] text-[#09090b] font-mono text-xs font-semibold hover:bg-[#f4f4f5] transition-colors">
+            <span class="material-symbols-outlined text-sm text-[#064e3b]">call</span>
+            <span>(022) 589-2345</span>
+          </a>
+          <a href="https://wa.me/628112234567" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/20 text-[#064e3b] font-mono text-xs font-semibold hover:bg-[#d1fae5] transition-colors">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            <span>0811-2234-567 (PIC Kemitraan)</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script is:inline>
+    document.getElementById('form-mitra-csr')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const company = document.getElementById('mitra-company')?.value || 'Perusahaan Anda';
+      window.showAppToast?.(`Terima kasih! Permohonan kemitraan dari ${company} telah diterima. Tim Kemitraan BAZNAS akan menghubungi PIC dalam 1x24 jam kerja.`, 'handshake');
+      e.target.reset();
+    });
+  </script>
+</PublicLayout>

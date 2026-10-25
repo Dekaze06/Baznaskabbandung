@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BAZNAS Kabupaten Bandung - Portal Layanan Publik &amp; Transparansi ZIS</title>
+  <meta name="description" content="Portal resmi BAZNAS Kabupaten Bandung: Program ZIS, Campaign Kemanusiaan, Layanan Pengajuan Bantuan NIK, Kolaborasi Mitra, Kantor Layanan, Kalkulator Zakat, Dashboard Penghimpunan & Penyaluran, Berita, dan Profil Lembaga."/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: /*TAILWIND_EXTEND*/{}
+      }
+    };
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f5;
+      font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+    /* ---- SPA View Caching (Faster View Transitions) ---- */
+    .spa-view { width: 100%; outline: none; }
+    .spa-view.inactive {
+      content-visibility: hidden;
+      position: absolute;
+      inset: 0 auto auto 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    @supports not (content-visibility: hidden) {
+      .spa-view.inactive { display: none; }
+    }
+
+    /* ---- Navigasi dropdown & items di public header ---- */
+    .pub-nav-btn {
+      color: #3f3f46;
+      transition: all 0.15s ease;
+    }
+    .pub-nav-btn:hover,
+    .group:hover .pub-nav-btn {
+      color: #064e3b;
+      background-color: #ececee;
+    }
+    .pub-nav-btn.active {
+      background-color: #064e3b;
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(6,78,59,0.25);
+    }
+
+    /* Dropdown Menus */
+    .pub-dropdown-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: opacity 160ms cubic-bezier(0.16, 1, 0.3, 1), transform 160ms cubic-bezier(0.16, 1, 0.3, 1), visibility 160ms ease;
+    }
+    .group:hover .pub-dropdown-menu,
+    .group:focus-within .pub-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Modal Animation */
+    .modal-enter { animation: modalFadeIn 200ms ease-out forwards; }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ---- View Transitions ---- */
+    ::view-transition-old(root) { animation: 140ms ease-in both app-fade-out; }
+    ::view-transition-new(root) { animation: 200ms ease-out both app-fade-in; }
+    @keyframes app-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    @keyframes app-fade-out { from { opacity: 1; } to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    }
+
+    /* ===== Style asli per layar ===== */
+    /*SCREEN_STYLES*/
+  </style>
+</head>
+<body class="bg-[#f4f4f5] text-[#18181b] min-h-screen selection:bg-[#064e3b] selection:text-white flex flex-col">
+
+  <!-- ==================== HEADER PUBLIK PORTAL ==================== -->
+  <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#ececee] shadow-xs">
+    <!-- Top Running Status Bar -->
+    <div class="border-b border-[#ececee] bg-[#f8fafc] px-6 py-2 text-xs">
+      <div class="max-w-[1400px] mx-auto flex items-center justify-between font-mono text-[#52525b]">
+        <div class="flex items-center gap-4 overflow-x-auto text-[11px] sm:text-xs">
+          <span class="inline-flex items-center gap-1.5 text-[#064e3b] font-semibold whitespace-nowrap">
+            <span class="w-2 h-2 rounded-full bg-[#064e3b] animate-pulse"></span> SIMBA BAZNAS RI Live
+          </span>
+          <span class="text-[#d4d4d8]">|</span>
+          <span class="whitespace-nowrap">Nisab Emas Soreang: <strong class="text-[#09090b] font-bold">Rp 82.350.000 / thn</strong></span>
+          <span class="text-[#d4d4d8]">|</span>
+          <span class="whitespace-nowrap">Beras Fitrah: <strong class="text-[#09090b] font-bold">Rp 40.000 / jiwa</strong></span>
+        </div>
+        <div class="hidden md:flex items-center gap-3 text-xs">
+          <span class="text-[#71717a]">Audit Syariah &amp; Akuntansi:</span>
+          <span class="bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-[6px] font-bold border border-[#064e3b]/15">KAP WTP 5 Tahun</span>
+          <span class="bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-[6px] font-bold border border-[#064e3b]/15">PSAK 109</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#transparansi" class="flex items-center gap-3.5 group shrink-0">
+        <img alt="Logo Resmi BAZNAS Kab Bandung" class="h-10 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+        <div class="border-l border-[#d4d4d8] pl-3.5 flex flex-col">
+          <span class="text-base sm:text-lg font-bold tracking-tight text-[#09090b] leading-tight">BAZNAS</span>
+          <span class="text-[11px] font-semibold tracking-wide text-[#064e3b] uppercase">Kabupaten Bandung</span>
+        </div>
+      </a>
+
+      <!-- 5 Nav Menu Items (Desktop Pill Container) -->
+      <nav class="hidden lg:flex items-center gap-1 bg-[#f4f4f5] p-1.5 rounded-full border border-[#ececee] text-xs font-medium">
+        
+        <!-- 1. Program -->
+        <div class="relative group">
+          <button class="pub-nav-btn flex items-center gap-1.5 px-4 py-2 rounded-full transition-all" aria-haspopup="true" aria-expanded="false">
+            <span>Program</span>
+            <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="pub-dropdown-menu absolute left-0 top-full pt-2 z-50">
+            <div class="w-72 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 space-y-1">
+              <a href="#program-zis" data-route="transparansi" data-scroll="program-zis" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">payments</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Zakat Infaq Sedekah (ZIS)</div>
+                  <div class="text-[11px] text-[#71717a]">5 Pilar: Makmur, Cerdas, Sehat, Taqwa &amp; Peduli</div>
+                </div>
+              </a>
+              <button type="button" data-open-modal="campaign" class="w-full flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#ea580c] mt-0.5">volunteer_activism</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Campaign Kemanusiaan</div>
+                  <div class="text-[11px] text-[#71717a]">Bandung Peduli, Bedah 340 Rutilahu &amp; Kebencanaan</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Layanan -->
+        <div class="relative group">
+          <button class="pub-nav-btn flex items-center gap-1.5 px-4 py-2 rounded-full transition-all" aria-haspopup="true" aria-expanded="false">
+            <span>Layanan</span>
+            <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="pub-dropdown-menu absolute left-0 top-full pt-2 z-50">
+            <div class="w-72 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 space-y-1">
+              <a href="#mustahik" data-route="mustahik" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">person_search</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Pengajuan Bantuan</div>
+                  <div class="text-[11px] text-[#71717a]">Layanan hak 8 asnaf &amp; lacak status NIK</div>
+                </div>
+              </a>
+              <button type="button" data-open-modal="mitra" class="w-full flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">handshake</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Kolaborasi Mitra</div>
+                  <div class="text-[11px] text-[#71717a]">Kemitraan CSR BUMD, DKM, &amp; Lembaga</div>
+                </div>
+              </button>
+              <button type="button" data-open-modal="kantor" class="w-full flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">storefront</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Kantor Layanan</div>
+                  <div class="text-[11px] text-[#71717a]">Sekretariat Soreang &amp; Layanan 31 Kecamatan</div>
+                </div>
+              </button>
+              <a href="#kalkulator" data-route="kalkulator" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">calculate</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Kalkulator Zakat</div>
+                  <div class="text-[11px] text-[#71717a]">Hitung nisab zakat profesi, maal &amp; fitrah</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Dashboard -->
+        <div class="relative group">
+          <button class="pub-nav-btn flex items-center gap-1.5 px-4 py-2 rounded-full transition-all" aria-haspopup="true" aria-expanded="false">
+            <span>Dashboard</span>
+            <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="pub-dropdown-menu absolute left-0 top-full pt-2 z-50">
+            <div class="w-72 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 space-y-1">
+              <a href="#dashboard-penghimpunan" data-route="transparansi" data-scroll="dashboard-penghimpunan" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">trending_up</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Penghimpunan Dana</div>
+                  <div class="text-[11px] text-[#71717a]">Realisasi ZIS Rp 48.72 M &amp; PSAK 109</div>
+                </div>
+              </a>
+              <a href="#dashboard-penyaluran" data-route="transparansi" data-scroll="dashboard-penyaluran" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">pie_chart</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Penyaluran &amp; Manfaat</div>
+                  <div class="text-[11px] text-[#71717a]">Sebaran 8 asnaf &amp; peta 31 kecamatan</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Berita -->
+        <a href="#berita" data-route="transparansi" data-scroll="berita" class="pub-nav-btn px-4 py-2 rounded-full transition-all">
+          Berita
+        </a>
+
+        <!-- 5. Tentang Kami -->
+        <button type="button" data-open-modal="tentang" class="pub-nav-btn px-4 py-2 rounded-full transition-all">
+          Tentang Kami
+        </button>
+
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <!-- Quick Bayar ZIS Modal Trigger -->
+        <button id="pub-btn-quick-zis" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shadow-sm active:scale-95">
+          <span class="material-symbols-outlined text-base">payments</span>
+          <span class="hidden sm:inline">Bayar Zakat Cepat</span>
+          <span class="sm:hidden">Bayar</span>
+        </button>
+
+        <!-- Dedicated Button to Admin Panel (Tanpa Emoji) -->
+        <a href="/admin.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-xs font-bold text-[#09090b] transition-all shadow-xs" title="Buka Panel Admin &amp; Dashboard Operasional Amil">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">lock</span>
+          <span class="hidden sm:inline">Panel Admin</span>
+          <span class="material-symbols-outlined text-sm text-[#71717a]">arrow_forward</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="pub-btn-mobile-toggle" class="lg:hidden p-2 rounded-[12px] bg-[#f4f4f5] text-[#18181b] hover:bg-[#ececee] transition-colors" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer / Expandable Menu -->
+    <div id="pub-mobile-drawer" class="hidden lg:hidden border-t border-[#ececee] bg-white px-6 py-4 space-y-3 text-xs max-h-[80vh] overflow-y-auto">
+      <!-- 1. Program -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">1. Program</div>
+        <a href="#program-zis" data-route="transparansi" data-scroll="program-zis" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">payments</span>
+          <span>Zakat Infaq Sedekah (ZIS)</span>
+        </a>
+        <button type="button" data-open-modal="campaign" class="w-full flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium text-left">
+          <span class="material-symbols-outlined text-base text-[#ea580c]">volunteer_activism</span>
+          <span>Campaign Kemanusiaan</span>
+        </button>
+      </div>
+
+      <!-- 2. Layanan -->
+      <div class="space-y-1 border-t border-[#ececee] pt-2">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">2. Layanan</div>
+        <a href="#mustahik" data-route="mustahik" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">person_search</span>
+          <span>Pengajuan Bantuan (NIK)</span>
+        </a>
+        <button type="button" data-open-modal="mitra" class="w-full flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium text-left">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">handshake</span>
+          <span>Kolaborasi Mitra</span>
+        </button>
+        <button type="button" data-open-modal="kantor" class="w-full flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium text-left">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">storefront</span>
+          <span>Kantor Layanan</span>
+        </button>
+        <a href="#kalkulator" data-route="kalkulator" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">calculate</span>
+          <span>Kalkulator Zakat</span>
+        </a>
+      </div>
+
+      <!-- 3. Dashboard -->
+      <div class="space-y-1 border-t border-[#ececee] pt-2">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">3. Dashboard</div>
+        <a href="#dashboard-penghimpunan" data-route="transparansi" data-scroll="dashboard-penghimpunan" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">trending_up</span>
+          <span>Penghimpunan Dana</span>
+        </a>
+        <a href="#dashboard-penyaluran" data-route="transparansi" data-scroll="dashboard-penyaluran" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">pie_chart</span>
+          <span>Penyaluran &amp; Manfaat</span>
+        </a>
+      </div>
+
+      <!-- 4. Berita & 5. Tentang Kami -->
+      <div class="space-y-1 border-t border-[#ececee] pt-2">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Informasi &amp; Profil</div>
+        <a href="#berita" data-route="transparansi" data-scroll="berita" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">newspaper</span>
+          <span>4. Berita</span>
+        </a>
+        <button type="button" data-open-modal="tentang" class="w-full flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium text-left">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">info</span>
+          <span>5. Tentang Kami</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== VIEWS PUBLIK (3 LAYAR) ==================== -->
+  <main id="app-views" class="flex-1 min-w-0">
+    <!--VIEWS-->
+  </main>
+
+  <!-- Master Public Footer -->
+  <footer class="border-t border-[#ececee] bg-white px-6 sm:px-12 py-10 text-xs text-[#52525b]">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="space-y-3 md:col-span-2">
+        <div class="flex items-center gap-3">
+          <img alt="Logo BAZNAS" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+          <div>
+            <h4 class="font-bold text-sm text-[#09090b]">BAZNAS Kabupaten Bandung</h4>
+            <p class="text-[11px] text-[#71717a]">Lembaga Pemerintah Nonstruktural Pengelola Zakat Resmi</p>
+          </div>
+        </div>
+        <p class="text-xs text-[#71717a] max-w-md leading-relaxed">
+          Gedung Ormas Islam BAZNAS Kab. Bandung, Jl. Terusan Al-Fathu No. 2, Soreang, Kabupaten Bandung, Jawa Barat 40911.
+        </p>
+        <div class="flex items-center gap-4 text-xs font-mono text-[#064e3b]">
+          <span>Telepon: (022) 589-2345</span>
+          <span>•</span>
+          <span>WhatsApp: 0811-2234-567</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-wider text-[#09090b] mb-3">Layanan Warga</h4>
+        <ul class="space-y-2">
+          <li><a href="#kalkulator" class="hover:text-[#064e3b] transition-colors">Kalkulator Zakat Profesi &amp; Maal</a></li>
+          <li><a href="#mustahik" class="hover:text-[#064e3b] transition-colors">Pengajuan Bantuan &amp; Lacak NIK</a></li>
+          <li><a href="#dashboard-penghimpunan" class="hover:text-[#064e3b] transition-colors">Dashboard Penghimpunan ZIS</a></li>
+          <li><a href="#dashboard-penyaluran" class="hover:text-[#064e3b] transition-colors">Dashboard Penyaluran 31 Kecamatan</a></li>
+          <li><a href="#berita" class="hover:text-[#064e3b] transition-colors">Warta &amp; Opini Audit WTP</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-wider text-[#09090b] mb-3">Akses Kelembagaan</h4>
+        <ul class="space-y-2">
+          <li><a href="/admin.html#command-center" class="text-[#064e3b] font-semibold hover:underline flex items-center gap-1"><span>Executive Command Center</span><span class="material-symbols-outlined text-xs">arrow_forward</span></a></li>
+          <li><a href="/admin.html#asesmen" class="hover:text-[#064e3b] transition-colors">Verifikasi Asesmen Had Kifayah</a></li>
+          <li><a href="/admin.html#keuangan" class="hover:text-[#064e3b] transition-colors">Buku Besar PSAK 109 &amp; SIMBA</a></li>
+          <li><a href="/admin.html#upz" class="hover:text-[#064e3b] transition-colors">Portal UPZ 31 Kecamatan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-[1400px] mx-auto pt-6 border-t border-[#ececee] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#71717a]">
+      <span>&copy; 2026 BAZNAS Kabupaten Bandung. Hak Cipta Dilindungi Undang-Undang.</span>
+      <div class="flex items-center gap-3 font-mono">
+        <span class="bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded font-bold border border-[#064e3b]/15">PSAK 109</span>
+        <span>SIMBA RI Terintegrasi</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Shell -->
+  <div id="app-toast" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-[60] translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-5 py-3.5 rounded-[14px] bg-[#09090b] text-white shadow-2xl text-xs font-medium max-w-sm">
+    <span id="app-toast-icon" class="material-symbols-outlined text-[#a7f3d0] text-lg">check_circle</span>
+    <span id="app-toast-msg">Operasi berhasil.</span>
+  </div>
+
+  <!-- Modal 1: Penerimaan ZIS Cepat (e-BSZ) -->
+  <div id="app-zis-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="app-zis-title">
+    <form id="app-zis-form" class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">payments</span>
+          </div>
+          <div>
+            <h2 id="app-zis-title" class="text-base font-bold text-[#09090b]">Penerimaan ZIS Kilat (e-BSZ)</h2>
+            <p class="text-[11px] text-[#71717a]">Terhubung langsung ke Buku Kas &amp; SIMBA BAZNAS RI</p>
+          </div>
+        </div>
+        <button type="button" data-close-zis class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Jenis Dana ZIS
+        <select id="app-zis-type" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold normal-case tracking-normal text-[#18181b] px-3.5 py-2.5">
+          <option>Zakat Penghasilan / Profesi</option>
+          <option>Zakat Maal (Tabungan / Emas)</option>
+          <option>Zakat Fitrah (Rp 40.000 / jiwa)</option>
+          <option>Infak / Sedekah Program BAZNAS Peduli</option>
+          <option>Fidyah (Rp 30.000 / hari)</option>
+        </select>
+      </label>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Muzaki / Donatur
+        <input id="app-zis-name" required autocomplete="name" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold normal-case tracking-normal text-[#18181b] px-3.5 py-2.5" placeholder="Contoh: H. Dadan Setiawan"/>
+      </label>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nominal ZIS (Rp)
+        <input id="app-zis-amount" type="number" min="1000" step="1000" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono font-bold text-[#064e3b] px-3.5 py-2.5" placeholder="500000"/>
+      </label>
+      <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+        <button type="button" data-close-zis class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+        <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs">
+          <span class="material-symbols-outlined text-base">check</span>
+          <span>Terbitkan e-BSZ</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal 2: Campaign Kemanusiaan (Bandung Peduli) -->
+  <div id="modal-campaign-kemanusiaan" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="campaign-modal-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-xl w-full p-7 flex flex-col gap-5 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-orange-50 text-[#ea580c] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">volunteer_activism</span>
+          </div>
+          <div>
+            <h2 id="campaign-modal-title" class="text-base font-bold text-[#09090b]">Campaign Kemanusiaan</h2>
+            <p class="text-[11px] text-[#71717a]">Program Bandung Peduli • Siaga Bencana &amp; Rutilahu</p>
+          </div>
+        </div>
+        <button type="button" data-close-modal class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs leading-relaxed text-[#52525b]">
+        <div class="relative rounded-2xl overflow-hidden h-40 bg-zinc-100 border border-[#ececee]">
+          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYAZiJIRtkp63U2LGkuVMUDk0EhfIBDRXdGKr282s6biOp0w0_a7NfXE1pCVwx9w5Gp38ey6WeTpThjUEdCqxFksmq6qd7Wc1I9OqZMU5dEpnwGSPU7P8AQtFa8X2Hk-0LVvpsjGIT1FC59orbXN5J7HrFBRuE1WtKxzDCADlfpqWNy4W9h2GiNjWCce4ob9YAKUT_dO807X6Zd-6gpLmmlbNC3SR5yYXJ0IVpUppnHhdCbViy8JELPw" alt="Bedah Rutilahu BAZNAS"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+            <span class="text-white font-bold text-sm">Target Bedah 340 Rutilahu &amp; Siaga Tanggap Darurat 2026</span>
+          </div>
+        </div>
+
+        <p>
+          Campaign Kemanusiaan BAZNAS Kabupaten Bandung difokuskan untuk membantu masyarakat yang tertimpa musibah darurat kebencanaan (banjir luapan Citarum, tanah longsor Pangalengan/Ibun), bedah rumah layak huni (Rutilahu), serta ambulans gratis 24 jam.
+        </p>
+
+        <div class="grid grid-cols-2 gap-3 pt-2">
+          <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee]">
+            <span class="text-[10px] font-mono uppercase text-[#71717a] block">Realisasi Penyaluran</span>
+            <span class="text-base font-bold text-[#09090b] font-mono">Rp 12.40 Miliar</span>
+          </div>
+          <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee]">
+            <span class="text-[10px] font-mono uppercase text-[#71717a] block">Penerima Bantuan</span>
+            <span class="text-base font-bold text-[#ea580c] font-mono">14.280 Jiwa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+        <button type="button" data-close-modal class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Tutup</button>
+        <button type="button" id="btn-donate-campaign" class="flex-1 py-2.5 rounded-[14px] bg-[#ea580c] hover:bg-[#c2410c] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs">
+          <span class="material-symbols-outlined text-base">favorite</span>
+          <span>Salurkan Sedekah Kemanusiaan</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Kolaborasi Mitra -->
+  <div id="modal-kolaborasi-mitra" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="mitra-modal-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">handshake</span>
+          </div>
+          <div>
+            <h2 id="mitra-modal-title" class="text-base font-bold text-[#09090b]">Kolaborasi Mitra BAZNAS</h2>
+            <p class="text-[11px] text-[#71717a]">Sinergi CSR Korporasi, Komunitas, &amp; Lembaga Pendidikan</p>
+          </div>
+        </div>
+        <button type="button" data-close-modal class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <p class="text-xs text-[#52525b] leading-relaxed">
+        BAZNAS Kabupaten Bandung membuka kemitraan strategis penyaluran dana CSR, program pemberdayaan ekonomi mustahik (Z-Auto, Z-Mart, LPEM), dan pembentukan Unit Pengumpul Zakat (UPZ) entitas swasta &amp; lembaga.
+      </p>
+
+      <form id="form-kolaborasi-mitra" class="space-y-3">
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Perusahaan / Lembaga
+          <input required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs px-3.5 py-2.5 text-[#18181b]" placeholder="Contoh: PT Bank BJB Syariah / DKM Al-Fathu"/>
+        </label>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Narahubung
+            <input required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs px-3.5 py-2.5 text-[#18181b]" placeholder="Nama Lengkap"/>
+          </label>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">No. WhatsApp / HP
+            <input required type="tel" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs px-3.5 py-2.5 text-[#18181b]" placeholder="0812-xxxx-xxxx"/>
+          </label>
+        </div>
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Bentuk Kolaborasi
+          <select class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3.5 py-2.5 text-[#18181b]">
+            <option>Penyaluran CSR Program (Pendidikan / Kesehatan / Ekonomi)</option>
+            <option>Pembentukan UPZ Perusahaan / Masjid / DKM</option>
+            <option>Kampanye Bersama &amp; Kolaborasi Event Kemanusiaan</option>
+            <option>Lainnya</option>
+          </select>
+        </label>
+        <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+          <button type="button" data-close-modal class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+          <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs">
+            <span class="material-symbols-outlined text-base">send</span>
+            <span>Kirim Penawaran</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Kantor Layanan -->
+  <div id="modal-kantor-layanan" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="kantor-modal-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">storefront</span>
+          </div>
+          <div>
+            <h2 id="kantor-modal-title" class="text-base font-bold text-[#09090b]">Kantor Layanan BAZNAS</h2>
+            <p class="text-[11px] text-[#71717a]">Pusat Layanan Muzaki &amp; Mustahik Kabupaten Bandung</p>
+          </div>
+        </div>
+        <button type="button" data-close-modal class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs text-[#52525b]">
+        <!-- Kantor Pusat -->
+        <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-[#09090b]">Kantor Pusat Sekretariat Soreang</span>
+            <span class="text-[10px] font-mono bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded font-bold">Pusat Operasional</span>
+          </div>
+          <p class="text-[#71717a] leading-relaxed">
+            Gedung Ormas Islam BAZNAS Kabupaten Bandung, Jl. Terusan Al-Fathu No. 2, Soreang, Kabupaten Bandung, Jawa Barat 40911 (Kompleks Perkantoran Pemkab Bandung).
+          </p>
+          <div class="flex flex-wrap gap-4 pt-1 font-mono text-[11px] text-[#064e3b]">
+            <span>Telp: (022) 589-2345</span>
+            <span>WA: 0811-2234-567</span>
+          </div>
+          <div class="text-[11px] text-[#71717a]">
+            Jam Layanan: <strong>Senin - Jumat, 08.00 - 16.00 WIB</strong>
+          </div>
+        </div>
+
+        <!-- Jaringan 31 Kecamatan -->
+        <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-[#09090b]">Jaringan 31 Kantor UPZ Kecamatan</span>
+            <span class="text-[10px] font-mono bg-zinc-200 text-[#52525b] px-2 py-0.5 rounded font-bold">487 Unit Aktif</span>
+          </div>
+          <p class="text-[#71717a] leading-relaxed">
+            Muzaki dan mustahik dapat mendatangi kantor sekretariat UPZ Kecamatan yang berkedudukan di Kantor Urusan Agama (KUA) atau Kantor Kecamatan setempat (Soreang, Baleendah, Majalaya, Banjaran, Ciwidey, Cileunyi, dll.).
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+        <button type="button" data-close-modal class="w-full py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Tentang Kami -->
+  <div id="modal-tentang-kami" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="tentang-modal-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-xl w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">info</span>
+          </div>
+          <div>
+            <h2 id="tentang-modal-title" class="text-base font-bold text-[#09090b]">Tentang BAZNAS Kabupaten Bandung</h2>
+            <p class="text-[11px] text-[#71717a]">Lembaga Pemerintah Nonstruktural Pengelola Zakat Resmi</p>
+          </div>
+        </div>
+        <button type="button" data-close-modal class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs text-[#52525b] leading-relaxed">
+        <p>
+          Badan Amil Zakat Nasional (BAZNAS) Kabupaten Bandung dibentuk berdasarkan <strong>Undang-Undang No. 23 Tahun 2011 tentang Pengelolaan Zakat</strong> dan Peraturan Daerah Kabupaten Bandung. Kami bertugas mengelola penghimpunan, pendistribusian, dan pendayagunaan zakat, infak, dan sedekah (ZIS) secara transparan dan akuntabel.
+        </p>
+
+        <!-- Visi & Misi -->
+        <div class="p-3.5 rounded-2xl bg-[#f8fafc] border border-[#ececee] space-y-1">
+          <span class="font-bold text-[#09090b] block">Visi BAZNAS Kabupaten Bandung:</span>
+          <p class="italic text-[#064e3b] font-medium">
+            "Menjadi Lembaga Pengelola Zakat Terpercaya, Kuat, Modern, dan Amanah Menyejahterakan Umat di Kabupaten Bandung."
+          </p>
+        </div>
+
+        <!-- Pimpinan Komisioner -->
+        <div class="p-3.5 rounded-2xl bg-[#f8fafc] border border-[#ececee] space-y-2">
+          <span class="font-bold text-[#09090b] block">Pimpinan Komisioner Periode 2021 - 2026:</span>
+          <ul class="space-y-1 text-[11px] text-[#52525b]">
+            <li>• <strong>Ketua:</strong> Drs. H. M. Yusuf</li>
+            <li>• <strong>Wakil Ketua I (Pengumpulan):</strong> H. Jamjam Erawan</li>
+            <li>• <strong>Wakil Ketua II (Pendistribusian):</strong> H. Abdul Rauf</li>
+            <li>• <strong>Wakil Ketua III (Perencanaan &amp; Keuangan):</strong> H. Asep Supriatna, S.E., Ak.</li>
+            <li>• <strong>Wakil Ketua IV (Administrasi &amp; SDM):</strong> H. Saprudin</li>
+          </ul>
+        </div>
+
+        <!-- Akreditasi -->
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <div class="p-3 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/15 text-center">
+            <span class="text-[10px] uppercase font-mono text-[#064e3b] font-bold block">Opini Keuangan</span>
+            <span class="text-sm font-bold text-[#064e3b]">KAP WTP 5 Tahun</span>
+          </div>
+          <div class="p-3 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/15 text-center">
+            <span class="text-[10px] uppercase font-mono text-[#064e3b] font-bold block">Audit Kemenag RI</span>
+            <span class="text-sm font-bold text-[#064e3b]">Akreditasi Syariah "A"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+        <button type="button" data-close-modal class="w-full py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Asli Layar Publik -->
+  <!--SCREEN_SCRIPTS-->
+
+  <!-- Public Application Script -->
+  <script type="module" src="/src/public.js"></script>
+</body>
+</html>

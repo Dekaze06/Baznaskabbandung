@@ -1,0 +1,1095 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+import InkOrbitFeatures from '../../components/ui/ink-orbit-features';
+---
+
+<PublicLayout 
+  title="Dashboard Penyaluran & Sebaran Manfaat ZIS - BAZNAS Kabupaten Bandung"
+  description="Peta sebaran pendistribusian dana ZIS ke 31 kecamatan di Kabupaten Bandung, rincian hak 8 asnaf, pengentasan kemiskinan ekstrem, dan verifikasi Had Kifayah berbasis CIBEST model."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-12">
+      
+      <!-- BREADCRUMB & HEADER -->
+      <section class="space-y-6">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Dashboard</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Penyaluran &amp; Manfaat</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#e4e4e7] pb-8">
+          <div class="max-w-3xl space-y-3">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight">
+              Peta Penyaluran &amp; Sebaran Manfaat ZIS
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed">
+              Transparansi pendistribusian hak 8 asnaf di 31 kecamatan Kabupaten Bandung berdasarkan pengukuran ilmiah Had Kifayah dan Model CIBEST (Center of Islamic Business and Economic Studies) IPB &amp; BAZNAS RI.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <button onclick="window.print?.()" class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all shadow-xs">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">print</span>
+              <span>Cetak Rekapitulasi</span>
+            </button>
+            <a href="/layanan/bantuan" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-xs">
+              <span class="material-symbols-outlined text-base">person_search</span>
+              <span>Cek Status Bantuan NIK</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 TOP KPI METRIC CARDS -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Total Dana Disalurkan</span>
+            <span class="p-2 rounded-xl bg-[#ecfdf5] text-[#064e3b]">
+              <span class="material-symbols-outlined text-lg">volunteer_activism</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#064e3b]">Rp 38,45 M</div>
+          <div class="text-xs text-[#71717a]">
+            Realisasi 8 Asnaf per Oktober 2026
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Penerima Manfaat</span>
+            <span class="p-2 rounded-xl bg-[#f4f4f5] text-[#71717a]">
+              <span class="material-symbols-outlined text-lg">family_restroom</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#09090b]">94.280 Jiwa</div>
+          <div class="text-xs text-[#71717a]">
+            Individu &amp; KK mustahik terverifikasi
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Cakupan Kewilayahan</span>
+            <span class="p-2 rounded-xl bg-[#f4f4f5] text-[#71717a]">
+              <span class="material-symbols-outlined text-lg">pin_drop</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#09090b]">31 Kecamatan</div>
+          <div class="text-xs text-[#71717a]">
+            270 desa/kelurahan se-Kabupaten Bandung
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Indeks Efektivitas CIBEST</span>
+            <span class="p-2 rounded-xl bg-[#ecfdf5] text-[#064e3b]">
+              <span class="material-symbols-outlined text-lg">insights</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#064e3b]">0.884</div>
+          <div class="text-xs text-[#71717a]">
+            Kategori Sangat Efektif mengentaskan kemiskinan
+          </div>
+        </div>
+      </section>
+
+      <!-- GRAFIK 1: MANDAT SYARIAH 8 ASNAF (QS. AT-TAUBAH: 60) DENGAN DONUT CHART & MATRIKS -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Grafik Alokasi Syariah 8 Asnaf (QS. At-Taubah: 60)</h2>
+            <p class="text-xs text-[#71717a] mt-1">Proporsi penyaluran zakat wajib memenuhi koridor ketentuan syariat Islam dan peraturan perundang-undangan</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-xs font-mono font-bold border border-[#064e3b]/20">
+              Kepatuhan Syariah: 100% Valid
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Visual Donut Chart 8 Asnaf (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center relative p-4">
+            <svg class="w-60 h-60 -rotate-90 transform" viewBox="0 0 100 100">
+              <!-- Background Ring -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#f4f4f5" stroke-width="13"></circle>
+              
+              <!-- 1. Fakir: 38.5% -> length = 91.92, offset = 0 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#064e3b" stroke-width="13" stroke-dasharray="91.92 146.84" stroke-dashoffset="0" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 2. Miskin: 32.0% -> length = 76.40, offset = -91.92 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#047857" stroke-width="13" stroke-dasharray="76.40 162.36" stroke-dashoffset="-91.92" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 3. Fisabilillah: 10.2% -> length = 24.35, offset = -168.32 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#10b981" stroke-width="13" stroke-dasharray="24.35 214.41" stroke-dashoffset="-168.32" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 4. Amil: 9.8% -> length = 23.40, offset = -192.67 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#34d399" stroke-width="13" stroke-dasharray="23.40 215.36" stroke-dashoffset="-192.67" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 5. Gharimin: 4.2% -> length = 10.03, offset = -216.07 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#64748b" stroke-width="13" stroke-dasharray="10.03 228.73" stroke-dashoffset="-216.07" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 6. Ibnu Sabil: 2.4% -> length = 5.73, offset = -226.10 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#94a3b8" stroke-width="13" stroke-dasharray="5.73 233.03" stroke-dashoffset="-226.10" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 7. Muallaf: 2.1% -> length = 5.01, offset = -231.83 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#cbd5e1" stroke-width="13" stroke-dasharray="5.01 233.75" stroke-dashoffset="-231.83" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+              
+              <!-- 8. Riqab: 0.8% -> length = 1.91, offset = -236.84 -->
+              <circle cx="50" cy="50" r="38" fill="transparent" stroke="#e2e8f0" stroke-width="13" stroke-dasharray="1.91 236.85" stroke-dashoffset="-236.84" class="transition-all hover:opacity-80 cursor-pointer"></circle>
+            </svg>
+
+            <!-- Center KPI Inside Donut -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+              <span class="text-[9px] text-[#71717a] font-bold uppercase tracking-wider font-mono">REALISASI 8 ASNAF</span>
+              <span class="text-xl font-extrabold font-mono text-[#064e3b]">Rp 38,45 M</span>
+              <span class="text-[10px] text-[#71717a] font-medium">94.280 Mustahik</span>
+            </div>
+          </div>
+
+          <!-- Asnaf Segment Breakdown Grid (7 cols) -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            
+            <!-- 1. Fakir -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#064e3b] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#064e3b] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">1. Asnaf Fakir</span>
+                </div>
+                <span class="font-mono font-bold text-[#064e3b]">38.5%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#064e3b]">Rp 14,80 M</span>
+                <span class="text-[11px] text-[#71717a]">36.300 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Lansia sebatang kara, bedah Rutilahu, paket pangan darurat.</p>
+            </div>
+
+            <!-- 2. Miskin -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#047857] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#047857] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">2. Asnaf Miskin</span>
+                </div>
+                <span class="font-mono font-bold text-[#047857]">32.0%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#09090b]">Rp 12,30 M</span>
+                <span class="text-[11px] text-[#71717a]">30.170 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Modal usaha Z-Auto &amp; Z-Chicken, beasiswa santri, advokasi ijazah.</p>
+            </div>
+
+            <!-- 3. Fisabilillah -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#10b981] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#10b981] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">3. Asnaf Fisabilillah</span>
+                </div>
+                <span class="font-mono font-bold text-[#10b981]">10.2%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#09090b]">Rp 3,92 M</span>
+                <span class="text-[11px] text-[#71717a]">9.610 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Insentif kehormatan da'i pelosok, guru ngaji desa, sarana dakwah.</p>
+            </div>
+
+            <!-- 4. Amil Syar'i -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#34d399] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#34d399] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">4. Asnaf Amil (Syar'i)</span>
+                </div>
+                <span class="font-mono font-bold text-[#064e3b]">9.8%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#064e3b]">Rp 3,76 M</span>
+                <span class="text-[11px] text-[#71717a]">31 UPZ &amp; Tim</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Biaya operasional amil resmi (&le; 12.5% batas syariah), audit KAP.</p>
+            </div>
+
+            <!-- 5. Gharimin -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#64748b] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#64748b] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">5. Asnaf Gharimin</span>
+                </div>
+                <span class="font-mono font-bold text-[#64748b]">4.2%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#09090b]">Rp 1,61 M</span>
+                <span class="text-[11px] text-[#71717a]">3.950 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Penyelamatan jeratan rentenir darurat &amp; tunggakan medis RS.</p>
+            </div>
+
+            <!-- 6. Ibnu Sabil -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#94a3b8] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#94a3b8] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">6. Asnaf Ibnu Sabil</span>
+                </div>
+                <span class="font-mono font-bold text-[#94a3b8]">2.4%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#09090b]">Rp 0,92 M</span>
+                <span class="text-[11px] text-[#71717a]">2.260 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Bantuan musafir terlantar &amp; santri kehabisan bekal perjalanan.</p>
+            </div>
+
+            <!-- 7. Muallaf -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#cbd5e1] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#cbd5e1] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">7. Asnaf Muallaf</span>
+                </div>
+                <span class="font-mono font-bold text-[#71717a]">2.1%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#09090b]">Rp 0,81 M</span>
+                <span class="text-[11px] text-[#71717a]">1.980 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Bimbingan syariah terpadu, pembinaan akidah, dan modal usaha.</p>
+            </div>
+
+            <!-- 8. Riqab -->
+            <div class="p-3.5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1 hover:border-[#e2e8f0] transition-colors">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-md bg-[#e2e8f0] border border-[#cbd5e1] shrink-0"></span>
+                  <span class="font-bold text-[#09090b]">8. Asnaf Riqab</span>
+                </div>
+                <span class="font-mono font-bold text-[#71717a]">0.8%</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-1">
+                <span class="text-base font-extrabold font-mono text-[#09090b]">Rp 0,31 M</span>
+                <span class="text-[11px] text-[#71717a]">750 Jiwa</span>
+              </div>
+              <p class="text-[10px] text-[#52525b] leading-tight">Advokasi PMI dhuafa bermasalah dan perlindungan eksploitasi.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- GRAFIK 2: KOMPARASI 5 PILAR PROGRAM BAZNAS (INTERACTIVE DUAL-VIEW BARS) -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Komparasi Realisasi Penyaluran 5 Pilar Program</h2>
+            <p class="text-xs text-[#71717a] mt-1">Perbandingan alokasi dana dan jangkauan mustahik pada 5 pilar program unggulan</p>
+          </div>
+
+          <!-- Dual View Selector Toggle -->
+          <div class="inline-flex p-1 rounded-2xl bg-[#f4f4f5] border border-[#e4e4e7] text-xs font-semibold">
+            <button 
+              id="btn-view-nominal" 
+              onclick="switchPillarView('nominal')"
+              class="px-4 py-2 rounded-xl transition-all bg-white text-[#064e3b] shadow-xs"
+            >
+              Nominal Alokasi (Rp)
+            </button>
+            <button 
+              id="btn-view-mustahik" 
+              onclick="switchPillarView('mustahik')"
+              class="px-4 py-2 rounded-xl transition-all text-[#71717a] hover:text-[#09090b]"
+            >
+              Jumlah Mustahik (Jiwa)
+            </button>
+          </div>
+        </div>
+
+        <!-- 5 Horizontal Progress Bars Matrix -->
+        <div class="space-y-6">
+          
+          <!-- Pillar 1: Bandung Sehat -->
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-lg">medical_services</span>
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Bandung Sehat</h3>
+                  <span class="text-[11px] text-[#71717a]">Layanan medis darurat, hemodialisa gratis, ambulans 24 jam</span>
+                </div>
+              </div>
+              <div class="text-right font-mono">
+                <span id="sehat-val" class="text-base font-extrabold text-[#064e3b]">Rp 9,25 M</span>
+                <span id="sehat-pct" class="text-xs text-[#71717a] block">24.1% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div id="sehat-bar" class="h-full bg-[#064e3b] rounded-full transition-all duration-500" style="width: 24.1%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a] pt-1">
+              <span>Mustahik: <strong class="text-[#09090b]">28.400 Jiwa</strong> (30.1%)</span>
+              <span>Efisiensi: <strong class="text-[#064e3b] font-mono">Rp 325.700 / jiwa</strong></span>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Bandung Cerdas -->
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-lg">school</span>
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Bandung Cerdas</h3>
+                  <span class="text-[11px] text-[#71717a]">Beasiswa SKSS santri dhuafa, tebus ijazah tertahan, perlengkapan belajar</span>
+                </div>
+              </div>
+              <div class="text-right font-mono">
+                <span id="cerdas-val" class="text-base font-extrabold text-[#064e3b]">Rp 8,60 M</span>
+                <span id="cerdas-pct" class="text-xs text-[#71717a] block">22.4% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div id="cerdas-bar" class="h-full bg-[#047857] rounded-full transition-all duration-500" style="width: 22.4%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a] pt-1">
+              <span>Mustahik: <strong class="text-[#09090b]">31.200 Jiwa</strong> (33.1%)</span>
+              <span>Efisiensi: <strong class="text-[#064e3b] font-mono">Rp 275.600 / jiwa</strong></span>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Bandung Makmur -->
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-lg">storefront</span>
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Bandung Makmur (Pemberdayaan Ekonomi)</h3>
+                  <span class="text-[11px] text-[#71717a]">Permodalan bergulir tanpa bunga, Z-Auto, Z-Chicken, lumbung pangan tani</span>
+                </div>
+              </div>
+              <div class="text-right font-mono">
+                <span id="makmur-val" class="text-base font-extrabold text-[#064e3b]">Rp 8,45 M</span>
+                <span id="makmur-pct" class="text-xs text-[#71717a] block">22.0% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div id="makmur-bar" class="h-full bg-[#10b981] rounded-full transition-all duration-500" style="width: 22.0%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a] pt-1">
+              <span>Mustahik: <strong class="text-[#09090b]">14.500 Jiwa</strong> (15.4%)</span>
+              <span>Efisiensi: <strong class="text-[#064e3b] font-mono">Rp 582.700 / jiwa</strong> (Produktif)</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Bandung Peduli -->
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-lg">home_repair_service</span>
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Bandung Peduli</h3>
+                  <span class="text-[11px] text-[#71717a]">Bedah 312 unit Rutilahu, BAZNAS Tanggap Bencana (BTB), logistik darurat</span>
+                </div>
+              </div>
+              <div class="text-right font-mono">
+                <span id="peduli-val" class="text-base font-extrabold text-[#064e3b]">Rp 7,95 M</span>
+                <span id="peduli-pct" class="text-xs text-[#71717a] block">20.7% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div id="peduli-bar" class="h-full bg-[#34d399] rounded-full transition-all duration-500" style="width: 20.7%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a] pt-1">
+              <span>Mustahik: <strong class="text-[#09090b]">15.680 Jiwa</strong> (16.6%)</span>
+              <span>Efisiensi: <strong class="text-[#064e3b] font-mono">Rp 507.000 / jiwa</strong></span>
+            </div>
+          </div>
+
+          <!-- Pillar 5: Bandung Taqwa -->
+          <div class="space-y-2 p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-lg">mosque</span>
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Bandung Taqwa</h3>
+                  <span class="text-[11px] text-[#71717a]">Bisyarah guru ngaji pelosok, renovasi sarana ibadah, dakwah komunitas rentan</span>
+                </div>
+              </div>
+              <div class="text-right font-mono">
+                <span id="taqwa-val" class="text-base font-extrabold text-[#064e3b]">Rp 4,20 M</span>
+                <span id="taqwa-pct" class="text-xs text-[#71717a] block">10.9% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div id="taqwa-bar" class="h-full bg-[#64748b] rounded-full transition-all duration-500" style="width: 10.9%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a] pt-1">
+              <span>Mustahik: <strong class="text-[#09090b]">4.500 Jiwa</strong> (4.8%)</span>
+              <span>Efisiensi: <strong class="text-[#064e3b] font-mono">Rp 933.300 / jiwa</strong></span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pillar Impact Ratio Callout -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/20 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-[#064e3b] block">Pemberdayaan Produktif Jangka Panjang</span>
+              <span class="text-[11px] text-[#52525b]">Bandung Makmur, Cerdas &amp; Taqwa</span>
+            </div>
+            <span class="text-lg font-extrabold font-mono text-[#064e3b]">Rp 21,25 M (55.3%)</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-[#09090b] block">Perlindungan Sosial &amp; Konsumtif Darurat</span>
+              <span class="text-[11px] text-[#52525b]">Bandung Sehat &amp; Bandung Peduli</span>
+            </div>
+            <span class="text-lg font-extrabold font-mono text-[#09090b]">Rp 17,20 M (44.7%)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- GRAFIK 3: SEBARAN 3 ZONA WILAYAH & 31 KECAMATAN -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Grafik &amp; Direktori Sebaran 31 Kecamatan</h2>
+            <p class="text-xs text-[#71717a] mt-1">Peta distribusi keadilan akses mustahik di 3 zona kewilayahan Kabupaten Bandung</p>
+          </div>
+
+          <!-- Real-Time Filter & Search Input -->
+          <div class="relative w-full sm:w-80">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">search</span>
+            <input 
+              type="text" 
+              id="search-kecamatan" 
+              placeholder="Cari kecamatan (cth: Soreang, Ciwidey)..." 
+              class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2 pl-9 pr-3 text-xs font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- 3-Zone Comparison Visual Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Zona Selatan & Barat -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-4">
+            <div class="flex items-center justify-between">
+              <strong class="text-xs font-bold text-[#09090b]">Zona Selatan &amp; Barat</strong>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-[10px] font-bold border border-[#064e3b]/20">12 Kecamatan</span>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-baseline font-mono">
+                <span class="text-xl font-extrabold text-[#064e3b]">Rp 14,82 M</span>
+                <span class="text-xs font-bold text-[#064e3b]">38.5%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#e4e4e7] overflow-hidden">
+                <div class="h-full bg-[#064e3b] rounded-full" style="width: 38.5%;"></div>
+              </div>
+            </div>
+            <p class="text-[11px] text-[#52525b] leading-relaxed">
+              Ciwidey, Rancabali, Pasirjambu, Pangalengan, Cimaung, Arjasari, Pacet, Kertasari, Ibun, Paseh, Cikancung, Nagreg.
+            </p>
+            <div class="pt-2 border-t border-[#e4e4e7] flex justify-between items-center text-xs text-[#71717a]">
+              <span>Penerima Manfaat:</span>
+              <strong class="font-mono text-[#09090b]">38.250 Mustahik</strong>
+            </div>
+          </div>
+
+          <!-- Zona Tengah & Perkotaan -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-4">
+            <div class="flex items-center justify-between">
+              <strong class="text-xs font-bold text-[#09090b]">Zona Tengah &amp; Perkotaan</strong>
+              <span class="px-2.5 py-0.5 rounded-full bg-white text-[#09090b] font-mono text-[10px] font-bold border border-[#e4e4e7]">10 Kecamatan</span>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-baseline font-mono">
+                <span class="text-xl font-extrabold text-[#09090b]">Rp 13,95 M</span>
+                <span class="text-xs font-bold text-[#09090b]">36.3%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#e4e4e7] overflow-hidden">
+                <div class="h-full bg-[#047857] rounded-full" style="width: 36.3%;"></div>
+              </div>
+            </div>
+            <p class="text-[11px] text-[#52525b] leading-relaxed">
+              Soreang (Ibu Kota), Kutawaringin, Katapang, Cangkuang, Banjaran, Baleendah, Dayeuhkolot, Bojongsoang, Margahayu, Margaasih.
+            </p>
+            <div class="pt-2 border-t border-[#e4e4e7] flex justify-between items-center text-xs text-[#71717a]">
+              <span>Penerima Manfaat:</span>
+              <strong class="font-mono text-[#09090b]">33.180 Mustahik</strong>
+            </div>
+          </div>
+
+          <!-- Zona Timur -->
+          <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-4">
+            <div class="flex items-center justify-between">
+              <strong class="text-xs font-bold text-[#09090b]">Zona Timur</strong>
+              <span class="px-2.5 py-0.5 rounded-full bg-white text-[#09090b] font-mono text-[10px] font-bold border border-[#e4e4e7]">9 Kecamatan</span>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-baseline font-mono">
+                <span class="text-xl font-extrabold text-[#09090b]">Rp 9,68 M</span>
+                <span class="text-xs font-bold text-[#09090b]">25.2%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#e4e4e7] overflow-hidden">
+                <div class="h-full bg-[#10b981] rounded-full" style="width: 25.2%;"></div>
+              </div>
+            </div>
+            <p class="text-[11px] text-[#52525b] leading-relaxed">
+              Majalaya, Solokanjeruk, Ciparay, Rancaekek, Cileunyi, Cimenyan, Cilengkrang, Cicalengka, Nagreg.
+            </p>
+            <div class="pt-2 border-t border-[#e4e4e7] flex justify-between items-center text-xs text-[#71717a]">
+              <span>Penerima Manfaat:</span>
+              <strong class="font-mono text-[#09090b]">22.850 Mustahik</strong>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Real-Time Filterable Kecamatan Grid (31 Kecamatan) -->
+        <div class="pt-2 space-y-4">
+          <div class="flex items-center justify-between text-xs text-[#71717a]">
+            <span>Daftar Rincian Per Kecamatan (31 Kecamatan)</span>
+            <span id="match-count" class="font-mono font-semibold text-[#064e3b]">Menampilkan 31 Kecamatan</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-xs" id="kecamatan-items">
+            <!-- 1. Soreang -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="soreang zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Soreang</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,85 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">4.210 Mustahik &bull; 10 Desa</div>
+            </div>
+
+            <!-- 2. Baleendah -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="baleendah zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Baleendah</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,72 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.980 Mustahik &bull; 8 Kel/Desa</div>
+            </div>
+
+            <!-- 3. Majalaya -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="majalaya zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Majalaya</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,65 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.820 Mustahik &bull; 11 Desa</div>
+            </div>
+
+            <!-- 4. Ciwidey -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="ciwidey zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Ciwidey</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,48 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.420 Mustahik &bull; 7 Desa</div>
+            </div>
+
+            <!-- 5. Pangalengan -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="pangalengan zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Pangalengan</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,52 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.510 Mustahik &bull; 13 Desa</div>
+            </div>
+
+            <!-- 6. Dayeuhkolot -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="dayeuhkolot zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Dayeuhkolot</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,41 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.250 Mustahik &bull; 6 Desa</div>
+            </div>
+
+            <!-- 7. Rancaekek -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="rancaekek zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Rancaekek</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,39 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.190 Mustahik &bull; 14 Desa</div>
+            </div>
+
+            <!-- 8. Cileunyi -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cileunyi zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cileunyi</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,35 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">3.050 Mustahik &bull; 6 Desa</div>
+            </div>
+
+            <!-- 9. Margahayu -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="margahayu zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Margahayu</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,28 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.950 Mustahik &bull; 5 Desa</div>
+            </div>
+
+            <!-- 10. Banjaran -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="banjaran zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Banjaran</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,25 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.890 Mustahik &bull; 11 Desa</div>
+            </div>
+
+            <!-- 11. Katapang -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="katapang zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Katapang</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,20 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.780 Mustahik &bull; 7 Desa</div>
+            </div>
+
+            <!-- 12. Ciparay -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="ciparay zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Ciparay</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,18 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.710 Mustahik &bull; 14 Desa</div>
+            </div>
+
+            <!-- 13. Bojongsoang -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="bojongsoang zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Bojongsoang</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,15 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.650 Mustahik &bull; 6 Desa</div>
+            </div>
+
+            <!-- 14. Cicalengka -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cicalengka zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cicalengka</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,12 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.580 Mustahik &bull; 12 Desa</div>
+            </div>
+
+            <!-- 15. Rancabali -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="rancabali zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Rancabali</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,08 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.490 Mustahik &bull; 5 Desa</div>
+            </div>
+
+            <!-- 16. Pasirjambu -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="pasirjambu zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Pasirjambu</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,05 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.410 Mustahik &bull; 10 Desa</div>
+            </div>
+
+            <!-- 17. Cimaung -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cimaung zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cimaung</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 1,02 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.350 Mustahik &bull; 10 Desa</div>
+            </div>
+
+            <!-- 18. Arjasari -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="arjasari zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Arjasari</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,98 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.280 Mustahik &bull; 11 Desa</div>
+            </div>
+
+            <!-- 19. Pacet -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="pacet zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Pacet</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,96 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.210 Mustahik &bull; 13 Desa</div>
+            </div>
+
+            <!-- 20. Kertasari -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="kertasari zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Kertasari</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,95 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.180 Mustahik &bull; 8 Desa</div>
+            </div>
+
+            <!-- 21. Ibun -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="ibun zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Ibun</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,94 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.150 Mustahik &bull; 12 Desa</div>
+            </div>
+
+            <!-- 22. Paseh -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="paseh zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Paseh</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,93 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.120 Mustahik &bull; 12 Desa</div>
+            </div>
+
+            <!-- 23. Cikancung -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cikancung zona selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cikancung</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,91 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.080 Mustahik &bull; 9 Desa</div>
+            </div>
+
+            <!-- 24. Kutawaringin -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="kutawaringin zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Kutawaringin</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,92 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.110 Mustahik &bull; 11 Desa</div>
+            </div>
+
+            <!-- 25. Cangkuang -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cangkuang zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cangkuang</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,89 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.040 Mustahik &bull; 7 Desa</div>
+            </div>
+
+            <!-- 26. Margaasih -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="margaasih zona tengah">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Margaasih</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,88 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">2.010 Mustahik &bull; 6 Desa</div>
+            </div>
+
+            <!-- 27. Solokanjeruk -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="solokanjeruk zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Solokanjeruk</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,87 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">1.990 Mustahik &bull; 7 Desa</div>
+            </div>
+
+            <!-- 28. Cimenyan -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cimenyan zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cimenyan</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,85 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">1.940 Mustahik &bull; 9 Desa</div>
+            </div>
+
+            <!-- 29. Cilengkrang -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="cilengkrang zona timur">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Cilengkrang</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,82 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">1.880 Mustahik &bull; 6 Desa</div>
+            </div>
+
+            <!-- 30. Nagreg -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="nagreg zona timur selatan barat">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Nagreg</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,80 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">1.820 Mustahik &bull; 8 Desa</div>
+            </div>
+
+            <!-- 31. Rancabali Selatan -->
+            <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1" data-name="rancabali sukamulya zona selatan">
+              <div class="flex justify-between items-center">
+                <strong class="text-[#09090b]">Kawasan Perbatasan</strong>
+                <span class="text-[10px] font-mono text-[#064e3b] font-bold">Rp 0,69 M</span>
+              </div>
+              <div class="text-[11px] text-[#71717a]">1.580 Mustahik &bull; Pelosok 3T</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="p-4 bg-[#fafafa] rounded-2xl border border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#71717a]">
+          <span>Penetapan kelayakan penyaluran mengacu pada standar garis Had Kifayah per kepala keluarga.</span>
+          <a href="/layanan/bantuan" class="font-semibold text-[#064e3b] hover:underline flex items-center gap-1">
+            <span>Daftar Pengajuan Rekomendasi Bantuan</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- BENTO MODERN SAAS FEATURES SECTION -->
+      <section>
+        <InkOrbitFeatures 
+          client:visible
+          theme="light"
+          brand="SEBARAN MUSTAHIK"
+          tag=""
+          title="Penyaluran *Tepat Sasaran*\nBerbasis CIBEST & Had Kifayah"
+          collaboration={{
+            title: "Verifikasi Lapangan & Geotagging",
+            description: "Surveyor dan UPZ desa mengunggah data faktual kelayakan mustahik langsung dari 31 kecamatan."
+          }}
+          reports={{
+            title: "SK Bantuan & Rekap 8 Asnaf",
+            description: "Dokumentasi digital penetapan hak asnaf fakir, miskin, dan pilar produktif lengkap dengan bukti serah terima."
+          }}
+          integrations={{
+            title: "Validasi Lintas Lembaga",
+            description: "Sinkronisasi NIK Dukcapil, DTKS Kemensos, Puskesmas (Bandung Sehat), dan Kemenag Kabupaten Bandung.",
+            tools: ["Dukcapil", "DTKS", "Dinkes BDG", "Kemenag"]
+          }}
+          insights={{
+            title: "Indeks Transformasi Mustahik",
+            description: "Pemodelan kenaikan garis Had Kifayah mustahik menjadi muzaki berdaya melalui intervensi Bandung Makmur.",
+            values: [18, 22, 25, 29, 34, 39, 44, 51, 59, 68, 77, 88],
+            forecastFrom: 8
+          }}
+        />
+      </section>
+
+      <!-- GRAFIK 4: MODEL CIBEST & INDEKS PENGENTASAN KEMISKINAN (IPB & BAZNAS RI) -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Indeks Efektivitas CIBEST Model &amp; Had Kifayah</h2>
+            <p class="text-xs text-[#71717a] mt-1">Metodologi pengukuran saintifik dampak zakat terhadap kemandirian material &amp; spiritual mustahik</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-xs font-mono font-bold border border-[#064e3b]/20">
+              Skor CIBEST: 0.884 (Sangat Efektif)
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- 4-Quadrant Visual Grid (7 cols) -->
+          <div class="lg:col-span-7 space-y-4">
+            <h3 class="text-sm font-bold text-[#09090b]">Matriks Kuadran Transformasi Kesejahteraan CIBEST</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              
+              <!-- Kuadran I: Sejahtera -->
+              <div class="p-5 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/30 space-y-2">
+                <div class="flex justify-between items-center">
+                  <strong class="font-bold text-[#064e3b]">Kuadran I: Rumah Tangga Sejahtera</strong>
+                  <span class="px-2 py-0.5 rounded-full bg-[#064e3b] text-white font-mono text-[10px] font-bold">68.4%</span>
+                </div>
+                <div class="text-2xl font-extrabold font-mono text-[#064e3b]">64.487 Jiwa</div>
+                <p class="text-[11px] text-[#064e3b]/80 leading-relaxed">
+                  Mandiri material &amp; spiritual pasca intervensi modal usaha bergulir serta pembinaan keagamaan berkala.
+                </p>
+              </div>
+
+              <!-- Kuadran II: Kemiskinan Material -->
+              <div class="p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+                <div class="flex justify-between items-center">
+                  <strong class="font-bold text-[#09090b]">Kuadran II: Kemiskinan Material</strong>
+                  <span class="px-2 py-0.5 rounded-full bg-white text-[#09090b] font-mono text-[10px] font-bold border border-[#e4e4e7]">24.2%</span>
+                </div>
+                <div class="text-2xl font-extrabold font-mono text-[#09090b]">22.815 Jiwa</div>
+                <p class="text-[11px] text-[#52525b] leading-relaxed">
+                  Spiritual baik namun pendapatan material masih rentan. Membutuhkan pendampingan akses pasar &amp; modal kerja.
+                </p>
+              </div>
+
+              <!-- Kuadran III: Kemiskinan Spiritual -->
+              <div class="p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+                <div class="flex justify-between items-center">
+                  <strong class="font-bold text-[#09090b]">Kuadran III: Kemiskinan Spiritual</strong>
+                  <span class="px-2 py-0.5 rounded-full bg-white text-[#71717a] font-mono text-[10px] font-bold border border-[#e4e4e7]">4.6%</span>
+                </div>
+                <div class="text-2xl font-extrabold font-mono text-[#71717a]">4.337 Jiwa</div>
+                <p class="text-[11px] text-[#52525b] leading-relaxed">
+                  Kebutuhan fisik terpenuhi, namun membutuhkan penguatan komitmen ibadah dan pembinaan da'i BAZNAS.
+                </p>
+              </div>
+
+              <!-- Kuadran IV: Kemiskinan Absolut -->
+              <div class="p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+                <div class="flex justify-between items-center">
+                  <strong class="font-bold text-[#09090b]">Kuadran IV: Kemiskinan Absolut</strong>
+                  <span class="px-2 py-0.5 rounded-full bg-white text-[#71717a] font-mono text-[10px] font-bold border border-[#e4e4e7]">2.8%</span>
+                </div>
+                <div class="text-2xl font-extrabold font-mono text-[#71717a]">2.641 Jiwa</div>
+                <p class="text-[11px] text-[#52525b] leading-relaxed">
+                  Keluarga lansia tunggal difabel dan terlantar. Diprioritaskan santunan sembako bulanan seumur hidup.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Had Kifayah Gauge & Standard (5 cols) -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="p-6 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-4">
+              <div class="flex justify-between items-center">
+                <h3 class="text-sm font-bold text-[#09090b]">Pemenuhan Standar Had Kifayah</h3>
+                <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">
+                  91.4% Tercapai
+                </span>
+              </div>
+
+              <div class="space-y-2">
+                <div class="w-full h-4 rounded-full bg-[#e4e4e7] overflow-hidden p-0.5 border border-[#e4e4e7]">
+                  <div class="h-full bg-[#064e3b] rounded-full" style="width: 91.4%;"></div>
+                </div>
+                <div class="flex justify-between text-xs font-mono text-[#71717a]">
+                  <span>Garis Kemiskinan: Rp 824.500/kapita</span>
+                  <span class="text-[#064e3b] font-bold">Rata-rata: Rp 1.045.000</span>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-[#52525b] leading-relaxed">
+                Had Kifayah adalah batas kecukupan minimal yang wajib dipenuhi oleh mustahik yang mencakup 7 unsur primer: makanan, pakaian, tempat tinggal, ibadah, pendidikan, kesehatan, dan transportasi.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-3 text-xs">
+              <strong class="text-xs font-bold text-[#09090b] block">Komitmen Akuntabilitas Penyaluran</strong>
+              <div class="space-y-2 text-[#52525b]">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[#064e3b] text-base shrink-0">check_circle</span>
+                  <span>100% mustahik diverifikasi faktual melalui NIK dan survei lapangan</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[#064e3b] text-base shrink-0">check_circle</span>
+                  <span>Audit Kepatuhan Syariah berkala oleh Dewan Pengawas Syariah (DPS)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[#064e3b] text-base shrink-0">check_circle</span>
+                  <span>Pelaporan terpadu sistem SIMBA BAZNAS RI real-time per kecamatan</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script is:inline>
+    // Real-Time Search Kecamatan Filter
+    const searchInput = document.getElementById('search-kecamatan');
+    const items = document.querySelectorAll('#kecamatan-items > div');
+    const matchCount = document.getElementById('match-count');
+
+    searchInput?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      let visible = 0;
+      items.forEach(item => {
+        const text = (item.getAttribute('data-name') || item.textContent).toLowerCase();
+        if (text.includes(q)) {
+          item.style.display = '';
+          visible++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      if (matchCount) {
+        matchCount.textContent = `Menampilkan ${visible} Kecamatan`;
+      }
+    });
+
+    // Dual-View Toggle for 5 Pillars (Nominal vs Mustahik)
+    const pillarData = {
+      nominal: {
+        sehat: { val: 'Rp 9,25 M', pct: '24.1% dari total', bar: '24.1%' },
+        cerdas: { val: 'Rp 8,60 M', pct: '22.4% dari total', bar: '22.4%' },
+        makmur: { val: 'Rp 8,45 M', pct: '22.0% dari total', bar: '22.0%' },
+        peduli: { val: 'Rp 7,95 M', pct: '20.7% dari total', bar: '20.7%' },
+        taqwa: { val: 'Rp 4,20 M', pct: '10.9% dari total', bar: '10.9%' }
+      },
+      mustahik: {
+        sehat: { val: '28.400 Jiwa', pct: '30.1% mustahik', bar: '30.1%' },
+        cerdas: { val: '31.200 Jiwa', pct: '33.1% mustahik', bar: '33.1%' },
+        makmur: { val: '14.500 Jiwa', pct: '15.4% mustahik', bar: '15.4%' },
+        peduli: { val: '15.680 Jiwa', pct: '16.6% mustahik', bar: '16.6%' },
+        taqwa: { val: '4.500 Jiwa', pct: '4.8% mustahik', bar: '4.8%' }
+      }
+    };
+
+    window.switchPillarView = function(view) {
+      const btnNominal = document.getElementById('btn-view-nominal');
+      const btnMustahik = document.getElementById('btn-view-mustahik');
+      const data = pillarData[view];
+      if (!data) return;
+
+      if (view === 'nominal') {
+        btnNominal?.classList.add('bg-white', 'text-[#064e3b]', 'shadow-xs');
+        btnNominal?.classList.remove('text-[#71717a]');
+        btnMustahik?.classList.remove('bg-white', 'text-[#064e3b]', 'shadow-xs');
+        btnMustahik?.classList.add('text-[#71717a]');
+      } else {
+        btnMustahik?.classList.add('bg-white', 'text-[#064e3b]', 'shadow-xs');
+        btnMustahik?.classList.remove('text-[#71717a]');
+        btnNominal?.classList.remove('bg-white', 'text-[#064e3b]', 'shadow-xs');
+        btnNominal?.classList.add('text-[#71717a]');
+      }
+
+      const pillars = ['sehat', 'cerdas', 'makmur', 'peduli', 'taqwa'];
+      pillars.forEach(p => {
+        const valEl = document.getElementById(`${p}-val`);
+        const pctEl = document.getElementById(`${p}-pct`);
+        const barEl = document.getElementById(`${p}-bar`);
+        if (valEl) valEl.textContent = data[p].val;
+        if (pctEl) pctEl.textContent = data[p].pct;
+        if (barEl) barEl.style.width = data[p].bar;
+      });
+    };
+  </script>
+</PublicLayout>

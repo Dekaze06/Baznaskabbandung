@@ -1,0 +1,452 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import InkOrbitFeatures from '../../components/ui/ink-orbit-features';
+---
+
+<AdminLayout title="Executive Command Center - Panel Admin BAZNAS Kab. Bandung" sectionName="Ringkasan Strategis" pageTitle="Executive Command Center" activeRoute="command-center">
+  <main class="p-6 lg:p-8 space-y-7">
+    
+    <!-- Executive Authority Banner -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-[#064e3b] flex items-center justify-center text-white shrink-0 shadow-md">
+          <span class="material-symbols-outlined text-[28px]">shield_person</span>
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <h1 class="text-xl font-bold text-[#09090b] tracking-tight">Drs. H. M. Yusuf</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-[11px] font-bold border border-[#064e3b]/20">PIMPINAN_KETUA</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#71717a] font-mono text-[11px]">ID: AMIL-3204-001</span>
+          </div>
+          <p class="text-xs text-[#71717a] mt-1">
+            Plafon Otorisasi: <strong class="text-[#09090b] font-semibold">Otoritas Final Tanpa Batas (Kuorum Pleno)</strong> • Terhubung SIMBA RI Node 3204
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="px-3.5 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] flex items-center gap-2 text-xs font-mono font-medium text-[#09090b]">
+          <span class="material-symbols-outlined text-[#064e3b] text-base">phonelink_lock</span>
+          <span>MFA Active</span>
+        </div>
+        <div class="px-3.5 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] flex items-center gap-2 text-xs font-mono font-medium text-[#09090b]">
+          <span class="material-symbols-outlined text-[#064e3b] text-base">vpn_key</span>
+          <span>SHA-256 Chained</span>
+        </div>
+        <a href="/admin/command-center/tte" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all inline-flex items-center gap-1.5 shadow-xs">
+          <span class="material-symbols-outlined text-base">signature</span>
+          <span>8 Disposisi TTE</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Top Sub-Nav Pills for Module 1 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi ringkasan eksekutif">
+      <a href="/admin/command-center" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Eksekutif</span>
+      </a>
+      <a href="/admin/command-center/tte" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#ff5a00]">signature</span>
+        <span>Otorisasi &amp; Disposisi TTE</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ff5a00] text-white text-[10px] font-bold">8</span>
+      </a>
+      <a href="/admin/command-center/radar-wilayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">map</span>
+        <span>Radar Sebaran 31 Kec.</span>
+      </a>
+      <a href="/admin/command-center/rkat" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">trending_up</span>
+        <span>Capaian RKAT 2026</span>
+      </a>
+    </nav>
+
+    <!-- 4 Core Executive Metric Cards -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+      <!-- Metric 1: Penghimpunan ZIS -->
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 flex flex-col justify-between shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between text-[#71717a] text-xs font-medium uppercase tracking-wider">
+          <span>Penghimpunan RKAT</span>
+          <span class="material-symbols-outlined text-[#064e3b] text-xl">account_balance_wallet</span>
+        </div>
+        <div class="my-4">
+          <div class="text-3xl font-bold tracking-tight text-[#09090b]">Rp 48,72 M</div>
+          <div class="text-xs text-[#71717a] mt-1 flex items-center justify-between">
+            <span>Target: Rp 57,5 M</span>
+            <span class="font-bold text-[#064e3b] font-mono">84,7%</span>
+          </div>
+        </div>
+        <div class="w-full bg-[#f4f4f5] h-2 rounded-full overflow-hidden">
+          <div class="bg-[#064e3b] h-full rounded-full" style="width: 84.7%"></div>
+        </div>
+      </div>
+
+      <!-- Metric 2: Rasio ACR -->
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 flex flex-col justify-between shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between text-[#71717a] text-xs font-medium uppercase tracking-wider">
+          <span>Rasio ACR Penyaluran</span>
+          <span class="material-symbols-outlined text-[#064e3b] text-xl">verified</span>
+        </div>
+        <div class="my-4">
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl font-bold tracking-tight text-[#09090b]">84,70%</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono font-bold">Grade A</span>
+          </div>
+          <div class="text-xs text-[#71717a] mt-1">Standar Kemenag RI (&gt;80% Efektif)</div>
+        </div>
+        <div class="text-xs flex items-center justify-between pt-1 border-t border-[#ececee]">
+          <span class="text-[#71717a]">Indeks Zakat (IZN)</span>
+          <span class="font-mono font-bold text-[#09090b]">0.82 (Baik)</span>
+        </div>
+      </div>
+
+      <!-- Metric 3: Kas Terpisah PSAK 109 -->
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 flex flex-col justify-between shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between text-[#71717a] text-xs font-medium uppercase tracking-wider">
+          <span>Kas Terpisah PSAK 109</span>
+          <span class="material-symbols-outlined text-[#064e3b] text-xl">account_tree</span>
+        </div>
+        <div class="my-4">
+          <div class="text-3xl font-bold tracking-tight text-[#09090b]">Rp 7,97 M</div>
+          <div class="text-[11px] text-[#71717a] mt-1 space-y-0.5">
+            <div class="flex justify-between">
+              <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#064e3b]"></span>Kas Zakat</span>
+              <strong class="font-mono text-[#09090b]">Rp 4,82 M</strong>
+            </div>
+            <div class="flex justify-between">
+              <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#ff5a00]"></span>Kas Infak / DSKL</span>
+              <strong class="font-mono text-[#09090b]">Rp 2,54 M</strong>
+            </div>
+          </div>
+        </div>
+        <div class="text-xs flex items-center justify-between pt-1 border-t border-[#ececee]">
+          <span class="text-[#71717a]">Hak Amil (Maks 12.5%)</span>
+          <span class="font-mono font-bold text-[#064e3b]">8.9% (Tercukupi)</span>
+        </div>
+      </div>
+
+      <!-- Metric 4: Penerima Manfaat -->
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 flex flex-col justify-between shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between text-[#71717a] text-xs font-medium uppercase tracking-wider">
+          <span>Penerima Manfaat</span>
+          <span class="material-symbols-outlined text-[#064e3b] text-xl">group</span>
+        </div>
+        <div class="my-4">
+          <div class="text-3xl font-bold tracking-tight text-[#09090b]">43.890</div>
+          <div class="text-xs text-[#71717a] mt-1">Tersebar di 31 Kecamatan &amp; 280 Desa</div>
+        </div>
+        <div class="text-xs flex items-center justify-between pt-1 border-t border-[#ececee]">
+          <span class="text-[#71717a]">Klasifikasi Prioritas</span>
+          <span class="font-mono font-bold text-[#064e3b]">CIBEST I-II</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO MODERN SAAS EXECUTIVE COMMAND CENTER -->
+    <section>
+      <InkOrbitFeatures 
+        client:visible
+        theme="light"
+        brand="COMMAND CENTER BAZNAS"
+        tag=""
+        title="Kendali *Operasional*\nExecutive Command Center"
+        collaboration={{
+          title: "Alur Disposisi & Otorisasi TTE",
+          description: "Workflow otomatis verifikasi berkas dari 31 UPZ kecamatan menuju meja pimpinan untuk persetujuan tanda tangan elektronik."
+        }}
+        reports={{
+          title: "Auto-Generate Laporan Eksekutif",
+          description: "Rekapitulasi berkala neraca kas terpisah PSAK 109, realisasi 5 pilar program, dan kepatuhan syariah siap unduh."
+        }}
+        integrations={{
+          title: "Integrasi Node SIMBA Pusat",
+          description: "Node 3204-KAB-BDG sinkron langsung dengan cloud server BAZNAS RI, Bank Mitra Syariah, dan Diskominfo Pemkab.",
+          tools: ["Node 3204", "TTE Kominfo", "Audit KAP", "Giro BJB"]
+        }}
+        insights={{
+          title: "Prediksi Efektivitas Penyerapan Anggaran",
+          description: "Monitoring laju serapan dana ZIS terhadap target RKAT 2026 dengan deteksi anomali operasional otomatis.",
+          values: [35, 38, 42, 55, 60, 68, 72, 79, 85, 93, 97, 100],
+          forecastFrom: 9
+        }}
+      />
+    </section>
+
+    <!-- Sub-menu Navigation Hub: 4 Modul Operasional -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-lg font-bold text-[#09090b]">Semua Sub Menu Panel Admin Terpisah</h2>
+          <p class="text-xs text-[#71717a]">Pilih salah satu dari 18 modul operasional amil untuk navigasi langsung</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        
+        <!-- Block 1: Ringkasan Eksekutif -->
+        <div class="bg-white rounded-[28px] border border-[#ececee] p-5 space-y-3.5 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2.5 pb-2.5 border-b border-[#ececee]">
+              <span class="material-symbols-outlined text-xl text-[#064e3b]">dashboard</span>
+              <div>
+                <h3 class="font-bold text-sm text-[#09090b]">Ringkasan Eksekutif</h3>
+                <span class="text-[10px] text-[#71717a] font-mono">Modul 1 (Pimpinan)</span>
+              </div>
+            </div>
+            <ul class="pt-3 space-y-2 text-xs">
+              <li>
+                <a href="/admin/command-center/tte" class="flex items-center justify-between p-2 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm text-[#ff5a00]">signature</span>
+                    <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Otorisasi &amp; Disposisi TTE</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-[#ff5a00] text-white text-[10px] font-bold">8 TTE</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/command-center/radar-wilayah" class="flex items-center justify-between p-2 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm text-[#064e3b]">map</span>
+                    <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Radar Sebaran 31 Kec.</span>
+                  </div>
+                  <span class="text-[10px] font-mono text-[#71717a]">31 Wilayah</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/command-center/rkat" class="flex items-center justify-between p-2 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm text-[#064e3b]">trending_up</span>
+                    <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Capaian RKAT 2026</span>
+                  </div>
+                  <span class="text-[10px] font-mono font-bold text-[#064e3b]">84,7%</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="/admin/command-center" class="w-full text-center py-2 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-xs font-bold text-[#064e3b] transition-all">
+            Buka Command Center &rarr;
+          </a>
+        </div>
+
+        <!-- Block 2: Operasional Lapangan & Asesmen -->
+        <div class="bg-white rounded-[28px] border border-[#ececee] p-5 space-y-3.5 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2.5 pb-2.5 border-b border-[#ececee]">
+              <span class="material-symbols-outlined text-xl text-[#064e3b]">verified_user</span>
+              <div>
+                <h3 class="font-bold text-sm text-[#09090b]">Operasional Asesmen</h3>
+                <span class="text-[10px] text-[#71717a] font-mono">Modul 2 (Surveyor)</span>
+              </div>
+            </div>
+            <ul class="pt-3 space-y-1.5 text-xs">
+              <li>
+                <a href="/admin/asesmen/antrean" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Antrean 48 Mustahik</span>
+                  <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48 NIK</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/asesmen/verifikasi" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Verifikasi On-Site Mustahik</span>
+                  <span class="text-[10px] text-[#71717a]">Dossier</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/asesmen/kalkulator" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Kalkulator Had Kifayah</span>
+                  <span class="text-[10px] text-[#064e3b] font-mono">Perbanz</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/asesmen/had-kifayah" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Breakdown Norma Kebutuhan</span>
+                  <span class="text-[10px] text-[#71717a]">7 Norma</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/asesmen/cibest" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Kuadran CIBEST I - IV</span>
+                  <span class="text-[10px] font-mono text-[#064e3b]">Spiritual</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/asesmen/geotagging" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Geotagging &amp; Foto Rumah</span>
+                  <span class="text-[10px] text-[#71717a]">GPS Map</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="/admin/asesmen" class="w-full text-center py-2 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-xs font-bold text-[#064e3b] transition-all">
+            Buka Modul Asesmen &rarr;
+          </a>
+        </div>
+
+        <!-- Block 3: Keuangan & PSAK 109 -->
+        <div class="bg-white rounded-[28px] border border-[#ececee] p-5 space-y-3.5 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2.5 pb-2.5 border-b border-[#ececee]">
+              <span class="material-symbols-outlined text-xl text-[#064e3b]">account_balance</span>
+              <div>
+                <h3 class="font-bold text-sm text-[#09090b]">Keuangan PSAK 109</h3>
+                <span class="text-[10px] text-[#71717a] font-mono">Modul 3 (Akuntansi)</span>
+              </div>
+            </div>
+            <ul class="pt-3 space-y-1.5 text-xs">
+              <li>
+                <a href="/admin/keuangan/segregated-funds" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Kas 5 Segregated Funds</span>
+                  <span class="text-[10px] font-mono font-bold text-[#064e3b]">Rp 7,97 M</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/keuangan/jurnal" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Buku Jurnal PSAK 109</span>
+                  <span class="text-[10px] text-[#71717a]">Ledger</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/keuangan/transfer" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Antrean Transfer H2H</span>
+                  <span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">6 Antrean</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/keuangan/rekonsiliasi" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Rekonsiliasi Bank Syariah</span>
+                  <span class="text-[10px] text-[#064e3b] font-mono">99.8%</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/keuangan/neraca" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Laporan Neraca PSAK 109</span>
+                  <span class="text-[10px] font-bold text-[#064e3b]">WTP</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="/admin/keuangan" class="w-full text-center py-2 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-xs font-bold text-[#064e3b] transition-all">
+            Buka Modul Keuangan &rarr;
+          </a>
+        </div>
+
+        <!-- Block 4: Jaringan UPZ Daerah -->
+        <div class="bg-white rounded-[28px] border border-[#ececee] p-5 space-y-3.5 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2.5 pb-2.5 border-b border-[#ececee]">
+              <span class="material-symbols-outlined text-xl text-[#064e3b]">corporate_fare</span>
+              <div>
+                <h3 class="font-bold text-sm text-[#09090b]">Manajemen UPZ 31 Kec.</h3>
+                <span class="text-[10px] text-[#71717a] font-mono">Modul 4 (Jaringan)</span>
+              </div>
+            </div>
+            <ul class="pt-3 space-y-2 text-xs">
+              <li>
+                <a href="/admin/upz/direktori" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Direktori 487 UPZ Daerah</span>
+                  <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">487 Unit</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/upz/registrasi" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Registrasi &amp; SK UPZ</span>
+                  <span class="text-[10px] text-[#71717a]">SK &amp; VA</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/upz/setoran" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Pemrosesan Setoran ASN</span>
+                  <span class="text-[10px] font-mono text-[#064e3b]">e-BSZ Massal</span>
+                </a>
+              </li>
+              <li>
+                <a href="/admin/upz/hak-kelola" class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#f4f4f5] transition-all group">
+                  <span class="font-semibold text-[#09090b] group-hover:text-[#064e3b]">Bagi Hasil Hak Amil Syar'i</span>
+                  <span class="text-[10px] font-bold text-[#d97706] font-mono">12.5% MUI</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="/admin/upz" class="w-full text-center py-2 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-xs font-bold text-[#064e3b] transition-all">
+            Buka Modul UPZ &rarr;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Detailed RKAT 2026 5-Pillar Realization Table Summary -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#ececee]">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#064e3b] text-xl">trending_up</span>
+            <h3 class="font-bold text-base text-[#09090b]">Ringkasan Capaian Realisasi RKAT 2026 (5 Pilar)</h3>
+          </div>
+          <p class="text-xs text-[#71717a] mt-0.5">Disahkan dalam Rapat Kerja Tahunan BAZNAS Kabupaten Bandung &amp; Terintegrasi ke SIMBA BAZNAS RI</p>
+        </div>
+        <a href="/admin/command-center/rkat" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20 hover:bg-[#d1fae5] transition-all">
+          <span>Lihat Laporan Lengkap</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">Pilar Program BAZNAS</th>
+              <th class="py-3 px-4">Fokus Intervensi</th>
+              <th class="py-3 px-4 text-right">Pagu RKAT (Rp)</th>
+              <th class="py-3 px-4 text-right">Realisasi (Rp)</th>
+              <th class="py-3 px-4 text-center">Persentase</th>
+              <th class="py-3 px-4 text-right">Penerima</th>
+              <th class="py-3 px-4 text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3 px-4 font-bold text-[#09090b]">Bandung Peduli</td>
+              <td class="py-3 px-4 text-[#71717a]">Rehabilitasi Rutilahu, Tanggap Bencana Banjir Citarum</td>
+              <td class="py-3 px-4 text-right font-mono font-semibold">18.500.000.000</td>
+              <td class="py-3 px-4 text-right font-mono font-bold text-[#064e3b]">15.670.000.000</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-[#064e3b]">84,7%</td>
+              <td class="py-3 px-4 text-right font-mono">18.420 Jiwa</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Tepat Sasaran</span></td>
+            </tr>
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3 px-4 font-bold text-[#09090b]">Bandung Sehat</td>
+              <td class="py-3 px-4 text-[#71717a]">Subsidi Cuci Darah RSUD Otista &amp; Al-Ihsan, Stunting 31 Kec</td>
+              <td class="py-3 px-4 text-right font-mono font-semibold">8.200.000.000</td>
+              <td class="py-3 px-4 text-right font-mono font-bold text-[#064e3b]">7.120.000.000</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-[#064e3b]">86,8%</td>
+              <td class="py-3 px-4 text-right font-mono">6.890 Jiwa</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Tepat Sasaran</span></td>
+            </tr>
+            <tr class="hover:bg-[#f4f4f5]/60 transition-colors">
+              <td class="py-3 px-4 font-bold text-[#09090b]">Bandung Cerdas</td>
+              <td class="py-3 px-4 text-[#71717a]">Satu Keluarga Satu Sarjana (SKSS), Beasiswa Santri Tahfidz</td>
+              <td class="py-3 px-4 text-right font-mono font-semibold">9.800.000.000</td>
+              <td class="py-3 px-4 text-right font-mono font-bold text-[#064e3b]">8.250.000.000</td>
+              <td class="py-3 px-4 text-center font-mono font-bold text-[#064e3b]">84,2%</td>
+              <td class="py-3 px-4 text-right font-mono">8.120 Siswa</td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Tepat Sasaran</span></td>
+            </tr>
+          </tbody>
+          <tfoot class="bg-[#f8fafc] font-bold text-xs border-t-2 border-[#ececee]">
+            <tr>
+              <td class="py-3.5 px-4 text-[#09090b]" colspan="2">TOTAL PENYALURAN ZIS RKAT 2026</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#09090b]">Rp 57.500.000.000</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#064e3b] text-sm">Rp 48.720.000.000</td>
+              <td class="py-3.5 px-4 text-center font-mono text-[#064e3b] text-sm">84,7%</td>
+              <td class="py-3.5 px-4 text-right font-mono text-[#09090b]">43.890 Jiwa</td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white text-[10px] font-bold">WTP Ready</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

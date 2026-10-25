@@ -1,0 +1,833 @@
+---
+import InkOrbitFeatures from '../ui/ink-orbit-features';
+import MitraMarquee from '../ui/mitra-marquee';
+import BerandaCarousel from './BerandaCarousel';
+---
+
+<section id="view-transparansi" class="spa-view" tabindex="-1" aria-hidden="false">
+  <div class="w-full">
+    
+<!-- Hero Section (Awesomic Editorial Style) -->
+<section class="max-w-[1400px] mx-auto px-6 pt-14 sm:pt-16 lg:pt-24 xl:pt-28 pb-16 sm:pb-20 lg:pb-28 reveal-on-scroll">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+<!-- Text Column -->
+<div class="lg:col-span-5 space-y-6 lg:space-y-7 reveal-left">
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-obsidian leading-[1.08]">
+            Tunaikan Zakat, Bangun Kemandirian Umat.
+          </h1>
+<p class="text-base sm:text-lg text-steel max-w-xl font-normal leading-relaxed">
+            Pengelolaan zakat transparan dan akuntabel di Kabupaten Bandung. Dilengkapi Bukti Setor Zakat (BSZ) resmi yang diakui pengurang pajak bruto.
+          </p>
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-[14px] bg-emerald-deep hover:bg-emerald-vibrant text-white font-medium text-sm transition-all" href="#kalkulator" data-route="kalkulator">
+<span>Hitung &amp; Bayar Zakat</span>
+<span class="material-symbols-outlined text-base">north_east</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-[14px] bg-paper-s6 border border-mist-s6 hover:border-steel text-obsidian font-medium text-sm transition-all" href="#mustahik" data-route="mustahik">
+<span>Ajukan Bantuan</span>
+</a>
+<button class="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-[14px] text-xs font-mono-s6 text-steel hover:text-obsidian" id="btnQuickBszVerify">
+<span class="material-symbols-outlined text-base">qr_code_scanner</span>
+<span>Cek BSZ</span>
+</button>
+</div>
+<!-- Quick Proof Chips -->
+<div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 stagger-container">
+<div class="bg-paper-s6 p-3.5 rounded-[16px] border border-mist-s6">
+<span class="block text-[10px] font-mono-s6 uppercase tracking-wider text-ash-s6">Audit Standar</span>
+<span class="text-sm font-semibold text-obsidian">PSAK 109</span>
+</div>
+<div class="bg-paper-s6 p-3.5 rounded-[16px] border border-mist-s6">
+<span class="block text-[10px] font-mono-s6 uppercase tracking-wider text-ash-s6">Predikat KAP</span>
+<span class="text-sm font-semibold text-emerald-deep">WTP 5 Tahun</span>
+</div>
+<div class="bg-paper-s6 p-3.5 rounded-[16px] border border-mist-s6">
+<span class="block text-[10px] font-mono-s6 uppercase tracking-wider text-ash-s6">Jangkauan</span>
+<span class="text-sm font-semibold text-obsidian">31 Kecamatan</span>
+</div>
+<div class="bg-paper-s6 p-3.5 rounded-[16px] border border-mist-s6">
+<span class="block text-[10px] font-mono-s6 uppercase tracking-wider text-ash-s6">Otomasi BSZ</span>
+<span class="text-sm font-semibold text-obsidian">&lt; 15 Detik</span>
+</div>
+</div>
+</div>
+<!-- Visual Hero Carousel (SqueezeCarousel) -->
+<div class="lg:col-span-7 flex justify-center lg:justify-end w-full min-w-0">
+  <BerandaCarousel client:load className="w-full" />
+</div>
+</div>
+</section>
+<!-- Transparansi Fiskal: Big Minimalist Stats Section -->
+<section id="dashboard-penghimpunan" class="max-w-[1400px] mx-auto px-6 py-10 reveal-on-scroll">
+<div class="bg-paper-s6 rounded-[36px] border border-mist-s6 p-8 lg:p-12 space-y-10">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-cloud pb-6">
+<div>
+<h2 class="text-2xl sm:text-3xl font-bold text-obsidian tracking-tight mt-1">Transparansi Kinerja 2026</h2>
+</div>
+<div class="flex items-center gap-2 font-mono-s6 text-xs text-ash-s6">
+<span class="w-2 h-2 rounded-full bg-emerald-vibrant"></span>
+            Sinkron 2 mnt lalu
+          </div>
+</div>
+<!-- Minimal 4 Big Number Metrics -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-container">
+<div class="space-y-2">
+<div class="text-xs font-mono-s6 uppercase text-ash-s6 tracking-wider">Penghimpunan</div>
+<div class="text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">Rp 48.72 M</div>
+<div class="text-xs text-emerald-deep font-medium flex items-center gap-1">
+<span>↑ 14.2% YoY</span>
+<span class="text-ash-s6">• Target 84.7%</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="text-xs font-mono-s6 uppercase text-ash-s6 tracking-wider">Penyaluran ZIS</div>
+<div class="text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">Rp 41.28 M</div>
+<div class="text-xs text-steel font-medium flex items-center gap-1">
+<span>ACR 84.7%</span>
+<span class="px-1.5 py-0.5 rounded-[6px] bg-emerald-light text-emerald-deep text-[11px]">Sangat Efektif</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="text-xs font-mono-s6 uppercase text-ash-s6 tracking-wider">Penerima Manfaat</div>
+<div class="text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">43.890</div>
+<div class="text-xs text-steel">Jiwa mustahik di 31 kecamatan</div>
+</div>
+<div class="space-y-2">
+<div class="text-xs font-mono-s6 uppercase text-ash-s6 tracking-wider">Total Muzaki &amp; UPZ</div>
+<div class="text-3xl lg:text-4xl font-bold text-obsidian tracking-tight">28.415</div>
+<div class="text-xs text-steel">Transaksi • 487 UPZ Aktif</div>
+</div>
+</div>
+<!-- Minimal Clean 8 Asnaf Meter -->
+<div class="pt-6 border-t border-cloud space-y-4">
+<div class="flex items-center justify-between text-xs">
+<span class="font-bold text-obsidian">Sebaran Realisasi 8 Asnaf</span>
+<span class="font-mono-s6 text-ash-s6">SK BAZNAS RI • Syariah 100%</span>
+</div>
+<!-- Continuous Bar -->
+<div class="w-full h-3 rounded-full overflow-hidden flex bg-cloud">
+<div class="bg-emerald-deep" style="width: 34%;" title="Miskin 34%"></div>
+<div class="bg-emerald-vibrant" style="width: 28%;" title="Fakir 28%"></div>
+<div class="bg-gold-warm" style="width: 15%;" title="Fisabilillah 15%"></div>
+<div class="bg-amber-700" style="width: 11.8%;" title="Amil 11.8%"></div>
+<div class="bg-steel" style="width: 4%;" title="Ibnu Sabil 4%"></div>
+<div class="bg-zinc-400" style="width: 3.8%;" title="Gharimin 3.8%"></div>
+<div class="bg-teal-700" style="width: 2.4%;" title="Muallaf 2.4%"></div>
+<div class="bg-stone-300" style="width: 1%;" title="Riqab 1%"></div>
+</div>
+<!-- Minimal Chips -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 pt-2 text-xs">
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Miskin</span>
+<span class="font-semibold text-obsidian mt-0.5">34.0%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Fakir</span>
+<span class="font-semibold text-obsidian mt-0.5">28.0%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Fisabilillah</span>
+<span class="font-semibold text-gold-warm mt-0.5">15.0%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Amil</span>
+<span class="font-semibold text-obsidian mt-0.5">11.8%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Ibnu Sabil</span>
+<span class="font-semibold text-obsidian mt-0.5">4.0%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Gharimin</span>
+<span class="font-semibold text-obsidian mt-0.5">3.8%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Muallaf</span>
+<span class="font-semibold text-obsidian mt-0.5">2.4%</span>
+</div>
+<div class="p-2 rounded-[12px] bg-canvas border border-mist-s6 flex flex-col">
+<span class="text-ash-s6 text-[11px]">Riqab</span>
+<span class="font-semibold text-obsidian mt-0.5">1.0%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GIS Regional Section: Crisp Editorial Card with Interactive 31 Kecamatan Map -->
+<section id="dashboard-penyaluran" class="max-w-[1400px] mx-auto px-6 py-10 reveal-on-scroll">
+<div class="bg-paper-s6 rounded-[36px] border border-mist-s6 p-8 lg:p-12 space-y-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-2xl sm:text-3xl font-bold text-obsidian tracking-tight mt-1">Penyaluran ZIS 31 Kecamatan</h2>
+<p class="text-xs text-steel mt-1">Sebaran peta interaktif realisasi bantuan dan mustahik se-Kabupaten Bandung</p>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-3 py-1.5 rounded-[12px] bg-canvas border border-mist-s6 text-xs font-mono-s6 text-steel">
+  340 Rutilahu Tuntas
+</span>
+<span class="px-3 py-1.5 rounded-[12px] bg-emerald-light text-emerald-deep text-xs font-mono-s6 font-semibold">
+  31 Kecamatan Terverifikasi
+</span>
+</div>
+</div>
+
+<!-- Filter Controls: Region Tabs + Search Dropdown -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-1">
+  <!-- Region Filter Tabs -->
+  <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="kecamatanRegionFilters">
+    <button class="px-3.5 py-1.5 rounded-[12px] bg-emerald-deep text-white text-xs font-semibold shrink-0 transition-all filter-reg-btn active" data-region="all">
+      Semua (31 Kec)
+    </button>
+    <button class="px-3.5 py-1.5 rounded-[12px] bg-canvas hover:bg-cloud border border-mist-s6 text-steel text-xs font-medium shrink-0 transition-all filter-reg-btn" data-region="selatan">
+      Bandung Selatan (8)
+    </button>
+    <button class="px-3.5 py-1.5 rounded-[12px] bg-canvas hover:bg-cloud border border-mist-s6 text-steel text-xs font-medium shrink-0 transition-all filter-reg-btn" data-region="tengah">
+      Bandung Tengah (10)
+    </button>
+    <button class="px-3.5 py-1.5 rounded-[12px] bg-canvas hover:bg-cloud border border-mist-s6 text-steel text-xs font-medium shrink-0 transition-all filter-reg-btn" data-region="timur">
+      Bandung Timur (13)
+    </button>
+  </div>
+
+  <!-- Quick Dropdown to Select any 31 Kecamatan -->
+  <div class="flex items-center gap-2 shrink-0">
+    <div class="relative w-full sm:w-64">
+      <span class="material-symbols-outlined text-base text-ash-s6 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">search</span>
+      <select id="kecamatanSelect" class="w-full pl-9 pr-8 py-2 rounded-[14px] bg-canvas border border-mist-s6 text-xs font-semibold text-obsidian outline-none cursor-pointer hover:border-steel focus:border-emerald-deep transition-all appearance-none" aria-label="Pilih Kecamatan">
+        <option value="">Pilih Kecamatan (31)...</option>
+      </select>
+      <span class="material-symbols-outlined text-sm text-ash-s6 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">unfold_more</span>
+    </div>
+  </div>
+</div>
+
+<!-- Map & Telemetry Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+  <!-- 8 Cols: Map Canvas -->
+  <div class="lg:col-span-8 relative rounded-[28px] overflow-hidden border border-mist-s6 min-h-[460px] lg:min-h-[500px] bg-[#e5e7eb] flex flex-col justify-between">
+    <!-- Leaflet Map Canvas -->
+    <div id="penyaluranMap" class="absolute inset-0 w-full h-full z-0"></div>
+
+    <!-- Map Overlay Floating Header (Top-Left) -->
+    <div class="relative z-10 m-4 self-start p-3.5 rounded-[18px] bg-white/95 backdrop-blur-md border border-mist-s6 shadow-sm pointer-events-auto">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-vibrant animate-pulse"></span>
+        <span class="text-xs font-bold text-obsidian block" id="gisActiveTitle">Kabupaten Bandung</span>
+      </div>
+      <span class="text-[11px] text-steel mt-0.5 block" id="gisActiveSub">43.890 Penerima Manfaat Terverifikasi (31 Kecamatan)</span>
+    </div>
+
+    <!-- Map Overlay Floating Stat Chips (Bottom-Left) -->
+    <div class="relative z-10 m-4 flex flex-wrap gap-2 pointer-events-auto">
+      <span class="px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-mist-s6 text-xs font-mono-s6 font-bold text-obsidian shadow-sm">
+        340 Rutilahu Tuntas
+      </span>
+      <span class="px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-mist-s6 text-xs font-mono-s6 font-bold text-emerald-deep shadow-sm">
+        1.650 UMKM Mandiri
+      </span>
+      <span class="px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-md border border-mist-s6 text-xs font-mono-s6 font-bold text-obsidian shadow-sm">
+        12.450 Bandung Sehat
+      </span>
+    </div>
+  </div>
+
+  <!-- 4 Cols: Side Telemetry Detail Card -->
+  <div class="lg:col-span-4 flex flex-col justify-between p-6 sm:p-7 rounded-[28px] bg-canvas border border-mist-s6 space-y-6">
+    <div class="space-y-4">
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-mono-s6 uppercase tracking-wider text-ash-s6 font-bold" id="detailKecamatanRegion">Wilayah Terpilih</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-light text-emerald-deep text-[10px] font-bold" id="detailKecamatanDesa">10 Desa/Kel</span>
+        </div>
+        <h3 class="text-xl font-bold text-obsidian tracking-tight" id="detailKecamatanName">Kecamatan Soreang</h3>
+        <p class="text-xs text-steel leading-relaxed" id="detailKecamatanHighlight">Ibukota Pemkab Bandung • Pusat Layanan Terpadu</p>
+      </div>
+
+      <div class="space-y-2.5 text-xs pt-1">
+        <div class="flex justify-between items-center py-2 border-b border-mist-s6">
+          <span class="text-steel">Penyaluran ZIS:</span>
+          <span class="font-bold text-emerald-deep font-mono-s6 text-sm" id="detailKecamatanDana">Rp 2.450.000.000</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-mist-s6">
+          <span class="text-steel">Penerima Manfaat:</span>
+          <span class="font-semibold text-obsidian font-mono-s6" id="detailKecamatanMustahik">1.820 KK</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-mist-s6">
+          <span class="text-steel">Bedah Rutilahu:</span>
+          <span class="font-semibold text-obsidian font-mono-s6" id="detailKecamatanRutilahu">38 Unit</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-mist-s6">
+          <span class="text-steel">Inkubasi UMKM:</span>
+          <span class="font-semibold text-obsidian font-mono-s6" id="detailKecamatanZAuto">16 Titik</span>
+        </div>
+        <div class="flex justify-between items-center py-2">
+          <span class="text-steel">Beasiswa Pendidikan:</span>
+          <span class="font-semibold text-obsidian font-mono-s6" id="detailKecamatanBeasiswa">142 Siswa</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Desa Recommendation Action -->
+    <div class="pt-4 border-t border-mist-s6 space-y-3">
+      <div>
+        <span class="text-xs font-bold text-obsidian block mb-1">Rekomendasi Mustahik Desa</span>
+        <p class="text-xs text-steel leading-relaxed">Perangkat Desa / DKM UPZ dapat mendaftarkan warga yang berhak menerima zakat.</p>
+      </div>
+      <a class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-[14px] bg-emerald-deep hover:bg-emerald-vibrant text-white text-xs font-semibold transition-all shadow-xs" href="/layanan/bantuan">
+        <span>Buka Formulir Pengajuan</span>
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- Aksi Kemanusiaan: Campaign Darurat & Sedekah Terikat (36px radius) -->
+<section id="campaign" class="max-w-[1400px] mx-auto px-6 py-10 reveal-on-scroll">
+<div class="space-y-8">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h2 class="text-2xl sm:text-3xl font-bold text-obsidian tracking-tight mt-1">Aksi Kemanusiaan &amp; Campaign Darurat</h2>
+<p class="text-xs sm:text-sm text-steel mt-1 max-w-2xl leading-relaxed">Solidaritas infak dan sedekah terikat untuk merestorasi hunian dhuafa, respons cepat bencana, pangan lansia, dan armada medis di 31 kecamatan.</p>
+</div>
+<a class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-deep hover:text-emerald-vibrant shrink-0 group" href="/program/campaign">
+<span>Lihat Semua Campaign</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+
+<!-- 4 Campaign Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-container">
+
+<!-- Card 1: Rutilahu -->
+<div class="bg-paper-s6 rounded-[36px] border border-mist-s6 overflow-hidden flex flex-col justify-between transition-all hover:border-steel hover:shadow-lg group">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-cloud">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/zis-peduli.webp" alt="Program Bedah 340 Rutilahu BAZNAS Kabupaten Bandung" loading="lazy" />
+<span class="absolute top-3 left-3 px-3 py-1 rounded-[10px] bg-black/60 backdrop-blur-md text-[10px] font-mono-s6 font-medium text-white shadow-xs">Restorasi Hunian</span>
+</div>
+<div class="p-6 space-y-3.5">
+<div class="space-y-1.5">
+<h3 class="text-base sm:text-lg font-bold text-obsidian tracking-tight leading-snug line-clamp-2">Bedah 340 Rutilahu 2026</h3>
+<p class="text-xs text-steel leading-relaxed line-clamp-3">Restorasi hunian dhuafa berlantai tanah dan bilik lapuk di pelosok desa menjadi rumah tinggal layak, sehat, dan tahan gempa.</p>
+</div>
+
+<div class="space-y-1.5 pt-2 border-t border-cloud">
+<div class="flex items-center justify-between text-xs font-mono-s6">
+<span class="text-ash-s6">Terkumpul:</span>
+<span class="font-bold text-emerald-deep">Rp 4,85 M</span>
+</div>
+<div class="w-full h-2 rounded-full bg-cloud overflow-hidden">
+<div class="h-full rounded-full bg-emerald-deep" style="width: 57.1%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-ash-s6">
+<span>Target: Rp 8,50 M</span>
+<span class="font-bold text-obsidian font-mono-s6">57.1%</span>
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-2 text-center text-xs pt-1">
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Tuntas</span>
+<span class="font-mono-s6 font-bold text-emerald-deep text-xs">194 Rumah</span>
+</div>
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Pengerjaan</span>
+<span class="font-mono-s6 font-bold text-obsidian text-xs">46 Rumah</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0">
+<button onclick="window.openQuickZisModal?.()" class="w-full py-3 rounded-[16px] bg-canvas hover:bg-emerald-deep text-obsidian hover:text-white border border-mist-s6 hover:border-emerald-deep text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-xs">
+<span class="material-symbols-outlined text-base">payments</span>
+<span>Donasi Rutilahu</span>
+</button>
+</div>
+</div>
+
+<!-- Card 2: Tanggap Bencana -->
+<div class="bg-paper-s6 rounded-[36px] border border-mist-s6 overflow-hidden flex flex-col justify-between transition-all hover:border-steel hover:shadow-lg group">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-cloud">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/campaign-bencana.webp" alt="Aksi Tanggap Bencana BAZNAS Tanggap Bencana BTB" loading="lazy" />
+<span class="absolute top-3 left-3 px-3 py-1 rounded-[10px] bg-black/60 backdrop-blur-md text-[10px] font-mono-s6 font-medium text-white shadow-xs">Tanggap Bencana</span>
+</div>
+<div class="p-6 space-y-3.5">
+<div class="space-y-1.5">
+<h3 class="text-base sm:text-lg font-bold text-obsidian tracking-tight leading-snug line-clamp-2">Dapur Umum &amp; Huntara</h3>
+<p class="text-xs text-steel leading-relaxed line-clamp-3">Posko harian dapur umum, sanitasi air bersih, selimut hangat, dan tenda huntara bagi 4.200 penyintas banjir Citarum &amp; gempa Kertasari.</p>
+</div>
+
+<div class="space-y-1.5 pt-2 border-t border-cloud">
+<div class="flex items-center justify-between text-xs font-mono-s6">
+<span class="text-ash-s6">Terkumpul:</span>
+<span class="font-bold text-emerald-deep">Rp 1,42 M</span>
+</div>
+<div class="w-full h-2 rounded-full bg-cloud overflow-hidden">
+<div class="h-full rounded-full bg-emerald-deep" style="width: 71.0%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-ash-s6">
+<span>Target: Rp 2,00 M</span>
+<span class="font-bold text-obsidian font-mono-s6">71.0%</span>
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-2 text-center text-xs pt-1">
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Posko Aktif</span>
+<span class="font-mono-s6 font-bold text-emerald-deep text-xs">3 Titik</span>
+</div>
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Porsi Pangan</span>
+<span class="font-mono-s6 font-bold text-obsidian text-xs">1.500/Hari</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0">
+<button onclick="window.openQuickZisModal?.()" class="w-full py-3 rounded-[16px] bg-canvas hover:bg-emerald-deep text-obsidian hover:text-white border border-mist-s6 hover:border-emerald-deep text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-xs">
+<span class="material-symbols-outlined text-base">volunteer_activism</span>
+<span>Bantu Korban Bencana</span>
+</button>
+</div>
+</div>
+
+<!-- Card 3: Pangan Lansia -->
+<div class="bg-paper-s6 rounded-[36px] border border-mist-s6 overflow-hidden flex flex-col justify-between transition-all hover:border-steel hover:shadow-lg group">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-cloud">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/campaign-lansia.webp" alt="Paket Pangan Sembako Lansia Dhuafa Sebatang Kara" loading="lazy" />
+<span class="absolute top-3 left-3 px-3 py-1 rounded-[10px] bg-black/60 backdrop-blur-md text-[10px] font-mono-s6 font-medium text-white shadow-xs">Pangan Lansia</span>
+</div>
+<div class="p-6 space-y-3.5">
+<div class="space-y-1.5">
+<h3 class="text-base sm:text-lg font-bold text-obsidian tracking-tight leading-snug line-clamp-2">Sembako Nutrisi 2.500 Lansia</h3>
+<p class="text-xs text-steel leading-relaxed line-clamp-3">Penyaluran beras premium petani lokal, telur, dan nutrisi bulanan bagi kakek-nenek dhuafa sebatang kara yang tidak mampu bekerja.</p>
+</div>
+
+<div class="space-y-1.5 pt-2 border-t border-cloud">
+<div class="flex items-center justify-between text-xs font-mono-s6">
+<span class="text-ash-s6">Terkumpul:</span>
+<span class="font-bold text-emerald-deep">Rp 980,5 Jt</span>
+</div>
+<div class="w-full h-2 rounded-full bg-cloud overflow-hidden">
+<div class="h-full rounded-full bg-emerald-deep" style="width: 78.4%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-ash-s6">
+<span>Target: Rp 1,25 M</span>
+<span class="font-bold text-obsidian font-mono-s6">78.4%</span>
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-2 text-center text-xs pt-1">
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Penerima</span>
+<span class="font-mono-s6 font-bold text-emerald-deep text-xs">2.500 Jiwa</span>
+</div>
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Distribusi</span>
+<span class="font-mono-s6 font-bold text-obsidian text-xs">Bulanan</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0">
+<button onclick="window.openQuickZisModal?.()" class="w-full py-3 rounded-[16px] bg-canvas hover:bg-emerald-deep text-obsidian hover:text-white border border-mist-s6 hover:border-emerald-deep text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-xs">
+<span class="material-symbols-outlined text-base">shopping_bag</span>
+<span>Sedekah Pangan Lansia</span>
+</button>
+</div>
+</div>
+
+<!-- Card 4: Ambulans & Medis -->
+<div class="bg-paper-s6 rounded-[36px] border border-mist-s6 overflow-hidden flex flex-col justify-between transition-all hover:border-steel hover:shadow-lg group">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-cloud">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="/images/campaign-medis.webp" alt="Armada Ambulans dan Layanan Medis Darurat BAZNAS" loading="lazy" />
+<span class="absolute top-3 left-3 px-3 py-1 rounded-[10px] bg-black/60 backdrop-blur-md text-[10px] font-mono-s6 font-medium text-white shadow-xs">Medis Darurat</span>
+</div>
+<div class="p-6 space-y-3.5">
+<div class="space-y-1.5">
+<h3 class="text-base sm:text-lg font-bold text-obsidian tracking-tight leading-snug line-clamp-2">Ambulans &amp; Medis Dhuafa</h3>
+<p class="text-xs text-steel leading-relaxed line-clamp-3">Layanan armada ambulans siaga 24 jam gratis untuk rujukan darurat, cuci darah berkala, dan posko pemeriksaan medis pelosok desa.</p>
+</div>
+
+<div class="space-y-1.5 pt-2 border-t border-cloud">
+<div class="flex items-center justify-between text-xs font-mono-s6">
+<span class="text-ash-s6">Terkumpul:</span>
+<span class="font-bold text-emerald-deep">Rp 1,17 M</span>
+</div>
+<div class="w-full h-2 rounded-full bg-cloud overflow-hidden">
+<div class="h-full rounded-full bg-emerald-deep" style="width: 78.0%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-ash-s6">
+<span>Target: Rp 1,50 M</span>
+<span class="font-bold text-obsidian font-mono-s6">78.0%</span>
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-2 text-center text-xs pt-1">
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Tarif Layanan</span>
+<span class="font-mono-s6 font-bold text-emerald-deep text-xs">Gratis 100%</span>
+</div>
+<div class="p-2 rounded-xl bg-canvas border border-mist-s6">
+<span class="text-[10px] text-ash-s6 block">Kesiapan</span>
+<span class="font-mono-s6 font-bold text-obsidian text-xs">24/7 Siaga</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0">
+<button onclick="window.openQuickZisModal?.()" class="w-full py-3 rounded-[16px] bg-canvas hover:bg-emerald-deep text-obsidian hover:text-white border border-mist-s6 hover:border-emerald-deep text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-xs">
+<span class="material-symbols-outlined text-base">ambulance</span>
+<span>Dukung Armada Medis</span>
+</button>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- BENTO MODERN SAAS FEATURES SECTION (JEMBATAN AMANAH MUZAKI & MUSTAHIK) -->
+<section class="max-w-[1400px] mx-auto px-6 py-6 reveal-on-scroll">
+  <InkOrbitFeatures 
+    client:visible 
+    theme="light"
+    brand="BAZNAS KAB. BANDUNG"
+    tag=""
+    onlyFlow={true}
+    isBridge={true}
+    title="Jembatan *Amanah*"
+    collaboration={{
+      title: "Muzaki (Penghimpunan ZIS)",
+      description: "Penghimpunan zakat dan infak tercatat resmi secara transparan."
+    }}
+    reports={{
+      title: "Mustahik (Penyaluran 8 Asnaf)",
+      description: "Penyaluran bantuan tepat sasaran kepada asnaf yang berhak."
+    }}
+  />
+</section>
+
+<!-- KEMITRAAN STRATEGIS MARQUEE (DI ATAS LAPORAN & OPINI AUDIT, SESUAI FRAME CONTAINER) -->
+<section class="max-w-[1400px] mx-auto px-6 py-6 overflow-hidden reveal-on-scroll">
+  <MitraMarquee client:visible />
+</section>
+
+<!-- Verification & Publications Section -->
+<section id="berita" class="max-w-[1400px] mx-auto px-6 py-10 reveal-on-scroll">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- 7 Cols: Minimalist Audited Reports & Articles -->
+<div class="lg:col-span-7 space-y-6 reveal-left">
+<div class="flex items-center justify-between">
+<h2 class="text-xl sm:text-2xl font-bold text-obsidian tracking-tight">Laporan &amp; Opini Audit</h2>
+<a class="text-xs font-semibold text-emerald-deep hover:underline" href="#">Semua Laporan</a>
+</div>
+<!-- KAP Audited Download Card (36px radius) -->
+<div class="p-6 rounded-[36px] bg-paper-s6 border border-mist-s6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-hover-lift">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-[16px] bg-emerald-light text-emerald-deep flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">description</span>
+</div>
+<div>
+<span class="text-[10px] font-mono-s6 uppercase tracking-wider text-ash-s6">KAP Drs. Inugraha &amp; Rekan</span>
+<h4 class="text-sm font-bold text-obsidian">Laporan Keuangan Audited PSAK 109 (Opini WTP)</h4>
+<p class="text-xs text-steel">Posisi Keuangan, Perubahan Dana &amp; Arus Kas 2025</p>
+</div>
+</div>
+<a class="px-4 py-2.5 rounded-[14px] bg-emerald-deep hover:bg-emerald-vibrant text-white text-xs font-semibold shrink-0 inline-flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Unduh PDF</span>
+</a>
+</div>
+<!-- Minimal 2 News List -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-container">
+<div class="p-5 rounded-[28px] bg-paper-s6 border border-mist-s6 space-y-2">
+<span class="text-[10px] font-mono-s6 text-ash-s6 uppercase">Distribusi • Kertasari</span>
+<h4 class="text-sm font-bold text-obsidian hover:text-emerald-deep cursor-pointer">Penyaluran Modal Usaha Peternak Domba di Lereng Wayang</h4>
+<p class="text-xs text-steel leading-relaxed">Modal bibit domba unggul dan irigasi tetes kelompok tani mustahik LPEM BAZNAS.</p>
+</div>
+<div class="p-5 rounded-[28px] bg-paper-s6 border border-mist-s6 space-y-2">
+<span class="text-[10px] font-mono-s6 text-ash-s6 uppercase">Kesehatan • Pangalengan</span>
+<h4 class="text-sm font-bold text-obsidian hover:text-emerald-deep cursor-pointer">Klinik Berjalan Layani 620 Buruh Teh Perkebunan Malabar</h4>
+<p class="text-xs text-steel leading-relaxed">Layanan berobat gratis dan screening stunting bekerjasama dengan Dinas Kesehatan.</p>
+</div>
+</div>
+</div>
+<!-- 5 Cols: Quick Minimal BSZ Form -->
+<div class="lg:col-span-5 reveal-right">
+<div class="p-8 rounded-[36px] bg-paper-s6 border border-mist-s6 space-y-6 card-hover-lift reveal-right">
+<div class="space-y-1">
+<span class="text-xs font-mono-s6 uppercase text-emerald-deep font-semibold tracking-wider">Verifikasi Pajak</span>
+<h3 class="text-xl font-bold text-obsidian">Cek Keaslian BSZ Online</h3>
+<p class="text-xs text-steel">Verifikasi lembar Bukti Setor Zakat untuk pengurang SPT Pajak Tahunan.</p>
+</div>
+<form class="space-y-4" id="bszVerifyForm" onsubmit="event.preventDefault(); window.verifyBsz();">
+<div class="space-y-1.5">
+<label class="block text-xs font-mono-s6 uppercase text-ash-s6" for="bszNumber">No. Registrasi BSZ / NPWZ</label>
+<input class="w-full px-4 py-3 rounded-[14px] bg-canvas border border-mist-s6 text-xs font-mono-s6 text-obsidian placeholder:text-ash-s6 focus:ring-1 focus:ring-emerald-deep focus:bg-paper-s6 outline-none" id="bszNumber" placeholder="Contoh: BSZ-2026-3204-8891" required="" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="block text-xs font-mono-s6 uppercase text-ash-s6" for="bszCode">Kode Hash SIMBA (4 Digit)</label>
+<input class="w-full px-4 py-3 rounded-[14px] bg-canvas border border-mist-s6 text-xs font-mono-s6 uppercase text-obsidian placeholder:text-ash-s6 focus:ring-1 focus:ring-emerald-deep focus:bg-paper-s6 outline-none tracking-widest" id="bszCode" maxlength="4" placeholder="984B" required="" type="text"/>
+</div>
+<button class="w-full py-3.5 rounded-[14px] bg-emerald-deep hover:bg-emerald-vibrant text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all" type="submit">
+<span class="material-symbols-outlined text-sm">fact_check</span>
+<span>Verifikasi Dokumen</span>
+</button>
+</form>
+<!-- Result Box -->
+<div class="hidden p-4 rounded-[16px] bg-emerald-light border border-emerald-deep/20 space-y-2 text-xs" id="bszResultCard">
+<div class="flex items-center justify-between text-emerald-deep font-bold">
+<span>Dokumen Sah &amp; Valid</span>
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</div>
+<div class="space-y-1 text-steel">
+<div class="flex justify-between"><span>Muzaki:</span><strong class="text-obsidian" id="resMuzaki">Ir. H. Asep Gunawan</strong></div>
+<div class="flex justify-between"><span>Nominal:</span><span class="font-mono-s6 text-emerald-deep font-bold">Rp 5.250.000</span></div>
+<div class="flex justify-between"><span>Validasi:</span><span>Dirjen Pajak PER-6/PJ/2011</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+  </div>
+<!-- Script for Interactive 31 Kecamatan Map & BSZ Verification -->
+<script is:inline>
+  (function initPenyaluranMap31() {
+    const KECAMATAN_31 = [
+      // Bandung Selatan & Pegunungan (8)
+      { id: "soreang", name: "Soreang", region: "selatan", regionName: "Bandung Selatan", desa: "10 Desa/Kel", lat: -7.0312, lng: 107.5189, mustahik: "1.820 KK", dana: "Rp 2.450.000.000", rutilahu: "38 Unit", umkm: "16 Titik", beasiswa: "142 Siswa", highlight: "Ibukota Pemkab Bandung • Pusat Layanan Terpadu" },
+      { id: "ciwidey", name: "Ciwidey", region: "selatan", regionName: "Bandung Selatan", desa: "7 Desa", lat: -7.1512, lng: 107.4891, mustahik: "2.450 KK", dana: "Rp 2.880.000.000", rutilahu: "42 Unit", umkm: "18 Titik", beasiswa: "160 Siswa", highlight: "Dataran Tinggi • Binaan Petani & UMKM Agro" },
+      { id: "rancabali", name: "Rancabali", region: "selatan", regionName: "Bandung Selatan", desa: "5 Desa", lat: -7.1652, lng: 107.4124, mustahik: "1.340 KK", dana: "Rp 1.620.000.000", rutilahu: "25 Unit", umkm: "11 Titik", beasiswa: "95 Siswa", highlight: "Perkebunan Teh • Bantuan Pekerja Rentan" },
+      { id: "pasirjambu", name: "Pasirjambu", region: "selatan", regionName: "Bandung Selatan", desa: "10 Desa", lat: -7.0891, lng: 107.4912, mustahik: "1.780 KK", dana: "Rp 1.950.000.000", rutilahu: "30 Unit", umkm: "14 Titik", beasiswa: "110 Siswa", highlight: "Sentra Hortikultura • Kemitraan Z-Mart" },
+      { id: "pangalengan", name: "Pangalengan", region: "selatan", regionName: "Bandung Selatan", desa: "13 Desa", lat: -7.1724, lng: 107.5612, mustahik: "2.910 KK", dana: "Rp 3.250.000.000", rutilahu: "48 Unit", umkm: "22 Titik", beasiswa: "185 Siswa", highlight: "Peternak Sapi Perah • Klinik Berjalan Malabar" },
+      { id: "cimaung", name: "Cimaung", region: "selatan", regionName: "Bandung Selatan", desa: "10 Desa", lat: -7.0682, lng: 107.5612, mustahik: "1.650 KK", dana: "Rp 1.840.000.000", rutilahu: "28 Unit", umkm: "12 Titik", beasiswa: "105 Siswa", highlight: "Kawasan Agrowisata • Beasiswa Pelajar SKSS" },
+      { id: "banjaran", name: "Banjaran", region: "selatan", regionName: "Bandung Selatan", desa: "11 Desa", lat: -7.0421, lng: 107.5891, mustahik: "2.210 KK", dana: "Rp 2.650.000.000", rutilahu: "35 Unit", umkm: "19 Titik", beasiswa: "140 Siswa", highlight: "Simpul Perdagangan • Inkubasi Z-Auto Bengkel" },
+      { id: "kutawaringin", name: "Kutawaringin", region: "selatan", regionName: "Bandung Selatan", desa: "11 Desa", lat: -6.9912, lng: 107.5112, mustahik: "1.790 KK", dana: "Rp 2.020.000.000", rutilahu: "27 Unit", umkm: "14 Titik", beasiswa: "122 Siswa", highlight: "Kawasan Si Jalak Harupat • Pembinaan UMKM" },
+
+      // Bandung Tengah & Citarum (10)
+      { id: "baleendah", name: "Baleendah", region: "tengah", regionName: "Bandung Tengah", desa: "8 Kelurahan", lat: -6.9982, lng: 107.6251, mustahik: "3.120 KK", dana: "Rp 3.510.000.000", rutilahu: "52 Unit", umkm: "26 Titik", beasiswa: "210 Siswa", highlight: "Bantaran Citarum • Respon Darurat Kebencanaan" },
+      { id: "dayeuhkolot", name: "Dayeuhkolot", region: "tengah", regionName: "Bandung Tengah", desa: "6 Desa/Kel", lat: -6.9841, lng: 107.6189, mustahik: "1.980 KK", dana: "Rp 2.150.000.000", rutilahu: "34 Unit", umkm: "15 Titik", beasiswa: "135 Siswa", highlight: "Zona Rendahan • Bantuan Dapur Logistik Mustahik" },
+      { id: "bojongsoang", name: "Bojongsoang", region: "tengah", regionName: "Bandung Tengah", desa: "6 Desa", lat: -6.9812, lng: 107.6512, mustahik: "1.520 KK", dana: "Rp 1.780.000.000", rutilahu: "22 Unit", umkm: "13 Titik", beasiswa: "115 Siswa", highlight: "Kawasan Pendidikan • Beasiswa Yatim Berprestasi" },
+      { id: "katapang", name: "Katapang", region: "tengah", regionName: "Bandung Tengah", desa: "7 Desa", lat: -7.0091, lng: 107.5512, mustahik: "1.890 KK", dana: "Rp 2.120.000.000", rutilahu: "29 Unit", umkm: "17 Titik", beasiswa: "128 Siswa", highlight: "Sentra Kerajinan • Bantuan Permodalan Mandiri" },
+      { id: "margahayu", name: "Margahayu", region: "tengah", regionName: "Bandung Tengah", desa: "5 Desa/Kel", lat: -6.9812, lng: 107.5712, mustahik: "1.420 KK", dana: "Rp 1.650.000.000", rutilahu: "20 Unit", umkm: "12 Titik", beasiswa: "98 Siswa", highlight: "Penyangga Kota • Sembako Mustahik Lansia" },
+      { id: "margaasih", name: "Margaasih", region: "tengah", regionName: "Bandung Tengah", desa: "6 Desa", lat: -6.9452, lng: 107.5412, mustahik: "1.760 KK", dana: "Rp 1.980.000.000", rutilahu: "26 Unit", umkm: "15 Titik", beasiswa: "120 Siswa", highlight: "Kawasan Industri Padat Karya • Advokasi Buruh" },
+      { id: "cangkuang", name: "Cangkuang", region: "tengah", regionName: "Bandung Tengah", desa: "7 Desa", lat: -7.0452, lng: 107.5312, mustahik: "1.310 KK", dana: "Rp 1.540.000.000", rutilahu: "21 Unit", umkm: "10 Titik", beasiswa: "90 Siswa", highlight: "Pemukiman Baru • Bantuan Santri Penghafal Quran" },
+      { id: "pameungpeuk", name: "Pameungpeuk", region: "tengah", regionName: "Bandung Tengah", desa: "6 Desa", lat: -7.0212, lng: 107.5912, mustahik: "1.580 KK", dana: "Rp 1.820.000.000", rutilahu: "24 Unit", umkm: "13 Titik", beasiswa: "112 Siswa", highlight: "Koridor Selatan • Pengentasan Kemiskinan Ekstrem" },
+      { id: "arjasari", name: "Arjasari", region: "tengah", regionName: "Bandung Tengah", desa: "11 Desa", lat: -7.0512, lng: 107.6189, mustahik: "1.920 KK", dana: "Rp 2.190.000.000", rutilahu: "32 Unit", umkm: "16 Titik", beasiswa: "130 Siswa", highlight: "Perbukitan Tengah • Program Bedah Rumah Rutilahu" },
+      { id: "ciparay", name: "Ciparay", region: "tengah", regionName: "Bandung Tengah", desa: "14 Desa", lat: -7.0381, lng: 107.7124, mustahik: "2.640 KK", dana: "Rp 2.980.000.000", rutilahu: "40 Unit", umkm: "20 Titik", beasiswa: "175 Siswa", highlight: "Sentra Padi & Pesantren • Bantuan Sarpras Ibadah" },
+
+      // Bandung Timur & Utara (13)
+      { id: "pacet", name: "Pacet", region: "timur", regionName: "Bandung Timur", desa: "13 Desa", lat: -7.0912, lng: 107.7212, mustahik: "2.110 KK", dana: "Rp 2.380.000.000", rutilahu: "36 Unit", umkm: "15 Titik", beasiswa: "145 Siswa", highlight: "Pertanian Lereng • Pipanisasi Air Bersih Dhuafa" },
+      { id: "majalaya", name: "Majalaya", region: "timur", regionName: "Bandung Timur", desa: "14 Desa", lat: -7.0512, lng: 107.7423, mustahik: "3.650 KK", dana: "Rp 4.120.000.000", rutilahu: "58 Unit", umkm: "30 Titik", beasiswa: "240 Siswa", highlight: "Sentra Tekstil & Buruh • Klaster Rajut Produktif" },
+      { id: "paseh", name: "Paseh", region: "timur", regionName: "Bandung Timur", desa: "12 Desa", lat: -7.0712, lng: 107.7712, mustahik: "2.050 KK", dana: "Rp 2.310.000.000", rutilahu: "33 Unit", umkm: "16 Titik", beasiswa: "138 Siswa", highlight: "Industri Rumahan • Gerobak Usaha Z-Mart" },
+      { id: "ibun", name: "Ibun", region: "timur", regionName: "Bandung Timur", desa: "12 Desa", lat: -7.1189, lng: 107.7912, mustahik: "2.180 KK", dana: "Rp 2.450.000.000", rutilahu: "37 Unit", umkm: "15 Titik", beasiswa: "140 Siswa", highlight: "Kawasan Kamojang • Energi Bersih & Bibit Tani" },
+      { id: "kertasari", name: "Kertasari", region: "timur", regionName: "Bandung Timur", desa: "8 Desa", lat: -7.2189, lng: 107.6712, mustahik: "2.820 KK", dana: "Rp 3.380.000.000", rutilahu: "55 Unit", umkm: "21 Titik", beasiswa: "190 Siswa", highlight: "Hulu Citarum • Rekonstruksi Pasca Gempa" },
+      { id: "cicalengka", name: "Cicalengka", region: "timur", regionName: "Bandung Timur", desa: "12 Desa", lat: -6.9841, lng: 107.8341, mustahik: "2.340 KK", dana: "Rp 2.610.000.000", rutilahu: "36 Unit", umkm: "18 Titik", beasiswa: "155 Siswa", highlight: "Gerbang Timur • RSUD Rujukan Layanan Medis" },
+      { id: "nagreg", name: "Nagreg", region: "timur", regionName: "Bandung Timur", desa: "8 Desa", lat: -7.0212, lng: 107.8912, mustahik: "1.450 KK", dana: "Rp 1.680.000.000", rutilahu: "24 Unit", umkm: "11 Titik", beasiswa: "102 Siswa", highlight: "Perbatasan Timur • Bantuan Sembako Lansia Dhuafa" },
+      { id: "cikancung", name: "Cikancung", region: "timur", regionName: "Bandung Timur", desa: "9 Desa", lat: -7.0012, lng: 107.8212, mustahik: "1.720 KK", dana: "Rp 1.940.000.000", rutilahu: "27 Unit", umkm: "13 Titik", beasiswa: "118 Siswa", highlight: "Pedalaman Timur • Layanan Berobat Gratis Rutin" },
+      { id: "rancaekek", name: "Rancaekek", region: "timur", regionName: "Bandung Timur", desa: "14 Desa/Kel", lat: -6.9682, lng: 107.7612, mustahik: "2.980 KK", dana: "Rp 3.420.000.000", rutilahu: "46 Unit", umkm: "24 Titik", beasiswa: "198 Siswa", highlight: "Kawasan Industri • Kemitraan Zakat Perusahaan" },
+      { id: "cileunyi", name: "Cileunyi", region: "timur", regionName: "Bandung Timur", desa: "6 Desa", lat: -6.9381, lng: 107.7412, mustahik: "2.120 KK", dana: "Rp 2.480.000.000", rutilahu: "31 Unit", umkm: "17 Titik", beasiswa: "145 Siswa", highlight: "Simpul Timur • Rumah Singgah Pasien Dhuafa" },
+      { id: "cilengkrang", name: "Cilengkrang", region: "timur", regionName: "Bandung Timur", desa: "6 Desa", lat: -6.8912, lng: 107.7189, mustahik: "1.280 KK", dana: "Rp 1.490.000.000", rutilahu: "19 Unit", umkm: "10 Titik", beasiswa: "88 Siswa", highlight: "Lereng Manglayang • Bantuan Kelompok Tani" },
+      { id: "cimenyan", name: "Cimenyan", region: "timur", regionName: "Bandung Timur", desa: "9 Desa/Kel", lat: -6.8712, lng: 107.6689, mustahik: "1.610 KK", dana: "Rp 1.870.000.000", rutilahu: "23 Unit", umkm: "12 Titik", beasiswa: "108 Siswa", highlight: "Bandung Utara • Bantuan Sembako Warga Bukit" },
+      { id: "solokanjero", name: "Solokanjero", region: "timur", regionName: "Bandung Timur", desa: "7 Desa", lat: -7.0212, lng: 107.7312, mustahik: "1.840 KK", dana: "Rp 2.080.000.000", rutilahu: "28 Unit", umkm: "14 Titik", beasiswa: "125 Siswa", highlight: "Koridor Majalaya • Pelatihan Vokasi Kerja Dhuafa" }
+    ];
+
+    let map = null;
+    let markersLayer = null;
+    let activeMarker = null;
+
+    function updateDetails(k) {
+      const elName = document.getElementById("detailKecamatanName");
+      const elRegion = document.getElementById("detailKecamatanRegion");
+      const elDesa = document.getElementById("detailKecamatanDesa");
+      const elHighlight = document.getElementById("detailKecamatanHighlight");
+      const elDana = document.getElementById("detailKecamatanDana");
+      const elMustahik = document.getElementById("detailKecamatanMustahik");
+      const elRutilahu = document.getElementById("detailKecamatanRutilahu");
+      const elZAuto = document.getElementById("detailKecamatanZAuto");
+      const elBeasiswa = document.getElementById("detailKecamatanBeasiswa");
+      const elGisTitle = document.getElementById("gisActiveTitle");
+      const elGisSub = document.getElementById("gisActiveSub");
+
+      if (elName) elName.textContent = "Kecamatan " + k.name;
+      if (elRegion) elRegion.textContent = k.regionName;
+      if (elDesa) elDesa.textContent = k.desa;
+      if (elHighlight) elHighlight.textContent = k.highlight;
+      if (elDana) elDana.textContent = k.dana;
+      if (elMustahik) elMustahik.textContent = k.mustahik;
+      if (elRutilahu) elRutilahu.textContent = k.rutilahu;
+      if (elZAuto) elZAuto.textContent = k.umkm;
+      if (elBeasiswa) elBeasiswa.textContent = k.beasiswa;
+      if (elGisTitle) elGisTitle.textContent = "Kecamatan " + k.name;
+      if (elGisSub) elGisSub.textContent = k.mustahik + " Mustahik • " + k.dana;
+
+      // Sync select dropdown if not already synced
+      const selectEl = document.getElementById("kecamatanSelect");
+      if (selectEl && selectEl.value !== k.id) {
+        selectEl.value = k.id;
+      }
+    }
+
+    function populateSelect(region = "all") {
+      const selectEl = document.getElementById("kecamatanSelect");
+      if (!selectEl) return;
+      const currentVal = selectEl.value;
+      selectEl.innerHTML = '<option value="">Pilih Kecamatan (31)...</option>';
+      
+      const filtered = region === "all" ? KECAMATAN_31 : KECAMATAN_31.filter(k => k.region === region);
+      filtered.forEach(k => {
+        const opt = document.createElement("option");
+        opt.value = k.id;
+        opt.textContent = k.name + " (" + k.regionName + ")";
+        selectEl.appendChild(opt);
+      });
+
+      if (currentVal && filtered.some(k => k.id === currentVal)) {
+        selectEl.value = currentVal;
+      }
+    }
+
+    function renderMarkers(region = "all") {
+      if (!map || !window.L) return;
+      if (markersLayer) markersLayer.clearLayers();
+      markersLayer = L.layerGroup().addTo(map);
+
+      const filtered = region === "all" ? KECAMATAN_31 : KECAMATAN_31.filter(k => k.region === region);
+      const bounds = [];
+
+      filtered.forEach(k => {
+        bounds.push([k.lat, k.lng]);
+        const customIcon = L.divIcon({
+          className: "baznas-pin-marker",
+          html: `<div class="baznas-pin-inner" id="pin-${k.id}" title="${k.name}"><span>${k.name.substring(0, 2).toUpperCase()}</span></div>`,
+          iconSize: [26, 26],
+          iconAnchor: [13, 13]
+        });
+
+        const marker = L.marker([k.lat, k.lng], { icon: customIcon });
+        marker.bindPopup(`
+          <div class="space-y-1">
+            <div class="text-[10px] font-bold text-[#064e3b] uppercase tracking-wider">${k.regionName}</div>
+            <div class="text-sm font-bold text-[#09090b]">Kecamatan ${k.name}</div>
+            <div class="text-xs text-[#52525b]">${k.highlight}</div>
+            <div class="pt-1.5 border-t border-[#e4e4e7] flex justify-between gap-3 text-xs">
+              <span class="text-[#71717a]">Penyaluran:</span>
+              <strong class="text-[#064e3b]">${k.dana}</strong>
+            </div>
+            <div class="flex justify-between gap-3 text-xs">
+              <span class="text-[#71717a]">Mustahik:</span>
+              <strong class="text-[#09090b]">${k.mustahik}</strong>
+            </div>
+          </div>
+        `, { closeButton: false, offset: [0, -10] });
+
+        marker.on("click", () => {
+          updateDetails(k);
+          highlightPin(k.id);
+        });
+
+        markersLayer.addLayer(marker);
+      });
+
+      if (bounds.length > 0 && region !== "all") {
+        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 13 });
+      }
+    }
+
+    function highlightPin(id) {
+      document.querySelectorAll(".baznas-pin-inner").forEach(el => el.classList.remove("active"));
+      const targetPin = document.getElementById("pin-" + id);
+      if (targetPin) targetPin.classList.add("active");
+    }
+
+    function selectKecamatanById(id) {
+      const k = KECAMATAN_31.find(item => item.id === id);
+      if (!k || !map) return;
+      updateDetails(k);
+      map.flyTo([k.lat, k.lng], 13, { duration: 1.2 });
+      highlightPin(id);
+    }
+
+    function initMap() {
+      const mapContainer = document.getElementById("penyaluranMap");
+      if (!mapContainer || !window.L) return;
+
+      // Initialize Leaflet Map centered on Kabupaten Bandung
+      map = L.map("penyaluranMap", {
+        center: [-7.04, 107.62],
+        zoom: 11,
+        zoomControl: true,
+        scrollWheelZoom: false
+      });
+
+      // CartoDB Voyager tiles for crisp editorial aesthetics
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap',
+        subdomains: "abcd",
+        maxZoom: 19
+      }).addTo(map);
+
+      populateSelect("all");
+      renderMarkers("all");
+
+      // Default select Soreang
+      updateDetails(KECAMATAN_31[0]);
+      highlightPin("soreang");
+
+      // Dropdown change listener
+      const selectEl = document.getElementById("kecamatanSelect");
+      if (selectEl) {
+        selectEl.addEventListener("change", (e) => {
+          const val = e.target.value;
+          if (val) selectKecamatanById(val);
+        });
+      }
+
+      // Region Filter Buttons
+      const filterBtns = document.querySelectorAll(".filter-reg-btn");
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => {
+            b.classList.remove("active", "bg-emerald-deep", "text-white");
+            b.classList.add("bg-canvas", "text-steel");
+          });
+          btn.classList.add("active", "bg-emerald-deep", "text-white");
+          btn.classList.remove("bg-canvas", "text-steel");
+
+          const reg = btn.getAttribute("data-region") || "all";
+          populateSelect(reg);
+          renderMarkers(reg);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (map) map.invalidateSize();
+      });
+    }
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      setTimeout(initMap, 200);
+    } else {
+      document.addEventListener("DOMContentLoaded", () => setTimeout(initMap, 200));
+    }
+
+    // Verify BSZ Global Helper
+    window.verifyBsz = function() {
+      const bszNum = document.getElementById("bszNumber")?.value;
+      const bszRes = document.getElementById("bszResultCard");
+      if (bszRes) {
+        bszRes.classList.remove("hidden");
+        bszRes.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    };
+  })();
+</script>
+</section>

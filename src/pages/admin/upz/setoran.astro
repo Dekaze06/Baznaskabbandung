@@ -1,0 +1,265 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Pemrosesan Setoran ASN - Panel Admin BAZNAS" sectionName="Jaringan Penghimpunan" pageTitle="Pemrosesan Setoran Kolektif ZIS Massal ASN & OPD" activeRoute="upz/setoran">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 4 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi UPZ">
+      <a href="/admin/upz" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar UPZ</span>
+      </a>
+      <a href="/admin/upz/direktori" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">folder_shared</span>
+        <span>Direktori 487 UPZ</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">487</span>
+      </a>
+      <a href="/admin/upz/registrasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">domain_add</span>
+        <span>Registrasi &amp; SK UPZ</span>
+      </a>
+      <a href="/admin/upz/setoran" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">cloud_upload</span>
+        <span>Pemrosesan Setoran ASN</span>
+      </a>
+      <a href="/admin/upz/hak-kelola" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">price_check</span>
+        <span>Bagi Hasil Hak Amil 12.5%</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">cloud_upload</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Pemrosesan Batch Setoran Kolektif ZIS ASN &amp; OPD</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Sinkronisasi otomatis pemotongan payroll gaji BPKAD Pemkab Bandung ke SIMBA RI &amp; penerbitan e-BSZ massal</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-[#09090b] text-xs font-semibold transition-all border border-[#ececee]">
+          <span class="material-symbols-outlined text-sm text-[#71717a]">download</span>
+          <span>Unduh Format Excel SIMBA</span>
+        </button>
+        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shadow-xs" onclick="alert('Sinkronisasi H2H dengan BPKAD Pemkab Bandung aktif. Status: Terhubung.')">
+          <span class="material-symbols-outlined text-sm">sync</span>
+          <span>Sinkronisasi BPKAD</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Batch Selector & Configuration Rail -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-6 shadow-xs">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#f8fafc] p-5 rounded-2xl border border-[#ececee]">
+        <div>
+          <label class="block text-[11px] font-bold text-[#71717a] uppercase tracking-wider mb-1.5">
+            Unit Pengumpul Zakat (UPZ) Pengirim
+          </label>
+          <select id="select-upz" class="w-full bg-white border border-[#ececee] text-[#09090b] text-xs font-medium px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#064e3b] focus:border-[#064e3b]">
+            <option value="disdik" selected>UPZ Dinas Pendidikan Kab. Bandung (UPZ-OPD-05)</option>
+            <option value="setda">UPZ Sekretariat Daerah Kab. Bandung (UPZ-OPD-01)</option>
+            <option value="dinkes">UPZ Dinas Kesehatan &amp; RSUD (UPZ-OPD-18)</option>
+            <option value="majalaya">UPZ Kantor Camat Majalaya (UPZ-KEC-15)</option>
+            <option value="soreang">UPZ Kantor Camat Soreang (UPZ-KEC-01)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-[#71717a] uppercase tracking-wider mb-1.5">
+            Periode Pemotongan &amp; Kategori
+          </label>
+          <input class="w-full bg-white border border-[#ececee] text-[#09090b] text-xs font-medium px-3.5 py-2.5 rounded-xl focus:outline-none" readonly type="text" value="Oktober 2026 - Zakat Profesi &amp; Infak Rutin ASN"/>
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-[#71717a] uppercase tracking-wider mb-1.5">
+            Nomor Validasi Bukti Kas Pemda (BKP)
+          </label>
+          <div class="flex items-center gap-2">
+            <input class="w-full bg-white border border-[#ececee] text-[#09090b] font-mono text-xs font-semibold px-3.5 py-2.5 rounded-xl" readonly type="text" value="BKP-DISDIK-BDG-2026-10-884"/>
+            <span class="material-symbols-outlined text-[#064e3b] text-xl" title="Nomor Sah BPKAD">task_alt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Uploaded File Summary Banner -->
+      <div class="p-5 rounded-2xl bg-[#f8fafc] border border-[#ececee] flex flex-col lg:flex-row items-center justify-between gap-5">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-[#064e3b] text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">table_chart</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-sm font-bold text-[#09090b]">
+                Rekap_Potongan_Zakat_ASN_Disdik_KabBandung_Okt2026.xlsx
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-mono font-bold border border-[#064e3b]/20">
+                100% Cocok NIK &amp; NPWZ
+              </span>
+            </div>
+            <p class="text-xs text-[#71717a] mt-0.5">
+              584 Baris Data Pegawai Guru &amp; Administrasi • 2.4 MB • Parser Engine: SIMBA Fast-Batch v2.4
+            </p>
+          </div>
+        </div>
+        
+        <!-- Totals Strip -->
+        <div class="flex items-center gap-6 bg-white px-5 py-3 rounded-2xl border border-[#ececee] shrink-0">
+          <div class="flex flex-col">
+            <span class="text-[10px] font-bold text-[#71717a] uppercase tracking-wider">Total Setoran Bruto</span>
+            <span class="text-base font-bold text-[#064e3b] font-mono">Rp 348.650.000</span>
+          </div>
+          <div class="h-8 w-px bg-[#ececee]"></div>
+          <div class="flex flex-col">
+            <span class="text-[10px] font-bold text-[#71717a] uppercase tracking-wider">Zakat (2.5%)</span>
+            <span class="text-xs font-semibold text-[#09090b] font-mono">Rp 312.400.000</span>
+          </div>
+          <div class="h-8 w-px bg-[#ececee]"></div>
+          <div class="flex flex-col">
+            <span class="text-[10px] font-bold text-[#71717a] uppercase tracking-wider">Infak Rutin</span>
+            <span class="text-xs font-semibold text-[#52525b] font-mono">Rp 36.250.000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview Rows Table -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-[#71717a]">
+            Pratinjau Data Pemotongan ASN (5 dari 584 Baris Terverifikasi)
+          </h2>
+          <span class="text-[11px] text-[#71717a] font-mono">Database SIMBA: Sinkron</span>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+              <tr>
+                <th class="px-5 py-3.5">Data ASN / Muzaki</th>
+                <th class="px-5 py-3.5">Pangkat / Satuan Kerja</th>
+                <th class="px-5 py-3.5 text-right">Gaji Bruto (Rp)</th>
+                <th class="px-5 py-3.5 text-right">Zakat Profesi (2.5%)</th>
+                <th class="px-5 py-3.5 text-right">Infak Rutin</th>
+                <th class="px-5 py-3.5 text-right">Total Potongan</th>
+                <th class="px-5 py-3.5 text-center">Status SIMBA</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#ececee] bg-white">
+              <!-- Row 1 -->
+              <tr class="hover:bg-[#f8fafc] transition-colors">
+                <td class="px-5 py-3.5">
+                  <div class="font-bold text-[#09090b]">Drs. H. Dedi Kusnadi, M.M.</div>
+                  <div class="text-[11px] font-mono text-[#71717a]">NIP: 19740512 199903 1 004 • NPWZ: 3204.01.99281</div>
+                </td>
+                <td class="px-5 py-3.5 text-[#52525b]">Pembina Tk. I (IV/b) - Korwil Soreang</td>
+                <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">8.450.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">211.250</td>
+                <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">25.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#09090b]">236.250</td>
+                <td class="px-5 py-3.5 text-center">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/10">
+                    <span class="material-symbols-outlined text-xs">done_all</span> Siap Terbit
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Row 2 -->
+              <tr class="hover:bg-[#f8fafc] transition-colors">
+                <td class="px-5 py-3.5">
+                  <div class="font-bold text-[#09090b]">Hj. Siti Maryam, M.Pd</div>
+                  <div class="text-[11px] font-mono text-[#71717a]">NIP: 19800214 200501 2 007 • NPWZ: 3204.01.88412</div>
+                </td>
+                <td class="px-5 py-3.5 text-[#52525b]">Penata Tk. I (III/d) - SMPN 1 Ciwidey</td>
+                <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">7.400.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">185.000</td>
+                <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">20.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#09090b]">205.000</td>
+                <td class="px-5 py-3.5 text-center">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/10">
+                    <span class="material-symbols-outlined text-xs">check</span> Matched
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Row 3 -->
+              <tr class="hover:bg-[#f8fafc] transition-colors">
+                <td class="px-5 py-3.5">
+                  <div class="font-bold text-[#09090b]">Ahmad Rofi'i, S.Pd</div>
+                  <div class="text-[11px] font-mono text-[#71717a]">NIP: 19881105 201101 1 009 • NPWZ: 3204.01.66203</div>
+                </td>
+                <td class="px-5 py-3.5 text-[#52525b]">Penata Muda (III/a) - SDN Cikancung 02</td>
+                <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">5.800.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">145.000</td>
+                <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">15.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#09090b]">160.000</td>
+                <td class="px-5 py-3.5 text-center">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/10">
+                    <span class="material-symbols-outlined text-xs">check</span> Matched
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Row 4 -->
+              <tr class="hover:bg-[#f8fafc] transition-colors">
+                <td class="px-5 py-3.5">
+                  <div class="font-bold text-[#09090b]">Enjang Sulaeman, M.M.Pd</div>
+                  <div class="text-[11px] font-mono text-[#71717a]">NIP: 19780410 200212 1 006 • NPWZ: 3204.01.55194</div>
+                </td>
+                <td class="px-5 py-3.5 text-[#52525b]">Pembina (IV/a) - Kepala SMPN 2 Baleendah</td>
+                <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">8.120.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">203.000</td>
+                <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">25.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#09090b]">228.000</td>
+                <td class="px-5 py-3.5 text-center">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/10">
+                    <span class="material-symbols-outlined text-xs">check</span> Matched
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Row 5 -->
+              <tr class="hover:bg-[#f8fafc] transition-colors">
+                <td class="px-5 py-3.5">
+                  <div class="font-bold text-[#09090b]">Nenden Ratnasari, S.Pd.SD</div>
+                  <div class="text-[11px] font-mono text-[#71717a]">NIP: 19850918 201001 2 018 • NPWZ: 3204.01.44029</div>
+                </td>
+                <td class="px-5 py-3.5 text-[#52525b]">Penata (III/c) - Guru SDN Banjaran 01</td>
+                <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">6.350.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">158.750</td>
+                <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">20.000</td>
+                <td class="px-5 py-3.5 text-right font-mono font-bold text-[#09090b]">178.750</td>
+                <td class="px-5 py-3.5 text-center">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/10">
+                    <span class="material-symbols-outlined text-xs">check</span> Matched
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Processing Footer Bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-[#ececee]">
+        <div class="flex items-center gap-2 text-[#71717a] text-xs font-mono">
+          <span class="material-symbols-outlined text-[#064e3b] text-sm">verified</span>
+          <span>Hash Integritas: <strong class="text-[#09090b] font-semibold">sha256:8f4c21...8b1e</strong> (Tervalidasi BPKAD)</span>
+        </div>
+        <div class="flex items-center gap-2.5 w-full sm:w-auto">
+          <button id="btn-process-ebsz" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-all shadow-xs" onclick="alert('584 Bukti Setor Zakat (e-BSZ) resmi berhasil diproses dan diterbitkan dengan nomor seri SIMBA RI!')">
+            <span class="material-symbols-outlined text-base">receipt_long</span>
+            <span>Proses &amp; Terbitkan 584 e-BSZ Individu</span>
+          </button>
+          <button class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-[#09090b] text-xs font-semibold transition-all" onclick="alert('Pesan notifikasi e-BSZ WhatsApp Gateway terkirim ke 584 nomor ASN terkait.')">
+            <span class="material-symbols-outlined text-base text-[#064e3b]">send_to_mobile</span>
+            <span>WhatsApp Massal</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

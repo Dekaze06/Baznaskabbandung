@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#046c50",
+            "fog": "#71717a",
+            "mist": "#d4d4d8",
+            "surface-container-low": "#f4f4f5",
+            "surface-container-high": "#e8e8e9",
+            "emerald-deep": "#064e3b",
+            "emerald-vibrant": "#006a4e",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#9ef4d0",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#95d3ba",
+            "surface-tint": "#2b6954",
+            "on-surface-variant": "#52525b",
+            "primary-fixed": "#b0f0d6",
+            "inverse-on-surface": "#f0f1f2",
+            "surface-variant": "#e2e2e3",
+            "outline": "#707974",
+            "surface-container-highest": "#e2e2e3",
+            "tertiary-fixed": "#ffdcc3",
+            "primary": "#064e3b",
+            "on-primary-fixed": "#002117",
+            "surface-container-lowest": "#ffffff",
+            "snow": "#ffffff",
+            "slate": "#27272a",
+            "outline-variant": "#e4e4e7",
+            "inverse-surface": "#2f3132",
+            "primary-container": "#003527",
+            "obsidian": "#09090b",
+            "ember": "#ff5a00",
+            "paper": "#f4f4f5",
+            "cloud": "#ececee",
+            "on-surface": "#18181b",
+            "on-primary-container": "#80bea6",
+            "error": "#ba1a1a",
+            "background": "#f9f9fa",
+            "surface": "#ffffff"
+          },
+          borderRadius: {
+            "card": "36px",
+            "input": "14px",
+            "pill": "12px",
+            "full": "9999px"
+          },
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f9f9fa] font-sans text-on-surface antialiased selection:bg-emerald-deep selection:text-white">
+<!-- TOP RUNNER / LIVE STATUS BAR -->
+<header class="w-full bg-white border-b border-cloud sticky top-0 z-50">
+<div class="w-full bg-[#032e23] text-white/90 py-2 px-6">
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-5 overflow-x-auto">
+<div class="flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-sm text-[#80bea6]">workspace_premium</span>
+<span class="text-white/60">Nisab Emas Soreang:</span>
+<span class="font-mono text-white">Rp82.350.000 / thn (85 gr)</span>
+</div>
+<span class="text-white/20">•</span>
+<div class="flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-sm text-[#80bea6]">rice_bowl</span>
+<span class="text-white/60">Beras Fitrah:</span>
+<span class="font-mono text-white">Rp40.000 / jiwa</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-white/60">Hotline Jemput Zakat:</span>
+<span class="font-mono font-bold text-white">0811-2234-567</span>
+</div>
+<div class="flex items-center gap-1.5 bg-white/10 px-2.5 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#34d399] animate-pulse"></span>
+<span class="font-mono text-[11px] text-white/90">Node SIMBA 31 Kec. Aktif</span>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN NAVBAR -->
+<div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between gap-6">
+<div class="flex items-center gap-3">
+<img alt="Logo Resmi BAZNAS Kab Bandung" class="h-11 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg text-emerald-deep tracking-tight">BAZNAS</span>
+<span class="px-2 py-0.5 rounded-pill bg-paper text-emerald-deep font-mono text-[11px] font-semibold border border-cloud">Kab. Bandung</span>
+</div>
+<span class="text-[12px] text-fog">Layanan Mustahik &amp; Pelacakan ZIS</span>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-1 font-medium text-sm text-slate">
+<a class="px-3.5 py-2 hover:bg-paper rounded-[12px] transition-colors" href="#">Beranda &amp; Transparansi</a>
+<a class="px-3.5 py-2 hover:bg-paper rounded-[12px] transition-colors" href="#">Kalkulator ZIS</a>
+<a class="px-3.5 py-2 bg-paper text-emerald-deep font-semibold rounded-[12px] border border-cloud" href="#">Layanan Mustahik</a>
+<a class="px-3.5 py-2 hover:bg-paper rounded-[12px] transition-colors" href="#">Executive Command</a>
+<a class="px-3.5 py-2 hover:bg-paper rounded-[12px] transition-colors" href="#">Asesmen &amp; SIMBA</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-[14px] bg-emerald-deep hover:bg-[#043e2e] text-white text-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined text-base">payments</span>
+<span>Bayar Zakat Online</span>
+</a>
+<div class="h-9 w-px bg-cloud hidden sm:block"></div>
+<div class="flex items-center gap-2.5">
+<img alt="Profile" class="w-9 h-9 rounded-full object-cover border border-cloud" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-xs font-bold text-slate leading-tight">Drs. H. M. Yusuf</span>
+<span class="text-[10px] text-emerald-deep font-mono font-semibold">PIMPINAN_KETUA</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENT WRAPPER -->
+<main class="w-full min-h-[calc(100vh-220px)] py-10 px-4 sm:px-6">
+<div class="max-w-[1440px] mx-auto space-y-8">
+<!-- HERO INTRO CARD (Editorial Minimalist Paper style) -->
+<section class="bg-[#f4f4f5] border border-cloud rounded-[36px] p-8 sm:p-12 relative overflow-hidden">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
+<div class="max-w-2xl space-y-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-[12px] bg-white border border-cloud text-emerald-deep font-mono text-xs font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-deep"></span>
+              Portal Resmi Layanan Hak 8 Asnaf
+            </div>
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate">
+              Layanan Mustahik &amp; Pelacakan Status Bantuan ZIS
+            </h1>
+<p class="text-fog text-sm sm:text-base leading-relaxed">
+              Distribusi terintegrasi SIMBA RI secara transparan, adil, dan akuntabel sesuai UU No. 23/2011 untuk seluruh warga Kabupaten Bandung.
+            </p>
+<div class="flex flex-wrap items-center gap-2.5 pt-1">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[12px] bg-white border border-cloud text-slate text-xs font-medium">
+<span class="material-symbols-outlined text-sm text-emerald-deep">badge</span>
+                Khusus KTP Kab. Bandung (32.04.*)
+              </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[12px] bg-white border border-cloud text-slate text-xs font-medium">
+<span class="material-symbols-outlined text-sm text-emerald-deep">schedule</span>
+                SLA Rata-rata &lt; 3 Hari Kerja
+              </span>
+</div>
+</div>
+<!-- Concise Metrics Cards -->
+<div class="grid grid-cols-3 gap-3 w-full lg:w-auto">
+<div class="bg-white border border-cloud rounded-[20px] p-4 text-center min-w-[110px]">
+<span class="text-[11px] font-mono text-fog block">Mustahik</span>
+<span class="text-2xl font-bold text-emerald-deep font-mono">18.420</span>
+<span class="text-[11px] text-fog block">Tahun 2026</span>
+</div>
+<div class="bg-white border border-cloud rounded-[20px] p-4 text-center min-w-[110px]">
+<span class="text-[11px] font-mono text-fog block">Kepuasan</span>
+<span class="text-2xl font-bold text-slate font-mono">96.4%</span>
+<span class="text-[11px] text-fog block">Audit SAI</span>
+</div>
+<div class="bg-white border border-cloud rounded-[20px] p-4 text-center min-w-[110px]">
+<span class="text-[11px] font-mono text-fog block">Biaya Layanan</span>
+<span class="text-2xl font-bold text-emerald-deep font-mono">Rp 0</span>
+<span class="text-[11px] text-fog block">Bebas Pungli</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 1: CLEAN TICKET TRACKER & RESULT -->
+<section class="bg-white border border-cloud rounded-[36px] p-6 sm:p-10 space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-cloud">
+<div>
+<h2 class="text-xl font-bold tracking-tight text-slate flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep">track_changes</span>
+              Lacak Status Berkas Bantuan (Ticket Tracker)
+            </h2>
+<p class="text-xs sm:text-sm text-fog mt-0.5">
+              Pantau asesmen lapangan, persetujuan amil, hingga penerbitan tanda bukti serah terima digital.
+            </p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-[12px] bg-paper text-emerald-deep font-mono text-xs border border-cloud self-start sm:self-center">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-deep"></span>
+            Node SIMBA Ver 4.2 Online
+          </span>
+</div>
+<!-- Clean Compact Search Form -->
+<form class="bg-paper border border-cloud p-4 rounded-[20px]" onsubmit="event.preventDefault(); document.getElementById('ticket-result').classList.remove('hidden');">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
+<div class="md:col-span-5 space-y-1">
+<label class="text-xs font-semibold text-slate" for="t_id">Nomor Registrasi Tiket</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 bg-white border border-cloud rounded-[14px] font-mono text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="t_id" placeholder="Contoh: DISB-2026-0891" type="text" value="DISB-2026-0891"/>
+</div>
+</div>
+<div class="md:col-span-4 space-y-1">
+<label class="text-xs font-semibold text-slate" for="nik_last">4 Digit Terakhir NIK Pemohon</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 bg-white border border-cloud rounded-[14px] font-mono text-sm text-slate tracking-widest focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="nik_last" maxlength="4" placeholder="••••" type="password" value="8942"/>
+<span class="absolute right-3.5 top-3 text-[11px] font-mono text-fog">UU PDP 27/22</span>
+</div>
+</div>
+<div class="md:col-span-3">
+<button class="w-full h-11 inline-flex items-center justify-center gap-2 bg-emerald-deep hover:bg-[#043e2e] text-white font-medium text-sm rounded-[14px] transition-all" type="submit">
+<span class="material-symbols-outlined text-lg">search</span>
+<span>Lacak Status</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Search Result Card with 5-stage progress indicator -->
+<div class="bg-paper border border-cloud rounded-[24px] p-6 space-y-6" id="ticket-result">
+<!-- Result Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white border border-cloud p-5 rounded-[20px]">
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-mono font-bold text-emerald-deep text-base">#DISB-2026-0891</span>
+<span class="px-2.5 py-0.5 rounded-[12px] bg-paper text-emerald-deep font-mono text-xs font-medium border border-cloud">Tahap 4: Sidang Pleno</span>
+<span class="px-2.5 py-0.5 rounded-[12px] bg-amber-50 text-amber-800 font-mono text-xs font-medium border border-amber-200">Prioritas Mendesak</span>
+</div>
+<h3 class="text-lg font-bold text-slate">Ibu Ai Siti Rohimah</h3>
+<p class="text-xs text-fog flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-emerald-deep">place</span>
+                Kp. Cikoneng RT 03/RW 08, Desa Pamekaran, Kec. Soreang, Kab. Bandung
+              </p>
+</div>
+<div class="flex items-center gap-6 sm:gap-10 border-t lg:border-t-0 border-cloud pt-3 lg:pt-0">
+<div>
+<span class="text-xs text-fog block">Alokasi Bantuan</span>
+<span class="text-xl font-bold font-mono text-emerald-deep">Rp 3.500.000</span>
+<span class="text-[11px] text-fog block">Bandung Sehat (Medis)</span>
+</div>
+<div class="w-px h-10 bg-cloud"></div>
+<div>
+<span class="text-xs text-fog block">Skor Had Kifayah</span>
+<span class="text-xl font-bold font-mono text-rose-600">0.88</span>
+<span class="text-[11px] text-fog block">Kategori Fakir Layak</span>
+</div>
+</div>
+</div>
+<!-- 5-STAGE PROGRESS INDICATOR -->
+<div class="space-y-3">
+<div class="flex items-center justify-between text-xs text-fog">
+<span class="font-semibold text-slate">Alur Verifikasi Terpadu (5 Tahap SIMBA)</span>
+<span class="font-mono">Pembaruan: Hari ini, 08:45 WIB</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+<!-- Stage 1 -->
+<div class="bg-white border border-cloud rounded-[18px] p-3.5 space-y-1">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-emerald-deep text-white text-xs font-mono font-bold flex items-center justify-center">1</span>
+<span class="material-symbols-outlined text-emerald-deep text-lg">check_circle</span>
+</div>
+<div class="text-xs font-bold text-slate mt-2">Permohonan Masuk</div>
+<div class="text-[11px] text-fog leading-snug">E-Form terindeks registri Soreang.</div>
+<div class="text-[10px] font-mono text-fog pt-1">06 Feb, 09:15</div>
+</div>
+<!-- Stage 2 -->
+<div class="bg-white border border-cloud rounded-[18px] p-3.5 space-y-1">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-emerald-deep text-white text-xs font-mono font-bold flex items-center justify-center">2</span>
+<span class="material-symbols-outlined text-emerald-deep text-lg">check_circle</span>
+</div>
+<div class="text-xs font-bold text-slate mt-2">Validasi NIK Dukcapil</div>
+<div class="text-[11px] text-fog leading-snug">NIK kliring non-ASN/TNI/Polri.</div>
+<div class="text-[10px] font-mono text-fog pt-1">06 Feb, 14:20</div>
+</div>
+<!-- Stage 3 -->
+<div class="bg-white border border-cloud rounded-[18px] p-3.5 space-y-1">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-emerald-deep text-white text-xs font-mono font-bold flex items-center justify-center">3</span>
+<span class="material-symbols-outlined text-emerald-deep text-lg">check_circle</span>
+</div>
+<div class="text-xs font-bold text-slate mt-2">Asesmen Faktual</div>
+<div class="text-[11px] text-fog leading-snug">Geotagging &amp; Had Kifayah cek.</div>
+<div class="text-[10px] font-mono text-fog pt-1">07 Feb, 11:30</div>
+</div>
+<!-- Stage 4: Active -->
+<div class="bg-white border-2 border-emerald-deep rounded-[18px] p-3.5 space-y-1 relative">
+<span class="absolute -top-2 right-3 px-1.5 py-0.2 rounded-full bg-emerald-deep text-white text-[9px] font-mono uppercase">Aktif</span>
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-emerald-deep text-white text-xs font-mono font-bold flex items-center justify-center">4</span>
+<span class="material-symbols-outlined text-emerald-deep text-lg animate-spin">refresh</span>
+</div>
+<div class="text-xs font-bold text-emerald-deep mt-2">Sidang Pleno &amp; TTE</div>
+<div class="text-[11px] text-slate leading-snug font-medium">Validasi TTE Waka II &amp; Waka III.</div>
+<div class="text-[10px] font-mono text-emerald-deep font-semibold pt-1">Proses hari ini</div>
+</div>
+<!-- Stage 5: Pending -->
+<div class="bg-white/60 border border-cloud rounded-[18px] p-3.5 space-y-1 opacity-70">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-cloud text-fog text-xs font-mono font-bold flex items-center justify-center">5</span>
+<span class="material-symbols-outlined text-fog text-lg">hourglass_empty</span>
+</div>
+<div class="text-xs font-bold text-fog mt-2">Pencairan &amp; BAST</div>
+<div class="text-[11px] text-fog leading-snug">Disposisi Bank BJB Syariah.</div>
+<div class="text-[10px] font-mono text-fog pt-1">Menunggu penetapan</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-cloud">
+<div class="flex items-center gap-1.5 text-xs text-fog">
+<span class="material-symbols-outlined text-sm text-emerald-deep">verified</span>
+              Enkripsi SIMBA RI AES-256 • Bebas Pungutan Amil
+            </div>
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[14px] bg-white border border-cloud hover:bg-paper text-slate text-xs font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+                Unduh Tanda Terima (PDF)
+              </button>
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-[14px] bg-emerald-deep hover:bg-[#043e2e] text-white text-xs font-semibold transition-colors" href="https://wa.me/628112234567" target="_blank">
+<span class="material-symbols-outlined text-sm">chat</span>
+                Bantuan Helpdesk
+              </a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: STREAMLINED APPLICATION FORM (3-STEP) -->
+<section class="bg-white border border-cloud rounded-[36px] p-6 sm:p-10 space-y-6">
+<div class="pb-2 border-b border-cloud">
+<h2 class="text-xl font-bold tracking-tight text-slate flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep">description</span>
+            Formulir Pendaftaran Permohonan Bantuan (E-Mustahik)
+          </h2>
+<p class="text-xs sm:text-sm text-fog mt-0.5">
+            Lengkapi data identitas warga, pemilihan program bantuan, serta kelengkapan berkas untuk jadwal survei amil.
+          </p>
+</div>
+<!-- 3-Step Clean Indicator -->
+<div class="grid grid-cols-3 gap-2 bg-paper p-1.5 rounded-[18px] border border-cloud text-center text-xs font-semibold">
+<div class="py-2 px-3 rounded-[12px] bg-white text-emerald-deep border border-cloud flex items-center justify-center gap-2">
+<span class="w-5 h-5 rounded-full bg-emerald-deep text-white text-[11px] font-mono flex items-center justify-center">1</span>
+<span>Identitas Pemohon</span>
+</div>
+<div class="py-2 px-3 rounded-[12px] text-fog flex items-center justify-center gap-2">
+<span class="w-5 h-5 rounded-full bg-white border border-cloud text-fog text-[11px] font-mono flex items-center justify-center">2</span>
+<span>Program &amp; Nominal</span>
+</div>
+<div class="py-2 px-3 rounded-[12px] text-fog flex items-center justify-center gap-2">
+<span class="w-5 h-5 rounded-full bg-white border border-cloud text-fog text-[11px] font-mono flex items-center justify-center">3</span>
+<span>Berkas &amp; Pakta</span>
+</div>
+</div>
+<form class="space-y-6" onsubmit="event.preventDefault(); alert('Permohonan berhasil dikirim ke server SIMBA BAZNAS Kab. Bandung. Kode Registrasi Sementara: DISB-2026-' + Math.floor(1000 + Math.random() * 9000));">
+<!-- STEP 1: IDENTITAS -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-sm font-bold text-slate">
+<span class="w-2 h-2 rounded-full bg-emerald-deep"></span>
+              Langkah 1: Identitas Kependudukan (KTP Kabupaten Bandung)
+            </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate flex justify-between" for="nik">
+<span>NIK (16 Digit) *</span>
+<span class="text-[11px] font-mono text-emerald-deep">Awalan 32.04.*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 bg-paper border border-cloud rounded-[14px] font-mono text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="nik" maxlength="16" placeholder="3204xxxxxxxxxxxx" required="" type="text" value="3204126508920004"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-sm text-emerald-deep">check_circle</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate" for="kk">Nomor Kartu Keluarga (KK) *</label>
+<input class="w-full h-11 px-3.5 bg-paper border border-cloud rounded-[14px] font-mono text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="kk" maxlength="16" placeholder="3204xxxxxxxxxxxx" required="" type="text" value="3204121901140008"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate" for="nama">Nama Lengkap Sesuai KTP *</label>
+<input class="w-full h-11 px-3.5 bg-paper border border-cloud rounded-[14px] text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="nama" placeholder="Nama pemohon" required="" type="text" value="Ai Siti Rohimah"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate" for="kec">Kecamatan Domisili *</label>
+<select class="w-full h-11 px-3 bg-paper border border-cloud rounded-[14px] text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="kec">
+<option selected="" value="soreang">Soreang (Pusat Pemkab)</option>
+<option value="ciwidey">Ciwidey</option>
+<option value="baleendah">Baleendah</option>
+<option value="dayeuhkolot">Dayeuhkolot</option>
+<option value="majalaya">Majalaya</option>
+<option value="pangalengan">Pangalengan</option>
+<option value="banjaran">Banjaran</option>
+<option value="lainnya">Kecamatan Lainnya (Total 31 Kec)</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate" for="desa">Desa / Kelurahan *</label>
+<input class="w-full h-11 px-3.5 bg-paper border border-cloud rounded-[14px] text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="desa" placeholder="Contoh: Pamekaran / Sadu" required="" type="text" value="Pamekaran"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate" for="wa">Nomor WhatsApp Aktif *</label>
+<input class="w-full h-11 px-3.5 bg-paper border border-cloud rounded-[14px] font-mono text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="wa" placeholder="08xxxxxxxxxx" required="" type="tel" value="081394208811"/>
+</div>
+</div>
+</div>
+<!-- STEP 2: PROGRAM & ESTIMASI -->
+<div class="space-y-4 pt-4 border-t border-cloud">
+<div class="flex items-center gap-2 text-sm font-bold text-slate">
+<span class="w-2 h-2 rounded-full bg-emerald-deep"></span>
+              Langkah 2: Pemilihan Pilar Program &amp; Estimasi Kebutuhan
+            </div>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+<label class="cursor-pointer p-3.5 rounded-[18px] bg-paper border border-cloud text-center space-y-1.5 has-[:checked]:border-emerald-deep has-[:checked]:bg-white transition-all">
+<input class="sr-only" name="pilar" type="radio" value="peduli"/>
+<span class="material-symbols-outlined text-2xl text-emerald-deep block">volunteer_activism</span>
+<span class="text-xs font-bold text-slate block leading-tight">Bandung Peduli</span>
+<span class="text-[10px] text-fog block">Rutilahu &amp; Sembako</span>
+</label>
+<label class="cursor-pointer p-3.5 rounded-[18px] bg-paper border border-cloud text-center space-y-1.5 has-[:checked]:border-emerald-deep has-[:checked]:bg-white transition-all">
+<input class="sr-only" name="pilar" type="radio" value="cerdas"/>
+<span class="material-symbols-outlined text-2xl text-emerald-deep block">school</span>
+<span class="text-xs font-bold text-slate block leading-tight">Bandung Cerdas</span>
+<span class="text-[10px] text-fog block">Beasiswa &amp; Ijazah</span>
+</label>
+<label class="cursor-pointer p-3.5 rounded-[18px] bg-paper border-2 border-emerald-deep bg-white text-center space-y-1.5 has-[:checked]:border-emerald-deep transition-all">
+<input checked="" class="sr-only" name="pilar" type="radio" value="sehat"/>
+<span class="material-symbols-outlined text-2xl text-emerald-deep block">medical_services</span>
+<span class="text-xs font-bold text-slate block leading-tight">Bandung Sehat</span>
+<span class="text-[10px] text-fog block">RSUD &amp; Ambulans</span>
+</label>
+<label class="cursor-pointer p-3.5 rounded-[18px] bg-paper border border-cloud text-center space-y-1.5 has-[:checked]:border-emerald-deep has-[:checked]:bg-white transition-all">
+<input class="sr-only" name="pilar" type="radio" value="makmur"/>
+<span class="material-symbols-outlined text-2xl text-emerald-deep block">storefront</span>
+<span class="text-xs font-bold text-slate block leading-tight">Bandung Makmur</span>
+<span class="text-[10px] text-fog block">Modal Z-Auto &amp; Warung</span>
+</label>
+<label class="cursor-pointer p-3.5 rounded-[18px] bg-paper border border-cloud text-center space-y-1.5 has-[:checked]:border-emerald-deep has-[:checked]:bg-white transition-all col-span-2 sm:col-span-1">
+<input class="sr-only" name="pilar" type="radio" value="taqwa"/>
+<span class="material-symbols-outlined text-2xl text-emerald-deep block">mosque</span>
+<span class="text-xs font-bold text-slate block leading-tight">Bandung Taqwa</span>
+<span class="text-[10px] text-fog block">Marbot &amp; Sarpras</span>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="space-y-1">
+<label class="text-xs font-semibold text-slate" for="nominal">Estimasi Bantuan (Rp) *</label>
+<div class="relative">
+<span class="absolute left-3.5 top-3 text-xs font-mono text-fog">Rp</span>
+<input class="w-full h-11 pl-9 pr-3.5 bg-paper border border-cloud rounded-[14px] font-mono text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="nominal" placeholder="3.500.000" required="" type="number" value="3500000"/>
+</div>
+</div>
+<div class="md:col-span-2 space-y-1">
+<label class="text-xs font-semibold text-slate" for="urgensi_text">Urgensi Bantuan *</label>
+<input class="w-full h-11 px-3.5 bg-paper border border-cloud rounded-[14px] text-sm text-slate focus:outline-none focus:border-emerald-deep focus:ring-1 focus:ring-emerald-deep" id="urgensi_text" placeholder="Uraikan kondisi singkat..." required="" type="text" value="Biaya rawat inap anak di RSUD Otista Soreang dan tunggakan obat khusus."/>
+</div>
+</div>
+</div>
+<!-- STEP 3: BERKAS & PAKTA -->
+<div class="space-y-4 pt-4 border-t border-cloud">
+<div class="flex items-center gap-2 text-sm font-bold text-slate">
+<span class="w-2 h-2 rounded-full bg-emerald-deep"></span>
+              Langkah 3: Unggah Dokumen Syarat &amp; Persetujuan Syariah
+            </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+<div class="bg-paper border border-cloud rounded-[20px] p-4 text-center space-y-1.5">
+<span class="material-symbols-outlined text-2xl text-emerald-deep">badge</span>
+<div class="text-xs font-bold text-slate">Foto e-KTP Pemohon</div>
+<div class="text-[10px] text-fog">JPG/PDF (Maks 3MB)</div>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-deep font-mono font-medium">
+<span class="material-symbols-outlined text-sm">check</span> Terunggah
+                </span>
+</div>
+<div class="bg-paper border border-cloud rounded-[20px] p-4 text-center space-y-1.5">
+<span class="material-symbols-outlined text-2xl text-emerald-deep">family_restroom</span>
+<div class="text-xs font-bold text-slate">Foto Kartu Keluarga</div>
+<div class="text-[10px] text-fog">Menampilkan NIK keluarga</div>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-deep font-mono font-medium">
+<span class="material-symbols-outlined text-sm">check</span> Terunggah
+                </span>
+</div>
+<div class="bg-paper border border-cloud rounded-[20px] p-4 text-center space-y-1.5">
+<span class="material-symbols-outlined text-2xl text-emerald-deep">description</span>
+<div class="text-xs font-bold text-slate">SKTM Desa / Kelurahan</div>
+<div class="text-[10px] text-fog">Tanda tangan Kades &amp; Cap</div>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-deep font-mono font-medium">
+<span class="material-symbols-outlined text-sm">check</span> Terunggah
+                </span>
+</div>
+<div class="bg-paper border border-dashed border-cloud rounded-[20px] p-4 text-center space-y-1.5 hover:border-emerald-deep cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-2xl text-fog">upload_file</span>
+<div class="text-xs font-bold text-slate">Kwitansi / RAB Biaya</div>
+<div class="text-[10px] text-fog">Rincian resmi RS / Sekolah</div>
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-deep font-semibold">
+                  + Pilih Berkas
+                </span>
+</div>
+</div>
+<!-- Pakta Integritas Box -->
+<div class="bg-paper border border-cloud p-4 rounded-[18px]">
+<label class="flex items-start gap-3 cursor-pointer">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-emerald-deep focus:ring-emerald-deep border-cloud" required="" type="checkbox"/>
+<span class="text-xs text-slate leading-relaxed">
+<strong>Pakta Integritas:</strong> Saya bersumpah data yang diisi adalah benar, berhak menerima hak Zakat 8 Asnaf, dan belum menerima bantuan sejenis dari APBD/Kemensos dalam 6 bulan terakhir.
+                </span>
+</label>
+</div>
+<!-- Submit Action -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<span class="text-xs text-fog flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-emerald-deep">lock</span>
+                Data terenkripsi ke SIMBA BAZNAS RI • Bebas biaya amil
+              </span>
+<button class="w-full sm:w-auto px-6 py-3 rounded-[14px] bg-emerald-deep hover:bg-[#043e2e] text-white text-sm font-semibold transition-all inline-flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-base">send</span>
+<span>Kirim Permohonan</span>
+</button>
+</div>
+</div>
+</form>
+</section>
+<!-- SECTION 3: PROGRAM REQUIREMENTS & FAST CONTACT -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Clean Program Requirements (2 cols in lg) -->
+<div class="lg:col-span-2 bg-white border border-cloud rounded-[36px] p-6 sm:p-8 space-y-5">
+<div class="flex items-center justify-between pb-2 border-b border-cloud">
+<div>
+<span class="text-[11px] font-mono text-emerald-deep font-bold uppercase tracking-wider">Katalog Edukasi</span>
+<h3 class="text-lg font-bold text-slate">Persyaratan Khusus Tiap Pilar Program</h3>
+</div>
+<span class="material-symbols-outlined text-emerald-deep text-2xl">verified_user</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="bg-paper border border-cloud rounded-[20px] p-4 space-y-1.5">
+<div class="flex items-center gap-2 text-xs font-bold text-slate">
+<span class="material-symbols-outlined text-emerald-deep text-base">home_repair_service</span>
+                Bandung Peduli (Rutilahu)
+              </div>
+<ul class="text-xs text-fog space-y-1 pl-4 list-disc">
+<li>Surat hak milik tanah adat / AJB nama sendiri</li>
+<li>Bukan tanah sengketa atau milik BUMN/KAI</li>
+<li>Foto fisik atap/lantai/dinding rusak berat</li>
+</ul>
+</div>
+<div class="bg-paper border border-cloud rounded-[20px] p-4 space-y-1.5">
+<div class="flex items-center gap-2 text-xs font-bold text-slate">
+<span class="material-symbols-outlined text-emerald-deep text-base">school</span>
+                Bandung Cerdas (Beasiswa)
+              </div>
+<ul class="text-xs text-fog space-y-1 pl-4 list-disc">
+<li>Surat keterangan aktif sekolah / rekomendasi ponpes</li>
+<li>Surat rincian tunggakan resmi yayasan</li>
+<li>Fotokopi rapor dengan nilai rata-rata baik</li>
+</ul>
+</div>
+<div class="bg-paper border border-cloud rounded-[20px] p-4 space-y-1.5">
+<div class="flex items-center gap-2 text-xs font-bold text-slate">
+<span class="material-symbols-outlined text-emerald-deep text-base">emergency</span>
+                Bandung Sehat (Medis)
+              </div>
+<ul class="text-xs text-fog space-y-1 pl-4 list-disc">
+<li>Surat resume medis RSUD Soreang / Majalaya</li>
+<li>Keterangan tidak aktif / tunggakan BPJS PBI</li>
+<li>Layanan antar jemput ambulans dhuafa gratis 24 jam</li>
+</ul>
+</div>
+<div class="bg-paper border border-cloud rounded-[20px] p-4 space-y-1.5">
+<div class="flex items-center gap-2 text-xs font-bold text-slate">
+<span class="material-symbols-outlined text-emerald-deep text-base">store</span>
+                Bandung Makmur (Modal Usaha)
+              </div>
+<ul class="text-xs text-fog space-y-1 pl-4 list-disc">
+<li>Usaha mikro berjalan aktif minimal 6 bulan</li>
+<li>RAB pengadaan perlengkapan / modal bahan</li>
+<li>Bersedia ikuti pendampingan berkala amil</li>
+</ul>
+</div>
+</div>
+<!-- FAQ Summary -->
+<div class="pt-3 border-t border-cloud space-y-2">
+<div class="text-xs font-bold text-slate">Pertanyaan Sering Diajukan (FAQ)</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div class="p-3 bg-paper rounded-[16px] border border-cloud space-y-1">
+<span class="font-semibold text-slate block">Berapa lama survei lapangan?</span>
+<span class="text-fog block">Maksimal 2x24 jam kerja setelah NIK terverifikasi di SIMBA.</span>
+</div>
+<div class="p-3 bg-paper rounded-[16px] border border-cloud space-y-1">
+<span class="font-semibold text-slate block">Apakah dipungut biaya?</span>
+<span class="text-fog block">100% Gratis. Lapor segera bila ada oknum meminta imbalan.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Hotline & Walk-in Center -->
+<div class="space-y-4">
+<!-- Ambulans & Darurat -->
+<div class="bg-emerald-deep text-white rounded-[36px] p-6 sm:p-7 space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl text-[#80bea6]">e911_emergency</span>
+<span class="text-[11px] font-mono uppercase tracking-wider text-[#80bea6] font-semibold">Siaga Tanggap Darurat</span>
+</div>
+<div>
+<h4 class="text-lg font-bold">Layanan Ambulans Jenazah &amp; Pasien Gratis</h4>
+<p class="text-xs text-white/80 mt-1 leading-relaxed">
+                Antar-jemput pasien kritis dhuafa dan jenazah 24 Jam se-Kabupaten Bandung tanpa dipungut biaya apapun.
+              </p>
+</div>
+<div class="bg-[#032e23] border border-white/10 p-4 rounded-[20px] space-y-1">
+<span class="text-[11px] font-mono text-white/60 block">Hotline Siaga 24 Jam:</span>
+<div class="font-mono text-2xl font-bold text-white">0811-2234-567</div>
+<span class="text-[11px] text-white/70 block">Markas BAZNAS Tanggap Bencana (BTB)</span>
+</div>
+<a class="w-full py-2.5 rounded-[14px] bg-white text-emerald-deep text-center text-xs font-bold block hover:bg-paper transition-colors" href="tel:08112234567">
+              Hubungi Tim Tanggap Bencana
+            </a>
+</div>
+<!-- Front Office Soreang -->
+<div class="bg-white border border-cloud rounded-[36px] p-6 space-y-3">
+<div class="flex items-center gap-2 text-slate font-bold text-sm">
+<span class="material-symbols-outlined text-emerald-deep text-lg">domain</span>
+              Gerai Layanan Tatap Muka
+            </div>
+<p class="text-xs text-fog leading-relaxed">
+              Jika mengalami kendala e-form, amil siap mendampingi pendaftaran di Gerai Satu Atap Soreang.
+            </p>
+<div class="text-xs text-slate space-y-1 font-mono">
+<div class="text-fog">Jam: Senin - Jumat (08.00 - 15.30)</div>
+<div>Gedung Ormas Islam Lt. 1, Soreang</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- MINIMALIST EDITORIAL FOOTER -->
+<footer class="w-full bg-white border-t border-cloud mt-12 py-10 px-6">
+<div class="max-w-[1440px] mx-auto space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Col 1 -->
+<div class="space-y-3">
+<div class="flex items-center gap-2.5">
+<img alt="BAZNAS" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<span class="font-bold text-slate text-sm">BAZNAS Kab. Bandung</span>
+</div>
+<p class="text-xs text-fog leading-relaxed">
+            Lembaga pemerintah nonstruktural pengelola ZIS tingkat Kab. Bandung sesuai syariat Islam, UU No. 23/2011, dan standar PSAK 109.
+          </p>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[12px] bg-paper text-emerald-deep font-mono text-[11px] border border-cloud">
+            Akreditasi Kemenag RI: A
+          </span>
+</div>
+<!-- Col 2 -->
+<div class="space-y-2">
+<div class="text-xs font-bold text-slate">Sekretariat Soreang</div>
+<p class="text-xs text-fog leading-relaxed">
+            Kompleks Pemkab Bandung, Jl. Raya Soreang Km. 17, Soreang, Jawa Barat 40911
+          </p>
+<div class="text-xs font-mono text-slate space-y-0.5">
+<div>Telp: (022) 589-2041</div>
+<div>WA: 0811-2234-567</div>
+</div>
+</div>
+<!-- Col 3 -->
+<div class="space-y-2">
+<div class="text-xs font-bold text-slate">Standar &amp; Tata Kelola</div>
+<ul class="text-xs text-fog space-y-1">
+<li>Sistem Informasi Manajemen BAZNAS (SIMBA RI)</li>
+<li>Standar Akuntansi Zakat PSAK 109</li>
+<li>Audit Kepatuhan Syariah &amp; SAIK</li>
+<li>Penyaluran Terbuka 31 Kecamatan</li>
+</ul>
+</div>
+<!-- Col 4 -->
+<div class="space-y-2">
+<div class="text-xs font-bold text-slate">Whistleblowing &amp; Pengaduan</div>
+<p class="text-xs text-fog leading-relaxed">
+            Laporkan indikasi pungli atau pemotongan hak bantuan langsung ke inspektorat amil:
+          </p>
+<div class="p-3 bg-paper border border-cloud rounded-[14px]">
+<span class="font-mono text-xs font-bold text-rose-700 block">pengaduan@baznaskabbdr.id</span>
+<span class="text-[10px] text-fog block mt-0.5">Identitas pelapor dilindungi kerahasiaannya.</span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-cloud flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-fog">
+<div>© 2026 BAZNAS Kabupaten Bandung. Hak Cipta Dilindungi Undang-Undang.</div>
+<div class="flex items-center gap-4 font-mono text-[11px]">
+<a class="hover:text-emerald-deep" href="#">Kebijakan Privasi</a>
+<span>•</span>
+<a class="hover:text-emerald-deep" href="#">Publikasi Laporan</a>
+<span>•</span>
+<span class="text-emerald-deep">SIMBA 99.98% Online</span>
+</div>
+</div>
+</div>
+</footer>
+  <script src="/screens/shared-nav.js"></script>
+</body></html>

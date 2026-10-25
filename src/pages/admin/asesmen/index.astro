@@ -1,0 +1,170 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Asesmen Lapangan & Had Kifayah - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Asesmen Lapangan & Had Kifayah CIBEST" activeRoute="asesmen">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- Operational Header Banner -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-[#064e3b] flex items-center justify-center text-white shrink-0 shadow-md">
+          <span class="material-symbols-outlined text-[28px]">verified_user</span>
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <h1 class="text-xl font-bold text-[#09090b] tracking-tight">Divisi Asesmen Lapangan &amp; Pendistribusian</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-[11px] font-bold border border-[#064e3b]/20">STANDAR PERBANZ RI</span>
+          </div>
+          <p class="text-xs text-[#71717a] mt-1">
+            Penetapan Had Kifayah Rp 785.000 / jiwa / bulan • Klasifikasi CIBEST Kuadran I-IV • Geotagging GPS 100% On-Site
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs transition-all">
+          <span class="material-symbols-outlined text-base">view_list</span>
+          <span>Buka Antrean Mustahik</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4 Stats Cards -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 shadow-xs card-hover-lift">
+        <span class="text-xs text-[#71717a] block uppercase font-medium">Antrean Verifikasi Aktif</span>
+        <strong class="text-3xl font-bold text-[#09090b] mt-2 block">48 Mustahik</strong>
+        <span class="text-xs text-[#ff5a00] font-bold mt-1 block">14 Menunggu Kunjungan Survei</span>
+      </div>
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 shadow-xs card-hover-lift">
+        <span class="text-xs text-[#71717a] block uppercase font-medium">Norma Had Kifayah</span>
+        <strong class="text-3xl font-bold text-[#064e3b] mt-2 block">Rp 785.000</strong>
+        <span class="text-xs text-[#71717a] mt-1 block">Per Jiwa / Bulan (BAZNAS RI)</span>
+      </div>
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 shadow-xs card-hover-lift">
+        <span class="text-xs text-[#71717a] block uppercase font-medium">CIBEST Kuadran I</span>
+        <strong class="text-3xl font-bold text-[#09090b] mt-2 block">19 Berkas</strong>
+        <span class="text-xs text-[#064e3b] font-bold mt-1 block">Fakir Mutlak (Prioritas Utama)</span>
+      </div>
+      <div class="bg-white rounded-[28px] border border-[#ececee] p-6 shadow-xs card-hover-lift">
+        <span class="text-xs text-[#71717a] block uppercase font-medium">Validasi On-Site Berkas</span>
+        <strong class="text-3xl font-bold text-[#064e3b] mt-2 block">98.4%</strong>
+        <span class="text-xs text-[#71717a] mt-1 block">AJB, PLN 450VA, DTKS Valid</span>
+      </div>
+    </section>
+
+    <!-- Hub 6 Sub Menu Terpisah Asesmen -->
+    <section class="space-y-4">
+      <h2 class="text-base font-bold text-[#09090b]">Navigasi 6 Sub Menu Operasional Lapangan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <a href="/admin/asesmen/antrean" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">view_list</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Antrean 48 Mustahik</h3>
+          <p class="text-xs text-[#71717a] mt-1">Daftar antrean verifikasi lapangan, filter per asnaf, pencarian NIK &amp; skor CIBEST.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Buka Antrean</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/asesmen/verifikasi" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">badge</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Verifikasi On-Site Mustahik</h3>
+          <p class="text-xs text-[#71717a] mt-1">Dossier faktual on-site: status tanah AJB, listrik 450VA, tabel 5 tanggungan keluarga.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Lihat Dossier</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/asesmen/kalkulator" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">calculate</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Kalkulator Had Kifayah</h3>
+          <p class="text-xs text-[#71717a] mt-1">Simulasi interaktif kebutuhan pokok vs pendapatan riil untuk menghitung defisit kifayah.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Hitung Kifayah</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/asesmen/had-kifayah" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">table_chart</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Breakdown 7 Norma BAZNAS</h3>
+          <p class="text-xs text-[#71717a] mt-1">Tabel standar 7 norma kebutuhan BAZNAS RI: pangan, sandang, papan, ibadah, edukasi, sehat, transport.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Lihat Standar Norma</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/asesmen/cibest" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">grid_view</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Kuadran CIBEST I - IV</h3>
+          <p class="text-xs text-[#71717a] mt-1">Matriks scoring kemiskinan material &amp; spiritual, shalat fardhu 5 waktu, dan rekomendasi intervensi.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Buka Matriks CIBEST</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/asesmen/geotagging" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">satellite_alt</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Geotagging &amp; Foto Rumah</h3>
+          <p class="text-xs text-[#71717a] mt-1">Titik koordinat satelit GPS lapangan, foto kondisi fisik rumah mustahik (bilik bambu, atap bocor, MCK).</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Lihat Bukti Foto</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

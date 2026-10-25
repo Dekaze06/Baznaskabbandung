@@ -1,0 +1,183 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Kalkulator Had Kifayah - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Kalkulator Standar Had Kifayah BAZNAS RI" activeRoute="asesmen/kalkulator">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- Interactive Calculator Card -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-7">
+      
+      <!-- Input Controls (7 Cols) -->
+      <section class="lg:col-span-7 bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+        <div class="pb-3 border-b border-[#ececee]">
+          <h2 class="text-base font-bold text-[#09090b] flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl text-[#064e3b]">tune</span>
+            <span>Simulasi Parameter Had Kifayah Keluarga</span>
+          </h2>
+          <p class="text-xs text-[#71717a] mt-0.5">Berdasarkan Keputusan Ketua BAZNAS RI No. 22 Tahun 2024</p>
+        </div>
+
+        <div class="space-y-4 text-xs">
+          <div>
+            <label class="font-bold text-[#09090b] block mb-1.5">Jumlah Jiwa Dalam Kartu Keluarga (Tanggungan):</label>
+            <div class="flex items-center gap-3">
+              <input type="range" id="input-kifayah-jiwa" min="1" max="10" value="5" class="w-full accent-[#064e3b] cursor-pointer"/>
+              <span id="label-kifayah-jiwa" class="font-mono font-bold text-base px-3 py-1 rounded-xl bg-[#ecfdf5] text-[#064e3b] border border-[#064e3b]/20">5 Jiwa</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="font-bold text-[#09090b] block mb-1.5">Pendapatan Riil Bulanan Seluruh Anggota Keluarga (Rp):</label>
+            <input type="number" id="input-kifayah-income" value="450000" class="w-full px-4 py-2.5 rounded-xl bg-[#f4f4f5] border border-[#ececee] font-mono font-bold text-sm text-[#09090b] focus:outline-none focus:border-[#064e3b]"/>
+          </div>
+
+          <div>
+            <label class="font-bold text-[#09090b] block mb-1.5">Biaya Sewa / Kontrakan Rumah Bulanan (Rp):</label>
+            <input type="number" id="input-kifayah-rent" value="0" class="w-full px-4 py-2.5 rounded-xl bg-[#f4f4f5] border border-[#ececee] font-mono text-sm text-[#09090b] focus:outline-none focus:border-[#064e3b]"/>
+          </div>
+
+          <div>
+            <label class="font-bold text-[#09090b] block mb-1.5">Beban Kesehatan Kronis / Medis Khusus Bulanan (Rp):</label>
+            <input type="number" id="input-kifayah-med" value="350000" class="w-full px-4 py-2.5 rounded-xl bg-[#f4f4f5] border border-[#ececee] font-mono text-sm text-[#09090b] focus:outline-none focus:border-[#064e3b]"/>
+          </div>
+
+          <div class="pt-3">
+            <button id="btn-calc-kifayah" type="button" class="w-full py-3 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold flex items-center justify-center gap-2 shadow-xs transition-all">
+              <span class="material-symbols-outlined text-base">refresh</span>
+              <span>Hitung Ulang Defisit Had Kifayah</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Real-time Output & Diagnostic Card (5 Cols) -->
+      <section class="lg:col-span-5 bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="pb-3 border-b border-[#ececee]">
+            <span class="text-[11px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Hasil Diagnosis Syariah</span>
+            <h3 class="text-lg font-bold text-[#09090b] mt-0.5">Klasifikasi Kelayakan Mustahik</h3>
+          </div>
+
+          <div class="mt-4 space-y-4">
+            <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee]">
+              <span class="text-xs text-[#71717a] block">Total Standar Kebutuhan Had Kifayah:</span>
+              <strong id="res-kifayah-total" class="text-2xl font-bold font-mono text-[#09090b] block mt-1">Rp 3.925.000</strong>
+              <span class="text-[11px] text-[#71717a]">Patokan: Rp 785.000 / jiwa / bulan</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/20">
+              <span class="text-xs text-[#064e3b] font-bold block uppercase">Defisit Had Kifayah Riil:</span>
+              <strong id="res-kifayah-deficit" class="text-2xl font-bold font-mono text-[#ff5a00] block mt-1">Rp 3.475.000</strong>
+              <span id="res-kifayah-percent" class="text-xs font-bold text-[#ff5a00] block mt-0.5">Defisit 88,5% dari kebutuhan standar</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-[#ececee] space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[#71717a]">Status Asnaf Fikih:</span>
+                <span id="res-asnaf-badge" class="px-2.5 py-0.5 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] font-bold text-[11px]">FAKIR MUTLAK (&lt; 50%)</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[#71717a]">Rekomendasi Program:</span>
+                <span class="font-bold text-[#064e3b]">Bandung Peduli Rutilahu</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-[#71717a]">Plafon Rekomendasi:</span>
+                <span class="font-mono font-bold text-[#09090b]">Rp 25.000.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="/admin/command-center/tte" class="w-full py-2.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold text-center hover:bg-[#006a4e] transition-all">
+          Ajukan Disposisi Otorisasi &rarr;
+        </a>
+      </section>
+
+    </div>
+
+    <!-- Had Kifayah Benchmark Reference -->
+    <section class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-3 shadow-xs text-xs text-[#52525b]">
+      <h4 class="font-bold text-sm text-[#09090b] flex items-center gap-2">
+        <span class="material-symbols-outlined text-base text-[#064e3b]">info</span>
+        <span>Dasar Hukum &amp; Formula Had Kifayah BAZNAS</span>
+      </h4>
+      <p class="leading-relaxed">
+        Had Kifayah adalah batas kecukupan minimum kebutuhan hidup layak seorang muslim dan keluarganya dalam satu bulan yang mencakup 7 unsur primer (makanan, pakaian, tempat tinggal, pendidikan, kesehatan, ibadah, dan transportasi). Mustahik dengan pendapatan di bawah 50% Had Kifayah diklasifikasikan sebagai <strong>Fakir</strong>, sedangkan mustahik dengan pendapatan antara 50% hingga 100% Had Kifayah diklasifikasikan sebagai <strong>Miskin</strong>.
+      </p>
+    </section>
+
+  </main>
+
+  <script is:inline>
+    const jiwaInput = document.getElementById('input-kifayah-jiwa');
+    const incomeInput = document.getElementById('input-kifayah-income');
+    const jiwaLabel = document.getElementById('label-kifayah-jiwa');
+    const resTotal = document.getElementById('res-kifayah-total');
+    const resDeficit = document.getElementById('res-kifayah-deficit');
+    const resPercent = document.getElementById('res-kifayah-percent');
+    const resBadge = document.getElementById('res-asnaf-badge');
+
+    function updateCalc() {
+      const jiwa = parseInt(jiwaInput?.value || 5, 10);
+      const income = parseInt(incomeInput?.value || 450000, 10);
+      if (jiwaLabel) jiwaLabel.textContent = `${jiwa} Jiwa`;
+
+      const normPerSoul = 785000;
+      const totalNorm = jiwa * normPerSoul;
+      const deficit = Math.max(0, totalNorm - income);
+      const pct = Math.min(100, Math.round((deficit / totalNorm) * 100));
+
+      if (resTotal) resTotal.textContent = `Rp ${totalNorm.toLocaleString('id-ID')}`;
+      if (resDeficit) resDeficit.textContent = `Rp ${deficit.toLocaleString('id-ID')}`;
+      if (resPercent) resPercent.textContent = `Defisit ${pct}% dari kebutuhan standar`;
+
+      if (resBadge) {
+        if (pct >= 50) {
+          resBadge.textContent = 'FAKIR MUTLAK (< 50%)';
+          resBadge.className = 'px-2.5 py-0.5 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] font-bold text-[11px]';
+        } else {
+          resBadge.textContent = 'MISKIN (50% - 100%)';
+          resBadge.className = 'px-2.5 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[11px]';
+        }
+      }
+    }
+
+    jiwaInput?.addEventListener('input', updateCalc);
+    incomeInput?.addEventListener('input', updateCalc);
+    document.getElementById('btn-calc-kifayah')?.addEventListener('click', updateCalc);
+  </script>
+</AdminLayout>

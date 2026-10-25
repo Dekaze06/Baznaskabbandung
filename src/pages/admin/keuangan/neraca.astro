@@ -1,0 +1,192 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Laporan Neraca PSAK 109 - Panel Admin BAZNAS" sectionName="Tata Kelola & Akuntansi" pageTitle="Laporan Posisi Keuangan (Neraca) PSAK 109" activeRoute="keuangan/neraca">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 3 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi keuangan">
+      <a href="/admin/keuangan" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Keuangan</span>
+      </a>
+      <a href="/admin/keuangan/segregated-funds" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">account_tree</span>
+        <span>Kas 5 Segregated Funds</span>
+      </a>
+      <a href="/admin/keuangan/jurnal" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">menu_book</span>
+        <span>Buku Jurnal PSAK 109</span>
+      </a>
+      <a href="/admin/keuangan/transfer" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">send</span>
+        <span>Antrean Transfer H2H</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#fef3c7] text-[#d97706] text-[10px] font-bold">6</span>
+      </a>
+      <a href="/admin/keuangan/rekonsiliasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">sync_alt</span>
+        <span>Rekonsiliasi Bank</span>
+      </a>
+      <a href="/admin/keuangan/neraca" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">pie_chart</span>
+        <span>Laporan Neraca</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">pie_chart</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Laporan Posisi Keuangan (Neraca) PSAK 109 Komparatif</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Per 24 Oktober 2026 (Unaudited YTD) dibandingkan dengan 31 Desember 2025 (Audited KAP WTP)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="px-3.5 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">
+          Opini KAP: WTP 5 Tahun
+        </span>
+      </div>
+    </section>
+
+    <!-- Dual-Column Balance Sheet -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+      
+      <!-- Left Column: ASET -->
+      <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="pb-3 border-b border-[#ececee] flex items-center justify-between">
+            <h2 class="text-base font-bold text-[#09090b]">ASET (AKTIVA)</h2>
+            <span class="font-mono text-xs text-[#71717a]">Mata Uang: IDR (Rupiah)</span>
+          </div>
+
+          <!-- Aset Lancar -->
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#064e3b] block">Aset Lancar</span>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Kas dan Setara Kas (5 Rekening Bank Syariah)</span>
+                <span class="font-mono font-bold text-[#09090b]">8.043.620.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Piutang Penyaluran ZIS (SP2D Dalam Proses)</span>
+                <span class="font-mono text-[#09090b]">120.000.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Uang Muka Operasional Program Lapangan</span>
+                <span class="font-mono text-[#09090b]">45.000.000</span>
+              </div>
+              <div class="flex justify-between py-2 font-bold text-xs bg-[#f8fafc] px-2 rounded-lg">
+                <span class="text-[#09090b]">Total Aset Lancar:</span>
+                <span class="font-mono text-[#064e3b]">8.208.620.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aset Tidak Lancar -->
+          <div class="space-y-2 pt-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#064e3b] block">Aset Tidak Lancar</span>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Aset Kelolaan Program (Ambulans Gratis, Mobil Tanggap Bencana)</span>
+                <span class="font-mono text-[#09090b]">980.000.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Inventaris &amp; Peralatan Kantor Sekretariat Soreang</span>
+                <span class="font-mono text-[#09090b]">650.000.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Akumulasi Penyusutan Aset Kelolaan</span>
+                <span class="font-mono text-[#ff5a00]">(225.000.000)</span>
+              </div>
+              <div class="flex justify-between py-2 font-bold text-xs bg-[#f8fafc] px-2 rounded-lg">
+                <span class="text-[#09090b]">Total Aset Tidak Lancar:</span>
+                <span class="font-mono text-[#064e3b]">1.405.000.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/20 flex justify-between items-center mt-6">
+          <strong class="text-sm text-[#09090b]">TOTAL ASET (AKTIVA):</strong>
+          <strong class="text-xl font-bold font-mono text-[#064e3b]">Rp 9.613.620.000</strong>
+        </div>
+      </section>
+
+      <!-- Right Column: LIABILITAS & SALDO DANA -->
+      <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-4 shadow-xs flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="pb-3 border-b border-[#ececee] flex items-center justify-between">
+            <h2 class="text-base font-bold text-[#09090b]">LIABILITAS &amp; SALDO DANA</h2>
+            <span class="font-mono text-xs text-[#71717a]">Standar PSAK 109</span>
+          </div>
+
+          <!-- Liabilitas Jangka Pendek -->
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#71717a] block">Liabilitas (Kewajiban)</span>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Beban Yang Masih Harus Dibayar (Honor Surveyor &amp; Listrik)</span>
+                <span class="font-mono text-[#09090b]">42.500.000</span>
+              </div>
+              <div class="flex justify-between py-2 font-bold text-xs bg-[#f8fafc] px-2 rounded-lg">
+                <span class="text-[#09090b]">Total Liabilitas:</span>
+                <span class="font-mono text-[#09090b]">42.500.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saldo Dana Terpisah -->
+          <div class="space-y-2 pt-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#064e3b] block">Saldo Dana Syariah (Net Assets)</span>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Saldo Dana Zakat (Hak 8 Asnaf)</span>
+                <span class="font-mono font-bold text-[#064e3b]">4.821.450.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Saldo Dana Infak &amp; Sedekah</span>
+                <span class="font-mono font-bold text-[#09090b]">2.115.800.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Saldo Dana DSKL &amp; Fidyah</span>
+                <span class="font-mono text-[#09090b]">430.120.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Saldo Dana Amil (Hak Kelola 12.5% &amp; Aset Tetap)</span>
+                <span class="font-mono text-[#09090b]">2.140.300.000</span>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Saldo Dana Non-Halal (Jasa Giro Perbankan)</span>
+                <span class="font-mono text-[#ff5a00]">63.450.000</span>
+              </div>
+              <div class="flex justify-between py-2 font-bold text-xs bg-[#f8fafc] px-2 rounded-lg">
+                <span class="text-[#09090b]">Total Saldo Dana:</span>
+                <span class="font-mono text-[#064e3b]">9.571.120.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/20 flex justify-between items-center mt-6">
+          <strong class="text-sm text-[#09090b]">TOTAL LIABILITAS &amp; SALDO DANA:</strong>
+          <strong class="text-xl font-bold font-mono text-[#064e3b]">Rp 9.613.620.000</strong>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Balance Check Alert -->
+    <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] flex items-center justify-between text-xs">
+      <div class="flex items-center gap-2 text-[#064e3b] font-semibold">
+        <span class="material-symbols-outlined text-base">check_circle</span>
+        <span>Persamaan Dasar Akuntansi Seimbang: Total Aset = Total Liabilitas + Saldo Dana</span>
+      </div>
+      <span class="font-mono font-bold text-[#064e3b]">SELISIH = RP 0 (BALANCED)</span>
+    </div>
+
+  </main>
+</AdminLayout>

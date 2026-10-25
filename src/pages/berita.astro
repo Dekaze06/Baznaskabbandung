@@ -1,0 +1,327 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Warta, Siaran Pers & Liputan Lapangan - BAZNAS Kabupaten Bandung"
+  description="Kumpulan berita resmi, dokumentasi penyaluran zakat di lapangan, siaran pers pimpinan, serta laporan transparansi kegiatan BAZNAS Kabupaten Bandung."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-12">
+      
+      <!-- BREADCRUMB & HEADER -->
+      <section class="space-y-6">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Warta &amp; Berita Terkini</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#e4e4e7] pb-8">
+          <div class="max-w-3xl space-y-3">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight">
+              Warta &amp; Kabar Penyaluran BAZNAS
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed">
+              Dokumentasi faktual jejak amanah zakat, infak, dan sedekah masyarakat Kabupaten Bandung. Menghadirkan informasi transparan dari 31 kecamatan secara akuntabel.
+            </p>
+          </div>
+
+          <!-- Live Search Bar -->
+          <div class="relative w-full sm:w-80 shrink-0">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">search</span>
+            <input 
+              type="text" 
+              id="search-berita" 
+              placeholder="Cari berita atau kegiatan..." 
+              class="w-full bg-white border border-[#e4e4e7] rounded-xl py-2.5 pl-10 pr-4 text-xs font-medium text-[#09090b] outline-none focus:border-[#064e3b] shadow-2xs transition-colors"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED HEADLINE ARTICLE (SUPER PREMIUM HERO CARD) -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden shadow-xs grid grid-cols-1 lg:grid-cols-12 items-stretch">
+        <div class="lg:col-span-7 relative aspect-16/9 lg:aspect-auto min-h-[300px] bg-[#f4f4f5] overflow-hidden group">
+          <img 
+            src="/images/campaign-bencana.webp" 
+            alt="BAZNAS Tanggap Bencana salurkan logistik darurat banjir Dayeuhkolot" 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:hidden"></div>
+        </div>
+
+        <div class="lg:col-span-5 p-7 lg:p-10 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2 text-xs text-[#71717a]">
+              <span>24 Oktober 2026</span>
+              <span>•</span>
+              <span class="font-semibold text-[#064e3b]">Bandung Peduli &amp; Tanggap Bencana</span>
+            </div>
+
+            <h2 class="text-xl sm:text-2xl font-extrabold text-[#09090b] tracking-tight leading-snug">
+              BAZNAS Terjunkan Tim Rescue BTB &amp; 1.500 Paket Logistik ke Pengungsian Dayeuhkolot
+            </h2>
+
+            <p class="text-xs sm:text-sm text-[#52525b] leading-relaxed">
+              Merespons luapan Sungai Citarum, tim BAZNAS Tanggap Bencana bergerak mendirikan dapur umum mandiri, posko layanan kesehatan gratis, dan mendistribusikan selimut serta kebutuhan sanitasi bagi ratusan warga terdampak.
+            </p>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-[#f4f4f5] text-xs">
+            <span class="text-[#71717a]">Amil Peliput: Tim Humas &amp; Protokol</span>
+            <button onclick="window.showAppToast?.('Membuka dokumentasi lengkap siaran pers...', 'article');" class="inline-flex items-center gap-1.5 font-bold text-[#064e3b] hover:underline">
+              <span>Baca Liputan</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY FILTER BUTTONS -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2" id="category-filter-bar">
+        <button class="px-4 py-2 rounded-xl bg-[#064e3b] text-white text-xs font-semibold shrink-0 cat-btn active" data-cat="all">Semua Warta</button>
+        <button class="px-4 py-2 rounded-xl bg-white border border-[#e4e4e7] hover:bg-[#fafafa] text-[#52525b] hover:text-[#09090b] text-xs font-semibold shrink-0 cat-btn" data-cat="peduli">Bandung Peduli</button>
+        <button class="px-4 py-2 rounded-xl bg-white border border-[#e4e4e7] hover:bg-[#fafafa] text-[#52525b] hover:text-[#09090b] text-xs font-semibold shrink-0 cat-btn" data-cat="cerdas">Bandung Cerdas</button>
+        <button class="px-4 py-2 rounded-xl bg-white border border-[#e4e4e7] hover:bg-[#fafafa] text-[#52525b] hover:text-[#09090b] text-xs font-semibold shrink-0 cat-btn" data-cat="makmur">Bandung Makmur</button>
+        <button class="px-4 py-2 rounded-xl bg-white border border-[#e4e4e7] hover:bg-[#fafafa] text-[#52525b] hover:text-[#09090b] text-xs font-semibold shrink-0 cat-btn" data-cat="sehat">Bandung Sehat</button>
+      </div>
+
+      <!-- EDITORIAL NEWS GRID (6 ITEMS) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid">
+        
+        <!-- Berita 1: Beasiswa SKSS -->
+        <article class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#a1a1aa] transition-all news-item" data-category="cerdas">
+          <div>
+            <div class="aspect-16/10 bg-[#f4f4f5] overflow-hidden relative">
+              <img src="/images/zis-cerdas.webp" alt="Beasiswa SKSS Santri BAZNAS" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-[11px] text-[#71717a]">
+                <span>22 Oktober 2026</span>
+                <span>•</span>
+                <span class="font-bold text-[#064e3b]">Bandung Cerdas</span>
+              </div>
+              <h3 class="text-base font-bold text-[#09090b] leading-snug">
+                120 Mahasiswa Dhuafa Terima Beasiswa Satu Keluarga Satu Sarjana (SKSS)
+              </h3>
+              <p class="text-xs text-[#52525b] leading-relaxed line-clamp-3">
+                Ketua BAZNAS bersama jajaran Pemkab Bandung menyerahkan beasiswa penuh hingga wisuda bagi generasi penerus dari keluarga prasejahtera berprestasi.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="window.showAppToast?.('Membuka rincian artikel beasiswa SKSS...', 'school');" class="text-xs font-bold text-[#064e3b] hover:underline inline-flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Berita 2: Z-Auto Baleendah -->
+        <article class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#a1a1aa] transition-all news-item" data-category="makmur">
+          <div>
+            <div class="aspect-16/10 bg-[#f4f4f5] overflow-hidden relative">
+              <img src="/images/zis-makmur.webp" alt="Bengkel Z-Auto Binaan BAZNAS" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-[11px] text-[#71717a]">
+                <span>19 Oktober 2026</span>
+                <span>•</span>
+                <span class="font-bold text-[#064e3b]">Bandung Makmur</span>
+              </div>
+              <h3 class="text-base font-bold text-[#09090b] leading-snug">
+                Program Bengkel Z-Auto Cetak 42 Mekanik Muda Berdaya di Baleendah
+              </h3>
+              <p class="text-xs text-[#52525b] leading-relaxed line-clamp-3">
+                Setelah menjalani pelatihan 3 bulan bersertifikasi, para pemuda mustahik menerima paket peralatan bengkel lengkap dan modal stimulan suku cadang.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="window.showAppToast?.('Membuka liputan program Z-Auto...', 'build');" class="text-xs font-bold text-[#064e3b] hover:underline inline-flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Berita 3: Rutilahu Cimaung -->
+        <article class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#a1a1aa] transition-all news-item" data-category="peduli">
+          <div>
+            <div class="aspect-16/10 bg-[#f4f4f5] overflow-hidden relative">
+              <img src="/images/zis-peduli.webp" alt="Peresmian Rutilahu di Cimaung" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-[11px] text-[#71717a]">
+                <span>16 Oktober 2026</span>
+                <span>•</span>
+                <span class="font-bold text-[#064e3b]">Bandung Peduli</span>
+              </div>
+              <h3 class="text-base font-bold text-[#09090b] leading-snug">
+                BAZNAS Serahkan Kunci 15 Rumah Rutilahu Layak Huni di Cimaung &amp; Kertasari
+              </h3>
+              <p class="text-xs text-[#52525b] leading-relaxed line-clamp-3">
+                Program kolaboratif zakat ASN dan swasta berhasil menuntaskan bedah rumah warga dhuafa berlantai tanah dan berdinding rapuh menjadi hunian aman dan sehat.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="window.showAppToast?.('Membuka dokumentasi bedah Rutilahu...', 'home');" class="text-xs font-bold text-[#064e3b] hover:underline inline-flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Berita 4: Medis Hemodialisa -->
+        <article class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#a1a1aa] transition-all news-item" data-category="sehat">
+          <div>
+            <div class="aspect-16/10 bg-[#f4f4f5] overflow-hidden relative">
+              <img src="/images/campaign-medis.webp" alt="Layanan Medis Cuci Darah BAZNAS" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-[11px] text-[#71717a]">
+                <span>12 Oktober 2026</span>
+                <span>•</span>
+                <span class="font-bold text-[#064e3b]">Bandung Sehat</span>
+              </div>
+              <h3 class="text-base font-bold text-[#09090b] leading-snug">
+                Sinergi RSUD &amp; BAZNAS Tangani Biaya Pengobatan Kritis 85 Pasien Cuci Darah
+              </h3>
+              <p class="text-xs text-[#52525b] leading-relaxed line-clamp-3">
+                Layanan pendampingan hemodialisa dan bantuan obat di luar tanggungan BPJS disalurkan untuk meringankan beban keluarga dhuafa secara berkelanjutan.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="window.showAppToast?.('Membuka rincian layanan hemodialisa...', 'medical_services');" class="text-xs font-bold text-[#064e3b] hover:underline inline-flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Berita 5: Pangan Lansia -->
+        <article class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#a1a1aa] transition-all news-item" data-category="peduli">
+          <div>
+            <div class="aspect-16/10 bg-[#f4f4f5] overflow-hidden relative">
+              <img src="/images/campaign-lansia.webp" alt="Paket Sembako Lansia BAZNAS" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-[11px] text-[#71717a]">
+                <span>08 Oktober 2026</span>
+                <span>•</span>
+                <span class="font-bold text-[#064e3b]">Bandung Peduli</span>
+              </div>
+              <h3 class="text-base font-bold text-[#09090b] leading-snug">
+                Penyaluran Paket Pangan &amp; Nutrisi Rutin untuk 850 Lansia Dhuafa Sebatang Kara
+              </h3>
+              <p class="text-xs text-[#52525b] leading-relaxed line-clamp-3">
+                Relawan BAZNAS mengantarkan paket beras lokal premium, telur, susu, dan kebutuhan sanitasi langsung ke pintu rumah lansia di pelosok desa.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="window.showAppToast?.('Membuka liputan santunan lansia...', 'volunteer_activism');" class="text-xs font-bold text-[#064e3b] hover:underline inline-flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Berita 6: Audit WTP -->
+        <article class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between shadow-xs hover:border-[#a1a1aa] transition-all news-item" data-category="makmur">
+          <div>
+            <div class="aspect-16/10 bg-[#f4f4f5] overflow-hidden relative">
+              <img src="/images/mitra-csr.webp" alt="Penyerahan Laporan Audit WTP BAZNAS" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-2 text-[11px] text-[#71717a]">
+                <span>03 Oktober 2026</span>
+                <span>•</span>
+                <span class="font-bold text-[#064e3b]">Transparansi &amp; Tata Kelola</span>
+              </div>
+              <h3 class="text-base font-bold text-[#09090b] leading-snug">
+                BAZNAS Kabupaten Bandung Kembali Raih Opini Wajar Tanpa Pengecualian (WTP) 5 Tahun Berturut-turut
+              </h3>
+              <p class="text-xs text-[#52525b] leading-relaxed line-clamp-3">
+                Kantor Akuntan Publik independen menyatakan laporan keuangan PSAK 109 BAZNAS disajikan secara wajar dalam seluruh hal yang material tanpa catatan anomali.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="window.showAppToast?.('Membuka siaran pers opini audit WTP...', 'verified');" class="text-xs font-bold text-[#064e3b] hover:underline inline-flex items-center gap-1">
+              <span>Baca Selengkapnya</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- NEWSLETTER SUBSCRIPTION CARD -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-12 space-y-6 shadow-xs">
+        <div class="max-w-2xl space-y-2">
+          <h2 class="text-xl sm:text-2xl font-bold text-[#09090b]">Langganan Warta &amp; Laporan Berkala BAZNAS</h2>
+          <p class="text-xs sm:text-sm text-[#52525b]">
+            Dapatkan rekap buletin transparansi bulanan, jadwal program kemanusiaan, dan laporan pertanggungjawaban dana zakat langsung ke email Anda.
+          </p>
+        </div>
+
+        <form id="form-newsletter" class="flex flex-col sm:flex-row items-center gap-3 max-w-xl">
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            required 
+            placeholder="Masukkan alamat email resmi Anda..." 
+            class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-3 px-4 text-xs font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors"
+          />
+          <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-xs shrink-0">
+            Berlangganan
+          </button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script is:inline>
+    // Search handler
+    document.getElementById('search-berita')?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.news-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+
+    // Category filter buttons
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-btn').forEach(b => {
+          b.className = 'px-4 py-2 rounded-xl bg-white border border-[#e4e4e7] hover:bg-[#fafafa] text-[#52525b] hover:text-[#09090b] text-xs font-semibold shrink-0 cat-btn';
+        });
+        btn.className = 'px-4 py-2 rounded-xl bg-[#064e3b] text-white text-xs font-semibold shrink-0 cat-btn active';
+        
+        const cat = btn.getAttribute('data-cat');
+        document.querySelectorAll('.news-item').forEach(item => {
+          if (cat === 'all' || item.getAttribute('data-category') === cat) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Newsletter submit
+    document.getElementById('form-newsletter')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const em = document.getElementById('newsletter-email')?.value;
+      window.showAppToast?.(`Terima kasih! Email ${em} berhasil terdaftar buletin berkala BAZNAS.`, 'mark_email_read');
+      e.target.reset();
+    });
+  </script>
+</PublicLayout>

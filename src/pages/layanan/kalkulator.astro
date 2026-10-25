@@ -1,0 +1,40 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+import KalkulatorZakat from '../../components/public/KalkulatorZakat.astro';
+---
+
+<PublicLayout 
+  title="Kalkulator Zakat Syariah - BAZNAS Kabupaten Bandung"
+  description="Kalkulator hitung zakat profesi, maal emas/perak, perniagaan, pertanian, dan fidyah berdasarkan standar nisab resmi BAZNAS RI dan harga pasar emas di Soreang."
+>
+  <main class="flex-1">
+    <!-- Header -->
+    <section class="bg-gradient-to-b from-[#ecfdf5] to-[#f4f4f5] border-b border-[#ececee] py-12 md:py-16">
+      <div class="max-w-[1400px] mx-auto px-6">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium mb-4">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Layanan</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#064e3b] font-bold">Kalkulator Zakat Syariah</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="max-w-3xl space-y-3">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-[#09090b] tracking-tight">
+              Kalkulator Zakat Akurat &amp; Sesuai Fikih
+            </h1>
+            <p class="text-sm md:text-base text-[#52525b] leading-relaxed">
+              Hitung kewajiban zakat penghasilan, maal, perdagangan, dan fidyah Anda secara presisi dengan panduan fikih zakat BAZNAS RI dan Fatwa MUI No. 3 Tahun 2003.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Interactive Kalkulator Component -->
+    <section class="max-w-[1400px] mx-auto px-6 py-12">
+      <KalkulatorZakat />
+    </section>
+  </main>
+</PublicLayout>

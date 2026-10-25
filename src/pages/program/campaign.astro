@@ -1,0 +1,555 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Campaign Kemanusiaan - BAZNAS Kabupaten Bandung"
+  description="Salurkan sedekah dan infak kemanusiaan resmi BAZNAS Kabupaten Bandung: Bedah 340 Rutilahu, Tanggap Bencana BTB, Sembako Lansia Dhuafa, dan Ambulans Gratis."
+>
+  <main class="flex-1 bg-[#fcfcfc]">
+    
+    <!-- HERO SECTION -->
+    <section class="border-b border-[#e4e4e7] bg-white py-12 lg:py-16">
+      <div class="max-w-[1400px] mx-auto px-6">
+        
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium mb-6">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Program</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Campaign Kemanusiaan</span>
+        </nav>
+
+        <!-- Hero Content (Text + Spotlight Preview) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Left Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight leading-[1.12]">
+              Campaign Kemanusiaan &amp; Sedekah Darurat
+            </h1>
+
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed max-w-2xl font-normal">
+              Gerakan solidaritas infak dan sedekah terikat untuk merestorasi hunian tidak layak, respons tanggap bencana alam di pelosok, dan penyediaan jaring pengaman pangan bagi lansia dhuafa di Kabupaten Bandung.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button onclick="window.openQuickZisModal?.()" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shadow-sm">
+                <span class="material-symbols-outlined text-base">favorite</span>
+                <span>Donasi Campaign Sekarang</span>
+              </button>
+              <a href="#daftar-campaign" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all">
+                <span class="material-symbols-outlined text-base text-[#064e3b]">explore</span>
+                <span>Pilih Program Bantuan</span>
+              </a>
+              <a href="#transparansi" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white border border-[#e4e4e7] hover:bg-[#f4f4f5] text-[#09090b] text-xs font-semibold transition-all">
+                <span class="material-symbols-outlined text-base text-[#064e3b]">verified</span>
+                <span>Laporan Penyaluran</span>
+              </a>
+            </div>
+
+            <div class="pt-4 border-t border-[#f4f4f5] flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#71717a]">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-[#064e3b]">verified</span>
+                <span>100% Tersalurkan Syar'i</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-[#064e3b]">shield</span>
+                <span>Audit Akuntan Publik WTP</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-[#064e3b]">receipt_long</span>
+                <span>Bukti Setor Resmi (BSZ)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Spotlight Visual Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden border border-[#e4e4e7] bg-[#f4f4f5] shadow-lg">
+              <img 
+                src="/images/campaign-bencana.webp" 
+                alt="Aksi tanggap bencana kemanusiaan BAZNAS Kabupaten Bandung" 
+                class="w-full h-[380px] sm:h-[430px] object-cover object-center"
+                loading="eager"
+                width="800"
+                height="600"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              
+              <!-- Floating Highlight Info -->
+              <div class="absolute bottom-4 left-4 right-4 p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-white/40 text-xs shadow-sm space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-[#09090b] text-sm">Respons Siaga Bencana</span>
+                  <span class="font-mono font-bold text-[#064e3b] text-xs">71.0% Tercapai</span>
+                </div>
+                <p class="text-[#52525b] text-[11px] leading-relaxed">
+                  Penyediaan posko dapur umum, selimut, dan air bersih bagi 4.200 warga terdampak banjir &amp; gempa di Kertasari dan Baleendah.
+                </p>
+                <div class="w-full bg-[#f4f4f5] h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-[#064e3b] h-full rounded-full" style="width: 71%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 4 Minimalist Statistics Strip -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12 p-6 bg-[#fafafa] rounded-3xl border border-[#e4e4e7]">
+          <div class="space-y-1">
+            <span class="text-xs text-[#71717a] font-medium block">Total Donasi Terhimpun</span>
+            <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#064e3b]">Rp 8,42 M</div>
+            <span class="text-[11px] text-[#71717a] block">Program Bandung Peduli</span>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs text-[#71717a] font-medium block">Penerima Bantuan</span>
+            <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#09090b]">14.200 Jiwa</div>
+            <span class="text-[11px] text-[#71717a] block">Warga Dhuafa &amp; Korban Bencana</span>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs text-[#71717a] font-medium block">Restorasi Rutilahu</span>
+            <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#09090b]">194 Unit</div>
+            <span class="text-[11px] text-[#71717a] block">Dari Target 340 Rumah Sehat</span>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs text-[#71717a] font-medium block">Kesiapan Tim Relawan</span>
+            <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#064e3b]">24/7 Siaga</div>
+            <span class="text-[11px] text-[#71717a] block">Armada Ambulans &amp; BTB</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MAIN BODY CONTAINER -->
+    <div class="max-w-[1400px] mx-auto px-6 py-14 space-y-16">
+
+      <!-- SECTION 1: DAFTAR CAMPAIGN AKTIF -->
+      <section id="daftar-campaign" class="space-y-8 scroll-mt-24">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#09090b] tracking-tight">Program Campaign Kemanusiaan</h2>
+            <p class="text-xs sm:text-sm text-[#71717a] mt-1">Pilih program kemanusiaan yang ingin Anda dukung secara langsung dan transparan</p>
+          </div>
+          <div class="flex items-center gap-1.5 p-1 bg-[#f4f4f5] rounded-xl text-xs font-semibold overflow-x-auto pb-1 sm:pb-1">
+            <button class="px-3.5 py-1.5 rounded-lg bg-white text-[#09090b] shadow-xs shrink-0" data-filter="all">Semua Campaign</button>
+            <button class="px-3.5 py-1.5 rounded-lg text-[#71717a] hover:text-[#09090b] shrink-0" data-filter="rutilahu">Rutilahu</button>
+            <button class="px-3.5 py-1.5 rounded-lg text-[#71717a] hover:text-[#09090b] shrink-0" data-filter="bencana">Tanggap Bencana</button>
+            <button class="px-3.5 py-1.5 rounded-lg text-[#71717a] hover:text-[#09090b] shrink-0" data-filter="pangan">Pangan Lansia</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          
+          <!-- Campaign 1: Rutilahu (Dengan Foto Rumah Sehat) -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between hover:border-[#a1a1aa] transition-colors shadow-xs">
+            <div>
+              <div class="relative h-60 w-full bg-[#f4f4f5] overflow-hidden">
+                <img 
+                  src="/images/zis-peduli.webp" 
+                  alt="Program Bedah Rutilahu Rumah Tidak Layak Huni BAZNAS Kabupaten Bandung" 
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  width="700"
+                  height="450"
+                />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/60 text-white backdrop-blur-sm text-[10px] font-medium font-mono">
+                  Restorasi Hunian Dhuafa
+                </span>
+              </div>
+              <div class="p-7 space-y-4">
+                <div>
+                  <h3 class="text-xl font-bold text-[#09090b]">Bedah 340 Rumah Tidak Layak Huni (Rutilahu) 2026</h3>
+                  <p class="text-xs text-[#52525b] mt-2 leading-relaxed">
+                    Merestorasi hunian dhuafa berlantai tanah dan dinding bilik lapuk di Cimaung, Ciwidey, dan Kertasari menjadi rumah tinggal sehat, layak, dan aman gempa.
+                  </p>
+                </div>
+
+                <!-- Progress Bar & Data -->
+                <div class="space-y-2 pt-2 border-t border-[#f4f4f5]">
+                  <div class="flex items-center justify-between text-xs font-mono">
+                    <span class="text-[#71717a]">Dana Terkumpul:</span>
+                    <strong class="text-[#064e3b]">Rp 4.850.000.000</strong>
+                  </div>
+                  <div class="w-full bg-[#f4f4f5] h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-[#064e3b] h-full rounded-full" style="width: 57.1%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] text-[#71717a]">
+                    <span>Target: Rp 8,50 Miliar (340 Unit)</span>
+                    <span class="font-mono font-bold text-[#09090b]">57.1%</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Standar Biaya</span>
+                    <strong class="font-mono text-[#09090b] text-xs">Rp 25 Juta</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Selesai Dibangun</span>
+                    <strong class="font-mono text-[#064e3b] text-xs">194 Rumah</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Proses Pengerjaan</span>
+                    <strong class="font-mono text-[#09090b] text-xs">46 Rumah</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="p-7 pt-0">
+              <button onclick="window.openQuickZisModal?.()" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-xs">
+                <span class="material-symbols-outlined text-base">payments</span>
+                <span>Salurkan Donasi Bedah Rutilahu</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Campaign 2: Tanggap Bencana Gempa Kertasari & Banjir Dayeuhkolot -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between hover:border-[#a1a1aa] transition-colors shadow-xs">
+            <div>
+              <div class="relative h-60 w-full bg-[#f4f4f5] overflow-hidden">
+                <img 
+                  src="/images/campaign-bencana.webp" 
+                  alt="Aksi Tanggap Darurat Bencana BAZNAS Kabupaten Bandung" 
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  width="700"
+                  height="450"
+                />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/60 text-white backdrop-blur-sm text-[10px] font-medium font-mono">
+                  Respons Cepat Kebencanaan
+                </span>
+              </div>
+              <div class="p-7 space-y-4">
+                <div>
+                  <h3 class="text-xl font-bold text-[#09090b]">Dapur Umum &amp; Huntara Korban Bencana Kab. Bandung</h3>
+                  <p class="text-xs text-[#52525b] mt-2 leading-relaxed">
+                    Operasional harian posko dapur umum, penyediaan sanitasi air bersih, selimut hangat, dan tenda huntara bagi 4.200 penyintas banjir luapan Citarum dan gempa darat.
+                  </p>
+                </div>
+
+                <!-- Progress Bar & Data -->
+                <div class="space-y-2 pt-2 border-t border-[#f4f4f5]">
+                  <div class="flex items-center justify-between text-xs font-mono">
+                    <span class="text-[#71717a]">Dana Terkumpul:</span>
+                    <strong class="text-[#064e3b]">Rp 1.420.000.000</strong>
+                  </div>
+                  <div class="w-full bg-[#f4f4f5] h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-[#064e3b] h-full rounded-full" style="width: 71.0%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] text-[#71717a]">
+                    <span>Target: Rp 2,00 Miliar (Tanggap Darurat)</span>
+                    <span class="font-mono font-bold text-[#09090b]">71.0%</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Posko Aktif</span>
+                    <strong class="font-mono text-[#09090b] text-xs">3 Titik Wilayah</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Paket Pangan/Hari</span>
+                    <strong class="font-mono text-[#064e3b] text-xs">1.500 Porsi</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Penyintas</span>
+                    <strong class="font-mono text-[#09090b] text-xs">4.200 Jiwa</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="p-7 pt-0">
+              <button onclick="window.openQuickZisModal?.()" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-xs">
+                <span class="material-symbols-outlined text-base">volunteer_activism</span>
+                <span>Bantu Korban Bencana</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Campaign 3: Sembako Nutrisi Lansia Sebatang Kara -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between hover:border-[#a1a1aa] transition-colors shadow-xs">
+            <div>
+              <div class="relative h-60 w-full bg-[#f4f4f5] overflow-hidden">
+                <img 
+                  src="/images/campaign-lansia.webp" 
+                  alt="Sedekah pangan lansia dhuafa BAZNAS Kabupaten Bandung" 
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  width="700"
+                  height="450"
+                />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/60 text-white backdrop-blur-sm text-[10px] font-medium font-mono">
+                  Jaring Pengaman Pangan
+                </span>
+              </div>
+              <div class="p-7 space-y-4">
+                <div>
+                  <h3 class="text-xl font-bold text-[#09090b]">Paket Sembako &amp; Nutrisi 2.500 Lansia Dhuafa</h3>
+                  <p class="text-xs text-[#52525b] mt-2 leading-relaxed">
+                    Penyaluran beras premium petani lokal, telur, minyak goreng, dan susu lansia setiap bulan untuk kakek-nenek dhuafa sebatang kara yang tidak lagi mampu bekerja.
+                  </p>
+                </div>
+
+                <!-- Progress Bar & Data -->
+                <div class="space-y-2 pt-2 border-t border-[#f4f4f5]">
+                  <div class="flex items-center justify-between text-xs font-mono">
+                    <span class="text-[#71717a]">Dana Terkumpul:</span>
+                    <strong class="text-[#064e3b]">Rp 980.500.000</strong>
+                  </div>
+                  <div class="w-full bg-[#f4f4f5] h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-[#064e3b] h-full rounded-full" style="width: 78.4%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] text-[#71717a]">
+                    <span>Target: Rp 1,25 Miliar (Tahunan)</span>
+                    <span class="font-mono font-bold text-[#09090b]">78.4%</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Lansia Terbantu</span>
+                    <strong class="font-mono text-[#064e3b] text-xs">2.500 Jiwa</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Paket Sembako</span>
+                    <strong class="font-mono text-[#09090b] text-xs">Rp 250 Ribu</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Distribusi</span>
+                    <strong class="font-mono text-[#09090b] text-xs">Rutin Bulanan</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="p-7 pt-0">
+              <button onclick="window.openQuickZisModal?.()" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-xs">
+                <span class="material-symbols-outlined text-base">shopping_bag</span>
+                <span>Sedekah Pangan Lansia</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Campaign 4: Layanan Ambulans Siaga & Medis Keliling -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden flex flex-col justify-between hover:border-[#a1a1aa] transition-colors shadow-xs">
+            <div>
+              <div class="relative h-60 w-full bg-[#f4f4f5] overflow-hidden">
+                <img 
+                  src="/images/campaign-medis.webp" 
+                  alt="Armada Ambulans dan Layanan Medis Gratis BAZNAS Kabupaten Bandung" 
+                  class="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  width="700"
+                  height="450"
+                />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/60 text-white backdrop-blur-sm text-[10px] font-medium font-mono">
+                  Layanan Medis Darurat
+                </span>
+              </div>
+              <div class="p-7 space-y-4">
+                <div>
+                  <h3 class="text-xl font-bold text-[#09090b]">Armada Ambulans Siaga &amp; Pemeriksaan Medis Dhuafa</h3>
+                  <p class="text-xs text-[#52525b] mt-2 leading-relaxed">
+                    Pengadaan operasional armada ambulans gratis 24 jam untuk rujukan pasien gawat darurat, cuci darah (hemodialisa), dan posko kesehatan mobile pelosok desa.
+                  </p>
+                </div>
+
+                <!-- Progress Bar & Data -->
+                <div class="space-y-2 pt-2 border-t border-[#f4f4f5]">
+                  <div class="flex items-center justify-between text-xs font-mono">
+                    <span class="text-[#71717a]">Dana Terkumpul:</span>
+                    <strong class="text-[#064e3b]">Rp 648.000.000</strong>
+                  </div>
+                  <div class="w-full bg-[#f4f4f5] h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-[#064e3b] h-full rounded-full" style="width: 64.8%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] text-[#71717a]">
+                    <span>Target: Rp 1,00 Miliar (Operasional 2026)</span>
+                    <span class="font-mono font-bold text-[#09090b]">64.8%</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Armada Siaga</span>
+                    <strong class="font-mono text-[#064e3b] text-xs">2 Unit Mobil</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Pasien Terlayani</span>
+                    <strong class="font-mono text-[#09090b] text-xs">1.840 Orang</strong>
+                  </div>
+                  <div class="p-2.5 bg-[#fafafa] rounded-xl border border-[#e4e4e7]">
+                    <span class="text-[10px] text-[#71717a] block">Biaya Layanan</span>
+                    <strong class="font-mono text-[#064e3b] text-xs">Gratis 100%</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="p-7 pt-0">
+              <button onclick="window.openQuickZisModal?.()" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-xs">
+                <span class="material-symbols-outlined text-base">ambulance</span>
+                <span>Dukung Armada Ambulans</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: TRANSPARANSI & INTEGRITAS PENYALURAN -->
+      <section id="transparansi" class="bg-white rounded-3xl border border-[#e4e4e7] p-8 lg:p-10 space-y-8 scroll-mt-24">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#09090b] tracking-tight">Akuntabilitas &amp; Integritas Donasi</h2>
+          <p class="text-xs sm:text-sm text-[#71717a] mt-1">Standar tata kelola resmi menjamin setiap rupiah sedekah sampai utuh kepada penerima haknya</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#f4f4f5] text-[#064e3b] flex items-center justify-center font-mono font-bold text-base">
+              1
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Survei Lapangan Had Kifayah</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Setiap calon penerima manfaat (Rutilahu, sembako lansia, dan bantuan kebencanaan) diverifikasi langsung oleh amil lapangan menggunakan standar Had Kifayah dan data kependudukan resmi.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#f4f4f5] text-[#064e3b] flex items-center justify-center font-mono font-bold text-base">
+              2
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Pencatatan Real-Time SIMBA RI</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Arus masuk donasi dan penyaluran diintegrasikan langsung ke platform SIMBA RI secara transparan. Setiap penyaluran didokumentasikan dengan Berita Acara Serah Terima (BAST).
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#f4f4f5] text-[#064e3b] flex items-center justify-center font-mono font-bold text-base">
+              3
+            </div>
+            <h3 class="text-base font-bold text-[#09090b]">Audit Syariah &amp; Keuangan WTP</h3>
+            <p class="text-xs text-[#52525b] leading-relaxed">
+              Laporan keuangan diaudit tahunan oleh Kantor Akuntan Publik independen dengan predikat Wajar Tanpa Pengecualian (WTP) serta audit kepatuhan syariah dari Inspektorat Kementerian Agama RI.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: KANAL REKENING KHUSUS DONASI CAMPAIGN -->
+      <section class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#09090b] tracking-tight">Rekening Resmi Donasi Campaign</h2>
+            <p class="text-xs sm:text-sm text-[#71717a] mt-1">Salurkan sedekah terikat kemanusiaan melalui rekening bank syariah resmi terverifikasi</p>
+          </div>
+          <div class="flex items-center gap-1.5 text-xs font-mono text-[#064e3b]">
+            <span class="material-symbols-outlined text-sm">verified_user</span>
+            <span>Rekening Terverifikasi Resmi</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-4 flex flex-col justify-between hover:border-[#a1a1aa] transition-colors">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-[#09090b]">BJB Syariah</span>
+                <span class="px-2 py-0.5 rounded-md bg-[#fafafa] border border-[#e4e4e7] text-[#09090b] text-[10px] font-bold">Kemanusiaan</span>
+              </div>
+              <div>
+                <span class="text-[11px] text-[#71717a] block">Nomor Rekening:</span>
+                <div class="text-lg font-mono font-bold text-[#09090b] tracking-wider mt-0.5">5120-1020-00123</div>
+                <span class="text-[11px] text-[#71717a] block mt-1">a.n. BAZNAS KABUPATEN BANDUNG</span>
+              </div>
+            </div>
+            <button onclick="navigator.clipboard.writeText('5120102000123'); window.showAppToast?.('Nomor rekening BJB Syariah berhasil disalin!', 'content_copy');" class="w-full py-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+              <span>Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-4 flex flex-col justify-between hover:border-[#a1a1aa] transition-colors">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-[#09090b]">Bank Syariah Indonesia</span>
+                <span class="px-2 py-0.5 rounded-md bg-[#fafafa] border border-[#e4e4e7] text-[#09090b] text-[10px] font-bold">Tanggap Bencana</span>
+              </div>
+              <div>
+                <span class="text-[11px] text-[#71717a] block">Nomor Rekening:</span>
+                <div class="text-lg font-mono font-bold text-[#09090b] tracking-wider mt-0.5">700-1234-567</div>
+                <span class="text-[11px] text-[#71717a] block mt-1">a.n. BAZNAS KABUPATEN BANDUNG</span>
+              </div>
+            </div>
+            <button onclick="navigator.clipboard.writeText('7001234567'); window.showAppToast?.('Nomor rekening BSI berhasil disalin!', 'content_copy');" class="w-full py-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+              <span>Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-4 flex flex-col justify-between hover:border-[#a1a1aa] transition-colors">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-[#09090b]">Bank Muamalat</span>
+                <span class="px-2 py-0.5 rounded-md bg-[#fafafa] border border-[#e4e4e7] text-[#09090b] text-[10px] font-bold">Pangan Lansia</span>
+              </div>
+              <div>
+                <span class="text-[11px] text-[#71717a] block">Nomor Rekening:</span>
+                <div class="text-lg font-mono font-bold text-[#09090b] tracking-wider mt-0.5">101-008-9999</div>
+                <span class="text-[11px] text-[#71717a] block mt-1">a.n. BAZNAS KABUPATEN BANDUNG</span>
+              </div>
+            </div>
+            <button onclick="navigator.clipboard.writeText('1010089999'); window.showAppToast?.('Nomor rekening Bank Muamalat berhasil disalin!', 'content_copy');" class="w-full py-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+              <span>Salin Nomor</span>
+            </button>
+          </div>
+
+          <div class="bg-[#064e3b] text-white rounded-3xl p-6 space-y-4 flex flex-col justify-between shadow-sm">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm text-white">QRIS Kemanusiaan</span>
+                <span class="px-2 py-0.5 rounded-md bg-white/20 text-white text-[10px] font-bold">Instan</span>
+              </div>
+              <p class="text-xs text-[#ecfdf5] leading-relaxed">
+                Donasi sedekah darurat instan menggunakan GoPay, OVO, Dana, ShopeePay, dan seluruh Mobile Banking.
+              </p>
+            </div>
+            <button onclick="window.openQuickZisModal?.()" class="w-full py-2.5 rounded-xl bg-white hover:bg-[#ecfdf5] text-[#064e3b] text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs">
+              <span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+              <span>Tampilkan QRIS Donasi</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: CALL TO ACTION BANNER -->
+      <section class="bg-[#064e3b] rounded-3xl p-8 lg:p-12 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden">
+        <div class="space-y-2 max-w-xl relative z-10">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Ulurkan Tangan, Bantu Saudara Kita Hari Ini</h2>
+          <p class="text-xs sm:text-sm text-[#ecfdf5] leading-relaxed">
+            Kebaikan Anda adalah nafas harapan bagi korban bencana, keluarga tanpa rumah layak, dan lansia sebatang kara di Kabupaten Bandung.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 relative z-10 shrink-0">
+          <button onclick="window.openQuickZisModal?.()" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-[#ecfdf5] text-[#064e3b] text-xs font-semibold transition-all shadow-md">
+            Donasi Campaign Sekarang
+          </button>
+          <a href="https://wa.me/628112234567?text=Halo%20BAZNAS%20Kabupaten%20Bandung,%20saya%20ingin%20berdonasi%20untuk%20Campaign%20Kemanusiaan" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">chat</span>
+            <span>Konfirmasi Donasi via WA</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</PublicLayout>

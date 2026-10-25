@@ -1,0 +1,642 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Panel Akun Publik - BAZNAS Kabupaten Bandung"
+  description="Portal akun mandiri muzaki dan masyarakat BAZNAS Kabupaten Bandung. Kelola bukti setor zakat (e-BSZ), riwayat donasi, pelacakan bantuan, dan pengingat zakat."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-12">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-8">
+      
+      <!-- BREADCRUMB & HEADER PENGGUNA -->
+      <div class="space-y-4">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Panel Akun Publik</span>
+        </nav>
+
+        <!-- User Identity Header Card (Clean & Super Premium) -->
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 lg:p-8 shadow-xs flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="flex items-center gap-5">
+            <!-- User Avatar with Verified Google Link -->
+            <div class="relative">
+              <div class="w-16 h-16 rounded-2xl bg-[#064e3b] text-white flex items-center justify-center font-bold text-xl font-mono shadow-sm">
+                AH
+              </div>
+              <span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border border-[#e4e4e7] flex items-center justify-center shadow-2xs" title="Akun Google Terverifikasi">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </span>
+            </div>
+
+            <div class="space-y-1">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <h1 class="text-xl sm:text-2xl font-extrabold text-[#09090b] tracking-tight">
+                  H. Ahmad Hidayat
+                </h1>
+                <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-[11px] font-bold border border-[#064e3b]/20">
+                  Muzaki Terverifikasi
+                </span>
+              </div>
+              
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#71717a]">
+                <div class="flex items-center gap-1">
+                  <span>NPWZ:</span>
+                  <strong class="font-mono text-[#09090b]" id="user-npwz">NPWZ-3204-2026-08819</strong>
+                  <button onclick="navigator.clipboard.writeText('NPWZ-3204-2026-08819'); window.showAppToast?.('NPWZ berhasil disalin!', 'content_copy');" class="text-[#71717a] hover:text-[#09090b] ml-0.5" title="Salin NPWZ">
+                    <span class="material-symbols-outlined text-sm">content_copy</span>
+                  </button>
+                </div>
+                <span>•</span>
+                <span>NIK: 320412********01</span>
+                <span>•</span>
+                <span>Kecamatan Soreang</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+            <button onclick="window.openQuickZisModal?.()" class="flex-1 lg:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shadow-xs">
+              <span class="material-symbols-outlined text-base">payments</span>
+              <span>Tunaikan ZIS</span>
+            </button>
+            <button onclick="window.print?.()" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">picture_as_pdf</span>
+              <span class="hidden sm:inline">Rekap SPT Pajak</span>
+            </button>
+            <a href="/login" class="p-3 rounded-2xl bg-white border border-[#e4e4e7] hover:bg-[#f4f4f5] text-[#71717a] hover:text-[#09090b] transition-colors" title="Keluar dari Sesi Akun">
+              <span class="material-symbols-outlined text-base">logout</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 MINIMALIST METRIC CARDS -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-5 space-y-1">
+          <span class="text-xs text-[#71717a] font-medium block">Total Zakat 2026</span>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#064e3b]">Rp 7.500.000</div>
+          <span class="text-[11px] text-[#71717a] block">Pengurang Bruto PPh 21</span>
+        </div>
+        
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-5 space-y-1">
+          <span class="text-xs text-[#71717a] font-medium block">Total Infak &amp; Sedekah</span>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#09090b]">Rp 2.150.000</div>
+          <span class="text-[11px] text-[#71717a] block">Bandung Peduli &amp; Rutilahu</span>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-5 space-y-1">
+          <span class="text-xs text-[#71717a] font-medium block">Dokumen e-BSZ Sah</span>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#09090b]">6 Bukti Setor</div>
+          <span class="text-[11px] text-[#71717a] block">Bersertifikasi TTE BSrE</span>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-5 space-y-1">
+          <span class="text-xs text-[#71717a] font-medium block">Estimasi Insentif Pajak</span>
+          <div class="text-2xl sm:text-3xl font-extrabold font-mono text-[#064e3b]">Rp 1.125.000</div>
+          <span class="text-[11px] text-[#71717a] block">Efisiensi Beban Pajak Tahunan</span>
+        </div>
+      </div>
+
+      <!-- PANEL NAVIGATION TABS (CLEAN & MINIMALIST) -->
+      <div class="border-b border-[#e4e4e7] flex items-center gap-2 overflow-x-auto pb-px">
+        <button id="tabBtnTransaksi" class="px-5 py-3 text-xs font-bold border-b-2 border-[#064e3b] text-[#09090b] flex items-center gap-2 shrink-0 transition-all">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">receipt_long</span>
+          <span>Riwayat Transaksi &amp; e-BSZ</span>
+        </button>
+        <button id="tabBtnBantuan" class="px-5 py-3 text-xs font-semibold text-[#71717a] hover:text-[#09090b] border-b-2 border-transparent flex items-center gap-2 shrink-0 transition-all">
+          <span class="material-symbols-outlined text-base">track_changes</span>
+          <span>Pelacakan Permohonan Bantuan</span>
+        </button>
+        <button id="tabBtnPengingat" class="px-5 py-3 text-xs font-semibold text-[#71717a] hover:text-[#09090b] border-b-2 border-transparent flex items-center gap-2 shrink-0 transition-all">
+          <span class="material-symbols-outlined text-base">notifications_active</span>
+          <span>Pengingat Zakat Bulanan</span>
+        </button>
+        <button id="tabBtnProfil" class="px-5 py-3 text-xs font-semibold text-[#71717a] hover:text-[#09090b] border-b-2 border-transparent flex items-center gap-2 shrink-0 transition-all">
+          <span class="material-symbols-outlined text-base">manage_accounts</span>
+          <span>Profil &amp; Keamanan Akun</span>
+        </button>
+      </div>
+
+      <!-- TAB CONTENT PANELS -->
+
+      <!-- TAB 1: RIWAYAT TRANSAKSI & BUKTI SETOR (E-BSZ) -->
+      <div id="panelTransaksi" class="space-y-6">
+        
+        <!-- Filter Strip -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-bold text-[#09090b]">Daftar Bukti Setor Zakat (e-BSZ) Resmi</h2>
+            <p class="text-xs text-[#71717a]">Seluruh transaksi diverifikasi langsung ke sistem SIMBA BAZNAS RI dan diakui Direktorat Jenderal Pajak</p>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <select class="bg-white border border-[#e4e4e7] rounded-xl px-3 py-2 text-xs font-medium text-[#09090b] outline-none">
+              <option>Semua Kategori ZIS</option>
+              <option>Zakat Penghasilan</option>
+              <option>Zakat Maal</option>
+              <option>Infak / Sedekah</option>
+            </select>
+            <select class="bg-white border border-[#e4e4e7] rounded-xl px-3 py-2 text-xs font-medium text-[#09090b] outline-none">
+              <option>Tahun 2026</option>
+              <option>Tahun 2025</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden shadow-xs">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-[#fafafa] border-b border-[#e4e4e7] font-semibold text-[#52525b]">
+                <tr>
+                  <th class="py-3.5 px-5">Nomor Bukti (e-BSZ)</th>
+                  <th class="py-3.5 px-5">Tanggal</th>
+                  <th class="py-3.5 px-5">Jenis Dana</th>
+                  <th class="py-3.5 px-5">Kanal Penyetoran</th>
+                  <th class="py-3.5 px-5 text-right">Nominal</th>
+                  <th class="py-3.5 px-5 text-center">Status</th>
+                  <th class="py-3.5 px-5 text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#f4f4f5] text-[#09090b]">
+                
+                <!-- Row 1 -->
+                <tr class="hover:bg-[#fafafa] transition-colors">
+                  <td class="py-4 px-5">
+                    <span class="font-mono font-bold text-[#09090b] block">BSZ-2026-03-0192</span>
+                    <span class="text-[10px] text-[#71717a] font-mono">TTE: BSrE-VALID-3204</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">25 Mar 2026</td>
+                  <td class="py-4 px-5">
+                    <span class="font-semibold block">Zakat Penghasilan</span>
+                    <span class="text-[11px] text-[#71717a]">Gaji Rutin Maret 2026</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">BSI Virtual Account</td>
+                  <td class="py-4 px-5 text-right font-mono font-bold text-[#064e3b]">Rp 1.250.000</td>
+                  <td class="py-4 px-5 text-center">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">
+                      <span class="material-symbols-outlined text-xs">check_circle</span>
+                      <span>Terverifikasi</span>
+                    </span>
+                  </td>
+                  <td class="py-4 px-5 text-right">
+                    <button onclick="window.showAppToast?.('Mengunduh e-BSZ PDF resmi...', 'download');" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] font-semibold text-xs transition-colors">
+                      <span class="material-symbols-outlined text-sm">download</span>
+                      <span>PDF</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr class="hover:bg-[#fafafa] transition-colors">
+                  <td class="py-4 px-5">
+                    <span class="font-mono font-bold text-[#09090b] block">BSZ-2026-02-0841</span>
+                    <span class="text-[10px] text-[#71717a] font-mono">TTE: BSrE-VALID-3204</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">25 Feb 2026</td>
+                  <td class="py-4 px-5">
+                    <span class="font-semibold block">Zakat Penghasilan</span>
+                    <span class="text-[11px] text-[#71717a]">Gaji Rutin Februari 2026</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">BJB Syariah Transfer</td>
+                  <td class="py-4 px-5 text-right font-mono font-bold text-[#064e3b]">Rp 1.250.000</td>
+                  <td class="py-4 px-5 text-center">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">
+                      <span class="material-symbols-outlined text-xs">check_circle</span>
+                      <span>Terverifikasi</span>
+                    </span>
+                  </td>
+                  <td class="py-4 px-5 text-right">
+                    <button onclick="window.showAppToast?.('Mengunduh e-BSZ PDF resmi...', 'download');" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] font-semibold text-xs transition-colors">
+                      <span class="material-symbols-outlined text-sm">download</span>
+                      <span>PDF</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr class="hover:bg-[#fafafa] transition-colors">
+                  <td class="py-4 px-5">
+                    <span class="font-mono font-bold text-[#09090b] block">BSZ-2026-01-0422</span>
+                    <span class="text-[10px] text-[#71717a] font-mono">TTE: BSrE-VALID-3204</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">15 Jan 2026</td>
+                  <td class="py-4 px-5">
+                    <span class="font-semibold block">Zakat Maal (Tabungan)</span>
+                    <span class="text-[11px] text-[#71717a]">Haul Simpanan Bank 1 Tahun</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">Bank Muamalat</td>
+                  <td class="py-4 px-5 text-right font-mono font-bold text-[#064e3b]">Rp 5.000.000</td>
+                  <td class="py-4 px-5 text-center">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">
+                      <span class="material-symbols-outlined text-xs">check_circle</span>
+                      <span>Terverifikasi</span>
+                    </span>
+                  </td>
+                  <td class="py-4 px-5 text-right">
+                    <button onclick="window.showAppToast?.('Mengunduh e-BSZ PDF resmi...', 'download');" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] font-semibold text-xs transition-colors">
+                      <span class="material-symbols-outlined text-sm">download</span>
+                      <span>PDF</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr class="hover:bg-[#fafafa] transition-colors">
+                  <td class="py-4 px-5">
+                    <span class="font-mono font-bold text-[#09090b] block">DON-2026-01-0118</span>
+                    <span class="text-[10px] text-[#71717a] font-mono">Tanda Terima Sah</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">10 Jan 2026</td>
+                  <td class="py-4 px-5">
+                    <span class="font-semibold block">Sedekah Kemanusiaan</span>
+                    <span class="text-[11px] text-[#71717a]">Bedah Rutilahu Kertasari</span>
+                  </td>
+                  <td class="py-4 px-5 text-[#52525b]">QRIS Nasional</td>
+                  <td class="py-4 px-5 text-right font-mono font-bold text-[#09090b]">Rp 1.000.000</td>
+                  <td class="py-4 px-5 text-center">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">
+                      <span class="material-symbols-outlined text-xs">check_circle</span>
+                      <span>Tersalurkan</span>
+                    </span>
+                  </td>
+                  <td class="py-4 px-5 text-right">
+                    <button onclick="window.showAppToast?.('Mengunduh tanda terima donasi...', 'download');" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] font-semibold text-xs transition-colors">
+                      <span class="material-symbols-outlined text-sm">download</span>
+                      <span>PDF</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Bottom Table Info -->
+          <div class="p-4 bg-[#fafafa] border-t border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#71717a]">
+            <span>Menampilkan 4 dari 6 transaksi zakat dan donasi resmi pada tahun berjalan.</span>
+            <button onclick="window.showAppToast?.('Dokumen Rekapitulasi Tahunan SPT Pajak siap diunduh.', 'picture_as_pdf');" class="font-semibold text-[#064e3b] hover:underline flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">print</span>
+              <span>Unduh Paket Lampiran Pajak Tahunan (ZIP/PDF)</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TAB 2: PELACAKAN PERMOHONAN BANTUAN -->
+      <div id="panelBantuan" class="space-y-6 hidden">
+        <div>
+          <h2 class="text-lg font-bold text-[#09090b]">Pelacakan Status Pengajuan Bantuan Mustahik</h2>
+          <p class="text-xs text-[#71717a]">Pantau secara transparan proses verifikasi kelayakan Had Kifayah dan pencairan dana bantuan</p>
+        </div>
+
+        <!-- Request Tracking Card -->
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 lg:p-8 space-y-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#f4f4f5]">
+            <div class="space-y-1">
+              <h3 class="text-base font-bold text-[#09090b]">Bantuan Biaya Pengobatan Kritis &amp; Hemodialisa</h3>
+              <div class="flex flex-wrap items-center gap-2 text-xs text-[#52525b]">
+                <span class="font-mono font-bold text-[#064e3b]">Tiket #REQ-2026-0412</span>
+                <span>•</span>
+                <span>Program: Bandung Sehat</span>
+                <span>•</span>
+                <span>Penerima: Ny. Siti Maryam (Ibu Kandung)</span>
+              </div>
+            </div>
+            <span class="px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-semibold text-xs self-start sm:self-center">
+              Tahap 3: Disetujui Kuorum Pleno
+            </span>
+          </div>
+
+          <!-- 4-Step Tracker Flow -->
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
+            <div class="p-4 rounded-2xl bg-[#f4f4f5] border border-[#e4e4e7] space-y-1">
+              <div class="flex items-center gap-2 text-xs font-bold text-[#064e3b]">
+                <span class="material-symbols-outlined text-sm">check_circle</span>
+                <span>1. Registrasi Berkas</span>
+              </div>
+              <p class="text-[11px] text-[#52525b]">10 Mar 2026 • Berkas KTP, SKTM &amp; Resume Medis Lengkap</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#f4f4f5] border border-[#e4e4e7] space-y-1">
+              <div class="flex items-center gap-2 text-xs font-bold text-[#064e3b]">
+                <span class="material-symbols-outlined text-sm">check_circle</span>
+                <span>2. Verifikasi Faktual</span>
+              </div>
+              <p class="text-[11px] text-[#52525b]">14 Mar 2026 • Skor Had Kifayah 82% (Memenuhi Syarat)</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/30 space-y-1">
+              <div class="flex items-center gap-2 text-xs font-bold text-[#064e3b]">
+                <span class="material-symbols-outlined text-sm">hourglass_top</span>
+                <span>3. Kuorum Pimpinan</span>
+              </div>
+              <p class="text-[11px] text-[#064e3b]">Disetujui Pleno: Rp 3.500.000 / termin tindakan medis</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-[#e4e4e7] space-y-1 opacity-60">
+              <div class="flex items-center gap-2 text-xs font-bold text-[#71717a]">
+                <span class="material-symbols-outlined text-sm">pending</span>
+                <span>4. Pencairan Dana</span>
+              </div>
+              <p class="text-[11px] text-[#71717a]">Transfer BJB Syariah • Estimasi 28 Mar 2026</p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-[#fafafa] rounded-2xl border border-[#e4e4e7] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <div class="space-y-0.5">
+              <span class="font-bold text-[#09090b]">Petugas Asesor Lapangan:</span>
+              <p class="text-[#52525b]">Ust. Dedi Kusnadi, S.Sos (Amil Pendistribusian Zona Soreang)</p>
+            </div>
+            <a href="https://wa.me/628112234567" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-white border border-[#e4e4e7] text-[#09090b] font-semibold hover:bg-[#f4f4f5] transition-colors flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm text-[#064e3b]">chat</span>
+              <span>Hubungi Pendamping</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Action to Submit New Request -->
+        <div class="p-6 rounded-3xl bg-white border border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 class="text-sm font-bold text-[#09090b]">Perlu Mengajukan Rekomendasi Bantuan Lainnya?</h3>
+            <p class="text-xs text-[#52525b] mt-0.5">Layanan pengajuan hak 8 asnaf (Pendidikan, Kesehatan, Modal UMKM, dan Rutilahu) dibuka setiap hari kerja.</p>
+          </div>
+          <a href="/layanan/bantuan" class="px-5 py-2.5 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shrink-0">
+            Buka Formulir Pengajuan →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- TAB 3: PENGINGAT ZAKAT & NISAB -->
+      <div id="panelPengingat" class="space-y-6 hidden">
+        <div>
+          <h2 class="text-lg font-bold text-[#09090b]">Pengingat Zakat &amp; Kalkulasi Terjadwal</h2>
+          <p class="text-xs text-[#71717a]">Atur notifikasi pengingat otomatis menjelang hari gajian atau masa haul kepemilikan aset emas &amp; tabungan</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Card Pengingat Gaji Bulanan -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-5 shadow-xs">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#f4f4f5] text-[#064e3b] flex items-center justify-center">
+                  <span class="material-symbols-outlined text-xl">event_repeat</span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Pengingat Zakat Profesi Bulanan</h3>
+                  <span class="text-[11px] text-[#71717a]">Notifikasi menjelang tanggal gajian</span>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer" />
+                <div class="w-11 h-6 bg-[#e4e4e7] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#064e3b]"></div>
+              </label>
+            </div>
+
+            <div class="space-y-3 pt-2 text-xs">
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Tanggal Pengingat Setiap Bulan</label>
+                <select class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl px-3.5 py-2.5 font-medium text-[#09090b] outline-none">
+                  <option selected>Tanggal 25 Setiap Bulan (Hari Penggajian)</option>
+                  <option>Tanggal 28 Setiap Bulan</option>
+                  <option>Tanggal 1 Setiap Awal Bulan</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Estimasi Kewajiban Rutin</label>
+                <div class="relative">
+                  <span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-mono text-xs font-bold text-[#71717a]">Rp</span>
+                  <input type="number" value="1250000" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 pl-10 pr-4 font-mono font-bold text-xs text-[#064e3b] outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Saluran Notifikasi</label>
+                <div class="flex items-center gap-4 text-[#52525b]">
+                  <label class="flex items-center gap-1.5 cursor-pointer">
+                    <input type="checkbox" checked class="rounded border-[#e4e4e7] text-[#064e3b]" />
+                    <span>WhatsApp (0812-3456-7890)</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 cursor-pointer">
+                    <input type="checkbox" checked class="rounded border-[#e4e4e7] text-[#064e3b]" />
+                    <span>Email Resmi</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="window.showAppToast?.('Pengaturan pengingat berhasil disimpan!', 'check_circle');" class="w-full py-2.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-colors">
+              Simpan Pengaturan
+            </button>
+          </div>
+
+          <!-- Card Info Nisab Real-Time -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-5 shadow-xs flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#f4f4f5] text-[#064e3b] flex items-center justify-center">
+                  <span class="material-symbols-outlined text-xl">gold_bars</span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-[#09090b]">Standar Nisab Terkini BAZNAS RI</h3>
+                  <span class="text-[11px] text-[#71717a]">Pembaruan otomatis acuan harga emas logam mulia</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between py-2 border-b border-[#f4f4f5]">
+                  <span class="text-[#52525b]">Nisab Emas 85 Gram (Tahunan):</span>
+                  <strong class="font-mono text-[#09090b]">Rp 82.350.000 / thn</strong>
+                </div>
+                <div class="flex justify-between py-2 border-b border-[#f4f4f5]">
+                  <span class="text-[#52525b]">Ekuivalen Nisab Profesi (Bulanan):</span>
+                  <strong class="font-mono text-[#064e3b]">Rp 6.862.500 / bln</strong>
+                </div>
+                <div class="flex justify-between py-2 border-b border-[#f4f4f5]">
+                  <span class="text-[#52525b]">Kadar Kewajiban Zakat:</span>
+                  <strong class="font-mono text-[#09090b]">2.5% (Syar'i)</strong>
+                </div>
+                <div class="flex justify-between py-2">
+                  <span class="text-[#52525b]">Standar Beras Fitrah:</span>
+                  <strong class="font-mono text-[#09090b]">Rp 40.000 / jiwa</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] text-[11px] text-[#71717a] leading-relaxed">
+              Penetapan nisab mengacu pada SK Ketua BAZNAS RI No. 1 Tahun 2026 tentang Nilai Nisab Zakat Pendapatan dan Harta Maal.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 4: PROFIL & KEAMANAN AKUN -->
+      <div id="panelProfil" class="space-y-6 hidden">
+        <div>
+          <h2 class="text-lg font-bold text-[#09090b]">Pengaturan Akun &amp; Kredensial</h2>
+          <p class="text-xs text-[#71717a]">Kelola data identitas perpajakan, tautan akun Google, dan preferensi privasi Anda</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left: Identity Form (7 cols) -->
+          <div class="lg:col-span-7 bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-5 shadow-xs">
+            <h3 class="text-sm font-bold text-[#09090b]">Data Identitas Wajib Zakat (NPWZ)</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Nama Lengkap (Sesuai KTP)</label>
+                <input type="text" value="H. Ahmad Hidayat" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">NIK (Nomor Induk Kependudukan)</label>
+                <input type="text" value="3204121508750001" readonly class="w-full bg-[#f4f4f5] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-mono text-[#71717a] outline-none cursor-not-allowed" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Nomor WhatsApp</label>
+                <input type="tel" value="081234567890" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none" />
+              </div>
+
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Email Utama</label>
+                <input type="email" value="ahmad.hidayat@gmail.com" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[#09090b] mb-1">Alamat Domisili KTP</label>
+              <textarea rows="2" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 text-xs font-medium text-[#09090b] outline-none">Jl. Terusan Al-Fathu No. 45, RT 02 / RW 04, Desa Pamekaran, Kecamatan Soreang, Kabupaten Bandung 40911</textarea>
+            </div>
+
+            <div class="pt-3 border-t border-[#f4f4f5] flex items-center justify-between">
+              <span class="text-[11px] text-[#71717a]">Data ini terhubung langsung ke e-BSZ sah pengurang pajak.</span>
+              <button onclick="window.showAppToast?.('Perubahan profil berhasil disimpan!', 'check_circle');" class="px-5 py-2.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-colors">
+                Simpan Perubahan
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Security & Google Connection (5 cols) -->
+          <div class="lg:col-span-5 space-y-5">
+            
+            <!-- Google SSO Box -->
+            <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-4 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#09090b]">AUTENTIKASI GOOGLE</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Terhubung</span>
+              </div>
+              
+              <div class="flex items-center gap-3 p-3 bg-[#fafafa] rounded-2xl border border-[#e4e4e7]">
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <div class="min-w-0">
+                  <strong class="text-xs font-semibold text-[#09090b] block truncate">ahmad.hidayat@gmail.com</strong>
+                  <span class="text-[10px] text-[#71717a] block">Login 1-klik aktif</span>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-[#52525b] leading-relaxed">
+                Anda dapat masuk ke portal publik BAZNAS Kabupaten Bandung secara instan menggunakan Akun Google ini.
+              </p>
+            </div>
+
+            <!-- Privacy Setting Card -->
+            <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-4 shadow-xs">
+              <span class="text-xs font-bold text-[#09090b] block">PREFERENSI PRIVASI DONASI</span>
+              <div class="space-y-2 text-xs">
+                <label class="flex items-center gap-2 cursor-pointer text-[#52525b]">
+                  <input type="checkbox" class="rounded border-[#e4e4e7] text-[#064e3b]" />
+                  <span>Sembunyikan nama di papan publik (Gunakan "Hamba Allah")</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer text-[#52525b]">
+                  <input type="checkbox" checked class="rounded border-[#e4e4e7] text-[#064e3b]" />
+                  <span>Kirimkan lembar bukti setor (e-BSZ) otomatis via WhatsApp</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive Client-side Tab Script -->
+  <script is:inline>
+    (function initPublicAccountPanel() {
+      const tabs = [
+        { id: 'transaksi', btn: 'tabBtnTransaksi', panel: 'panelTransaksi' },
+        { id: 'bantuan', btn: 'tabBtnBantuan', panel: 'panelBantuan' },
+        { id: 'pengingat', btn: 'tabBtnPengingat', panel: 'panelPengingat' },
+        { id: 'profil', btn: 'tabBtnProfil', panel: 'panelProfil' }
+      ];
+
+      function activateTab(tabId) {
+        const target = tabs.find(t => t.id === tabId) || tabs[0];
+        tabs.forEach(t => {
+          const b = document.getElementById(t.btn);
+          const p = document.getElementById(t.panel);
+          if (b) {
+            b.className = 'px-5 py-3 text-xs font-semibold text-[#71717a] hover:text-[#09090b] border-b-2 border-transparent flex items-center gap-2 shrink-0 transition-all';
+            const icon = b.querySelector('.material-symbols-outlined');
+            if (icon) icon.className = 'material-symbols-outlined text-base text-[#71717a]';
+          }
+          if (p) p.classList.add('hidden');
+        });
+
+        const activeBtn = document.getElementById(target.btn);
+        const activePanel = document.getElementById(target.panel);
+        if (activeBtn) {
+          activeBtn.className = 'px-5 py-3 text-xs font-bold border-b-2 border-[#064e3b] text-[#09090b] flex items-center gap-2 shrink-0 transition-all';
+          const activeIcon = activeBtn.querySelector('.material-symbols-outlined');
+          if (activeIcon) activeIcon.className = 'material-symbols-outlined text-base text-[#064e3b]';
+        }
+        if (activePanel) {
+          activePanel.classList.remove('hidden');
+        }
+      }
+
+      tabs.forEach(({ id, btn }) => {
+        document.getElementById(btn)?.addEventListener('click', () => {
+          activateTab(id);
+          if (history.replaceState) {
+            history.replaceState(null, '', '#' + id);
+          }
+        });
+      });
+
+      // Handle direct hash navigation
+      const currentHash = window.location.hash.replace('#', '');
+      if (currentHash && tabs.some(t => t.id === currentHash)) {
+        activateTab(currentHash);
+      }
+
+      window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && tabs.some(t => t.id === hash)) {
+          activateTab(hash);
+        }
+      });
+    })();
+  </script>
+</PublicLayout>

@@ -1,0 +1,127 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  sectionName?: string;
+  pageTitle?: string;
+  activeRoute?: string;
+}
+
+const {
+  title = "Panel Admin BAZNAS Kabupaten Bandung - Amanah Civic Governance SaaS",
+  description = "Panel Admin & Backoffice SaaS BAZNAS Kabupaten Bandung: Executive Command Center, verifikasi asesmen lapangan Had Kifayah, buku besar PSAK 109 & SIMBA RI, serta manajemen UPZ 31 Kecamatan.",
+  sectionName = "Ringkasan Strategis",
+  pageTitle = "Executive Command Center",
+  activeRoute = "command-center"
+} = Astro.props;
+
+import AdminSidebar from '../components/admin/AdminSidebar.astro';
+import AdminHeader from '../components/admin/AdminHeader.astro';
+import AdminFooter from '../components/admin/AdminFooter.astro';
+import AdminModals from '../components/admin/AdminModals.astro';
+import '../styles/global.css';
+import '../styles/animations.css';
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{title}</title>
+  <meta name="description" content={description}/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="/favicon.webp"/>
+  <link rel="shortcut icon" type="image/webp" href="/favicon.webp"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+
+  <style is:global>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f5;
+      font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+    /* ---- SPA View Caching (Faster View Transitions) ---- */
+    .spa-view { width: 100%; outline: none; }
+    .spa-view.inactive {
+      content-visibility: hidden;
+      position: absolute;
+      inset: 0 auto auto 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    @supports not (content-visibility: hidden) {
+      .spa-view.inactive { display: none; }
+    }
+
+    /* ---- Navigasi aktif di sidebar admin ---- */
+    .app-nav-item { color: #3f3f46; transition: all 0.15s ease; }
+    .app-nav-item:hover { background-color: #f4f4f5; color: #09090b; }
+    .app-nav-item.active { background-color: #064e3b; color: #ffffff; font-weight: 600; box-shadow: 0 1px 3px rgba(6,78,59,0.25); }
+    .app-nav-item.active .app-nav-icon { color: #a7f3d0; }
+
+    /* ---- Sidebar layout transitions ---- */
+    #app-sidebar { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+    #app-main { transition: padding .3s cubic-bezier(.4,0,.2,1); }
+
+    @media (max-width: 1023px) {
+      #app-sidebar { transform: translateX(-100%); }
+      #app-sidebar.open { transform: translateX(0); }
+      #app-main { padding-left: 0 !important; }
+    }
+
+    /* ---- View Transitions ---- */
+    ::view-transition-old(root) { animation: 140ms ease-in both app-fade-out; }
+    ::view-transition-new(root) { animation: 200ms ease-out both app-fade-in; }
+    @keyframes app-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    @keyframes app-fade-out { from { opacity: 1; } to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    }
+
+    /* Modal Backdrop Transitions */
+    .modal-enter { animation: modalFadeIn 200ms ease-out forwards; }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.97) translateY(6px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ===== Style asli per layar ===== */
+    /* layar 5 */ .font-mono-num { font-family: 'JetBrains Mono', monospace; font-feature-settings: 'tnum' on, 'zero' on; }
+  </style>
+</head>
+<body class="bg-[#f4f4f5] text-[#18181b] min-h-screen selection:bg-[#064e3b] selection:text-white flex flex-col">
+  <!-- Mobile Backdrop for Sidebar -->
+  <div id="app-sidebar-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <AdminSidebar activeRoute={activeRoute} />
+
+  <!-- MAIN WRAPPER (Shifted right for 72 (18rem) on desktop) -->
+  <div id="app-main" class="lg:pl-72 flex-1 flex flex-col min-h-screen">
+    <AdminHeader sectionName={sectionName} pageTitle={pageTitle} />
+
+    <slot />
+
+    <AdminFooter />
+  </div>
+
+  <AdminModals />
+
+  <script src="../admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel Admin BAZNAS Kabupaten Bandung - Amanah Civic Governance SaaS</title>
+  <meta name="description" content="Panel Admin & Backoffice SaaS BAZNAS Kabupaten Bandung: Executive Command Center, verifikasi asesmen lapangan Had Kifayah, buku besar PSAK 109 & SIMBA RI, serta manajemen UPZ 31 Kecamatan."/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: /*TAILWIND_EXTEND*/{}
+      }
+    };
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f5;
+      font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+    /* ---- SPA View Caching (Faster View Transitions) ---- */
+    .spa-view { width: 100%; outline: none; }
+    .spa-view.inactive {
+      content-visibility: hidden;
+      position: absolute;
+      inset: 0 auto auto 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    @supports not (content-visibility: hidden) {
+      .spa-view.inactive { display: none; }
+    }
+
+    /* ---- Navigasi aktif di sidebar admin ---- */
+    .app-nav-item { color: #3f3f46; transition: all 0.15s ease; }
+    .app-nav-item:hover { background-color: #f4f4f5; color: #09090b; }
+    .app-nav-item.active { background-color: #064e3b; color: #ffffff; font-weight: 600; box-shadow: 0 1px 3px rgba(6,78,59,0.25); }
+    .app-nav-item.active .app-nav-icon { color: #a7f3d0; }
+
+    /* ---- Sidebar layout transitions ---- */
+    #app-sidebar { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+    #app-main { transition: padding .3s cubic-bezier(.4,0,.2,1); }
+
+    @media (max-width: 1023px) {
+      #app-sidebar { transform: translateX(-100%); }
+      #app-sidebar.open { transform: translateX(0); }
+      #app-main { padding-left: 0 !important; }
+    }
+
+    /* ---- View Transitions ---- */
+    ::view-transition-old(root) { animation: 140ms ease-in both app-fade-out; }
+    ::view-transition-new(root) { animation: 200ms ease-out both app-fade-in; }
+    @keyframes app-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    @keyframes app-fade-out { from { opacity: 1; } to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    }
+
+    /* Modal Backdrop Transitions */
+    .modal-enter { animation: modalFadeIn 200ms ease-out forwards; }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.97) translateY(6px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ===== Style asli per layar ===== */
+    /*SCREEN_STYLES*/
+  </style>
+</head>
+<body class="bg-[#f4f4f5] text-[#18181b] min-h-screen selection:bg-[#064e3b] selection:text-white flex flex-col">
+
+  <!-- Mobile Backdrop for Sidebar -->
+  <div id="app-sidebar-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- ==================== SIDEBAR ADMIN (SaaS BACKOFFICE) ==================== -->
+  <aside id="app-sidebar" class="fixed left-0 top-0 h-screen w-72 bg-white z-50 flex flex-col border-r border-[#ececee] shadow-xs">
+    <!-- Brand / Header -->
+    <div class="h-20 px-6 flex items-center justify-between border-b border-[#ececee] shrink-0">
+      <a href="#command-center" class="flex items-center gap-3 min-w-0">
+        <img alt="Logo BAZNAS Kabupaten Bandung" class="h-10 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+        <div class="flex flex-col min-w-0">
+          <span class="font-bold text-[15px] tracking-tight leading-tight text-[#064e3b] truncate">BAZNAS Bandung</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-[#71717a] font-semibold">Panel Admin v2.0</span>
+        </div>
+      </a>
+      <button id="app-btn-close-sidebar" class="lg:hidden p-1.5 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup menu">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+
+    <!-- Simba Sync Status Pill -->
+    <div class="px-5 pt-3 pb-2 shrink-0">
+      <div class="px-3.5 py-2 rounded-xl bg-[#f8fafc] border border-[#ececee] flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#064e3b] animate-pulse"></span>
+          <span class="text-xs font-semibold">SIMBA Node 3204</span>
+        </div>
+        <span class="font-mono text-[10px] font-bold text-[#064e3b] bg-[#ecfdf5] px-2 py-0.5 rounded border border-[#064e3b]/15">PSAK 109 WTP</span>
+      </div>
+    </div>
+
+    <!-- Role Switcher (Tanpa Emoji) -->
+    <div class="px-5 py-2 shrink-0">
+      <label for="app-role-selector" class="block text-[10px] font-bold uppercase tracking-wider text-[#71717a] mb-1">Peran Akses Amil</label>
+      <select id="app-role-selector" class="w-full bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold rounded-xl px-3 py-2 cursor-pointer focus:ring-1 focus:ring-[#064e3b] focus:border-[#064e3b]">
+        <option value="pimpinan">Pimpinan (Ketua &amp; Wakil Ketua)</option>
+        <option value="keuangan">Staf / Kabag Keuangan (PSAK 109)</option>
+        <option value="surveyor">Asesor Lapangan &amp; Pendistribusian</option>
+        <option value="upz">Operator UPZ Daerah (Kecamatan / OPD)</option>
+      </select>
+    </div>
+
+    <!-- Navigation List (Categorized & Badged) -->
+    <nav id="app-nav" class="flex-1 px-4 py-2 space-y-1 overflow-y-auto" aria-label="Navigasi modul admin">
+      <!-- Section 1: Executive Command -->
+      <div class="space-y-0.5">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold flex items-center justify-between">
+          <span>Ringkasan Eksekutif</span>
+        </div>
+        <a href="#command-center" data-route="command-center" class="app-nav-item active flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">dashboard</span>
+          <span class="flex-1 truncate">Executive Command</span>
+          <span id="badge-pending-tte" class="text-[10px] bg-[#ff5a00] text-white px-2 py-0.5 rounded-full font-bold">8 TTE</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <button type="button" data-action="open-tte" class="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all text-left">
+            <span class="truncate">Otorisasi &amp; Disposisi TTE</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">signature</span>
+          </button>
+          <a href="#command-center" data-route="command-center" data-scroll="radar-wilayah" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Radar Sebaran 31 Kec.</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">map</span>
+          </a>
+          <a href="#command-center" data-route="command-center" data-scroll="rkat-metrics" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Capaian RKAT 2026</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">trending_up</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 2: Asesmen Lapangan & Had Kifayah -->
+      <div class="space-y-0.5 pt-2">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Operasional Lapangan</div>
+        <a href="#asesmen" data-route="asesmen" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">verified_user</span>
+          <span class="flex-1 truncate">Asesmen &amp; Had Kifayah</span>
+          <span class="text-[10px] bg-[#ecfdf5] text-[#064e3b] border border-[#064e3b]/15 px-2 py-0.5 rounded-full font-bold font-mono">CIBEST</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="#asesmen" data-route="asesmen" data-scroll="antrean-mustahik" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Antrean 48 Mustahik</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">view_list</span>
+          </a>
+          <a href="#asesmen" data-route="asesmen" data-scroll="dossier-mustahik" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Verifikasi On-Site Mustahik</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">badge</span>
+          </a>
+          <a href="#asesmen" data-route="asesmen" data-scroll="kalkulator-kifayah" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Kalkulator Had Kifayah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">calculate</span>
+          </a>
+          <a href="#asesmen" data-route="asesmen" data-scroll="had-kifayah-table" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Breakdown Norma Kebutuhan</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">table_chart</span>
+          </a>
+          <a href="#asesmen" data-route="asesmen" data-scroll="cibest-model" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Kuadran CIBEST I - IV</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">grid_view</span>
+          </a>
+          <a href="#asesmen" data-route="asesmen" data-scroll="gps-geotagging" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Geotagging &amp; Foto Rumah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">satellite_alt</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 3: Keuangan & Akuntansi PSAK 109 -->
+      <div class="space-y-0.5 pt-2">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Tata Kelola &amp; Akuntansi</div>
+        <a href="#keuangan" data-route="keuangan" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">account_balance</span>
+          <span class="flex-1 truncate">Keuangan &amp; PSAK 109</span>
+          <span class="text-[10px] bg-[#f4f4f5] text-[#52525b] border border-[#ececee] px-2 py-0.5 rounded-full font-mono">Ledger</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="#keuangan" data-route="keuangan" data-scroll="segregated-funds" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Kas 5 Segregated Funds</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">account_tree</span>
+          </a>
+          <a href="#keuangan" data-route="keuangan" data-scroll="buku-besar-psak" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Buku Jurnal PSAK 109</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">menu_book</span>
+          </a>
+          <button type="button" data-action="open-journal" class="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all text-left">
+            <span class="truncate">Posting Jurnal Cepat</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">post_add</span>
+          </button>
+          <a href="#keuangan" data-route="keuangan" data-scroll="disposisi-transfer" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Antrean Transfer H2H</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">send</span>
+          </a>
+          <a href="#keuangan" data-route="keuangan" data-scroll="rekonsiliasi-bank" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Rekonsiliasi Bank Syariah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">sync_alt</span>
+          </a>
+          <a href="#keuangan" data-route="keuangan" data-scroll="neraca-psak" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Laporan Neraca PSAK 109</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">pie_chart</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 4: Jaringan UPZ Daerah -->
+      <div class="space-y-0.5 pt-2">
+        <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Jaringan Penghimpunan</div>
+        <a href="#upz" data-route="upz" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+          <span class="material-symbols-outlined text-[19px] app-nav-icon">corporate_fare</span>
+          <span class="flex-1 truncate">Manajemen UPZ Daerah</span>
+          <span class="text-[10px] bg-[#f4f4f5] text-[#52525b] border border-[#ececee] px-2 py-0.5 rounded-full font-bold">487</span>
+        </a>
+        <div class="pl-7 pr-1 py-1 space-y-0.5">
+          <a href="#upz" data-route="upz" data-scroll="direktori-upz" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Direktori 487 UPZ Daerah</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">folder_shared</span>
+          </a>
+          <button type="button" data-action="open-upz" class="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all text-left">
+            <span class="truncate">Registrasi &amp; SK UPZ</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">domain_add</span>
+          </button>
+          <a href="#upz" data-route="upz" data-scroll="setoran-kolektif" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Pemrosesan Setoran ASN</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">cloud_upload</span>
+          </a>
+          <a href="#upz" data-route="upz" data-scroll="hak-kelola-amil" class="flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs text-[#52525b] hover:text-[#064e3b] hover:bg-[#f4f4f5] transition-all">
+            <span class="truncate">Bagi Hasil Hak Amil Syar'i</span>
+            <span class="material-symbols-outlined text-xs text-[#a1a1aa]">price_check</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shortcut & Link Publik -->
+      <div class="pt-4 px-2 space-y-2">
+        <div class="border-t border-[#ececee] pt-3">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold mb-2 px-1">Layanan Luar</div>
+          <a href="/index.html" class="flex items-center gap-2.5 px-3.5 py-2.5 rounded-[14px] text-xs font-semibold text-[#064e3b] bg-[#ecfdf5] border border-[#064e3b]/15 hover:bg-[#d1fae5] transition-all">
+            <span class="material-symbols-outlined text-base">language</span>
+            <span>Lihat Website Publik</span>
+            <span class="material-symbols-outlined text-sm ml-auto">arrow_outward</span>
+          </a>
+        </div>
+
+        <!-- System Health Box -->
+        <div class="p-3 rounded-2xl bg-[#f8fafc] border border-[#ececee] text-[11px] text-[#52525b] space-y-1.5">
+          <div class="flex items-center justify-between text-[#71717a]">
+            <span>Audit Trail SHA-256</span>
+            <span class="font-mono text-[#064e3b] font-semibold">Tersinkron</span>
+          </div>
+          <div class="flex items-center justify-between text-[#71717a]">
+            <span>Capaian RKAT 2026</span>
+            <span class="font-mono font-bold text-[#09090b]">86.4%</span>
+          </div>
+          <div class="w-full bg-[#ececee] h-1.5 rounded-full overflow-hidden">
+            <div class="bg-[#064e3b] h-full rounded-full" style="width: 86.4%"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Profile Footer -->
+    <div class="p-4 border-t border-[#ececee] shrink-0">
+      <div class="flex items-center gap-3 p-2 rounded-[20px] bg-[#f4f4f5] border border-[#ececee]">
+        <img alt="Foto profil amil" class="w-9 h-9 rounded-full object-cover ring-2 ring-[#064e3b]/20 shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+        <div class="flex flex-col min-w-0">
+          <span id="app-profile-name" class="text-xs font-bold truncate">Drs. H. M. Yusuf</span>
+          <span id="app-profile-role" class="text-[10px] font-mono font-semibold text-[#064e3b] uppercase truncate">Ketua BAZNAS Kab. Bandung</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== KONTEN UTAMA ADMIN ==================== -->
+  <div id="app-main" class="lg:pl-72 min-h-screen flex flex-col min-w-0">
+
+    <!-- Topbar Admin -->
+    <header id="app-admin-header" class="h-20 bg-white/95 backdrop-blur-md border-b border-[#ececee] px-5 lg:px-8 flex items-center justify-between gap-4 sticky top-0 z-40 shrink-0">
+      <div class="flex items-center gap-3 min-w-0">
+        <button id="app-btn-open-sidebar" class="lg:hidden p-2 rounded-[14px] bg-[#f4f4f5] text-[#52525b]" aria-label="Buka menu navigasi">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-1.5 text-[11px] text-[#71717a] font-medium">
+            <span>Panel Admin BAZNAS</span><span>/</span>
+            <span id="app-section-name" class="text-[#064e3b] font-semibold truncate">Ringkasan Strategis</span>
+          </div>
+          <h1 id="app-page-title" class="text-base lg:text-lg font-bold tracking-tight text-[#09090b] truncate">Executive Command Center</h1>
+        </div>
+      </div>
+
+      <!-- Quick Command Search (Ctrl+K) -->
+      <div class="hidden xl:flex items-center flex-1 max-w-md mx-4">
+        <button id="app-btn-cmd-trigger" class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] text-xs text-[#71717a] hover:border-[#d4d4d8] transition-colors shadow-xs">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base">search</span>
+            <span>Cari NIK Mustahik, No. SK UPZ, atau Akun PSAK 109...</span>
+          </span>
+          <kbd class="px-2 py-0.5 rounded bg-white border border-[#ececee] font-mono text-[10px] font-semibold text-[#52525b]">Ctrl K</kbd>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <!-- Live TTE BSrE Security Badge -->
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/20 text-[11px] font-mono text-[#064e3b] font-semibold" title="Balai Sertifikasi Elektronik - Badan Siber dan Sandi Negara">
+          <span class="material-symbols-outlined text-sm">verified_user</span>
+          <span>TTE BSrE Aktif</span>
+        </div>
+
+        <!-- Dropdown Aksi Cepat Amil -->
+        <div class="relative">
+          <button id="app-btn-quick-actions" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors shadow-xs active:scale-95">
+            <span class="material-symbols-outlined text-base">bolt</span>
+            <span class="hidden sm:inline">Aksi Cepat</span>
+            <span class="material-symbols-outlined text-xs">expand_more</span>
+          </button>
+          <div id="app-quick-actions-menu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 z-50 text-xs">
+            <button id="action-trigger-tte" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">signature</span>
+              <div>
+                <span class="font-bold text-[#09090b]">Disposisi TTE Pimpinan</span>
+                <p class="text-[10px] text-[#71717a]">Pengesahan 8 berkas bantuan</p>
+              </div>
+            </button>
+            <button id="action-trigger-journal" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">post_add</span>
+              <div>
+                <span class="font-bold text-[#09090b]">Posting Jurnal PSAK 109</span>
+                <p class="text-[10px] text-[#71717a]">Entri debit / kredit transaksi kas</p>
+              </div>
+            </button>
+            <button id="action-trigger-upz" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">domain_add</span>
+              <div>
+                <span class="font-bold text-[#09090b]">Registrasi SK UPZ Baru</span>
+                <p class="text-[10px] text-[#71717a]">Pendaftaran UPZ DKM / Dinas</p>
+              </div>
+            </button>
+            <div class="border-t border-[#ececee] my-1"></div>
+            <button id="action-trigger-zis" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left hover:bg-[#f4f4f5] transition-colors text-[#064e3b]">
+              <span class="material-symbols-outlined text-base">receipt_long</span>
+              <span class="font-bold">Kasir Penerimaan ZIS</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CTA Ke Website Publik (Tanpa Emoji) -->
+        <a href="/index.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-xs font-bold text-[#09090b] transition-all" title="Buka Website Publik">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">language</span>
+          <span class="hidden md:inline">Website Publik</span>
+          <span class="material-symbols-outlined text-sm text-[#71717a]">arrow_forward</span>
+        </a>
+
+        <!-- Notifications -->
+        <div class="relative">
+          <button id="app-btn-notif" class="relative flex items-center justify-center w-9 h-9 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#09090b]" aria-label="Notifikasi sistem" aria-expanded="false">
+            <span class="material-symbols-outlined text-lg">notifications</span>
+            <span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[#ff5a00] animate-pulse"></span>
+          </button>
+          <div id="app-notif-popover" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-3xl border border-[#ececee] shadow-xl p-4 z-50">
+            <div class="flex items-center justify-between pb-2 border-b border-[#ececee]">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#09090b]">Notifikasi Operasional</span>
+              <span class="text-[10px] font-mono bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-full font-bold">3 baru</span>
+            </div>
+            <ul class="space-y-2 pt-3 text-xs">
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ebebee] transition-colors cursor-pointer" id="notif-item-disdik">
+                <div class="font-bold text-[#09090b]">Setoran ASN Disdik Masuk</div>
+                <div class="text-[11px] text-[#71717a]">Rp 348.650.000 tervalidasi Rekening Kas BJB Syariah</div>
+              </li>
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ebebee] transition-colors cursor-pointer" id="notif-item-upz">
+                <div class="font-bold text-[#09090b]">Peringatan SK UPZ Masjid</div>
+                <div class="text-[11px] text-[#71717a]">DKM Al-Fathu sisa masa berlaku 30 hari</div>
+              </li>
+              <li class="p-2.5 rounded-xl bg-[#ecfdf5] border border-[#064e3b]/15 hover:bg-[#d1fae5] transition-colors cursor-pointer" id="notif-item-tte">
+                <div class="font-bold text-[#064e3b] flex items-center justify-between">
+                  <span>8 Dokumen Menunggu TTE Ketua</span>
+                  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </div>
+                <div class="text-[11px] text-[#064e3b]/80">Klik untuk membuka dialog tanda tangan digital</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- VIEWS CONTAINER (4 SCREEN OPERASIONAL AMIL) -->
+    <main id="app-views" class="relative flex-1 min-w-0">
+      <!--VIEWS-->
+    </main>
+
+    <!-- Master Admin Footer -->
+    <footer class="mt-auto border-t border-[#ececee] bg-white px-6 sm:px-8 py-5 text-xs text-[#71717a] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-[#09090b]">BAZNAS Kabupaten Bandung</span>
+        <span>•</span>
+        <span>Backoffice Amanah Civic Governance SaaS</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] font-mono">
+        <span class="bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded font-bold border border-[#064e3b]/15">PSAK 109 Terakreditasi WTP</span>
+        <span>•</span>
+        <span class="text-[#064e3b] font-semibold">SIMBA RI Node 3204 Online</span>
+        <span>•</span>
+        <span>BSrE BSSN Certified</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification Shell -->
+  <div id="app-toast" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-[60] translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-5 py-3.5 rounded-[14px] bg-[#09090b] text-white shadow-2xl text-xs font-medium max-w-sm">
+    <span id="app-toast-icon" class="material-symbols-outlined text-[#a7f3d0] text-lg">check_circle</span>
+    <span id="app-toast-msg">Operasi berhasil.</span>
+  </div>
+
+  <!-- ==================== MODAL 1: PENGESAHAN TTE DIGITAL (BSrE BSSN) ==================== -->
+  <div id="app-tte-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="app-tte-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">signature</span>
+          </div>
+          <div>
+            <h2 id="app-tte-title" class="text-base font-bold text-[#09090b]">Pengesahan Tanda Tangan Elektronik</h2>
+            <p class="text-[11px] text-[#71717a]">Sertifikasi Balai Sertifikasi Elektronik (BSrE - BSSN)</p>
+          </div>
+        </div>
+        <button type="button" data-close-tte class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <!-- Ringkasan Berkas Disposisi -->
+      <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] space-y-2 text-xs">
+        <div class="flex justify-between items-center text-[#71717a]">
+          <span>Nomor Registrasi Berkas:</span>
+          <span class="font-mono font-bold text-[#09090b]">DSP-3204-2026-0814</span>
+        </div>
+        <div class="flex justify-between items-center text-[#71717a]">
+          <span>Mustahik Penerima:</span>
+          <span class="font-bold text-[#09090b]">Hj. Aminah (Baleendah)</span>
+        </div>
+        <div class="flex justify-between items-center text-[#71717a]">
+          <span>Skor Had Kifayah CIBEST:</span>
+          <span class="font-bold text-[#064e3b]">0.38 (Kategori Sangat Layak)</span>
+        </div>
+        <div class="flex justify-between items-center text-[#71717a]">
+          <span>Program Penyaluran:</span>
+          <span class="font-bold text-[#09090b]">Bandung Makmur (Pemberdayaan UMKM)</span>
+        </div>
+        <div class="flex justify-between items-center pt-2 border-t border-[#ececee]">
+          <span class="font-semibold text-[#09090b]">Plafon Disetujui:</span>
+          <span class="font-mono font-bold text-base text-[#064e3b]">Rp 12.500.000</span>
+        </div>
+      </div>
+
+      <!-- Form Passphrase TTE -->
+      <form id="app-tte-form" class="space-y-3">
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Passphrase TTE Pimpinan
+          <input id="app-tte-pin" type="password" required autocomplete="current-password" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono tracking-widest text-[#18181b] px-3.5 py-2.5" placeholder="••••••••"/>
+        </label>
+        <p class="text-[11px] text-[#71717a]">
+          Dengan membubuhkan TTE, dokumen ini memiliki kekuatan hukum sah sesuai UU ITE No. 11/2008 &amp; PP No. 71/2019.
+        </p>
+
+        <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+          <button type="button" data-close-tte class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+          <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs">
+            <span class="material-symbols-outlined text-base">verified</span>
+            <span>Bubuhkan TTE</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: INPUT JURNAL PSAK 109 ==================== -->
+  <div id="app-journal-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="app-journal-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+          </div>
+          <div>
+            <h2 id="app-journal-title" class="text-base font-bold text-[#09090b]">Posting Jurnal PSAK 109</h2>
+            <p class="text-[11px] text-[#71717a]">Pencatatan ganda standar akuntansi zakat &amp; infak</p>
+          </div>
+        </div>
+        <button type="button" data-close-journal class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="app-journal-form" class="space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nomor Bukti
+            <input id="jrn-ref" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono font-semibold px-3 py-2" value="BKK-3204-1024-001"/>
+          </label>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Kelompok Dana
+            <select id="jrn-fund" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3 py-2">
+              <option>Dana Zakat</option>
+              <option>Dana Infak Terikat</option>
+              <option>Dana Infak Tidak Terikat</option>
+              <option>Bagian Amil (12.5%)</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Akun Debit
+          <select id="jrn-debit" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3 py-2">
+            <option value="1-1001">1-1001 Kas Operasional Utama (BJB Syariah)</option>
+            <option value="1-1002">1-1002 Rekening Giro Zakat (BSI)</option>
+            <option value="5-1001">5-1001 Penyaluran Mustahik Fakir Miskin</option>
+            <option value="5-2001">5-2001 Beban Operasional Amil</option>
+          </select>
+        </label>
+
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Akun Kredit
+          <select id="jrn-credit" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3 py-2">
+            <option value="4-1001">4-1001 Penerimaan Zakat Entitas ASN Pemkab</option>
+            <option value="4-1002">4-1002 Penerimaan Zakat Perseorangan / Muzaki</option>
+            <option value="4-2001">4-2001 Penerimaan Infak / Sedekah</option>
+            <option value="1-1001">1-1001 Kas Operasional Utama (BJB Syariah)</option>
+          </select>
+        </label>
+
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nominal Transaksi (Rp)
+          <input id="jrn-amount" type="number" min="1000" step="1000" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono font-bold text-[#064e3b] px-3.5 py-2.5" placeholder="5000000"/>
+        </label>
+
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Keterangan Transaksi
+          <textarea id="jrn-notes" rows="2" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs px-3.5 py-2" placeholder="Uraian pendukung transaksi..."></textarea>
+        </label>
+
+        <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+          <button type="button" data-close-journal class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+          <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs">
+            <span class="material-symbols-outlined text-base">check</span>
+            <span>Posting Jurnal</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: REGISTRASI SK UPZ BARU ==================== -->
+  <div id="app-upz-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="app-upz-title">
+    <div class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">domain_add</span>
+          </div>
+          <div>
+            <h2 id="app-upz-title" class="text-base font-bold text-[#09090b]">Registrasi SK UPZ Baru</h2>
+            <p class="text-[11px] text-[#71717a]">Penerbitan SK &amp; Virtual Account Setoran Daerah</p>
+          </div>
+        </div>
+        <button type="button" data-close-upz class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="app-upz-form" class="space-y-3">
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Unit Pengumpul Zakat (UPZ)
+          <input id="upz-name" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3.5 py-2.5" placeholder="Contoh: UPZ DKM Al-Mukhlisin / Dispora"/>
+        </label>
+
+        <div class="grid grid-cols-2 gap-3">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Kategori UPZ
+            <select id="upz-category" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3 py-2">
+              <option>UPZ Masjid Besar / DKM</option>
+              <option>UPZ OPD Dinas Pemkab</option>
+              <option>UPZ Kecamatan</option>
+              <option>UPZ Instansi Vertikal / BUMD</option>
+            </select>
+          </label>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Wilayah Kecamatan
+            <select id="upz-district" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3 py-2">
+              <option>Soreang</option>
+              <option>Baleendah</option>
+              <option>Banjaran</option>
+              <option>Majalaya</option>
+              <option>Ciwidey</option>
+              <option>Cileunyi</option>
+              <option>Pangalengan</option>
+              <option>Ibun</option>
+              <option>Kutawaringin</option>
+              <option>Katapang</option>
+              <option>Rancaekek</option>
+              <option>Ciparay</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Ketua / Penanggung Jawab
+          <input id="upz-leader" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold px-3.5 py-2.5" placeholder="Nama lengkap &amp; gelar amil UPZ"/>
+        </label>
+
+        <label class="block text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nomor Surat Keputusan (SK)
+          <input id="upz-sk" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono font-semibold px-3.5 py-2.5" value="SK-3204-UPZ-2026-488"/>
+        </label>
+
+        <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+          <button type="button" data-close-upz class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+          <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs">
+            <span class="material-symbols-outlined text-base">verified</span>
+            <span>Terbitkan SK UPZ</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 4: COMMAND PALETTE (CTRL+K) ==================== -->
+  <div id="app-cmd-modal" class="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm hidden items-start justify-center pt-20 p-4" role="dialog" aria-modal="true" aria-labelledby="app-cmd-title">
+    <div class="bg-white rounded-[28px] border border-[#ececee] shadow-2xl max-w-xl w-full p-5 flex flex-col gap-3 modal-enter">
+      <div class="flex items-center gap-3 pb-3 border-b border-[#ececee]">
+        <span class="material-symbols-outlined text-[#064e3b] text-xl">search</span>
+        <input id="app-cmd-input" type="text" class="flex-1 bg-transparent border-0 text-sm font-semibold text-[#09090b] placeholder:text-[#a1a1aa] focus:ring-0 outline-none p-0" placeholder="Ketik kata kunci (misal: 'Aminah', 'Disdik', 'PSAK', 'Asesmen')..."/>
+        <kbd class="px-2 py-0.5 rounded bg-[#f4f4f5] border border-[#ececee] font-mono text-[10px] text-[#71717a]">ESC</kbd>
+      </div>
+
+      <!-- Quick Results List -->
+      <div id="app-cmd-results" class="max-h-72 overflow-y-auto space-y-1 text-xs">
+        <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Navigasi Langsung</div>
+        <a href="#command-center" data-cmd-route="command-center" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#f4f4f5] text-[#09090b] transition-colors">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-[#064e3b]">dashboard</span>
+            <span>Executive Command Center</span>
+          </span>
+          <span class="font-mono text-[10px] text-[#71717a]">#command-center</span>
+        </a>
+        <a href="#asesmen" data-cmd-route="asesmen" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#f4f4f5] text-[#09090b] transition-colors">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-[#064e3b]">verified_user</span>
+            <span>Asesmen Lapangan &amp; Had Kifayah</span>
+          </span>
+          <span class="font-mono text-[10px] text-[#71717a]">#asesmen</span>
+        </a>
+        <a href="#keuangan" data-cmd-route="keuangan" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#f4f4f5] text-[#09090b] transition-colors">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-[#064e3b]">account_balance</span>
+            <span>Keuangan &amp; Akuntansi PSAK 109</span>
+          </span>
+          <span class="font-mono text-[10px] text-[#71717a]">#keuangan</span>
+        </a>
+        <a href="#upz" data-cmd-route="upz" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#f4f4f5] text-[#09090b] transition-colors">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-[#064e3b]">corporate_fare</span>
+            <span>Manajemen UPZ Daerah (487 Unit)</span>
+          </span>
+          <span class="font-mono text-[10px] text-[#71717a]">#upz</span>
+        </a>
+
+        <div class="px-3 pt-3 pb-1.5 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Data &amp; Dokumen Operasional</div>
+        <div class="p-2.5 rounded-xl hover:bg-[#f4f4f5] flex items-center justify-between cursor-pointer" id="cmd-sample-mustahik">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-[#71717a]">person</span>
+            <span>Hj. Aminah (NIK 320412890012) • Baleendah</span>
+          </span>
+          <span class="text-[10px] font-mono text-[#064e3b] bg-[#ecfdf5] px-2 py-0.5 rounded font-bold">Bantuan CIBEST</span>
+        </div>
+        <div class="p-2.5 rounded-xl hover:bg-[#f4f4f5] flex items-center justify-between cursor-pointer" id="cmd-sample-upz">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-[#71717a]">corporate_fare</span>
+            <span>UPZ Disdik Kab. Bandung • Setoran ASN</span>
+          </span>
+          <span class="text-[10px] font-mono text-[#064e3b] bg-[#ecfdf5] px-2 py-0.5 rounded font-bold">SK Aktif</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 5: PENERIMAAN ZIS KASIR ==================== -->
+  <div id="app-zis-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="app-zis-title">
+    <form id="app-zis-form" class="bg-white rounded-[32px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 modal-enter max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">receipt_long</span>
+          </div>
+          <div>
+            <h2 id="app-zis-title" class="text-base font-bold text-[#09090b]">Penerimaan ZIS Kasir (e-BSZ)</h2>
+            <p class="text-[11px] text-[#71717a]">Pencatatan langsung ke Buku Kas PSAK 109 &amp; SIMBA BAZNAS RI</p>
+          </div>
+        </div>
+        <button type="button" data-close-zis class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup dialog">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Jenis Penerimaan ZIS
+        <select id="app-zis-type" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold normal-case tracking-normal text-[#18181b] px-3.5 py-2.5">
+          <option>Zakat Penghasilan / Profesi ASN</option>
+          <option>Zakat Maal (Tabungan / Simpanan / Emas)</option>
+          <option>Zakat Fitrah Beras / Tunai</option>
+          <option>Infak / Sedekah Program BAZNAS Peduli</option>
+          <option>Fidyah / Kafarat</option>
+        </select>
+      </label>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Muzaki / Lembaga / UPZ
+        <input id="app-zis-name" required autocomplete="name" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold normal-case tracking-normal text-[#18181b] px-3.5 py-2.5" placeholder="Contoh: H. Dadan Setiawan / UPZ Disdik"/>
+      </label>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nominal ZIS (Rp)
+        <input id="app-zis-amount" type="number" min="1000" step="1000" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono font-bold text-[#064e3b] px-3.5 py-2.5" placeholder="500000"/>
+      </label>
+      <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+        <button type="button" data-close-zis class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+        <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs">
+          <span class="material-symbols-outlined text-base">check</span>
+          <span>Posting ke Jurnal PSAK 109</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Script Asli Layar Admin -->
+  <!--SCREEN_SCRIPTS-->
+
+  <!-- Admin Application Script -->
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

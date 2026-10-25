@@ -1,0 +1,31 @@
+{
+  "name": "baznas-kabupaten-bandung-saas",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sistem Informasi & Tata Kelola Zakat Terpadu BAZNAS Kabupaten Bandung (Amanah Civic Governance SaaS - Astro Framework)",
+  "scripts": {
+    "dev": "astro dev --port 5173",
+    "start": "astro dev --port 5173",
+    "build": "astro build",
+    "preview": "astro preview --port 5173",
+    "validate": "node tools/validate.cjs && node tools/check-emojis.cjs"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@astrojs/node": "^11.1.9",
+    "@astrojs/react": "^7.1.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.4.2",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.3"
+  }
+}

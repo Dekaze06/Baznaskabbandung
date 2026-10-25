@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<title>Executive Command Center - BAZNAS Kab. Bandung</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "paper": "#f4f4f5",
+            "cloud": "#ececee",
+            "snow": "#ffffff",
+            "obsidian": "#09090b",
+            "graphite": "#18181b",
+            "slate": "#27272a",
+            "iron": "#3f3f46",
+            "steel": "#52525b",
+            "fog": "#71717a",
+            "ash": "#a1a1aa",
+            "mist": "#d4d4d8",
+            "emerald-deep": "#064e3b",
+            "emerald-vibrant": "#006a4e",
+            "ember": "#ff5a00",
+            "gold-warm": "#d97706",
+            "primary": "#064e3b",
+            "secondary": "#046c50",
+            "surface": "#f4f4f5"
+          },
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          borderRadius: {
+            'card': '36px',
+            'btn': '14px',
+            'tag': '12px'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #f4f4f5;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-paper min-h-screen antialiased flex">
+<!-- Left Sidebar (Clean Awesomic Editorial Style) -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-snow z-50 flex flex-col border-r border-cloud">
+<!-- Brand / Node -->
+<div class="h-24 px-7 flex items-center gap-3.5 border-b border-cloud/80">
+<img alt="Logo Resmi BAZNAS Kab Bandung" class="h-10 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+<div class="flex flex-col min-w-0">
+<span class="font-bold text-graphite text-[15px] tracking-tight leading-tight">BAZNAS Kab. Bandung</span>
+<span class="font-mono text-[11px] text-fog uppercase tracking-wider font-medium">Node 3204 • RI Active</span>
+</div>
+</div>
+<!-- Simba Sync Pill -->
+<div class="px-5 pt-5 pb-2">
+<div class="px-3.5 py-2.5 rounded-tag bg-paper border border-cloud flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-deep animate-pulse"></span>
+<span class="text-xs font-semibold text-graphite">SIMBA Cloud Sync</span>
+</div>
+<span class="font-mono text-[11px] font-bold text-emerald-deep">PSAK 109</span>
+</div>
+</div>
+<!-- Navigation List -->
+<nav class="flex-1 px-4 py-2 space-y-1 overflow-y-auto">
+<div class="px-3 pt-3 pb-1 text-[11px] font-mono uppercase tracking-wider text-fog font-bold">Pimpinan &amp; Otoritas</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-btn bg-emerald-deep text-snow font-semibold text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Executive Command</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-btn text-iron hover:bg-paper hover:text-graphite font-medium text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>Asesmen &amp; Penyaluran</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-btn text-iron hover:bg-paper hover:text-graphite font-medium text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+<span>Keuangan &amp; Akuntansi</span>
+</a>
+<div class="px-3 pt-6 pb-1 text-[11px] font-mono uppercase tracking-wider text-fog font-bold">Layanan Publik</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-btn text-iron hover:bg-paper hover:text-graphite font-medium text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+<span>Beranda &amp; Transparansi</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-btn text-iron hover:bg-paper hover:text-graphite font-medium text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+<span>Kalkulator &amp; Kasir ZIS</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-btn text-iron hover:bg-paper hover:text-graphite font-medium text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<span>Lacak Mustahik (NIK)</span>
+</a>
+</nav>
+<!-- Pimpinan Profile Footer -->
+<div class="p-4 m-3 rounded-tag bg-paper border border-cloud flex items-center gap-3">
+<img alt="Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-deep/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+<div class="flex flex-col min-w-0">
+<span class="font-bold text-xs text-graphite truncate">Drs. H. M. Yusuf</span>
+<span class="font-mono text-[10px] text-emerald-deep font-semibold tracking-wide uppercase">Ketua BAZNAS</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Layout -->
+<div class="pl-72 flex-1 flex flex-col min-h-screen">
+<!-- Top Executive Header -->
+<header class="sticky top-0 z-40 bg-snow/90 backdrop-blur-md h-20 px-8 flex items-center justify-between border-b border-cloud">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-tag bg-paper border border-cloud">
+<span class="w-2 h-2 rounded-full bg-emerald-deep"></span>
+<span class="font-mono text-[11px] font-bold text-emerald-deep uppercase tracking-wider">SIMBA RI &amp; PSAK 109 TERVERIFIKASI</span>
+</div>
+<span class="font-mono text-xs text-fog hidden md:inline">RKAT 2026 M / 1447 H</span>
+</div>
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-medium text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span>Penerimaan ZIS Cepat</span>
+</a>
+<button class="w-9 h-9 rounded-btn bg-paper border border-cloud flex items-center justify-center text-iron hover:text-graphite transition-colors relative">
+<span class="material-symbols-outlined text-[19px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-ember"></span>
+</button>
+<div class="h-6 w-px bg-cloud mx-1"></div>
+<div class="flex items-center gap-2.5">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+<span class="text-xs font-bold text-graphite hidden sm:inline">Ketua BAZNAS</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="p-8 space-y-7">
+<!-- Executive Authority Banner (Pure White, 36px Rounding, Hairline Border) -->
+<section class="bg-snow rounded-card border border-cloud p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 rounded-2xl bg-emerald-deep flex items-center justify-center text-snow shrink-0">
+<span class="material-symbols-outlined text-[28px]">shield_person</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2.5">
+<h1 class="text-xl font-bold text-graphite tracking-tight">Drs. H. M. Yusuf</h1>
+<span class="px-2.5 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep font-mono text-[11px] font-bold">PIMPINAN_KETUA</span>
+<span class="px-2 py-0.5 rounded-tag bg-paper text-fog font-mono text-[11px]">ID: AMIL-3204-001</span>
+</div>
+<p class="text-xs text-fog mt-1">
+              Plafon Otorisasi: <strong class="text-graphite font-semibold">Otoritas Final Tanpa Batas (Kuorum Pleno)</strong>
+</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="px-3.5 py-2 rounded-tag bg-paper border border-cloud flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[16px]">phonelink_lock</span>
+<span class="font-mono text-xs text-graphite font-medium">MFA Active</span>
+</div>
+<div class="px-3.5 py-2 rounded-tag bg-paper border border-cloud flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[16px]">vpn_key</span>
+<span class="font-mono text-xs text-graphite font-medium">SHA-256 Chained</span>
+</div>
+<button class="px-3.5 py-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-xs font-semibold text-graphite transition-colors inline-flex items-center gap-1.5" onclick="toggleQuickDisbModal()">
+<span class="material-symbols-outlined text-[15px] text-emerald-deep">history</span>
+<span>Log Sesi</span>
+</button>
+</div>
+</section>
+<!-- 4 Core Executive Metric Cards (Awesomic Minimal Bold Numbers) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- Metric 1: Penghimpunan ZIS -->
+<div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+<span>Penghimpunan RKAT</span>
+<span class="material-symbols-outlined text-emerald-deep text-[18px]">account_balance_wallet</span>
+</div>
+<div class="my-4">
+<div class="text-3xl font-bold tracking-tight text-graphite">Rp 48,72 M</div>
+<div class="text-xs text-fog mt-1 flex items-center justify-between">
+<span>Target: Rp 57,5 M</span>
+<span class="font-bold text-emerald-deep font-mono">84,7%</span>
+</div>
+</div>
+<div class="w-full bg-paper h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-deep h-full rounded-full" style="width: 84.7%"></div>
+</div>
+</div>
+<!-- Metric 2: Rasio ACR -->
+<div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+<span>Rasio ACR Penyaluran</span>
+<span class="material-symbols-outlined text-emerald-deep text-[18px]">verified</span>
+</div>
+<div class="my-4">
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold tracking-tight text-emerald-deep">84,70%</span>
+<span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep text-[11px] font-bold">Grade A</span>
+</div>
+<div class="text-xs text-fog mt-1">Standar Kemenag RI (&gt;80% Efektif)</div>
+</div>
+<div class="pt-2 border-t border-cloud flex items-center justify-between text-xs">
+<span class="text-fog">Indeks Zakat (IZN)</span>
+<span class="font-bold text-graphite font-mono">0.82 (Baik)</span>
+</div>
+</div>
+<!-- Metric 3: Saldo Kas Terpisah (PSAK 109) -->
+<div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+<span>Kas Terpisah PSAK 109</span>
+<span class="material-symbols-outlined text-emerald-deep text-[18px]">account_tree</span>
+</div>
+<div class="my-3 space-y-1">
+<div class="text-3xl font-bold tracking-tight text-graphite">Rp 7,97 M</div>
+<div class="flex items-center justify-between text-xs text-fog pt-1">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-deep"></span> Kas Zakat</span>
+<span class="font-mono font-semibold text-graphite">Rp 4,82 M</span>
+</div>
+<div class="flex items-center justify-between text-xs text-fog">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span> Kas Infak / DSKL</span>
+<span class="font-mono font-semibold text-graphite">Rp 2,54 M</span>
+</div>
+</div>
+<div class="pt-2 border-t border-cloud flex items-center justify-between text-xs">
+<span class="text-fog">Hak Amil (Maks 12.5%)</span>
+<span class="font-bold text-emerald-deep font-mono">8.9% (Tercukupi)</span>
+</div>
+</div>
+<!-- Metric 4: Total Mustahik -->
+<div class="bg-snow rounded-card border border-cloud p-6 flex flex-col justify-between">
+<div class="flex items-center justify-between text-fog text-xs font-medium uppercase tracking-wider">
+<span>Penerima Manfaat</span>
+<span class="material-symbols-outlined text-emerald-deep text-[18px]">groups</span>
+</div>
+<div class="my-4">
+<div class="text-3xl font-bold tracking-tight text-graphite">43.890 <span class="text-lg font-normal text-fog">Jiwa</span></div>
+<div class="text-xs text-fog mt-1">Tersebar di 31 Kecamatan &amp; 280 Desa</div>
+</div>
+<div class="pt-2 border-t border-cloud flex items-center justify-between text-xs">
+<span class="text-fog">Klasifikasi Prioritas</span>
+<span class="font-bold text-graphite font-mono">CIBEST I-II</span>
+</div>
+</div>
+</section>
+<!-- Main Columns: Approvals (Left 8 Cols) & Sidebar Radar + Audit (Right 4 Cols) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+<!-- Left Column: Priority Approvals -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Queue Filter Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 bg-snow p-3 rounded-card border border-cloud">
+<div class="flex items-center gap-1.5">
+<button class="px-4 py-2 rounded-btn bg-emerald-deep text-snow text-xs font-bold transition-all flex items-center gap-1.5" id="btn-tab-tier3" onclick="filterQueue('tier3')">
+<span class="material-symbols-outlined text-[14px]">gavel</span>
+<span>Tier 3: &gt; Rp 15 Jt (Ketua - 3)</span>
+</button>
+<button class="px-4 py-2 rounded-btn bg-paper hover:bg-cloud text-iron text-xs font-medium transition-all" id="btn-tab-tier2" onclick="filterQueue('tier2')">
+                Tier 2: Rp 2,5 Jt - 15 Jt (5)
+              </button>
+<button class="px-4 py-2 rounded-btn bg-paper hover:bg-cloud text-iron text-xs font-medium transition-all" id="btn-tab-all" onclick="filterQueue('all')">
+                Semua (8)
+              </button>
+</div>
+<div class="text-xs text-fog font-mono pr-2">3 Pengajuan Menunggu TTE</div>
+</div>
+<!-- Card 1: Critical Rutilahu Ciwidey (Highlight Priority) -->
+<article class="bg-snow rounded-card border border-cloud p-7 space-y-6 transition-all hover:border-emerald-deep/40">
+<!-- Header Badges -->
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-tag bg-emerald-deep text-snow text-[11px] font-bold tracking-wide uppercase">
+                  Tier 3 • Otorisasi Mutlak Ketua
+                </span>
+<span class="px-2.5 py-1 rounded-tag bg-ember/10 text-ember text-[11px] font-bold uppercase">
+                  Mendesak (Rawan Roboh)
+                </span>
+</div>
+<span class="font-mono text-xs text-fog">#DISB-2026-0891</span>
+</div>
+<!-- Content Body -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+<div class="md:col-span-7 space-y-3">
+<h3 class="text-xl font-bold text-graphite tracking-tight leading-snug">
+                  Bedah 5 Unit Rutilahu Terpadu Desa Rawabogo Kec. Ciwidey
+                </h3>
+<p class="text-xs text-fog leading-relaxed">
+                  Program Bandung Peduli: Rehabilitasi total hunian bilik bambu reyot bagi 5 KK asnaf fakir miskin ekstrem akibat ancaman longsor di kawasan Ciwidey Selatan.
+                </p>
+<!-- Micro Badges -->
+<div class="grid grid-cols-3 gap-2 pt-2">
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] uppercase font-mono text-fog block">Asnaf</span>
+<span class="text-xs font-bold text-graphite">Fakir &amp; Miskin</span>
+</div>
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] uppercase font-mono text-fog block">Had Kifayah</span>
+<span class="text-xs font-bold text-emerald-deep">0.88 / 1.0 (Darurat)</span>
+</div>
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] uppercase font-mono text-fog block">CIBEST</span>
+<span class="text-xs font-bold text-ember">Kuadran I</span>
+</div>
+</div>
+<!-- Approval Chain Flow -->
+<div class="pt-3">
+<div class="text-[11px] font-mono uppercase text-fog font-bold mb-2">Verifikasi Berjenjang</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="px-2.5 py-1 rounded-tag bg-emerald-deep/10 text-emerald-deep font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> Kabag Distribusi
+                    </span>
+<span class="text-fog">→</span>
+<span class="px-2.5 py-1 rounded-tag bg-emerald-deep/10 text-emerald-deep font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> Waka II &amp; III
+                    </span>
+<span class="text-fog">→</span>
+<span class="px-2.5 py-1 rounded-tag bg-ember/15 text-ember font-bold">
+                      Menunggu Ketua
+                    </span>
+</div>
+</div>
+</div>
+<!-- Right Visual & Action Column -->
+<div class="md:col-span-5 flex flex-col justify-between gap-4 p-4 rounded-2xl bg-paper border border-cloud">
+<div class="relative h-32 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Dokumentasi survei lapangan BAZNAS Kabupaten Bandung di Desa Rawabogo Ciwidey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vZ6xf3dm3AImJOKyc2_JXPFedpZWeJ-q4WwVOzlkva42oB6eemHJ4l0FdpBKiSUde-mvTNO8ogzFADYP0c8EULM3BHYA6p0RjhqN1lSZnI1QkefAnu5PqZowpGi2DL45NeS3jDnlVVb210T-BRSjlr55DBbePsjpiOrLxLSOkVGrDXZpVKJ0Um7cBocX-Y1lEhh47vjjECMjnEGTvwpiqDl2T1BGlMEFr-QBDlC6Uqv0HVh0-mYTqw"/>
+<div class="absolute bottom-2 left-2 bg-obsidian/75 backdrop-blur-sm text-snow text-[10px] font-mono px-2 py-0.5 rounded">
+                    GPS: -7.1512, 107.4891 • Ciwidey
+                  </div>
+</div>
+<div>
+<div class="text-[11px] font-mono uppercase text-fog">Plafon Disposisi</div>
+<div class="text-2xl font-bold text-graphite tracking-tight font-mono">Rp 100.000.000</div>
+<div class="text-[11px] text-fog mt-0.5">Rp 20 Jt / unit • 5 Penerima</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-2.5 px-4 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors flex items-center justify-center gap-2" onclick="openSigningModal('#DISB-2026-0891', 'Rp 100.000.000', 'Bedah 5 Rutilahu Rawabogo')">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+<span>Tanda Tangani &amp; Setujui (TTE)</span>
+</button>
+<button class="w-full py-2 px-3 rounded-btn bg-snow hover:bg-cloud border border-cloud text-graphite font-medium text-xs transition-colors text-center">
+                    Tinjau Berkas &amp; Dokumen (5 KK)
+                  </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Z-Auto Modal Usaha -->
+<article class="bg-snow rounded-card border border-cloud p-6 flex flex-col md:flex-row md:items-center justify-between gap-5 transition-all hover:border-emerald-deep/40">
+<div class="space-y-2 flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 3</span>
+<span class="text-xs text-fog font-mono">#DISB-2026-0904</span>
+<span class="text-xs text-fog">• 3 Mustahik Kec. Banjaran</span>
+</div>
+<h4 class="text-base font-bold text-graphite tracking-tight">
+                Pemberdayaan Ekonomi Mustahik: Modal Bengkel Motor Z-Auto
+              </h4>
+<p class="text-xs text-fog">
+                Program Bandung Makmur • Rekomendasi Waka II Siap • Non-Tunai 100%
+              </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-3 shrink-0">
+<div class="text-xl font-bold font-mono text-graphite">Rp 45.000.000</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0904', 'Rp 45.000.000', 'Bantuan Bengkel Z-Auto Banjaran')">
+                  Setujui Cepat
+                </button>
+<button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: BPJS Ketenagakerjaan Marbot -->
+<article class="bg-snow rounded-card border border-cloud p-6 flex flex-col md:flex-row md:items-center justify-between gap-5 transition-all hover:border-emerald-deep/40">
+<div class="space-y-2 flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-tag bg-paper text-emerald-deep font-mono text-[11px] font-bold">Tier 3</span>
+<span class="text-xs text-fog font-mono">#DISB-2026-0912</span>
+<span class="text-xs text-fog">• 120 Marbot Masjid Kec. Pangalengan</span>
+</div>
+<h4 class="text-base font-bold text-graphite tracking-tight">
+                Iuran Jaminan Sosial BPJS TK Marbot Masjid (Bandung Taqwa)
+              </h4>
+<p class="text-xs text-fog">
+                Asnaf: Fisabilillah • Verifikasi Kemenag &amp; DMI Terkonfirmasi
+              </p>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center gap-3 shrink-0">
+<div class="text-xl font-bold font-mono text-graphite">Rp 28.800.000</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow font-bold text-xs transition-colors" onclick="openSigningModal('#DISB-2026-0912', 'Rp 28.800.000', 'BPJS Ketenagakerjaan 120 Marbot')">
+                  Setujui Cepat
+                </button>
+<button class="p-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-iron">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Right Column: Radar Wilayah & Audit Trail -->
+<div class="lg:col-span-4 space-y-6">
+<!-- 31 Kecamatan Radar Overview -->
+<div class="bg-snow rounded-card border border-cloud p-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[20px]">map</span>
+<h3 class="font-bold text-sm text-graphite">Radar Penyaluran Wilayah</h3>
+</div>
+<span class="px-2 py-0.5 rounded-tag bg-emerald-deep/10 text-emerald-deep font-mono text-[10px] font-bold uppercase">31 Kec.</span>
+</div>
+<div class="relative h-44 rounded-2xl overflow-hidden bg-paper border border-cloud">
+<img class="w-full h-full object-cover" data-alt="Peta topografi Kabupaten Bandung digital bergradasi hijau gelap institusional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw9jiP_r7NSJzTTiMharn6CB8BC7zOduUVcCrj2ijMIXRUzbWVcnW-GKqR6RiXtaAv9Ui6EIUdWXAHsOVK9AcSHOpAe_VYvsJv45Qd8I1LniuW85yZrRib_J6-havCmsXvFsL-8vXfIe_QyuzkQvwq4lbI3GAz5-9bReDiqoJMuPb2XZoWf9rwQMkSsogXaKWmlRm7oG4niJ-O-hq3cn0Dk2yM3rTTIFJFSeMOZCb4SpwShR3XSrygSA"/>
+<div class="absolute bottom-2 left-2 right-2 bg-snow/90 backdrop-blur-md px-3 py-2 rounded-tag border border-cloud flex items-center justify-between text-xs">
+<span class="text-fog font-medium">Fokus Hari Ini</span>
+<span class="font-bold text-emerald-deep">Ciwidey, Pangalengan</span>
+</div>
+</div>
+<!-- Compact Metrics Row -->
+<div class="grid grid-cols-2 gap-2 text-xs pt-1">
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] text-fog font-mono block">Cakupan Wilayah</span>
+<span class="font-bold text-graphite">100% (31/31)</span>
+</div>
+<div class="p-2.5 rounded-tag bg-paper border border-cloud">
+<span class="text-[10px] text-fog font-mono block">Desa Terlayani</span>
+<span class="font-bold text-graphite">280 Desa</span>
+</div>
+</div>
+</div>
+<!-- Compact SHA-256 Audit Trail -->
+<div class="bg-snow rounded-card border border-cloud p-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-deep text-[20px]">lock_clock</span>
+<h3 class="font-bold text-sm text-graphite">Audit Trail Terenkripsi</h3>
+</div>
+<span class="font-mono text-[10px] text-fog">SHA-256</span>
+</div>
+<div class="space-y-3">
+<div class="p-3 rounded-tag bg-paper border border-cloud space-y-1">
+<div class="flex items-center justify-between text-xs font-semibold text-graphite">
+<span>Validasi Waka II #DISB-0888</span>
+<span class="font-mono text-[10px] text-fog">10:14 WIB</span>
+</div>
+<div class="text-[11px] text-fog">Beasiswa Tahfidz 15 Mahasiswa • Jurnal Otomatis</div>
+<div class="font-mono text-[10px] text-emerald-deep font-medium truncate">Hash: 8f9b...a12c (Valid)</div>
+</div>
+<div class="p-3 rounded-tag bg-paper border border-cloud space-y-1">
+<div class="flex items-center justify-between text-xs font-semibold text-graphite">
+<span>Batch Sync SIMBA BAZNAS RI</span>
+<span class="font-mono text-[10px] text-fog">09:00 WIB</span>
+</div>
+<div class="text-[11px] text-fog">42 Mustahik &amp; 110 Transaksi Terunggah</div>
+<div class="font-mono text-[10px] text-emerald-deep font-medium">Status: ACK 200 OK • Node 3204</div>
+</div>
+<div class="p-3 rounded-tag bg-paper border border-cloud space-y-1">
+<div class="flex items-center justify-between text-xs font-semibold text-graphite">
+<span>Rekonsiliasi BSI &amp; BJB Syariah</span>
+<span class="font-mono text-[10px] text-fog">08:15 WIB</span>
+</div>
+<div class="text-[11px] text-fog">Penerimaan QRIS &amp; VA 24 Jam Selaras 100%</div>
+<div class="font-mono text-[10px] text-emerald-deep font-medium">Selisih: Rp 0 (Match Mutlak)</div>
+</div>
+</div>
+<button class="w-full py-2 rounded-btn bg-paper hover:bg-cloud border border-cloud text-graphite text-xs font-semibold transition-colors">
+              Lihat Seluruh Log Keamanan
+            </button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- TTE PIN Signature Modal Drawer (Clean Editorial Modal) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/40 backdrop-blur-sm hidden transition-all" id="signingModal">
+<div class="relative w-full max-w-md rounded-card bg-snow p-8 border border-cloud space-y-6">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-emerald-deep text-snow flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+</div>
+<div>
+<h3 class="font-bold text-base text-graphite">Tanda Tangan Elektronik</h3>
+<span class="font-mono text-xs text-fog">Otorisasi SK Penyaluran (TTE)</span>
+</div>
+</div>
+<button class="p-1 rounded-btn hover:bg-paper text-fog hover:text-graphite transition-colors" onclick="closeSigningModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Ticket Summary Box -->
+<div class="p-4 rounded-2xl bg-paper border border-cloud space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="text-fog">Nomor Tiket</span>
+<span class="font-mono font-bold text-graphite" id="modalTicketId">#DISB-2026-0891</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-fog">Program</span>
+<span class="font-semibold text-graphite truncate max-w-[200px]" id="modalProgramName">Bedah 5 Rutilahu Rawabogo</span>
+</div>
+<div class="pt-2 border-t border-cloud flex items-center justify-between">
+<span class="text-xs font-bold text-graphite">Nominal Disposisi</span>
+<span class="font-mono font-bold text-base text-emerald-deep" id="modalAmount">Rp 100.000.000</span>
+</div>
+</div>
+<!-- PIN Inputs -->
+<div class="space-y-3 text-center">
+<label class="text-xs font-semibold text-graphite block">Masukkan 6-Digit Master PIN Pimpinan</label>
+<div class="flex items-center justify-center gap-2">
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+<input class="pin-box w-10 h-12 text-center font-mono font-bold text-lg rounded-tag bg-paper border border-cloud text-graphite focus:bg-snow focus:border-emerald-deep outline-none" maxlength="1" type="password"/>
+</div>
+<div class="text-[11px] font-mono text-fog flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-emerald-deep">lock</span> Sertifikasi Elektronik BSrE / BSSN
+        </div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 pt-2">
+<button class="flex-1 py-2.5 rounded-btn bg-paper hover:bg-cloud border border-cloud text-graphite text-xs font-semibold transition-colors" onclick="closeSigningModal()">
+          Batal
+        </button>
+<button class="flex-1 py-2.5 rounded-btn bg-emerald-deep hover:bg-emerald-vibrant text-snow text-xs font-bold transition-colors flex items-center justify-center gap-2" onclick="submitApprovalProcess()">
+<span class="material-symbols-outlined text-[15px]">lock_open</span>
+<span>Sahkan &amp; TTE</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast -->
+<div class="fixed bottom-6 right-6 z-50 hidden transition-all" id="toastNotification">
+<div class="flex items-center gap-3 bg-emerald-deep text-snow px-5 py-3 rounded-card shadow-lg border border-cloud/20">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="text-xs font-bold">Otorisasi Berhasil Disahkan</span>
+<span class="font-mono text-[10px] text-snow/80">SK Penyaluran otomatis terbit &amp; tersinkron ke SIMBA RI.</span>
+</div>
+</div>
+</div>
+<script>
+    function filterQueue(type) {
+      const btnAll = document.getElementById('btn-tab-all');
+      const btnTier3 = document.getElementById('btn-tab-tier3');
+      const btnTier2 = document.getElementById('btn-tab-tier2');
+      
+      [btnAll, btnTier3, btnTier2].forEach(b => {
+        b.className = 'px-4 py-2 rounded-btn bg-paper hover:bg-cloud text-iron text-xs font-medium transition-all';
+      });
+
+      if (type === 'all') {
+        btnAll.className = 'px-4 py-2 rounded-btn bg-emerald-deep text-snow text-xs font-bold transition-all';
+      } else if (type === 'tier3') {
+        btnTier3.className = 'px-4 py-2 rounded-btn bg-emerald-deep text-snow text-xs font-bold transition-all flex items-center gap-1.5';
+      } else {
+        btnTier2.className = 'px-4 py-2 rounded-btn bg-emerald-deep text-snow text-xs font-bold transition-all';
+      }
+    }
+
+    function openSigningModal(ticketId, amount, program) {
+      document.getElementById('modalTicketId').innerText = ticketId;
+      document.getElementById('modalAmount').innerText = amount;
+      document.getElementById('modalProgramName').innerText = program;
+      document.getElementById('signingModal').classList.remove('hidden');
+      
+      const pinBoxes = document.querySelectorAll('.pin-box');
+      pinBoxes.forEach(p => p.value = '');
+      if (pinBoxes.length > 0) pinBoxes[0].focus();
+    }
+
+    function closeSigningModal() {
+      document.getElementById('signingModal').classList.add('hidden');
+    }
+
+    function submitApprovalProcess() {
+      closeSigningModal();
+      const toast = document.getElementById('toastNotification');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+
+    function toggleQuickDisbModal() {
+      const toast = document.getElementById('toastNotification');
+      toast.querySelector('span.text-xs').innerText = 'Log Sesi Pimpinan Diperbarui';
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2500);
+    }
+
+    document.querySelectorAll('.pin-box').forEach((box, index, arr) => {
+      box.addEventListener('input', (e) => {
+        if (e.target.value.length === 1 && index < arr.length - 1) {
+          arr[index + 1].focus();
+        }
+      });
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          arr[index - 1].focus();
+        }
+      });
+    });
+  </script>
+  <script src="/screens/shared-nav.js"></script>
+</body></html>

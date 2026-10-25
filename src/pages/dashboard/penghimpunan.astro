@@ -1,0 +1,677 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+import InkOrbitFeatures from '../../components/ui/ink-orbit-features';
+---
+
+<PublicLayout 
+  title="Dashboard Transparansi Penghimpunan Dana ZIS - BAZNAS Kabupaten Bandung"
+  description="Portal transparansi publik penghimpunan dana Zakat, Infak, dan Sedekah (ZIS) BAZNAS Kabupaten Bandung tahun 2026. Real-time terintegrasi sistem SIMBA BAZNAS RI dan diaudit PSAK 109."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-12">
+      
+      <!-- BREADCRUMB & HEADER -->
+      <section class="space-y-6">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Dashboard</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Penghimpunan Dana ZIS</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#e4e4e7] pb-8">
+          <div class="max-w-3xl space-y-3">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight">
+              Dashboard Transparansi Penghimpunan ZIS
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed">
+              Laporan akuntabilitas publik atas penghimpunan dana Zakat, Infak, Sedekah, dan CSR korporasi di 31 kecamatan Kabupaten Bandung, terintegrasi langsung dengan basis data SIMBA BAZNAS RI dan teraudit akuntansi PSAK 109.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <button onclick="window.print?.()" class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all shadow-xs">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">print</span>
+              <span>Cetak Laporan</span>
+            </button>
+            <a href="/login" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-xs">
+              <span class="material-symbols-outlined text-base">receipt_long</span>
+              <span>Cek e-BSZ Akun Saya</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 TOP KPI METRIC CARDS -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Total Penghimpunan YTD 2026</span>
+            <span class="p-2 rounded-xl bg-[#ecfdf5] text-[#064e3b]">
+              <span class="material-symbols-outlined text-lg">trending_up</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#064e3b]">Rp 48,72 M</div>
+          <div class="flex items-center gap-1.5 text-xs text-[#064e3b] font-semibold">
+            <span>+16.4% YoY</span>
+            <span class="text-[#71717a] font-normal">dibandingkan periode 2025</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Target RKAT Resmi 2026</span>
+            <span class="p-2 rounded-xl bg-[#f4f4f5] text-[#71717a]">
+              <span class="material-symbols-outlined text-lg">target</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#09090b]">Rp 52,00 M</div>
+          <div class="text-xs text-[#71717a]">
+            Capaian: <strong class="text-[#064e3b] font-mono">93.69%</strong> per Oktober 2026
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Muzaki &amp; Munfiq Aktif</span>
+            <span class="p-2 rounded-xl bg-[#f4f4f5] text-[#71717a]">
+              <span class="material-symbols-outlined text-lg">groups</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#09090b]">42.150</div>
+          <div class="text-xs text-[#71717a]">
+            ASN, DKM Masjid, UPZ &amp; Korporasi
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-[#e4e4e7] p-6 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-[#71717a] font-medium">Audit Keuangan KAP</span>
+            <span class="p-2 rounded-xl bg-[#ecfdf5] text-[#064e3b]">
+              <span class="material-symbols-outlined text-lg">verified</span>
+            </span>
+          </div>
+          <div class="text-3xl font-extrabold font-mono text-[#064e3b]">Opini WTP</div>
+          <div class="text-xs text-[#71717a]">
+            Kepatuhan PSAK 109 Akuntansi ZIS 5x berturut
+          </div>
+        </div>
+      </section>
+
+      <!-- GRAFIK 1: TREN PENGHIMPUNAN BULANAN 2026 VS 2025 (SUPER PREMIUM BAR & COMPARISON) -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Grafik Tren Penghimpunan Bulanan 2026 vs 2025</h2>
+            <p class="text-xs text-[#71717a] mt-1">Perbandingan realisasi nominal bulanan (dalam Miliar Rupiah) terverifikasi sistem SIMBA</p>
+          </div>
+
+          <!-- Legend -->
+          <div class="flex items-center gap-4 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-md bg-[#064e3b]"></span>
+              <span class="font-semibold text-[#09090b]">Tahun 2026 (Berjalan)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-md bg-[#e4e4e7]"></span>
+              <span class="text-[#71717a]">Tahun 2025 (Pembanding)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Bar Chart Display -->
+        <div class="space-y-4">
+          <div class="h-64 sm:h-72 w-full flex items-end justify-between gap-2 sm:gap-4 pt-8 pb-4 px-2 border-b border-[#e4e4e7]">
+            
+            <!-- Jan -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <!-- Tooltip on hover -->
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Jan 2026: Rp 4,12 M (+14.4%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 41%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 46%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Jan</span>
+            </div>
+
+            <!-- Feb -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Feb 2026: Rp 4,25 M (+14.8%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 42%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 48%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Feb</span>
+            </div>
+
+            <!-- Mar (Ramadhan Peak) -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Mar 2026: Rp 8,85 M (Peak Ramadhan)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 82%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e] relative" style="height: 98%;">
+                  <span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] font-mono font-bold text-[#064e3b] hidden sm:block">Peak</span>
+                </div>
+              </div>
+              <span class="text-[11px] font-bold text-[#064e3b]">Mar*</span>
+            </div>
+
+            <!-- Apr -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Apr 2026: Rp 5,20 M (+16.8%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 50%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 58%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Apr</span>
+            </div>
+
+            <!-- Mei -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Mei 2026: Rp 4,45 M (+15.2%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 44%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 50%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Mei</span>
+            </div>
+
+            <!-- Jun -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Jun 2026: Rp 4,38 M (+14.0%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 43%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 49%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Jun</span>
+            </div>
+
+            <!-- Jul -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Jul 2026: Rp 4,52 M (+15.8%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 45%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 51%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Jul</span>
+            </div>
+
+            <!-- Agu -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Agu 2026: Rp 4,60 M (+16.1%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 46%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 52%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Agu</span>
+            </div>
+
+            <!-- Sep -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Sep 2026: Rp 4,15 M (+13.9%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 41%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 47%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Sep</span>
+            </div>
+
+            <!-- Okt -->
+            <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative cursor-pointer">
+              <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-[#09090b] text-white text-[11px] font-mono py-1 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
+                Okt 2026: Rp 4,20 M (+14.2%)
+              </div>
+              <div class="w-full flex items-end justify-center gap-1 sm:gap-1.5 h-full">
+                <div class="w-1/2 bg-[#e4e4e7] rounded-t-md transition-all group-hover:bg-[#d4d4d8]" style="height: 42%;"></div>
+                <div class="w-1/2 bg-[#064e3b] rounded-t-md transition-all group-hover:bg-[#006a4e]" style="height: 48%;"></div>
+              </div>
+              <span class="text-[11px] font-medium text-[#71717a] group-hover:text-[#09090b]">Okt</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-[#71717a] gap-2 pt-1">
+            <span>*Bulan Maret 2026 mengalami lonjakan signifikan seiring periode Ramadhan dan penunaian Zakat Fitrah/Maal serentak.</span>
+            <span class="font-mono text-[#064e3b] font-semibold">Rata-rata Himpunan: Rp 4,87 M / bulan</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- GRAFIK 2 & 3: KOMPOSISI KANAL DONUT & PROGRESS RKAT -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Donut Chart Komposisi Kanal (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-8 space-y-6 shadow-xs">
+          <div>
+            <h2 class="text-xl font-bold text-[#09090b]">Komposisi Penerimaan Berdasarkan Kanal</h2>
+            <p class="text-xs text-[#71717a] mt-1">Distribusi proporsi sumber dana ZIS yang dihimpun pada tahun berjalan</p>
+          </div>
+
+          <!-- Donut SVG + Detail Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            
+            <!-- Donut Visual (5 cols) -->
+            <div class="sm:col-span-5 flex flex-col items-center justify-center relative">
+              <svg class="w-48 h-48 -rotate-90 transform" viewBox="0 0 100 100">
+                <!-- Background Ring -->
+                <circle cx="50" cy="50" r="38" fill="transparent" stroke="#f4f4f5" stroke-width="14"></circle>
+                
+                <!-- Segment 1: ASN Pemkab (48.9%) -> circumference = 2 * PI * 38 = 238.76 -->
+                <!-- dasharray = (48.9 * 238.76 / 100) = 116.75, remainder = 122.01 -->
+                <circle cx="50" cy="50" r="38" fill="transparent" stroke="#064e3b" stroke-width="14" stroke-dasharray="116.75 122.01" stroke-dashoffset="0"></circle>
+                
+                <!-- Segment 2: UPZ 31 Kecamatan (26.4%) -> 63.03 -->
+                <circle cx="50" cy="50" r="38" fill="transparent" stroke="#047857" stroke-width="14" stroke-dasharray="63.03 175.73" stroke-dashoffset="-116.75"></circle>
+                
+                <!-- Segment 3: Muzaki Retail (15.6%) -> 37.25 -->
+                <circle cx="50" cy="50" r="38" fill="transparent" stroke="#10b981" stroke-width="14" stroke-dasharray="37.25 201.51" stroke-dashoffset="-179.78"></circle>
+                
+                <!-- Segment 4: CSR Korporasi (9.1%) -> 21.73 -->
+                <circle cx="50" cy="50" r="38" fill="transparent" stroke="#34d399" stroke-width="14" stroke-dasharray="21.73 217.03" stroke-dashoffset="-217.03"></circle>
+              </svg>
+
+              <!-- Center KPI -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span class="text-[10px] text-[#71717a] font-medium uppercase font-mono">TOTAL REALISASI</span>
+                <span class="text-lg font-extrabold font-mono text-[#064e3b]">Rp 48,72 M</span>
+                <span class="text-[10px] text-[#71717a]">YTD 2026</span>
+              </div>
+            </div>
+
+            <!-- Segment Legend & Details (7 cols) -->
+            <div class="sm:col-span-7 space-y-3 text-xs">
+              <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-3 h-3 rounded-md bg-[#064e3b] shrink-0"></span>
+                  <div>
+                    <strong class="text-[#09090b] block">Zakat ASN Pemkab (42 OPD)</strong>
+                    <span class="text-[10px] text-[#71717a]">Payroll terpotong otomatis Giro BJB</span>
+                  </div>
+                </div>
+                <div class="text-right font-mono">
+                  <span class="font-bold text-[#064e3b] block">48.9%</span>
+                  <span class="text-[11px] text-[#71717a]">Rp 23,84 M</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-3 h-3 rounded-md bg-[#047857] shrink-0"></span>
+                  <div>
+                    <strong class="text-[#09090b] block">UPZ 31 Kecamatan &amp; Desa</strong>
+                    <span class="text-[10px] text-[#71717a]">Masjid Jami, DKM &amp; Aparatur</span>
+                  </div>
+                </div>
+                <div class="text-right font-mono">
+                  <span class="font-bold text-[#09090b] block">26.4%</span>
+                  <span class="text-[11px] text-[#71717a]">Rp 12,85 M</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-3 h-3 rounded-md bg-[#10b981] shrink-0"></span>
+                  <div>
+                    <strong class="text-[#09090b] block">Muzaki Retail &amp; QRIS</strong>
+                    <span class="text-[10px] text-[#71717a]">BSI Mobile, QRIS Nasional</span>
+                  </div>
+                </div>
+                <div class="text-right font-mono">
+                  <span class="font-bold text-[#09090b] block">15.6%</span>
+                  <span class="text-[11px] text-[#71717a]">Rp 7,62 M</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-3 h-3 rounded-md bg-[#34d399] shrink-0"></span>
+                  <div>
+                    <strong class="text-[#09090b] block">Kemitraan CSR BUMD &amp; Swasta</strong>
+                    <span class="text-[10px] text-[#71717a]">Tirta Raharja, BJB, Korporasi</span>
+                  </div>
+                </div>
+                <div class="text-right font-mono">
+                  <span class="font-bold text-[#09090b] block">9.1%</span>
+                  <span class="text-[11px] text-[#71717a]">Rp 4,41 M</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Progress Gauge RKAT & PSAK 109 Segregation (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- RKAT Target Progress Card -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-5 shadow-xs">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-base font-bold text-[#09090b]">Target Tahunan RKAT 2026</h3>
+                <span class="text-[11px] text-[#71717a]">Kinerja pencapaian target anggaran</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">
+                93.69%
+              </span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-full h-4 rounded-full bg-[#f4f4f5] overflow-hidden p-0.5 border border-[#e4e4e7]">
+                <div class="h-full bg-[#064e3b] rounded-full transition-all" style="width: 93.69%;"></div>
+              </div>
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-[#064e3b] font-bold">Tercapai: Rp 48,72 M</span>
+                <span class="text-[#71717a]">Target: Rp 52,00 M</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-[#52525b] leading-relaxed">
+              Sisa target penghimpunan sebesar Rp 3,28 M (6.31%) diproyeksikan terpenuhi optimal pada periode tutup buku November-Desember 2026.
+            </p>
+          </div>
+
+          <!-- Segregasi PSAK 109 Box -->
+          <div class="bg-white rounded-3xl border border-[#e4e4e7] p-7 space-y-4 shadow-xs">
+            <h3 class="text-base font-bold text-[#09090b]">Pemisahan Dana PSAK 109</h3>
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Dana Zakat Terikat &amp; Bebas:</span>
+                <strong class="font-mono text-[#064e3b]">Rp 31,46 M</strong>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Dana Infak &amp; Sedekah:</span>
+                <strong class="font-mono text-[#09090b]">Rp 12,85 M</strong>
+              </div>
+              <div class="flex justify-between py-1.5 border-b border-[#f4f4f5]">
+                <span class="text-[#52525b]">Dana CSR Kemitraan:</span>
+                <strong class="font-mono text-[#09090b]">Rp 4,41 M</strong>
+              </div>
+              <div class="flex justify-between py-1.5">
+                <span class="text-[#52525b]">Beban Hak Amil Operasional:</span>
+                <strong class="font-mono text-[#064e3b]">9.8% (&le; 12.5% Syar'i)</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- GRAFIK 4: DISTRIBUSI KATEGORI AKAD SYARIAH ZIS (PSAK 109) -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Grafik Komposisi Berdasarkan Kategori Akad Syariah</h2>
+            <p class="text-xs text-[#71717a] mt-1">Struktur penerimaan dana ZIS berdasarkan PSAK 109 dan regulasi BAZNAS RI</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-xs font-mono font-bold border border-[#064e3b]/20">
+              Audit PSAK 109 Terverifikasi
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+          <!-- 1. Zakat Profesi & Penghasilan -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <strong class="text-sm font-bold text-[#09090b]">Zakat Profesi / Penghasilan (ASN &amp; Karyawan Swasta)</strong>
+                <span class="text-[11px] text-[#71717a] block">Pemotongan payroll otomatis 42 OPD, BUMD, dan instansi vertikal</span>
+              </div>
+              <div class="text-right font-mono">
+                <span class="text-base font-extrabold text-[#064e3b]">Rp 18,25 M</span>
+                <span class="text-xs text-[#71717a] block">37.5% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div class="h-full bg-[#064e3b] rounded-full" style="width: 37.5%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a]">
+              <span>Muzaki Terdaftar: <strong class="text-[#09090b]">24.850 ASN &amp; Pegawai</strong></span>
+              <span>Kategori: <strong class="text-[#064e3b]">Zakat Terikat Jabatan</strong></span>
+            </div>
+          </div>
+
+          <!-- 2. Zakat Maal & Perdagangan -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <strong class="text-sm font-bold text-[#09090b]">Zakat Maal, Emas, Tabungan &amp; Perniagaan</strong>
+                <span class="text-[11px] text-[#71717a] block">Penunaian individu saudagar lokal, pengusaha sentra industri rajut &amp; agrobisnis</span>
+              </div>
+              <div class="text-right font-mono">
+                <span class="text-base font-extrabold text-[#09090b]">Rp 13,21 M</span>
+                <span class="text-xs text-[#71717a] block">27.1% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div class="h-full bg-[#047857] rounded-full" style="width: 27.1%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a]">
+              <span>Muzaki Terdaftar: <strong class="text-[#09090b]">6.420 Pengusaha &amp; Perorangan</strong></span>
+              <span>Kategori: <strong class="text-[#064e3b]">Zakat Harta Bebas</strong></span>
+            </div>
+          </div>
+
+          <!-- 3. Infak & Sedekah Terikat Program -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <strong class="text-sm font-bold text-[#09090b]">Infak &amp; Sedekah Terikat (Kampanye Khusus)</strong>
+                <span class="text-[11px] text-[#71717a] block">Program Bandung Sehat darurat, BTB bencana banjir Soreang/Baleendah, beasiswa</span>
+              </div>
+              <div class="text-right font-mono">
+                <span class="text-base font-extrabold text-[#09090b]">Rp 7,45 M</span>
+                <span class="text-xs text-[#71717a] block">15.3% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div class="h-full bg-[#10b981] rounded-full" style="width: 15.3%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a]">
+              <span>Munfiq Terdaftar: <strong class="text-[#09090b]">8.750 Donatur</strong></span>
+              <span>Kategori: <strong class="text-[#064e3b]">Infak Terikat Mandat</strong></span>
+            </div>
+          </div>
+
+          <!-- 4. Infak & Sedekah Bebas -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <strong class="text-sm font-bold text-[#09090b]">Infak &amp; Sedekah Bebas / Tidak Terikat</strong>
+                <span class="text-[11px] text-[#71717a] block">Kotak amal masjid jami, kanal QRIS retail BSI, transfer sedekah harian</span>
+              </div>
+              <div class="text-right font-mono">
+                <span class="text-base font-extrabold text-[#09090b]">Rp 5,40 M</span>
+                <span class="text-xs text-[#71717a] block">11.1% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div class="h-full bg-[#34d399] rounded-full" style="width: 11.1%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a]">
+              <span>Kanal: <strong class="text-[#09090b]">QRIS Nasional &amp; Rekening Umum</strong></span>
+              <span>Kategori: <strong class="text-[#064e3b]">Infak Bebas Alokasi</strong></span>
+            </div>
+          </div>
+
+          <!-- 5. Kemitraan CSR BUMD & Korporasi -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <strong class="text-sm font-bold text-[#09090b]">Kemitraan Dana Sosial Keagamaan Lainnya (DSKL / CSR)</strong>
+                <span class="text-[11px] text-[#71717a] block">Penyaluran CSR Perumda Air Minum Tirta Raharja, Bank BJB, kawasan industri</span>
+              </div>
+              <div class="text-right font-mono">
+                <span class="text-base font-extrabold text-[#09090b]">Rp 4,41 M</span>
+                <span class="text-xs text-[#71717a] block">9.0% dari total</span>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full bg-[#e4e4e7] overflow-hidden">
+              <div class="h-full bg-[#64748b] rounded-full" style="width: 9.0%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px] text-[#71717a]">
+              <span>Mitra: <strong class="text-[#09090b]">14 BUMD &amp; Korporasi</strong></span>
+              <span>Kategori: <strong class="text-[#064e3b]">Dana Non-Zakat Terikat</strong></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENTO MODERN SAAS FEATURES SECTION -->
+      <section>
+        <InkOrbitFeatures 
+          client:visible
+          theme="light"
+          brand="SIMBA PENGHIMPUNAN"
+          tag=""
+          title="Arsitektur *Penghimpunan ZIS*\nTransparan & Tervalidasi"
+          collaboration={{
+            title: "Rekonsiliasi Payroll 42 OPD",
+            description: "Pemotongan zakat penghasilan ASN dan muzaki korporasi tercatat real-time dan tervalidasi perbankan syariah."
+          }}
+          reports={{
+            title: "Buku Besar & e-BSZ Otomatis",
+            description: "Penerbitan e-BSZ ber-TTE resmi Kementerian Agama dan rekapitulasi audit PSAK 109 siap unduh."
+          }}
+          integrations={{
+            title: "Kanal Penerimaan Multi-Gateway",
+            description: "Integrasi host-to-host dengan Bank BSI, BJB Syariah, QRIS Interaktif, dan Kas Daerah Pemkab Bandung.",
+            tools: ["BSI Host", "BJB Giro", "QRIS Pay", "Kasda OPD"]
+          }}
+          insights={{
+            title: "Proyeksi Capaian RKAT 2026",
+            description: "Estimasi tren realisasi penerimaan bulanan menuju target Rp 52 Miliar dengan probabilitas akurasi 96.8%.",
+            values: [41, 42, 88, 52, 44, 43, 45, 46, 41, 42, 45, 48],
+            forecastFrom: 10
+          }}
+        />
+      </section>
+
+      <!-- TABEL RINCIAN PENGHIMPUNAN PER KANAL RESMI -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] overflow-hidden shadow-xs">
+        <div class="p-6 lg:p-8 border-b border-[#e4e4e7] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-bold text-[#09090b]">Audit Trail Buku Besar Penghimpunan 2026</h2>
+            <p class="text-xs text-[#71717a] mt-1">Data rekonsiliasi harian terverifikasi perbankan syariah mitra</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-xs font-mono font-bold border border-[#064e3b]/20">
+              SIMBA NODE: 3204-KAB-BDG
+            </span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#fafafa] border-b border-[#e4e4e7] font-semibold text-[#52525b]">
+              <tr>
+                <th class="py-3.5 px-6">Sumber / Kanal Penghimpunan</th>
+                <th class="py-3.5 px-6">Kategori Akuntansi</th>
+                <th class="py-3.5 px-6 text-right font-mono">Target RKAT 2026</th>
+                <th class="py-3.5 px-6 text-right font-mono">Realisasi YTD</th>
+                <th class="py-3.5 px-6 text-right font-mono">% Capaian</th>
+                <th class="py-3.5 px-6 text-center">Status SIMBA</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#f4f4f5] text-[#09090b]">
+              <tr class="hover:bg-[#fafafa] transition-colors">
+                <td class="py-4 px-6">
+                  <strong class="block text-[#09090b]">Zakat Profesi ASN Pemkab Bandung (42 OPD)</strong>
+                  <span class="text-[11px] text-[#71717a]">Disdik, Dinkes, Setda, Bapenda, Disnaker, Satpol PP</span>
+                </td>
+                <td class="py-4 px-6 font-mono text-[#71717a]">Dana Zakat Terikat</td>
+                <td class="py-4 px-6 text-right font-mono text-[#52525b]">Rp 24.500.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">Rp 23.840.500.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">97.3%</td>
+                <td class="py-4 px-6 text-center">
+                  <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Terverifikasi</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#fafafa] transition-colors">
+                <td class="py-4 px-6">
+                  <strong class="block text-[#09090b]">UPZ 31 Kecamatan &amp; Pemerintahan Desa</strong>
+                  <span class="text-[11px] text-[#71717a]">Soreang, Baleendah, Majalaya, Ciwidey, Cileunyi, Ciparay</span>
+                </td>
+                <td class="py-4 px-6 font-mono text-[#71717a]">Dana Zakat &amp; Infak</td>
+                <td class="py-4 px-6 text-right font-mono text-[#52525b]">Rp 14.000.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">Rp 12.850.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">91.8%</td>
+                <td class="py-4 px-6 text-center">
+                  <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Terverifikasi</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#fafafa] transition-colors">
+                <td class="py-4 px-6">
+                  <strong class="block text-[#09090b]">Muzaki Retail Perorangan &amp; Kanal QRIS</strong>
+                  <span class="text-[11px] text-[#71717a]">BSI Mobile, QRIS BJB Syariah, Transfer Bank Mandiri/BCA</span>
+                </td>
+                <td class="py-4 px-6 font-mono text-[#71717a]">Zakat Maal &amp; Infak Bebas</td>
+                <td class="py-4 px-6 text-right font-mono text-[#52525b]">Rp 8.500.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">Rp 7.620.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">89.6%</td>
+                <td class="py-4 px-6 text-center">
+                  <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Terverifikasi</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-[#fafafa] transition-colors">
+                <td class="py-4 px-6">
+                  <strong class="block text-[#09090b]">Kemitraan CSR BUMD &amp; Korporasi Swasta</strong>
+                  <span class="text-[11px] text-[#71717a]">Perumda Tirta Raharja, BJB Cab. Soreang, PT Sinar Terang</span>
+                </td>
+                <td class="py-4 px-6 font-mono text-[#71717a]">Infak Terikat Program</td>
+                <td class="py-4 px-6 text-right font-mono text-[#52525b]">Rp 5.000.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">Rp 4.410.000.000</td>
+                <td class="py-4 px-6 text-right font-mono font-bold text-[#064e3b]">88.2%</td>
+                <td class="py-4 px-6 text-center">
+                  <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Terverifikasi</span>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot class="bg-[#fafafa] font-bold text-xs border-t border-[#e4e4e7]">
+              <tr>
+                <td colspan="2" class="py-4 px-6 text-[#09090b]">TOTAL AKUMULASI PENGHIMPUNAN:</td>
+                <td class="py-4 px-6 text-right font-mono text-[#09090b]">Rp 52.000.000.000</td>
+                <td class="py-4 px-6 text-right font-mono text-[#064e3b] text-sm font-extrabold">Rp 48.720.500.000</td>
+                <td class="py-4 px-6 text-right font-mono text-[#064e3b] font-extrabold">93.69%</td>
+                <td class="py-4 px-6 text-center font-mono text-[#064e3b]">WTP Valid</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="p-5 bg-[#fafafa] border-t border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#71717a]">
+          <span>Data terintegrasi SIMBA BAZNAS RI dan diuji petik secara berkala oleh Inspektorat Daerah &amp; KAP Independen.</span>
+          <button onclick="window.showAppToast?.('Mengunduh Laporan Keuangan PSAK 109 Audited (PDF)...', 'download');" class="font-semibold text-[#064e3b] hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">download</span>
+            <span>Unduh Laporan Keuangan PSAK 109 (PDF)</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</PublicLayout>

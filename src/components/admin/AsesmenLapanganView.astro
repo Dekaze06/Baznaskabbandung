@@ -1,0 +1,1200 @@
+<section id="view-asesmen" class="spa-view inactive" tabindex="-1" aria-hidden="true">
+  <div class="flex-1 p-8 max-w-7xl w-full mx-auto flex flex-col gap-7">
+    
+
+<!-- SECTION 0: ANTREAN VERIFIKASI MUSTAHIK & SELECTOR LAPANGAN -->
+<section id="antrean-mustahik" class="bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col gap-6 shadow-xs reveal-on-scroll card-hover-lift">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-hairline">
+    <div>
+      <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary mb-1">
+        <span class="material-symbols-outlined text-base">verified_user</span>
+        <span>Operasional Lapangan &amp; Pendistribusian</span>
+        <span class="text-ash">•</span>
+        <span class="text-fog font-medium">Standar SK BAZNAS RI No. 22/2024</span>
+      </div>
+      <h2 class="text-xl lg:text-2xl font-extrabold text-graphite tracking-tight">Daftar Antrean Asesmen Lapangan Mustahik</h2>
+      <p class="text-xs text-fog mt-0.5">Pilih mustahik untuk memverifikasi dokumen faktual, data geotagging, dan scoring Had Kifayah CIBEST</p>
+    </div>
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button id="btn-toggle-survei-form" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-control bg-primary hover:bg-primary-hover text-paper-s4 text-xs font-bold transition-all shadow-xs active:scale-95" type="button">
+        <span class="material-symbols-outlined text-base">add_circle</span>
+        <span>Tambah Asesmen Baru</span>
+      </button>
+      <a href="#kalkulator-kifayah" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-control bg-canvas hover:bg-hairline text-graphite text-xs font-semibold border border-hairline transition-all">
+        <span class="material-symbols-outlined text-base text-primary">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Filter Status Antrean Tabs -->
+  <div class="flex flex-wrap items-center gap-2" id="mustahik-filter-tabs">
+    <button class="px-3.5 py-1.5 rounded-pill bg-primary text-paper-s4 text-xs font-bold transition-colors filter-btn active" data-filter="all">Semua Antrean (48)</button>
+    <button class="px-3.5 py-1.5 rounded-pill bg-canvas hover:bg-hairline text-charcoal text-xs font-semibold transition-colors filter-btn" data-filter="menunggu">Menunggu Survei (14)</button>
+    <button class="px-3.5 py-1.5 rounded-pill bg-canvas hover:bg-hairline text-charcoal text-xs font-semibold transition-colors filter-btn" data-filter="cibest1">CIBEST Kuadran I (19)</button>
+    <button class="px-3.5 py-1.5 rounded-pill bg-canvas hover:bg-hairline text-charcoal text-xs font-semibold transition-colors filter-btn" data-filter="siap-tte">Siap TTE Pimpinan (8)</button>
+    <button class="px-3.5 py-1.5 rounded-pill bg-canvas hover:bg-hairline text-charcoal text-xs font-semibold transition-colors filter-btn" data-filter="salur">Tersalurkan (7)</button>
+  </div>
+
+  <!-- Interactive Mustahik Cases Table / Queue -->
+  <div class="overflow-x-auto rounded-control border border-hairline">
+    <table class="w-full text-left text-xs">
+      <thead class="bg-canvas border-b border-hairline text-fog uppercase tracking-wider text-[11px]">
+        <tr>
+          <th class="py-3 px-4 font-bold">Mustahik &amp; NIK</th>
+          <th class="py-3 px-4 font-bold">Lokasi (Kecamatan/Desa)</th>
+          <th class="py-3 px-4 font-bold">Usulan Program BAZNAS</th>
+          <th class="py-3 px-4 font-bold text-center">Had Kifayah</th>
+          <th class="py-3 px-4 font-bold text-center">Kuadran CIBEST</th>
+          <th class="py-3 px-4 font-bold text-right">Rekomendasi Plafon</th>
+          <th class="py-3 px-4 font-bold text-center">Aksi Asesor</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-hairline bg-paper-s4 text-charcoal" id="table-mustahik-body">
+        <!-- Mustahik 1 (Active) -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row active bg-primary-light/20" data-case="1">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span>Ibu Ai Siti Rohimah</span>
+              <span class="px-2 py-0.5 rounded-pill bg-primary/10 text-primary text-[10px] font-bold">Aktif Dilihat</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204126508920004 • Task SURV-2026-0412</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Cikoneng RT 03/RW 08</div>
+            <div class="text-[11px] text-fog">Desa Pamekaran, Kec. Soreang</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Peduli</span>
+            <span class="text-[11px] text-fog">Rutilahu Darurat &amp; Medis Lansia</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-ember-s4 text-sm">0.88</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 88%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-primary text-paper-s4 font-bold text-[10px] uppercase">Kuadran I</span>
+            <span class="text-[10px] text-fog block mt-0.5">Fakir Mutlak</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 3.500.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-primary text-paper-s4 font-semibold text-xs hover:bg-primary-hover transition-colors" data-case="1">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 2 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="2">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-warm"></span>
+              <span>Pak Ujang Suherman</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204091204780002 • Task SURV-2026-0413</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Sukalaksana RT 02/RW 05</div>
+            <div class="text-[11px] text-fog">Desa Panundaan, Kec. Ciwidey</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Makmur</span>
+            <span class="text-[11px] text-fog">Modal Usaha Bengkel &amp; Kursi Roda</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-amber-warm text-sm">0.74</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 74%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-canvas text-charcoal border border-hairline font-bold text-[10px] uppercase">Kuadran II</span>
+            <span class="text-[10px] text-fog block mt-0.5">Miskin Material</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 4.200.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="2">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 3 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="3">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span>Ibu Entin Supartini</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204184409850001 • Task SURV-2026-0414</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Babakan RT 04/RW 01</div>
+            <div class="text-[11px] text-fog">Desa Majakerta, Kec. Majalaya</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Cerdas</span>
+            <span class="text-[11px] text-fog">Beasiswa Santri Yatim &amp; Seragam</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-ember-s4 text-sm">0.65</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 65%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-primary text-paper-s4 font-bold text-[10px] uppercase">Kuadran I</span>
+            <span class="text-[10px] text-fog block mt-0.5">Fakir Yatim</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 2.400.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="3">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 4 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="4">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-ember-s4"></span>
+              <span>Pak Dadang Ruhiyat</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204221103730005 • Task SURV-2026-0415</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kel. Andir RT 01/RW 09</div>
+            <div class="text-[11px] text-fog">Kecamatan Baleendah</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Peduli</span>
+            <span class="text-[11px] text-fog">Tanggap Darurat Korban Banjir Citarum</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-ember-s4 text-sm">0.92</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 92%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-primary text-paper-s4 font-bold text-[10px] uppercase">Kuadran I</span>
+            <span class="text-[10px] text-fog block mt-0.5">Darurat Bencana</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 5.000.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="4">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 5 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="5">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span>Ibu Hj. Kokom Komariah</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204155106680003 • Task SURV-2026-0416</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Pasirhuni RT 03/RW 04</div>
+            <div class="text-[11px] text-fog">Desa Banjaran Wetan, Kec. Banjaran</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Sehat</span>
+            <span class="text-[11px] text-fog">Subsidi Cuci Darah RSUD Otista</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-ember-s4 text-sm">0.81</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 81%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-primary text-paper-s4 font-bold text-[10px] uppercase">Kuadran I</span>
+            <span class="text-[10px] text-fog block mt-0.5">Medis Kronis</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 3.000.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="5">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 6 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="6">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span>Pak Agus Sopian</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204091508760003 • Task SURV-2026-0417</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Babakan Jati RT 01/RW 03</div>
+            <div class="text-[11px] text-fog">Desa Lebakmuncang, Kec. Ciwidey</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Taqwa</span>
+            <span class="text-[11px] text-fog">Insentif Marbot &amp; Bisyarah Guru Ngaji</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-ember-s4 text-sm">0.72</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 72%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-primary text-paper-s4 font-bold text-[10px] uppercase">Kuadran I</span>
+            <span class="text-[10px] text-fog block mt-0.5">Fisabilillah</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 2.400.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="6">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 7 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="7">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-warm"></span>
+              <span>Ibu Yayah Rodiah</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204154407810002 • Task SURV-2026-0418</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Sindangreret RT 02/RW 07</div>
+            <div class="text-[11px] text-fog">Desa Kiangroke, Kec. Banjaran</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Makmur</span>
+            <span class="text-[11px] text-fog">Mesin Jahit &amp; Modal Konveksi Difabel</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-amber-warm text-sm">0.68</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 68%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-canvas text-charcoal border border-hairline font-bold text-[10px] uppercase">Kuadran II</span>
+            <span class="text-[10px] text-fog block mt-0.5">Difabel Produktif</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 4.500.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="7">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+
+        <!-- Mustahik 8 -->
+        <tr class="hover:bg-primary-light/40 transition-colors cursor-pointer mustahik-row" data-case="8">
+          <td class="py-3.5 px-4">
+            <div class="font-bold text-graphite flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span>Ahmad Maulana</span>
+            </div>
+            <div class="text-[11px] font-mono text-fog mt-0.5">NIK: 3204281203080004 • Task SURV-2026-0419</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <div class="text-graphite font-medium">Kp. Cikopo RT 03/RW 06</div>
+            <div class="text-[11px] text-fog">Desa Tenjolaya, Kec. Cicalengka</div>
+          </td>
+          <td class="py-3.5 px-4">
+            <span class="font-semibold text-primary block">Bandung Cerdas</span>
+            <span class="text-[11px] text-fog">Beasiswa Santri Yatim Ponpes</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="font-mono font-bold text-ember-s4 text-sm">0.79</span>
+            <span class="text-[10px] text-fog block font-medium">Defisit 79%</span>
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <span class="px-2 py-1 rounded-pill bg-primary text-paper-s4 font-bold text-[10px] uppercase">Kuadran I</span>
+            <span class="text-[10px] text-fog block mt-0.5">Santri Yatim</span>
+          </td>
+          <td class="py-3.5 px-4 text-right font-mono font-bold text-graphite">
+            Rp 3.000.000
+          </td>
+          <td class="py-3.5 px-4 text-center">
+            <button class="btn-select-case px-3 py-1.5 rounded-control bg-canvas hover:bg-hairline text-charcoal font-semibold text-xs border border-hairline transition-colors" data-case="8">
+              Buka Berkas
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION: FORMULIR INPUT SURVEI FAKTUAL BARU (COLLAPSIBLE) -->
+<section id="form-survei-baru" class="bg-paper-s4 rounded-card border border-hairline p-7 hidden flex-col gap-5 shadow-sm">
+  <div class="flex items-center justify-between pb-3 border-b border-hairline">
+    <div class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-control bg-primary-light flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-lg">post_add</span>
+      </div>
+      <div>
+        <h3 class="font-bold text-base text-graphite">Formulir Asesmen Lapangan Baru</h3>
+        <p class="text-xs text-fog">Entri data faktual calon mustahik hasil tinjauan on-site surveyor BAZNAS</p>
+      </div>
+    </div>
+    <button id="btn-close-survei-form" type="button" class="p-1.5 rounded-control bg-canvas text-fog hover:text-graphite">
+      <span class="material-symbols-outlined text-base">close</span>
+    </button>
+  </div>
+  <form id="form-entry-survei" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+    <div>
+      <label class="block font-bold text-graphite mb-1">NIK Pemohon (Dukcapil 16 Digit)</label>
+      <input type="text" name="nik" placeholder="3204xxxxxxxxxxxx" required class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control font-mono focus:border-primary outline-none"/>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Nama Lengkap Kepala Keluarga</label>
+      <input type="text" name="nama" placeholder="Sesuai KTP / KK" required class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control focus:border-primary outline-none"/>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Nomor Kartu Keluarga (KK)</label>
+      <input type="text" name="nokk" placeholder="3204xxxxxxxxxxxx" required class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control font-mono focus:border-primary outline-none"/>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Kecamatan (Kab. Bandung)</label>
+      <select name="kecamatan" class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control focus:border-primary outline-none cursor-pointer">
+        <option value="Soreang">Soreang</option>
+        <option value="Ciwidey">Ciwidey</option>
+        <option value="Pasirjambu">Pasirjambu</option>
+        <option value="Rancabali">Rancabali</option>
+        <option value="Banjaran">Banjaran</option>
+        <option value="Baleendah">Baleendah</option>
+        <option value="Majalaya">Majalaya</option>
+        <option value="Cileunyi">Cileunyi</option>
+        <option value="Pangalengan">Pangalengan</option>
+        <option value="Ciparay">Ciparay</option>
+      </select>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Desa / Kampung / RT-RW</label>
+      <input type="text" name="alamat" placeholder="Kp. Sukamaju RT 01/RW 03" required class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control focus:border-primary outline-none"/>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Usulan Program BAZNAS</label>
+      <select name="program" class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control focus:border-primary outline-none cursor-pointer">
+        <option value="Bandung Peduli">Bandung Peduli (Rutilahu &amp; Kedaruratan)</option>
+        <option value="Bandung Sehat">Bandung Sehat (Bantuan Medis Lansia)</option>
+        <option value="Bandung Cerdas">Bandung Cerdas (Beasiswa &amp; Santri)</option>
+        <option value="Bandung Makmur">Bandung Makmur (Modal Usaha Mikro)</option>
+        <option value="Bandung Taqwa">Bandung Taqwa (Dai Dhuafa &amp; Guru Ngaji)</option>
+      </select>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Jumlah Tanggungan (Jiwa)</label>
+      <input type="number" min="1" max="15" value="4" name="tanggungan" class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control font-mono focus:border-primary outline-none"/>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Pendapatan Riil Bulanan (Rp)</label>
+      <input type="number" min="0" step="50000" value="650000" name="pendapatan" class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control font-mono focus:border-primary outline-none"/>
+    </div>
+    <div>
+      <label class="block font-bold text-graphite mb-1">Plafon Diajukan (Rp)</label>
+      <input type="number" min="500000" step="500000" value="3500000" name="plafon" class="w-full bg-canvas border border-hairline text-graphite px-3 py-2 rounded-control font-mono focus:border-primary outline-none"/>
+    </div>
+    <div class="md:col-span-3">
+      <label class="block font-bold text-graphite mb-1">Catatan Temuan Lapangan &amp; Kondisi Fisik Rumah</label>
+      <textarea rows="2" name="catatan" placeholder="Deskripsikan kondisi lantai, dinding bambu/bata, sanitasi jamban, serta riwayat penyakit kronis pemohon..." class="w-full bg-canvas border border-hairline text-graphite p-3 rounded-control focus:border-primary outline-none resize-none"></textarea>
+    </div>
+    <div class="md:col-span-3 flex items-center justify-end gap-3 pt-2">
+      <button type="button" id="btn-cancel-survei-form" class="px-4 py-2.5 rounded-control bg-canvas text-charcoal hover:bg-hairline text-xs font-semibold transition-colors">Batal</button>
+      <button type="submit" class="px-5 py-2.5 rounded-control bg-primary text-paper-s4 hover:bg-primary-hover text-xs font-bold transition-colors flex items-center gap-2">
+        <span class="material-symbols-outlined text-base">save</span>
+        <span>Simpan &amp; Masukkan ke Antrean</span>
+      </button>
+    </div>
+  </form>
+</section>
+
+<!-- Card 1: Concise Dossier & Meta (Awesomic 36px Rounded Paper Card) -->
+<section id="dossier-mustahik" class="bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col gap-6">
+<!-- Top Metadata Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-hairline">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-pill bg-amber-bg text-amber-warm text-xs font-semibold border border-amber-warm/20">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-warm"></span>
+              Verifikasi Faktual On-Site
+            </span>
+<span class="px-3 py-1.5 rounded-pill bg-canvas text-charcoal text-xs font-mono border border-hairline">
+              Task: <strong class="text-graphite font-semibold">SURV-2026-0412</strong>
+</span>
+<span class="px-3 py-1.5 rounded-pill bg-canvas text-charcoal text-xs font-mono border border-hairline">
+              Berkas: <strong class="text-graphite font-semibold">#DISB-2026-0891</strong>
+</span>
+</div>
+<div class="inline-flex items-center gap-1.5 text-xs text-ember-s4 font-medium px-3 py-1.5 rounded-pill bg-ember-bg border border-ember-s4/15">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+            SLA Lapangan: Sisa 5j 24m
+          </div>
+</div>
+<!-- Mustahik Profile Overview -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-5 flex items-center gap-4">
+<div class="relative w-20 h-20 rounded-[22px] overflow-hidden shrink-0 border border-hairline bg-canvas">
+<img class="w-full h-full object-cover" data-alt="Official portrait photograph of Ibu Ai Siti Rohimah, a 34-year-old Indonesian woman wearing a modest moss green hijab, standing indoors in simple rural home lighting, natural documentary photography style, high integrity citizen identification photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATQichzqipADZwNRr0SIeR9OfG6aY4VzAE-T2zPCNNX1IQQ9Q5y3TYXOR7InJl45c-236a2-8XSJWmxpZIFkeskPvvIqJqVlDT8NNpuCVkAWN0sh20TD5xH-fsL_8TeJYLxIulVQUXi8iFApfJWNtAQMRo-KDwwiTqqV5BHTJuvkmDFxaGe3V4y_Ce9SJXD-KJM-64zDpLNTJQLF1sW6EOljN329hEE51nskfp-hLFvjjaCzFbiHBZfA"/>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<h1 class="text-xl font-bold text-graphite tracking-tight truncate">Ibu Ai Siti Rohimah</h1>
+<span class="px-2 py-0.5 rounded-pill bg-primary-light text-primary text-[11px] font-semibold border border-primary/10">
+                  Dukcapil Valid
+                </span>
+</div>
+<p class="text-xs font-mono text-fog">NIK 3204126508920004 • KK 3204121901140008</p>
+<p class="text-xs text-fog flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-primary">location_on</span>
+                Kp. Cikoneng RT 03/RW 08, Desa Pamekaran, Soreang
+              </p>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col justify-between">
+<span class="text-[11px] uppercase tracking-wider font-semibold text-fog">Tanggungan</span>
+<p class="text-lg font-bold text-graphite mt-1">4 Jiwa</p>
+<span class="text-[11px] text-fog">3 Anak + 1 Lansia</span>
+</div>
+<div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col justify-between">
+<span class="text-[11px] uppercase tracking-wider font-semibold text-fog">Legalitas Lahan</span>
+<p class="text-lg font-bold text-graphite mt-1">AJB Pribadi</p>
+<span class="text-[11px] text-primary font-medium">Bebas Sengketa</span>
+</div>
+<div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col justify-between">
+<span class="text-[11px] uppercase tracking-wider font-semibold text-fog">Usulan Program</span>
+<p class="text-lg font-bold text-primary mt-1">Bandung Peduli</p>
+<span class="text-[11px] text-fog">Rutilahu Darurat</span>
+</div>
+</div>
+</div>
+
+<!-- Detailed Factual Inspection Data & Verification Sheet -->
+<div class="pt-4 border-t border-hairline space-y-4">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-base">fact_check</span>
+      <h3 class="text-xs font-bold uppercase tracking-wider text-graphite">Lembar Pemeriksaan Faktual Lapangan (On-Site Audit)</h3>
+    </div>
+    <span class="font-mono text-[11px] text-fog">Verifikator: Ahmad Fauzi, S.Sos. (ID: ASESOR-3204-12)</span>
+  </div>
+
+  <!-- 4-Grid Verification Attributes -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+    <div class="p-3.5 rounded-control bg-canvas border border-hairline space-y-1">
+      <span class="text-[10px] uppercase font-bold text-fog block">Status Legalitas Tanah</span>
+      <p class="font-bold text-graphite">AJB No. 114/Srg/2018</p>
+      <span class="text-[11px] text-primary font-medium flex items-center gap-1">
+        <span class="material-symbols-outlined text-xs">verified</span> Lahan Milik Sendiri (Bebas Sengketa)
+      </span>
+    </div>
+    <div class="p-3.5 rounded-control bg-canvas border border-hairline space-y-1">
+      <span class="text-[10px] uppercase font-bold text-fog block">Dimensi Fisik Rumah</span>
+      <p class="font-bold text-graphite">Luas Bangunan: 28 m²</p>
+      <span class="text-[11px] text-ember-s4 font-medium">7 m²/jiwa (Di bawah standar BPS 9 m²)</span>
+    </div>
+    <div class="p-3.5 rounded-control bg-canvas border border-hairline space-y-1">
+      <span class="text-[10px] uppercase font-bold text-fog block">Sanitasi &amp; Air Bersih</span>
+      <p class="font-bold text-graphite">Jamban Non-Septic Tank</p>
+      <span class="text-[11px] text-ember-s4 font-medium">Numpang MCK tetangga (jarak 80 m)</span>
+    </div>
+    <div class="p-3.5 rounded-control bg-canvas border border-hairline space-y-1">
+      <span class="text-[10px] uppercase font-bold text-fog block">Daya Listrik &amp; Status DTKS</span>
+      <p class="font-bold text-graphite">450 VA Bersubsidi</p>
+      <span class="text-[11px] text-primary font-semibold">DTKS: Non-PKH / Non-BPNT (Prioritas BAZNAS)</span>
+    </div>
+  </div>
+
+  <!-- Family Members Dependency Table -->
+  <div class="rounded-control border border-hairline overflow-hidden">
+    <div class="bg-canvas px-4 py-2 border-b border-hairline flex items-center justify-between text-xs">
+      <span class="font-bold text-graphite">Susunan Anggota Keluarga &amp; Beban Tanggungan (KK: 3204121901140008)</span>
+      <span class="font-mono text-[11px] text-fog">Total Tanggungan: 4 Jiwa</span>
+    </div>
+    <table class="w-full text-left text-xs">
+      <thead class="bg-paper-s4 border-b border-hairline text-fog uppercase text-[10px] font-bold tracking-wider">
+        <tr>
+          <th class="py-2 px-4">Nama Anggota Keluarga</th>
+          <th class="py-2 px-4">Hubungan</th>
+          <th class="py-2 px-4 text-center">Usia</th>
+          <th class="py-2 px-4">Pekerjaan / Sekolah</th>
+          <th class="py-2 px-4 text-right">Penghasilan (Rp)</th>
+          <th class="py-2 px-4">Kondisi Kesehatan</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-hairline bg-paper-s4 text-charcoal">
+        <tr>
+          <td class="py-2 px-4 font-bold text-graphite">Ibu Ai Siti Rohimah</td>
+          <td class="py-2 px-4 text-fog">Kepala Keluarga</td>
+          <td class="py-2 px-4 text-center font-mono">34 th</td>
+          <td class="py-2 px-4">Buruh Cuci Harian</td>
+          <td class="py-2 px-4 text-right font-mono font-semibold text-graphite">650.000</td>
+          <td class="py-2 px-4"><span class="px-2 py-0.5 rounded-pill bg-emerald-50 text-emerald-800 text-[10px] font-bold">Sehat</span></td>
+        </tr>
+        <tr class="bg-canvas/30">
+          <td class="py-2 px-4 font-bold text-graphite">Nek Maryati</td>
+          <td class="py-2 px-4 text-fog">Orang Tua (Ibu)</td>
+          <td class="py-2 px-4 text-center font-mono">68 th</td>
+          <td class="py-2 px-4">Lansia (Tidak Bekerja)</td>
+          <td class="py-2 px-4 text-right font-mono text-fog">0</td>
+          <td class="py-2 px-4"><span class="px-2 py-0.5 rounded-pill bg-ember-bg text-ember-s4 text-[10px] font-bold">Asam Urat Kronis</span></td>
+        </tr>
+        <tr>
+          <td class="py-2 px-4 font-bold text-graphite">Muhammad Rizki</td>
+          <td class="py-2 px-4 text-fog">Anak Kandung (1)</td>
+          <td class="py-2 px-4 text-center font-mono">14 th</td>
+          <td class="py-2 px-4">Siswa SMPN 1 Soreang (Kelas 8)</td>
+          <td class="py-2 px-4 text-right font-mono text-fog">0</td>
+          <td class="py-2 px-4"><span class="px-2 py-0.5 rounded-pill bg-emerald-50 text-emerald-800 text-[10px] font-bold">Tunggakan LKS</span></td>
+        </tr>
+        <tr class="bg-canvas/30">
+          <td class="py-2 px-4 font-bold text-graphite">Siti Aisyah</td>
+          <td class="py-2 px-4 text-fog">Anak Kandung (2)</td>
+          <td class="py-2 px-4 text-center font-mono">8 th</td>
+          <td class="py-2 px-4">Siswa SDN Pamekaran (Kelas 2)</td>
+          <td class="py-2 px-4 text-right font-mono text-fog">0</td>
+          <td class="py-2 px-4"><span class="px-2 py-0.5 rounded-pill bg-amber-warm/15 text-amber-warm text-[10px] font-bold">Risiko Malnutrisi</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+<!-- Card 2: GPS Telemetry & 4 Field Evidence Cards -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-7 reveal-on-scroll">
+<!-- GPS Location Card -->
+<div id="gps-geotagging" class="lg:col-span-4 bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col justify-between gap-5 card-hover-lift reveal-left">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-control bg-primary-light flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</div>
+<h3 class="font-bold text-base text-graphite">Geotagging GPS</h3>
+</div>
+<span class="px-2.5 py-1 rounded-pill bg-primary-light text-primary text-[11px] font-semibold">
+                Lock Aktif
+              </span>
+</div>
+<div class="relative rounded-control overflow-hidden border border-hairline h-40 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDS2Umx6lZ2mtvt2-p3SwBUX4mFx4M2sTM68dh-2R3m3kLcuCJGaizJCPzgdEMy_OfbXS37HAWVdtWkUFvD4TFNdUzMVsB8K42qHRYLqQVARltzmCA2okA842Hlb23LyODKI1Gavg2B2f0Fsf679AGvtvywJL5HMwl7eRc0LAo_TflhA3p60lA9mqjhH-0CZg9SRqLvAVD6PwbeZT4PYon9jJ7EUwV4g6Iz4smnpFkmPBWlFp2hW_QpLg')">
+<div class="absolute inset-0 bg-graphite/20"></div>
+<div class="absolute top-2.5 left-2.5 bg-paper-s4/95 backdrop-blur-md px-2.5 py-1 rounded-pill text-[11px] font-mono text-graphite border border-hairline">
+                RT 03 / RW 08 Cikoneng
+              </div>
+<div class="absolute bottom-2.5 right-2.5 bg-graphite/80 text-paper-s4 px-2 py-0.5 rounded-pill text-[10px] font-mono">
+                732 mdpl
+              </div>
+</div>
+<div class="grid grid-cols-2 gap-2 bg-canvas p-3.5 rounded-control border border-hairline text-xs font-mono">
+<div>
+<span class="text-[10px] text-fog uppercase block">Latitude</span>
+<span class="font-semibold text-graphite">-7.031254</span>
+</div>
+<div>
+<span class="text-[10px] text-fog uppercase block">Longitude</span>
+<span class="font-semibold text-graphite">107.518921</span>
+</div>
+<div class="mt-1">
+<span class="text-[10px] text-fog uppercase block">Akurasi</span>
+<span class="font-semibold text-primary">±3.2 meter</span>
+</div>
+<div class="mt-1">
+<span class="text-[10px] text-fog uppercase block">Timestamp</span>
+<span class="font-semibold text-graphite">11:30 WIB</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary-hover text-paper-s4 py-3 px-4 rounded-control text-sm font-semibold flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add_a_photo</span>
+            Ambil Foto Watermark GPS
+          </button>
+</div>
+<!-- 4 Geotagged Photo Proof Cards -->
+<div class="lg:col-span-8 bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col justify-between gap-5">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-bold text-base text-graphite">Bukti Fisik Faktual Lapangan</h3>
+<p class="text-xs text-fog mt-0.5">Dokumentasi forensik material bangunan dan konfirmasi pengurus RT</p>
+</div>
+<span class="text-xs font-mono font-medium text-fog px-3 py-1 rounded-pill bg-canvas border border-hairline">
+              4 Foto Terverifikasi
+            </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Photo 1 -->
+<div class="rounded-control border border-hairline overflow-hidden bg-canvas flex flex-col">
+<div class="h-36 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Ground-level photograph of a fragile Indonesian village dwelling in Soreang Bandung with sagging bamboo roof rafters, broken clay tiles covered in plastic sheeting, and rotted wooden support beams showing imminent collapse danger, realistic documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJeOCDd3cY2ILZvxOwaNXi5o06hDnwIU0-q-2Q0P8sV3LrTx2LZyW5neNzu5Fak176PmT9EePdmtiH4-8b_5NC3tfIuGNrk-udYP7y8XFINoOXXolfbyjYM01xLEYv0jc6LRQLI7FGYBYse-iQfxfDj5P2m0Orb-jNg_DKOJartCjIH59tnR3D9CVwIaLKE1T_kUaOJ9lPsyaLcPEGWwiM81rGSoPsiH8SNcZY4F862budDPOt-7tMvA"/>
+<span class="absolute bottom-2 left-2 bg-graphite/80 text-paper-s4 text-[10px] font-mono px-2 py-0.5 rounded-pill backdrop-blur-xs">
+                  #1 Struktur Atap
+                </span>
+</div>
+<div class="p-3 text-xs flex items-center justify-between bg-paper-s4">
+<span class="text-charcoal font-medium truncate">Rangka bambu lapuk 75% rawan roboh</span>
+<span class="material-symbols-outlined text-amber-warm text-[16px] shrink-0 ml-2">warning</span>
+</div>
+</div>
+<!-- Photo 2 -->
+<div class="rounded-control border border-hairline overflow-hidden bg-canvas flex flex-col">
+<div class="h-36 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Interior close-up photograph of poor living conditions in rural West Java, uneven damp dirt earth flooring with torn woven bamboo weave bilik walls showing gaping holes to the exterior, documentary amil survey photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3oaz3EFFggOnRSt7Sb9UUILpWYQOD15kgKybaY3VW3usbyM5cQJQQfZxutisvzlUAoz5uYjFnB45OJF4MXtBVtvpvOgCUVCQg6DVZsqRXizFlPlclC2fw7btdLy4l4x5jGcRPThD_GPuuszCj33p_7iYcjO1Ro4KivuoHhzG5cOSRETZkInd9ncQIGbxFvYJPNifNZFj33jp3wQ7gU2xrRl_U2wArMs-QsNhT_LjbTrSw1799LbIO3g"/>
+<span class="absolute bottom-2 left-2 bg-graphite/80 text-paper-s4 text-[10px] font-mono px-2 py-0.5 rounded-pill backdrop-blur-xs">
+                  #2 Lantai &amp; Bilik
+                </span>
+</div>
+<div class="p-3 text-xs flex items-center justify-between bg-paper-s4">
+<span class="text-charcoal font-medium truncate">Lantai tanah lembap, anyaman bolong</span>
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 ml-2">check_circle</span>
+</div>
+</div>
+<!-- Photo 3 -->
+<div class="rounded-control border border-hairline overflow-hidden bg-canvas flex flex-col">
+<div class="h-36 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Interior wide shot of a cramped modest bedroom in a Sundanese rural house with thin worn-out foam mattress laid directly over bare dirt ground, stacked clothes in plastic bags, and dim sunlight peering through cracked walls, authentic field assessment photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJVCUvG851vZ09lL-Doqw3d7HDb9m3wclKELBPXvpRSltpyV-HLOyU70qCh-ytn7QFId6zh_bCLjOv9m-5VvbLLo4nt3f-zq1yQYJpE21XMgBaCTy8PeqcTeo5NYDTITC2KbQxBRSQVfwQ_vHjOC3nLAGI34OSVWgTVa27Jrj3NA7eMugkdoP9IHGkjghNrEaLywT6qOa0V10vxodPJu2tvXxedVk6mDpZDLj-HJ7dL5x55iSHrWuLUw"/>
+<span class="absolute bottom-2 left-2 bg-graphite/80 text-paper-s4 text-[10px] font-mono px-2 py-0.5 rounded-pill backdrop-blur-xs">
+                  #3 Kamar Tidur
+                </span>
+</div>
+<div class="p-3 text-xs flex items-center justify-between bg-paper-s4">
+<span class="text-charcoal font-medium truncate">Tanpa ventilasi standar, 1 kasur 4 jiwa</span>
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 ml-2">check_circle</span>
+</div>
+</div>
+<!-- Photo 4 -->
+<div class="rounded-control border border-hairline overflow-hidden bg-canvas flex flex-col">
+<div class="h-36 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Documentary photograph of field surveyor amil in professional green BAZNAS vest holding a survey clipboard, sitting next to a local Indonesian neighborhood head Ketua RT and the applicant Ibu Ai in front of the rural home, solemn and cooperative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDItbTA_2QQHfj-dYkEO0Q4BxSrQLFUOpJli9igzz_pxcUE33I8pqzjW4G8o2XVE23fJ6kyp64mFmoALrtrHQVmEkORLpDAlfZZ1A-GbH8hixNMyr6Q58eYjU3VMybQ2MzuZjze8dFIdk0zCx1wVPG_7E-8yxrU4jhG5C5igfFy__r7KbrUizwLelrx0JXwHqjPCrUaCZGXaa8-pYeFN1WGhIVplbL4UqeRwwQgeg7EQnJ3SGOxHomekA"/>
+<span class="absolute bottom-2 left-2 bg-graphite/80 text-paper-s4 text-[10px] font-mono px-2 py-0.5 rounded-pill backdrop-blur-xs">
+                  #4 Berita Acara RT
+                </span>
+</div>
+<div class="p-3 text-xs flex items-center justify-between bg-paper-s4">
+<span class="text-charcoal font-medium truncate">Saksi: Bpk. Dadang Kusnadi (Ketua RT 03)</span>
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 ml-2">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Card 3: Had Kifayah Calculation Comparison -->
+<section class="bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col gap-6 reveal-on-scroll card-hover-lift">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h2 class="text-lg font-bold text-graphite tracking-tight">Kalkulasi Had Kifayah (Standar BAZNAS RI)</h2>
+<p class="text-xs text-fog">Parameter Wilayah Kab. Bandung • Standar Keputusan BAZNAS RI No. 22/2023</p>
+</div>
+<span class="px-3 py-1.5 rounded-pill bg-primary-light text-primary text-xs font-semibold self-start sm:self-auto border border-primary/10">
+            Kategori: Fakir / Miskin Ekstrem
+          </span>
+</div>
+<!-- Metric Comparison Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 stagger-container">
+<!-- Standard -->
+<div class="bg-canvas border border-hairline p-5 rounded-control flex flex-col justify-between">
+<span class="text-xs uppercase tracking-wider font-semibold text-fog">Kifayah Standar</span>
+<div class="my-2">
+<span class="text-2xl font-bold font-mono text-graphite">Rp 3.980.000</span>
+<p class="text-xs text-fog mt-0.5">Kebutuhan dasar 4 jiwa / bln</p>
+</div>
+<span class="text-[11px] font-mono text-fog">Norma Kab. Bandung</span>
+</div>
+<!-- Real Income -->
+<div class="bg-canvas border border-hairline p-5 rounded-control flex flex-col justify-between">
+<span class="text-xs uppercase tracking-wider font-semibold text-fog">Pendapatan Riil</span>
+<div class="my-2">
+<span class="text-2xl font-bold font-mono text-ember-s4">Rp 950.000</span>
+<p class="text-xs text-fog mt-0.5">Buruh serabutan tidak menentu</p>
+</div>
+<span class="text-[11px] font-mono text-ember-s4 font-medium">Hanya 23.8% dari Kebutuhan</span>
+</div>
+<!-- Deficit -->
+<div class="bg-canvas border border-hairline p-5 rounded-control flex flex-col justify-between">
+<span class="text-xs uppercase tracking-wider font-semibold text-fog">Defisit Kebutuhan</span>
+<div class="my-2">
+<span class="text-2xl font-bold font-mono text-amber-warm">-Rp 3.030.000</span>
+<p class="text-xs text-fog mt-0.5">Kesenjangan pemenuhan primer</p>
+</div>
+<span class="text-[11px] font-mono text-amber-warm font-medium">Defisit Kritis (76.2%)</span>
+</div>
+<!-- Score Card with Bold 0.88 Pill -->
+<div class="bg-primary text-paper-s4 p-5 rounded-control flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-wider font-medium text-paper-s4/80">Indeks Kelayakan</span>
+<span class="material-symbols-outlined text-paper-s4/70 text-[20px]">verified</span>
+</div>
+<div class="my-2">
+<div class="inline-flex items-baseline gap-2 bg-paper-s4/15 px-3 py-1 rounded-pill">
+<span class="text-3xl font-bold font-mono text-paper-s4">0.88</span>
+<span class="text-xs text-paper-s4/80 font-mono">/ 1.00</span>
+</div>
+<p class="text-xs text-paper-s4/90 mt-1.5 font-medium">Prioritas Bantuan Sangat Tinggi</p>
+</div>
+<div class="w-full bg-paper-s4/20 rounded-full h-1.5 overflow-hidden">
+<div class="bg-paper-s4 h-full rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+</div>
+<!-- Simplified Component Breakdown Table -->
+<div id="had-kifayah-table" class="border border-hairline rounded-control overflow-hidden">
+<table class="w-full text-left text-xs border-collapse">
+<thead class="bg-canvas border-b border-hairline text-fog uppercase tracking-wider">
+<tr>
+<th class="py-3 px-4 font-semibold">Komponen Kebutuhan</th>
+<th class="py-3 px-4 font-semibold text-right">Norma</th>
+<th class="py-3 px-4 font-semibold text-right">Aktual Pemohon</th>
+<th class="py-3 px-4 font-semibold text-center">Defisit</th>
+<th class="py-3 px-4 font-semibold">Temuan Lapangan</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-hairline bg-paper-s4 text-charcoal">
+<tr>
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">restaurant</span>
+                  Pangan Pokok
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">1.650.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">520.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-68.5%</td>
+<td class="py-2.5 px-4 text-fog">Nasi garam &amp; tahu tempe, balita risiko stunting</td>
+</tr>
+<tr class="bg-canvas/40">
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-amber-warm">roofing</span>
+                  Papan &amp; Sanitasi
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">850.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">110.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-87.1%</td>
+<td class="py-2.5 px-4 text-fog">Tanpa MCK, atap bambu lapuk membahayakan jiwa</td>
+</tr>
+<tr>
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">school</span>
+                  Pendidikan Anak
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">550.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">120.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-78.2%</td>
+<td class="py-2.5 px-4 text-fog">Tunggakan buku LKS &amp; seragam anak SMP</td>
+</tr>
+<tr class="bg-canvas/40">
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-amber-warm">medical_services</span>
+                  Kesehatan Lansia
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">400.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">130.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-67.5%</td>
+<td class="py-2.5 px-4 text-fog">Ibu lansia asam urat kronis, terkendala transport faskes</td>
+</tr>
+<tr>
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">checkroom</span>
+                  Sandang / Pakaian
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">280.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">60.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-78.6%</td>
+<td class="py-2.5 px-4 text-fog">Pakaian lungsuran warga, anak hanya miliki 1 set seragam</td>
+</tr>
+<tr class="bg-canvas/40">
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-amber-warm">directions_bus</span>
+                  Transportasi &amp; Mobilitas
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">250.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">40.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-84.0%</td>
+<td class="py-2.5 px-4 text-fog">Jalan kaki ke tempat kerja buruh cuci, tanpa sepeda motor</td>
+</tr>
+<tr>
+<td class="py-2.5 px-4 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">mosque</span>
+                  Ibadah &amp; Sosial Kemasyarakatan
+                </td>
+<td class="py-2.5 px-4 text-right font-mono">150.000</td>
+<td class="py-2.5 px-4 text-right font-mono text-ember-s4 font-semibold">20.000</td>
+<td class="py-2.5 px-4 text-center font-mono text-ember-s4">-86.7%</td>
+<td class="py-2.5 px-4 text-fog">Mukena usang, iuran kebersihan RT tertunggak 4 bulan</td>
+</tr>
+</tbody>
+<tfoot class="bg-canvas border-t-2 border-hairline font-bold text-xs">
+<tr>
+<td class="py-3 px-4 text-graphite font-bold">TOTAL NORMA HAD KIFAYAH (4 JIWA)</td>
+<td class="py-3 px-4 text-right font-mono text-graphite text-sm">Rp 4.130.000</td>
+<td class="py-3 px-4 text-right font-mono text-ember-s4 font-bold text-sm">Rp 1.000.000</td>
+<td class="py-3 px-4 text-center font-mono text-ember-s4 font-bold text-sm">-75,8%</td>
+<td class="py-3 px-4 text-primary font-bold">DEFISIT FAKIR MUTLAK (SK BAZNAS RI)</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</section>
+
+<!-- SECTION: KALKULATOR HAD KIFAYAH INTERAKTIF STANDAR BAZNAS RI -->
+<section id="kalkulator-kifayah" class="bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col gap-6 shadow-xs reveal-on-scroll card-hover-lift">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-hairline">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-control bg-primary-light flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-xl">calculate</span>
+      </div>
+      <div>
+        <h3 class="font-bold text-base text-graphite">Kalkulator Had Kifayah Interaktif (Standar Kab. Bandung)</h3>
+        <p class="text-xs text-fog">Berdasarkan Keputusan Ketua BAZNAS RI No. 22 Tahun 2024 (Norma Rp 825.000/jiwa/bulan)</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="px-3 py-1 rounded-pill bg-primary-light text-primary font-mono text-xs font-bold">Node 3204 Engine</span>
+      <button id="btn-reset-kifayah" type="button" class="px-3 py-1 rounded-control bg-canvas hover:bg-hairline text-charcoal text-xs font-semibold border border-hairline transition-colors">
+        Reset Standar
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-start">
+    <!-- Left Column: Sliders & Parameter Inputs -->
+    <div class="lg:col-span-7 flex flex-col gap-5">
+      <!-- Input 1: Jumlah Anggota Keluarga -->
+      <div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col gap-2">
+        <div class="flex items-center justify-between text-xs">
+          <label class="font-bold text-graphite flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-primary text-base">group</span>
+            <span>Jumlah Jiwa dalam KK (Tanggungan)</span>
+          </label>
+          <span class="font-mono font-bold text-primary text-sm" id="calc-jiwa-display">4 Jiwa</span>
+        </div>
+        <input type="range" min="1" max="10" value="4" step="1" id="calc-input-jiwa" class="w-full accent-primary cursor-pointer"/>
+        <div class="flex justify-between text-[10px] text-fog font-mono">
+          <span>1 Jiwa</span>
+          <span>4 Jiwa (Rata-rata)</span>
+          <span>10 Jiwa</span>
+        </div>
+      </div>
+
+      <!-- Input 2: Kebutuhan Pangan Pokok -->
+      <div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col gap-2">
+        <div class="flex items-center justify-between text-xs">
+          <label class="font-bold text-graphite flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-primary text-base">restaurant</span>
+            <span>Konsumsi Pangan Pokok Aktual (Rp/bulan)</span>
+          </label>
+          <span class="font-mono font-bold text-graphite text-sm" id="calc-pangan-display">Rp 520.000</span>
+        </div>
+        <input type="range" min="200000" max="3000000" value="520000" step="20000" id="calc-input-pangan" class="w-full accent-primary cursor-pointer"/>
+        <div class="flex justify-between text-[10px] text-fog font-mono">
+          <span>Rp 200 Rb</span>
+          <span>Norma: Rp 1.650.000</span>
+          <span>Rp 3,0 Jt</span>
+        </div>
+      </div>
+
+      <!-- Input 3: Kebutuhan Tempat Tinggal & Sanitasi -->
+      <div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col gap-2">
+        <div class="flex items-center justify-between text-xs">
+          <label class="font-bold text-graphite flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-amber-warm text-base">roofing</span>
+            <span>Papan, Listrik &amp; Air Bersih (Rp/bulan)</span>
+          </label>
+          <span class="font-mono font-bold text-graphite text-sm" id="calc-papan-display">Rp 110.000</span>
+        </div>
+        <input type="range" min="50000" max="2000000" value="110000" step="10000" id="calc-input-papan" class="w-full accent-primary cursor-pointer"/>
+      </div>
+
+      <!-- Input 4: Kebutuhan Pendidikan & Kesehatan -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-3.5 rounded-control bg-canvas border border-hairline flex flex-col gap-1.5">
+          <label class="font-bold text-graphite text-xs flex items-center gap-1">
+            <span class="material-symbols-outlined text-primary text-sm">school</span>
+            <span>Pendidikan Anak</span>
+          </label>
+          <input type="number" min="0" step="50000" value="120000" id="calc-input-pendidikan" class="bg-paper-s4 border border-hairline px-3 py-2 rounded-control font-mono text-xs font-semibold text-graphite outline-none focus:border-primary"/>
+        </div>
+        <div class="p-3.5 rounded-control bg-canvas border border-hairline flex flex-col gap-1.5">
+          <label class="font-bold text-graphite text-xs flex items-center gap-1">
+            <span class="material-symbols-outlined text-amber-warm text-sm">medical_services</span>
+            <span>Kesehatan &amp; Transport</span>
+          </label>
+          <input type="number" min="0" step="50000" value="130000" id="calc-input-kesehatan" class="bg-paper-s4 border border-hairline px-3 py-2 rounded-control font-mono text-xs font-semibold text-graphite outline-none focus:border-primary"/>
+        </div>
+      </div>
+
+      <!-- Input 5: Pendapatan Riil Keluarga -->
+      <div class="p-4 rounded-control bg-primary-light/40 border border-primary/20 flex flex-col gap-2">
+        <div class="flex items-center justify-between text-xs">
+          <label class="font-bold text-primary flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-base">payments</span>
+            <span>Total Pendapatan Riil Keluarga (Rp/bulan)</span>
+          </label>
+          <span class="font-mono font-bold text-primary text-base" id="calc-pendapatan-display">Rp 650.000</span>
+        </div>
+        <input type="range" min="0" max="4000000" value="650000" step="50000" id="calc-input-pendapatan" class="w-full accent-primary cursor-pointer"/>
+        <div class="flex justify-between text-[10px] text-fog font-mono">
+          <span>Rp 0 (Nol Pendapatan)</span>
+          <span>Garis Kemiskinan: Rp 1,8 Jt</span>
+          <span>Rp 4,0 Jt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Live Diagnostic Result Card -->
+    <div class="lg:col-span-5 bg-canvas border border-hairline rounded-control p-6 flex flex-col justify-between gap-5 sticky top-24">
+      <div class="space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-hairline">
+          <span class="text-xs uppercase font-bold text-fog tracking-wider">Hasil Kalkulasi Faktual</span>
+          <span class="px-2 py-0.5 rounded-pill bg-ember-bg text-ember-s4 font-mono text-[10px] font-bold" id="calc-badge-status">DEFISIT KRITIS</span>
+        </div>
+
+        <!-- Norma Kebutuhan vs Aktual -->
+        <div class="space-y-2.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-fog">Standar Had Kifayah (Norma):</span>
+            <span class="font-mono font-bold text-graphite text-sm" id="calc-res-norma">Rp 3.300.000</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-fog">Aktual Pemenuhan Keluarga:</span>
+            <span class="font-mono font-semibold text-graphite" id="calc-res-aktual">Rp 880.000</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-fog">Pendapatan Riil Keluarga:</span>
+            <span class="font-mono font-semibold text-primary" id="calc-res-pendapatan">Rp 650.000</span>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-hairline">
+            <span class="font-bold text-graphite">Defisit Kebutuhan Dasar:</span>
+            <span class="font-mono font-extrabold text-ember-s4 text-base" id="calc-res-defisit">-Rp 2.650.000</span>
+          </div>
+        </div>
+
+        <!-- Indeks Score Box -->
+        <div class="p-4 rounded-control bg-primary text-paper-s4 flex items-center justify-between">
+          <div>
+            <span class="text-[11px] text-paper-s4/80 uppercase font-medium">Skor Defisit Kifayah</span>
+            <div class="text-3xl font-extrabold font-mono mt-0.5" id="calc-res-indeks">0.88</div>
+          </div>
+          <div class="text-right">
+            <span class="px-2.5 py-1 rounded-pill bg-paper-s4 text-primary text-[11px] font-bold uppercase" id="calc-res-asnaf">
+              Asnaf Fakir
+            </span>
+            <p class="text-[10px] text-paper-s4/80 mt-1 font-medium">Prioritas Salur Sangat Tinggi</p>
+          </div>
+        </div>
+
+        <!-- Rekomendasi Program & Plafon -->
+        <div class="p-3.5 rounded-control bg-paper-s4 border border-hairline space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-fog">Program Rekomendasi:</span>
+            <strong class="text-primary font-bold" id="calc-res-program">Bandung Peduli</strong>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-fog">Plafon Syar'i Direkomendasikan:</span>
+            <strong class="font-mono font-bold text-graphite" id="calc-res-plafon">Rp 3.500.000</strong>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-apply-kifayah-to-case" type="button" class="w-full bg-primary hover:bg-primary-hover text-paper-s4 py-3 px-4 rounded-control text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-xs active:scale-95">
+        <span class="material-symbols-outlined text-base">fact_check</span>
+        <span>Terapkan Skor ke Berita Acara Kasus</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Card 4: Simplified CIBEST 4-Quadrant Visual -->
+<section id="cibest-model" class="grid grid-cols-1 lg:grid-cols-12 gap-7">
+<div class="lg:col-span-6 bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col justify-between gap-5">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-base text-graphite">Model Kesejahteraan CIBEST</h3>
+<span class="text-xs text-fog font-mono">Standar BAZNAS</span>
+</div>
+<p class="text-xs text-fog mt-0.5">Klasifikasi multidimensi nilai spiritual (SV) dan materiil (MV)</p>
+<!-- Clean 2x2 Grid Visual -->
+<div class="mt-5 grid grid-cols-2 gap-3">
+<!-- Quadrant II -->
+<div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col justify-between min-h-[90px]">
+<span class="text-[10px] font-semibold text-fog uppercase">Kuadran II</span>
+<p class="text-xs font-bold text-charcoal">Kemiskinan Material</p>
+<span class="text-[10px] text-fog font-mono">SV &gt; 3.0 • MV &lt; Garis Kifayah</span>
+</div>
+<!-- Quadrant IV -->
+<div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col justify-between min-h-[90px]">
+<span class="text-[10px] font-semibold text-fog uppercase">Kuadran IV</span>
+<p class="text-xs font-bold text-charcoal">Keluarga Sejahtera</p>
+<span class="text-[10px] text-fog font-mono">SV &gt; 3.0 • MV ≥ Garis Kifayah</span>
+</div>
+<!-- Quadrant I (Active Highlight) -->
+<div class="p-4 rounded-control bg-primary text-paper-s4 border border-primary flex flex-col justify-between min-h-[90px] relative">
+<span class="absolute top-2 right-2 px-2 py-0.5 rounded-pill bg-paper-s4 text-primary text-[9px] font-bold uppercase">
+                  Posisi Kasus
+                </span>
+<span class="text-[10px] font-semibold text-paper-s4/80 uppercase">Kuadran I</span>
+<p class="text-xs font-bold text-paper-s4">Kemiskinan Mutlak</p>
+<span class="text-[10px] text-paper-s4/80 font-mono">Material &amp; Sanitasi Defisit</span>
+</div>
+<!-- Quadrant III -->
+<div class="p-4 rounded-control bg-canvas border border-hairline flex flex-col justify-between min-h-[90px]">
+<span class="text-[10px] font-semibold text-fog uppercase">Kuadran III</span>
+<p class="text-xs font-bold text-charcoal">Kemiskinan Spiritual</p>
+<span class="text-[10px] text-fog font-mono">SV &lt; 3.0 • MV ≥ Garis Kifayah</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-canvas rounded-control border border-hairline flex items-center justify-between text-xs">
+<span class="text-fog">Skor Komposit CIBEST:</span>
+<span class="font-mono font-bold text-ember-s4">0.18 (Rentan Multidimensi)</span>
+</div>
+</div>
+<!-- Syariah & Diagnostic Insights -->
+<div class="lg:col-span-6 bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col justify-between gap-5">
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-base text-graphite">Temuan Diagnostik &amp; Syariah</h3>
+<div class="flex flex-col gap-3">
+<div class="p-3.5 rounded-control bg-canvas border border-hairline flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div class="text-xs">
+<strong class="text-graphite block">Ibadah Salat Terjaga</strong>
+<p class="text-fog mt-0.5">Keluarga konsisten salat fardhu, kendala utama air bersih untuk wudhu karena belum ada MCK pribadi.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-control bg-canvas border border-hairline flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">school</span>
+<div class="text-xs">
+<strong class="text-graphite block">Pendidikan Agama Anak Aktif</strong>
+<p class="text-fog mt-0.5">2 anak rutin mengaji di MDT Al-Ikhlas Soreang setiap sore. Membutuhkan sarana mukena dan Al-Qur'an.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-control bg-canvas border border-hairline flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-warm text-[18px] shrink-0 mt-0.5">warning</span>
+<div class="text-xs">
+<strong class="text-amber-warm block">Ancaman Roboh Saat Cuaca Ekstrem</strong>
+<p class="text-fog mt-0.5">Surveyor merekomendasikan intervensi cepat tanggap material seng/bambu sebelum musim penghujan lebat.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 text-xs">
+<div class="p-3 rounded-control bg-canvas border border-hairline text-center">
+<span class="text-fog block text-[11px]">Rekomendasi Spiritual</span>
+<strong class="text-primary mt-1 block">Paket Alat Salat &amp; Quran</strong>
+</div>
+<div class="p-3 rounded-control bg-canvas border border-hairline text-center">
+<span class="text-fog block text-[11px]">Intervensi Terdekat</span>
+<strong class="text-charcoal mt-1 block">Rutilahu Cepat Tanggap</strong>
+</div>
+</div>
+
+<!-- CIBEST Scoring Matrix Table -->
+<div class="p-4 rounded-control bg-canvas border border-hairline space-y-2">
+  <div class="flex items-center justify-between text-xs pb-1 border-b border-hairline">
+    <span class="font-bold text-graphite">Matriks Penilaian Spiritual (SV) vs Material (MV)</span>
+    <span class="font-mono text-[11px] text-primary font-bold">SV: 3.6 / 5.0 • MV: 0.24</span>
+  </div>
+  <table class="w-full text-left text-[11px]">
+    <thead>
+      <tr class="text-fog uppercase text-[9px] font-bold border-b border-hairline">
+        <th class="py-1">Indikator CIBEST</th>
+        <th class="py-1 text-center">Standar</th>
+        <th class="py-1 text-center">Skor Kasus</th>
+        <th class="py-1">Keterangan Verifikasi</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-hairline">
+      <tr>
+        <td class="py-1.5 font-medium text-graphite">Salat Fardhu 5 Waktu</td>
+        <td class="py-1.5 text-center font-mono">3.0</td>
+        <td class="py-1.5 text-center font-mono font-bold text-primary">4.2</td>
+        <td class="py-1.5 text-fog">Keluarga konsisten salat di rumah &amp; musala</td>
+      </tr>
+      <tr>
+        <td class="py-1.5 font-medium text-graphite">Puasa Ramadhan</td>
+        <td class="py-1.5 text-center font-mono">3.0</td>
+        <td class="py-1.5 text-center font-mono font-bold text-primary">5.0</td>
+        <td class="py-1.5 text-fog">Menjalankan penuh bersama keluarga</td>
+      </tr>
+      <tr>
+        <td class="py-1.5 font-medium text-graphite">Pendidikan Quran Anak</td>
+        <td class="py-1.5 text-center font-mono">3.0</td>
+        <td class="py-1.5 text-center font-mono font-bold text-primary">4.0</td>
+        <td class="py-1.5 text-fog">2 anak rutin mengaji di MDT Al-Ikhlas</td>
+      </tr>
+      <tr>
+        <td class="py-1.5 font-medium text-graphite">Kecukupan Materi (MV)</td>
+        <td class="py-1.5 text-center font-mono">1.0</td>
+        <td class="py-1.5 text-center font-mono font-bold text-ember-s4">0.24</td>
+        <td class="py-1.5 text-ember-s4 font-semibold">Defisit Kritis (Di bawah Garis Kifayah)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</section>
+<!-- Card 5: Streamlined Disposition Form -->
+<section class="bg-paper-s4 rounded-card border border-hairline p-7 flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-hairline">
+<div>
+<h2 class="text-lg font-bold text-graphite tracking-tight">Rekomendasi Disposisi Surveyor</h2>
+<p class="text-xs text-fog">Berita Acara Lapangan untuk Pleno Pendistribusian BAZNAS Soreang</p>
+</div>
+<span class="text-xs font-mono text-fog">Standar PSAK 109</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-graphite">1. Klasifikasi Asnaf</label>
+<select class="w-full bg-canvas border border-hairline text-graphite py-2.5 px-3.5 rounded-control text-xs outline-none focus:border-primary">
+<option selected="">Fakir (Prioritas 1 - Tidak Ada Kecukupan Dasar)</option>
+<option>Miskin (Berpenghasilan Tapi Defisit Kifayah)</option>
+<option>Gharimin (Terlilit Utang Pengobatan)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-graphite">2. Usulan Program</label>
+<select class="w-full bg-canvas border border-hairline text-graphite py-2.5 px-3.5 rounded-control text-xs outline-none focus:border-primary">
+<option selected="">Bandung Peduli - Rutilahu &amp; Bantuan Mendesak</option>
+<option>Bandung Sehat - Bantuan Medis Lansia Dhuafa</option>
+<option>Bandung Cerdas - Beasiswa Pelajar</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-graphite">3. Plafon Bantuan Direkomendasikan</label>
+<select class="w-full bg-canvas border border-hairline text-graphite py-2.5 px-3.5 rounded-control text-xs outline-none focus:border-primary">
+<option>Tier 1: Bantuan Sembako Darurat (Rp 1.000.000)</option>
+<option selected="">Tier 2: Tanggap Darurat &amp; Medis Lansia (Rp 3.500.000)</option>
+<option>Tier 3: Renovasi Penuh Rutilahu (Rp 20.000.000)</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-graphite">Catatan Pertimbangan Surveyor</label>
+<textarea class="w-full bg-canvas border border-hairline text-graphite p-3.5 rounded-control text-xs outline-none focus:border-primary leading-relaxed resize-none" rows="2">Kondisi atap mendesak diperbaiki untuk keselamatan jiwa. Direkomendasikan intervensi cepat tanggap material (Rp 3.500.000) serta santunan medis lansia, lalu diajukan ke SK Rutilahu Kabupaten Bandung TA 2026 Tahap I.</textarea>
+</div>
+<div class="bg-canvas border border-hairline rounded-control p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<label class="flex items-center gap-2.5 text-xs text-charcoal cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 border-hairline cursor-pointer" type="checkbox"/>
+<span><strong>Pakta Integritas:</strong> Data survei faktual, GPS, dan foto valid tanpa gratifikasi.</span>
+</label>
+<div class="flex items-center gap-2.5 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-4 py-2.5 rounded-control border border-hairline bg-paper-s4 text-charcoal hover:bg-canvas text-xs font-semibold transition-colors" type="button">
+              Simpan Draf
+            </button>
+<button class="flex-1 sm:flex-none px-5 py-2.5 rounded-control bg-primary hover:bg-primary-hover text-paper-s4 text-xs font-bold flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">send</span>
+              Kirim Berita Acara (TTE)
+            </button>
+</div>
+</div>
+</section>
+
+  </div>
+  
+</section>

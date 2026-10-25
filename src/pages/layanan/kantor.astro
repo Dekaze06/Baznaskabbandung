@@ -1,0 +1,441 @@
+---
+import PublicLayout from '../../layouts/PublicLayout.astro';
+---
+
+<PublicLayout 
+  title="Kantor Layanan & Direktori 31 UPZ Kecamatan - BAZNAS Kabupaten Bandung"
+  description="Pusat layanan muzaki dan mustahik BAZNAS Kabupaten Bandung di Soreang, formulir penjadwalan jemput zakat, konsultasi syariah, dan direktori lengkap 31 UPZ kantor kecamatan."
+>
+  <main class="flex-1 bg-[#fcfcfc] py-8 lg:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 space-y-12">
+      
+      <!-- BREADCRUMB & HEADER -->
+      <section class="space-y-6">
+        <nav class="flex items-center gap-2 text-xs text-[#71717a] font-medium">
+          <a href="/" class="hover:text-[#064e3b] transition-colors">Beranda</a>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span>Layanan</span>
+          <span class="material-symbols-outlined text-xs">chevron_right</span>
+          <span class="text-[#09090b] font-semibold">Kantor Layanan &amp; UPZ</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-[#e4e4e7] pb-8">
+          <div class="max-w-3xl space-y-3">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#09090b] tracking-tight">
+              Pusat Pelayanan ZIS &amp; Gerai Kewilayahan
+            </h1>
+            <p class="text-sm sm:text-base text-[#52525b] leading-relaxed">
+              Kunjungi Kantor Sekretariat Utama di Soreang, manfaatkan fasilitas jemput zakat langsung ke kediaman/kantor Anda, atau hubungi 31 Unit Pengumpul Zakat (UPZ) kecamatan terdekat se-Kabupaten Bandung.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <button onclick="document.getElementById('form-jemput-zakat')?.scrollIntoView({ behavior: 'smooth' })" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-xs active:scale-95">
+              <span class="material-symbols-outlined text-base">local_shipping</span>
+              <span>Jadwalkan Jemput Zakat</span>
+            </button>
+            <a href="https://maps.google.com/?q=BAZNAS+Kabupaten+Bandung+Soreang" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold transition-all shadow-xs">
+              <span class="material-symbols-outlined text-base text-[#064e3b]">directions</span>
+              <span>Petunjuk Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- KANTOR PUSAT UTAMA & LAYANAN JEMPUT ZAKAT -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: Kantor Sekretariat Utama (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-6 shadow-xs flex flex-col justify-between">
+          <div class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#f4f4f5] pb-5">
+              <div>
+                <h2 class="text-2xl font-bold text-[#09090b]">Gedung BAZNAS Kabupaten Bandung</h2>
+                <p class="text-xs text-[#71717a] mt-0.5">Pusat Layanan Konsultasi Syariah, Penghimpunan, &amp; Layanan Mustahik</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-xs font-bold font-mono self-start sm:self-center border border-[#064e3b]/20">
+                Buka Senin - Jumat
+              </span>
+            </div>
+
+            <!-- Visual Snapshot Gedung -->
+            <div class="rounded-2xl overflow-hidden border border-[#e4e4e7] aspect-16/7 bg-[#f4f4f5] relative group">
+              <img 
+                src="/images/tentang-gedung.webp" 
+                alt="Gedung Kantor BAZNAS Kabupaten Bandung di Kompleks Pemkab Soreang" 
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4 text-white text-xs font-medium">
+                Kompleks Pemkab Bandung, Soreang 40911
+              </div>
+            </div>
+
+            <!-- Detail Informasi Kontak & Jam Pelayanan -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#52525b]">
+              <div class="space-y-1.5 p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+                <div class="flex items-center gap-2 font-bold text-[#09090b]">
+                  <span class="material-symbols-outlined text-base text-[#064e3b]">location_on</span>
+                  <span>Alamat Sekretariat:</span>
+                </div>
+                <p class="text-[11px] leading-relaxed">
+                  Gedung Ormas Islam BAZNAS, Jl. Terusan Al-Fathu No. 2, Desa Pamekaran, Kec. Soreang, Kabupaten Bandung, Jawa Barat 40911
+                </p>
+              </div>
+
+              <div class="space-y-1.5 p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+                <div class="flex items-center gap-2 font-bold text-[#09090b]">
+                  <span class="material-symbols-outlined text-base text-[#064e3b]">schedule</span>
+                  <span>Jam Pelayanan:</span>
+                </div>
+                <div class="text-[11px] leading-relaxed space-y-0.5">
+                  <p>Senin – Kamis : 08.00 – 16.00 WIB</p>
+                  <p>Jumat : 08.00 – 16.30 WIB (Ishoma 11.30-13.00)</p>
+                  <p class="text-[#71717a]">Sabtu - Minggu &amp; Libur Nasional : Tutup</p>
+                </div>
+              </div>
+
+              <div class="space-y-1.5 p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+                <div class="flex items-center gap-2 font-bold text-[#09090b]">
+                  <span class="material-symbols-outlined text-base text-[#064e3b]">call</span>
+                  <span>Telepon Kantor:</span>
+                </div>
+                <p class="font-mono text-[11px] text-[#09090b]">(022) 589-2345 / (022) 589-1122</p>
+                <p class="text-[10px] text-[#71717a]">Fax: (022) 589-2346</p>
+              </div>
+
+              <div class="space-y-1.5 p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7]">
+                <div class="flex items-center gap-2 font-bold text-[#09090b]">
+                  <span class="material-symbols-outlined text-base text-[#064e3b]">chat</span>
+                  <span>Hotline WhatsApp Amil:</span>
+                </div>
+                <p class="font-mono text-[11px] font-bold text-[#064e3b]">0811-2234-567 (Konsultasi Zakat)</p>
+                <p class="text-[10px] text-[#71717a]">Respon cepat pada jam kerja resmi</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-[#f4f4f5] flex flex-wrap items-center justify-between gap-3 text-xs">
+            <span class="text-[#71717a]">Fasilitas: Tempat Parkir Luas, Ramah Disabilitas, Ruang Konsultasi Syariah.</span>
+            <a href="https://maps.google.com/?q=BAZNAS+Kabupaten+Bandung" target="_blank" rel="noopener noreferrer" class="font-bold text-[#064e3b] hover:underline flex items-center gap-1">
+              <span>Buka Rute Navigasi</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Formulir Jemput Zakat (5 cols) -->
+        <div id="form-jemput-zakat" class="lg:col-span-5 bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-8 space-y-6 shadow-xs flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="border-b border-[#f4f4f5] pb-4">
+              <h2 class="text-xl font-bold text-[#09090b]">Layanan Jemput Zakat Prima</h2>
+              <p class="text-xs text-[#71717a] mt-1">
+                Petugas amil resmi BAZNAS siap hadir ke kediaman atau kantor Anda dengan seragam dinas, tanda pengenal resmi, dan Bukti Setor Zakat (e-BSZ) langsung terbit.
+              </p>
+            </div>
+
+            <form id="form-jemput" class="space-y-4 text-xs">
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Nama Lengkap Muzaki *</label>
+                <input type="text" id="jemput-nama" required placeholder="Nama Lengkap / Instansi" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-semibold text-[#09090b] mb-1">Nomor WhatsApp *</label>
+                  <input type="tel" id="jemput-wa" required placeholder="08xxxxxxxxxx" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+                </div>
+                <div>
+                  <label class="block font-semibold text-[#09090b] mb-1">Jenis Dana ZIS *</label>
+                  <select id="jemput-jenis" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors">
+                    <option>Zakat Maal (Tabungan / Emas)</option>
+                    <option>Zakat Penghasilan / Profesi</option>
+                    <option>Zakat Perusahaan / Perniagaan</option>
+                    <option>Infak &amp; Sedekah Terikat</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-semibold text-[#09090b] mb-1">Kecamatan Domisili *</label>
+                  <input type="text" id="jemput-kecamatan" required placeholder="Contoh: Soreang / Baleendah" class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+                </div>
+                <div>
+                  <label class="block font-semibold text-[#09090b] mb-1">Rencana Tanggal Jemput *</label>
+                  <input type="date" id="jemput-tanggal" required class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2.5 px-3.5 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-[#09090b] mb-1">Alamat Penjemputan Lengkap *</label>
+                <textarea id="jemput-alamat" rows="2" required placeholder="Jalan, Nomor Rumah/Gedung, RT/RW, Patokan Lokasi..." class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2 px-3.5 font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors"></textarea>
+              </div>
+
+              <div class="p-3 rounded-xl bg-[#fafafa] border border-[#e4e4e7] text-[11px] text-[#71717a] space-y-1">
+                <div class="flex items-center gap-1.5 text-[#064e3b] font-semibold">
+                  <span class="material-symbols-outlined text-sm">verified_user</span>
+                  <span>Keamanan Transaksi Terjamin</span>
+                </div>
+                <p>Amil BAZNAS wajib menyerahkan kuitansi bernomor seri resmi dan membaca doa keberkahan harta.</p>
+              </div>
+
+              <button type="submit" class="w-full py-3 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-base">send</span>
+                <span>Kirim Permintaan Jemput Zakat</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="text-[11px] text-center text-[#71717a] pt-2">
+            Atau hubungi call center penjemputan: <strong class="text-[#064e3b] font-mono">0811-2234-567</strong>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- DIREKTORI LENGKAP 31 KANTOR UPZ KECAMATAN -->
+      <section class="bg-white rounded-3xl border border-[#e4e4e7] p-7 lg:p-10 space-y-8 shadow-xs">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#f4f4f5] pb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-[#09090b]">Direktori 31 Kantor UPZ Kecamatan</h2>
+            <p class="text-xs text-[#71717a] mt-1">Unit Pengumpul Zakat resmi berlokasi di kompleks kantor camat di seluruh wilayah Kabupaten Bandung.</p>
+          </div>
+
+          <!-- Real-Time Filter Input -->
+          <div class="relative w-full sm:w-72">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-[#71717a]">search</span>
+            <input 
+              type="text" 
+              id="search-upz" 
+              placeholder="Cari nama UPZ kecamatan..." 
+              class="w-full bg-[#fafafa] border border-[#e4e4e7] rounded-xl py-2 pl-9 pr-3 text-xs font-medium text-[#09090b] outline-none focus:border-[#064e3b] transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- 31 UPZ Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-xs" id="upz-directory-grid">
+          
+          <!-- 1-8 -->
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Soreang</strong>
+            <p class="text-[#71717a] text-[11px]">Komplek Kantor Camat Soreang</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0001</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Kutawaringin</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Kutawaringin</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0002</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Ciwidey</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Raya Ciwidey Km. 2</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0003</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Rancabali</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Rancabali</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0004</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Pasirjambu</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Pasirjambu</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0005</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Pangalengan</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Raya Pangalengan No. 45</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0006</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cimaung</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Cimaung</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0007</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Banjaran</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Raya Banjaran No. 12</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0008</span>
+          </div>
+
+          <!-- 9-16 -->
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cangkuang</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Cangkuang</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0009</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Arjasari</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Arjasari</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0010</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Katapang</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Terusan Kopo-Katapang</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0011</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Pameungpeuk</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Pameungpeuk</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0012</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Baleendah</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Adipati Agung Baleendah</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0013</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Dayeuhkolot</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Dayeuhkolot</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0014</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Bojongsoang</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Raya Bojongsoang</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0015</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Margahayu</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Margahayu</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0016</span>
+          </div>
+
+          <!-- 17-24 -->
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Margaasih</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Margaasih</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0017</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cimenyan</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Cimenyan</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0018</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cilengkrang</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Cilengkrang</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0019</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cileunyi</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Raya Percobaan Cileunyi</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0020</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Rancaekek</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Rancaekek</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0021</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Ciparay</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Raya Laswi Ciparay</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0022</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Majalaya</strong>
+            <p class="text-[#71717a] text-[11px]">Jl. Alun-Alun Majalaya</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0023</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Solokanjeruk</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Solokanjeruk</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0024</span>
+          </div>
+
+          <!-- 25-31 -->
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Paseh</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Paseh</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0025</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Ibun</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Ibun</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0026</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Pacet</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Pacet</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0027</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Kertasari</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Kertasari</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0028</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cikancung</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Cikancung</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0029</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Cicalengka</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Cicalengka</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0030</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#fafafa] border border-[#e4e4e7] space-y-1.5 upz-card">
+            <strong class="text-[#09090b] block text-sm">UPZ Kec. Nagreg</strong>
+            <p class="text-[#71717a] text-[11px]">Kantor Camat Nagreg</p>
+            <span class="text-[11px] font-mono text-[#064e3b] font-semibold block">WA: 0812-3204-0031</span>
+          </div>
+
+        </div>
+
+        <div class="p-4 bg-[#fafafa] rounded-2xl border border-[#e4e4e7] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#71717a]">
+          <span>Muzaki dapat menunaikan zakat fitrah, zakat maal, dan infak langsung di meja layanan UPZ kantor camat terdekat.</span>
+          <span class="font-mono text-[#064e3b] font-bold">Terdaftar SIMBA BAZNAS RI</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script is:inline>
+    // Search UPZ
+    document.getElementById('search-upz')?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.upz-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+
+    // Form jemput submit
+    document.getElementById('form-jemput')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nama = document.getElementById('jemput-nama')?.value;
+      const tgl = document.getElementById('jemput-tanggal')?.value;
+      window.showAppToast?.(`Alhamdulillah! Jadwal jemput zakat untuk Bapak/Ibu ${nama} pada tanggal ${tgl} telah dicatat. Tim amil akan menghubungi via WhatsApp.`, 'local_shipping');
+      e.target.reset();
+    });
+  </script>
+</PublicLayout>

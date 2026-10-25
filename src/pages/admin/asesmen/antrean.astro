@@ -1,0 +1,373 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Antrean 48 Mustahik - Panel Admin BAZNAS" sectionName="Operasional Lapangan" pageTitle="Daftar Antrean 48 Mustahik Lapangan" activeRoute="asesmen/antrean">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 2 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi asesmen lapangan">
+      <a href="/admin/asesmen" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Asesmen</span>
+      </a>
+      <a href="/admin/asesmen/antrean" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">view_list</span>
+        <span>Antrean 48 Mustahik</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ff5a00] text-white text-[10px] font-bold">48</span>
+      </a>
+      <a href="/admin/asesmen/verifikasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">badge</span>
+        <span>Verifikasi On-Site</span>
+      </a>
+      <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">calculate</span>
+        <span>Kalkulator Kifayah</span>
+      </a>
+      <a href="/admin/asesmen/had-kifayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">table_chart</span>
+        <span>Breakdown 7 Norma</span>
+      </a>
+      <a href="/admin/asesmen/cibest" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">grid_view</span>
+        <span>Kuadran CIBEST I - IV</span>
+      </a>
+      <a href="/admin/asesmen/geotagging" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">satellite_alt</span>
+        <span>Geotagging &amp; Foto</span>
+      </a>
+    </nav>
+
+    <!-- Filter & Search Toolbar -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Antrean Verifikasi Lapangan (48 Berkas Aktif)</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Disaring berdasarkan skor defisit Had Kifayah dan kuadran CIBEST BAZNAS RI</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative w-72">
+            <input type="text" placeholder="Cari NIK / Nama Mustahik..." class="w-full pl-9 pr-4 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] text-xs font-medium focus:outline-none focus:border-[#064e3b]"/>
+            <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-base text-[#71717a]">search</span>
+          </div>
+          <a href="/admin/asesmen/kalkulator" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
+            <span class="material-symbols-outlined text-sm">calculate</span>
+            <span>Kalkulator Kifayah</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#ececee]">
+        <button class="px-3.5 py-1.5 rounded-full bg-[#064e3b] text-white text-xs font-bold">Semua Antrean (48)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold">Menunggu Survei (14)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold">CIBEST Kuadran I (19)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold">Siap TTE Pimpinan (8)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold">Tersalurkan (7)</button>
+      </div>
+
+      <!-- Table Queue -->
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3.5 px-4 font-bold">Mustahik &amp; NIK</th>
+              <th class="py-3.5 px-4 font-bold">Lokasi (Kecamatan/Desa)</th>
+              <th class="py-3.5 px-4 font-bold">Usulan Program BAZNAS</th>
+              <th class="py-3.5 px-4 font-bold text-center">Had Kifayah</th>
+              <th class="py-3.5 px-4 font-bold text-center">Kuadran CIBEST</th>
+              <th class="py-3.5 px-4 font-bold text-right">Rekomendasi Plafon</th>
+              <th class="py-3.5 px-4 font-bold text-center">Aksi Asesor</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            
+            <!-- Case 1 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#064e3b]"></span>
+                  <span>Ibu Ai Siti Rohimah</span>
+                  <span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Prioritas</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204126508920004 • SURV-2026-0412</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Cikoneng RT 03/RW 08</div>
+                <div class="text-[11px] text-[#71717a]">Desa Pamekaran, Kec. Soreang</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Peduli</span>
+                <span class="text-[11px] text-[#71717a]">Rutilahu Darurat &amp; Medis Lansia</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#ff5a00] text-sm">0.88</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 88%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white font-bold text-[10px]">Kuadran I</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Fakir Mutlak</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 3.500.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 2 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#d97706]"></span>
+                  <span>Pak Ujang Suherman</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204091204780002 • SURV-2026-0413</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Sukalaksana RT 02/RW 05</div>
+                <div class="text-[11px] text-[#71717a]">Desa Sugihmukti, Kec. Pasirjambu</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Makmur</span>
+                <span class="text-[11px] text-[#71717a]">Modal Usaha Tani Sayur Kaki Gunung</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#ff5a00] text-sm">0.76</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 76%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white font-bold text-[10px]">Kuadran I</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Miskin Material</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 4.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 3 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#064e3b]"></span>
+                  <span>Ibu Rohanah</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204155209680001 • SURV-2026-0414</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Bojongkunci RT 01/RW 03</div>
+                <div class="text-[11px] text-[#71717a]">Desa Bojongkunci, Kec. Banjaran</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Sehat</span>
+                <span class="text-[11px] text-[#71717a]">Bantuan Pengobatan Stroke Lansia Dhuafa</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#ff5a00] text-sm">0.82</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 82%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white font-bold text-[10px]">Kuadran I</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Fakir Mutlak</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 2.500.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 4 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span>
+                  <span>Pak Endang Kosasih</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204221102710003 • SURV-2026-0415</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Cijagra RT 04/RW 09</div>
+                <div class="text-[11px] text-[#71717a]">Desa Bojongsoang, Kec. Dayeuhkolot</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Makmur</span>
+                <span class="text-[11px] text-[#71717a]">Penyelamatan Usaha Pasca Banjir Citarum</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#d97706] text-sm">0.69</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 69%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[10px]">Kuadran II</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Miskin Material</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 5.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 5 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#064e3b]"></span>
+                  <span>Ibu Cucu Sumiati</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204314407850005 • SURV-2026-0416</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Mandalasari RT 01/RW 04</div>
+                <div class="text-[11px] text-[#71717a]">Desa Ciluluk, Kec. Cikancung</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Cerdas</span>
+                <span class="text-[11px] text-[#71717a]">Bantuan SPP &amp; Seragam 3 Anak Yatim Dhuafa</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#ff5a00] text-sm">0.91</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 91%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white font-bold text-[10px]">Kuadran I</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Fakir Mutlak</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 3.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 6 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#064e3b]"></span>
+                  <span>Pak Nana Suryana</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204161803730006 • SURV-2026-0417</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Neglasari RT 03/RW 06</div>
+                <div class="text-[11px] text-[#71717a]">Desa Tarumajaya, Kec. Kertasari</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Peduli</span>
+                <span class="text-[11px] text-[#71717a]">Hunian Sementara Pasca Gempa Sesar Garsela</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#ff5a00] text-sm">0.85</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 85%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white font-bold text-[10px]">Kuadran I</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Fakir Mutlak</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 6.500.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 7 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#d97706]"></span>
+                  <span>Ibu Imas Masitoh</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204085912800007 • SURV-2026-0418</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Bojongsayang RT 02/RW 07</div>
+                <div class="text-[11px] text-[#71717a]">Desa Sangkanhurip, Kec. Katapang</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Makmur</span>
+                <span class="text-[11px] text-[#71717a]">Peralatan Jahit Rumahan Konveksi</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#d97706] text-sm">0.72</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 72%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[10px]">Kuadran II</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Miskin Material</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 3.200.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+            <!-- Case 8 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#ff5a00]"></span>
+                  <span>Pak Deden Hidayat</span>
+                  <span class="px-2 py-0.5 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] text-[10px] font-bold">Rutilahu</span>
+                </div>
+                <div class="text-[11px] font-mono text-[#71717a] mt-0.5">NIK: 3204101407760008 • SURV-2026-0419</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <div class="font-medium text-[#09090b]">Kp. Pasirjambu RT 05/RW 01</div>
+                <div class="text-[11px] text-[#71717a]">Desa Lebakmuncang, Kec. Ciwidey</div>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="font-semibold text-[#064e3b] block">Bandung Peduli</span>
+                <span class="text-[11px] text-[#71717a]">Bedah Rutilahu Roboh Diterjang Angin</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="font-mono font-bold text-[#ff5a00] text-sm">0.89</span>
+                <span class="text-[10px] text-[#71717a] block">Defisit 89%</span>
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <span class="px-2.5 py-1 rounded-full bg-[#064e3b] text-white font-bold text-[10px]">Kuadran I</span>
+                <span class="text-[10px] text-[#71717a] block mt-0.5">Fakir Mutlak</span>
+              </td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">
+                Rp 25.000.000
+              </td>
+              <td class="py-3.5 px-4 text-center">
+                <a href="/admin/asesmen/verifikasi" class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white font-semibold text-xs hover:bg-[#006a4e] transition-colors inline-block">
+                  Buka Berkas
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>

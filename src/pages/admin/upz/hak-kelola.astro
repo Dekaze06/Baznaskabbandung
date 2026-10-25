@@ -1,0 +1,385 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Bagi Hasil Hak Amil 12.5% - Panel Admin BAZNAS" sectionName="Jaringan Penghimpunan" pageTitle="Bagi Hasil & Disposisi Hak Kelola Amil UPZ Syar'i" activeRoute="upz/hak-kelola">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 4 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi UPZ">
+      <a href="/admin/upz" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar UPZ</span>
+      </a>
+      <a href="/admin/upz/direktori" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">folder_shared</span>
+        <span>Direktori 487 UPZ</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">487</span>
+      </a>
+      <a href="/admin/upz/registrasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">domain_add</span>
+        <span>Registrasi &amp; SK UPZ</span>
+      </a>
+      <a href="/admin/upz/setoran" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">cloud_upload</span>
+        <span>Pemrosesan Setoran ASN</span>
+      </a>
+      <a href="/admin/upz/hak-kelola" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">price_check</span>
+        <span>Bagi Hasil Hak Amil 12.5%</span>
+      </a>
+    </nav>
+
+    <!-- Header Description Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Bagi Hasil Hak Kelola Amil Syar'i (12.5%)</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Penetapan proporsi operasional amil UPZ sesuai Perbup Bandung No. 12/2023 &amp; Fatwa MUI No. 8/2011</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <span class="px-3.5 py-1.5 rounded-xl bg-[#ecfdf5] text-[#064e3b] border border-[#064e3b]/20 font-mono text-xs font-bold">
+          Rasio Syar'i: 6.0% Unit UPZ • 6.25% BAZNAS Kab
+        </span>
+        <button class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shadow-xs" onclick="alert('Disposisi batch bagi hasil 28 rekening UPZ dikirim ke modul perbankan Host-to-Host.')">
+          <span class="material-symbols-outlined text-sm">send</span>
+          <span>Kirim Batch H2H</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- KPI Cards Row -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white p-5 rounded-2xl border border-[#ececee] shadow-xs">
+        <div class="flex items-center justify-between text-[#71717a] text-xs">
+          <span class="font-bold uppercase tracking-wider text-[10px]">Total Hak Amil (12.5%)</span>
+          <span class="material-symbols-outlined text-base text-[#064e3b]">pie_chart</span>
+        </div>
+        <div class="text-2xl font-bold font-mono text-[#09090b] mt-2">Rp 2.150.400.000</div>
+        <div class="text-[11px] text-[#71717a] mt-1">Dari realisasi himpunan Rp 17.203.200.000</div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-[#ececee] shadow-xs">
+        <div class="flex items-center justify-between text-[#71717a] text-xs">
+          <span class="font-bold uppercase tracking-wider text-[10px]">Porsi Operasional UPZ (6.0%)</span>
+          <span class="material-symbols-outlined text-base text-[#064e3b]">handshake</span>
+        </div>
+        <div class="text-2xl font-bold font-mono text-[#064e3b] mt-2">Rp 1.032.192.000</div>
+        <div class="text-[11px] text-[#064e3b] font-semibold mt-1">Disalurkan langsung ke rekening unit</div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-[#ececee] shadow-xs">
+        <div class="flex items-center justify-between text-[#71717a] text-xs">
+          <span class="font-bold uppercase tracking-wider text-[10px]">Porsi BAZNAS Kab (6.25%)</span>
+          <span class="material-symbols-outlined text-base text-[#71717a]">account_balance</span>
+        </div>
+        <div class="text-2xl font-bold font-mono text-[#09090b] mt-2">Rp 1.075.200.000</div>
+        <div class="text-[11px] text-[#71717a] mt-1">Alokasi supervisi &amp; audit syariah daerah</div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-[#ececee] shadow-xs">
+        <div class="flex items-center justify-between text-[#71717a] text-xs">
+          <span class="font-bold uppercase tracking-wider text-[10px]">Unit UPZ Siap Cair</span>
+          <span class="material-symbols-outlined text-base text-[#064e3b]">task_alt</span>
+        </div>
+        <div class="text-2xl font-bold font-mono text-[#064e3b] mt-2">28 Rekening</div>
+        <div class="text-[11px] text-[#71717a] mt-1">Bulan Berjalan: Rp 412.800.000</div>
+      </div>
+    </section>
+
+    <!-- Two Bespoke Panels: Simulator & Rekomendasi Mustahik UPZ -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-7">
+      
+      <!-- Panel Kiri (5 Kolom): Live Calculator -->
+      <section class="lg:col-span-5 bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[#064e3b]">calculate</span>
+              <h2 class="text-base font-bold text-[#09090b]">Kalkulator Hak Kelola UPZ</h2>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-mono font-bold">
+              Formula Syar'i
+            </span>
+          </div>
+          <p class="text-xs text-[#71717a] mt-3">
+            Simulasi pembagian hak amil syar'i secara instan berdasarkan besaran setoran bruto zakat &amp; infak unit.
+          </p>
+
+          <div class="space-y-4 mt-4">
+            <div>
+              <label class="block text-[11px] font-bold text-[#71717a] uppercase tracking-wider mb-1.5">
+                Nominal Himpunan Bruto Unit (Rp)
+              </label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-2.5 text-xs font-bold text-[#71717a]">Rp</span>
+                <input type="number" id="input-himpunan" value="100000000" step="5000000" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#f8fafc] border border-[#ececee] text-xs font-mono font-bold text-[#09090b] focus:outline-none focus:border-[#064e3b]"/>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] space-y-2.5 text-xs">
+              <div class="flex justify-between items-center text-[#52525b]">
+                <span>Total Porsi Amil Syar'i (12.5%):</span>
+                <span class="font-mono font-bold text-[#09090b]" id="calc-total-amil">Rp 12.500.000</span>
+              </div>
+              <div class="flex justify-between items-center text-[#52525b]">
+                <span>Hak Kelola Unit UPZ Lapangan (6.0%):</span>
+                <span class="font-mono font-bold text-[#064e3b]" id="calc-porsi-upz">Rp 6.000.000</span>
+              </div>
+              <div class="flex justify-between items-center text-[#52525b]">
+                <span>Porsi Operasional BAZNAS Kab (6.25%):</span>
+                <span class="font-mono font-bold text-[#09090b]" id="calc-porsi-kab">Rp 6.250.000</span>
+              </div>
+              <div class="flex justify-between items-center pt-2 border-t border-[#ececee] text-[#09090b] font-bold">
+                <span>Penyaluran ke Rekening UPZ:</span>
+                <span class="font-mono text-sm text-[#064e3b]" id="calc-net-transfer">Rp 6.000.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="w-full py-3 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-xs" onclick="alert('Simulasi telah diterapkan ke draft SP2D bagi hasil unit.');">
+          <span class="material-symbols-outlined text-base">receipt_long</span>
+          <span>Buat Draft Pengeluaran Bagi Hasil</span>
+        </button>
+      </section>
+
+      <!-- Panel Kanan (7 Kolom): Rekomendasi Mustahik Usulan UPZ -->
+      <section class="lg:col-span-7 bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+        <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#064e3b]">family_restroom</span>
+            <h2 class="text-base font-bold text-[#09090b]">Rekomendasi Mustahik Usulan Amil UPZ</h2>
+          </div>
+          <span class="text-xs text-[#064e3b] font-semibold">348 Usulan Aktif</span>
+        </div>
+        <p class="text-xs text-[#71717a]">
+          Data warga dhuafa &amp; fi sabilillah yang diajukan langsung oleh amil UPZ desa dan DKM masjid setempat sesuai kuota 70% daerah.
+        </p>
+
+        <!-- Usulan List -->
+        <div class="space-y-3">
+          <!-- Item 1 -->
+          <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#064e3b]/30 transition-all">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">school</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-[#09090b]">Bantuan Pendidikan 15 Santri Yatim &amp; Dhuafa</div>
+                <div class="text-[11px] text-[#71717a] mt-0.5">Pengusul: <strong class="text-[#09090b]">UPZ Kec. Ciwidey</strong> • Kp. Sukalaksana RT 02/05</div>
+                <div class="text-xs font-mono font-bold text-[#064e3b] mt-1">Anggaran Usulan: Rp 22.500.000</div>
+              </div>
+            </div>
+            <div class="flex flex-col sm:items-end gap-1 shrink-0">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Disetujui Waka II</span>
+              <span class="text-[10px] text-[#71717a]">Siap Salur BSI Virtual</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#064e3b]/30 transition-all">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">water_damage</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-[#09090b]">Renovasi Sarana Sanitasi &amp; Wudhu Masjid Dhuafa</div>
+                <div class="text-[11px] text-[#71717a] mt-0.5">Pengusul: <strong class="text-[#09090b]">UPZ Desa Pangalengan</strong> • Masjid Jami Al-Hidayah</div>
+                <div class="text-xs font-mono font-bold text-[#064e3b] mt-1">Anggaran Usulan: Rp 15.000.000</div>
+              </div>
+            </div>
+            <div class="flex flex-col sm:items-end gap-1 shrink-0">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] text-[10px] font-bold">Survei Lapangan</span>
+              <span class="text-[10px] text-[#71717a]">Asesmen Had Kifayah</span>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="p-4 rounded-2xl bg-[#f8fafc] border border-[#ececee] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#064e3b]/30 transition-all">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">handyman</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-[#09090b]">Pemberdayaan Modal Usaha Z-Auto 2 Mekanik Dhuafa</div>
+                <div class="text-[11px] text-[#71717a] mt-0.5">Pengusul: <strong class="text-[#09090b]">UPZ Disnaker Kab. Bandung</strong> • Binaan BLK</div>
+                <div class="text-xs font-mono font-bold text-[#064e3b] mt-1">Anggaran Usulan: Rp 18.000.000</div>
+              </div>
+            </div>
+            <div class="flex flex-col sm:items-end gap-1 shrink-0">
+              <span class="px-2.5 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] text-[10px] font-bold">Tahap Seleksi</span>
+              <span class="text-[10px] text-[#71717a]">Pelatihan Mekanik</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Disposisi Penyaluran Hak Kelola Amil UPZ Table -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-[#ececee]">
+        <div>
+          <h2 class="text-base font-bold text-[#09090b]">Disposisi Penyaluran Hak Kelola Amil UPZ (Oktober 2026)</h2>
+          <p class="text-xs text-[#71717a] mt-0.5">Daftar hak kelola unit siap cair ke rekening giro Bank Syariah resmi masing-masing UPZ</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-xs font-mono font-bold">
+            Total Disalurkan: Rp 412.800.000
+          </span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="px-5 py-3.5">UPZ &amp; Rekening Bank Syariah</th>
+              <th class="px-5 py-3.5 text-right">Himpunan Bruto (Rp)</th>
+              <th class="px-5 py-3.5 text-right">Hak Amil 12.5%</th>
+              <th class="px-5 py-3.5 text-right">Porsi UPZ 6.0%</th>
+              <th class="px-5 py-3.5 text-right">Porsi BAZNAS 6.25%</th>
+              <th class="px-5 py-3.5 text-center">Status SIMBA</th>
+              <th class="px-5 py-3.5 text-right">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]">
+            
+            <!-- Row 1 -->
+            <tr class="hover:bg-[#f8fafc] transition-colors">
+              <td class="px-5 py-3.5">
+                <div class="font-bold text-[#09090b]">UPZ Sekretariat Daerah Kab. Bandung</div>
+                <div class="font-mono text-[11px] text-[#71717a]">BSI • 7120394812 (an. UPZ Setda Kab. Bandung)</div>
+              </td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">1.450.800.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">181.350.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#064e3b]">87.048.000</td>
+              <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">94.302.000</td>
+              <td class="px-5 py-3.5 text-center">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/15">
+                  Siap Salur
+                </span>
+              </td>
+              <td class="px-5 py-3.5 text-right">
+                <button class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-all shadow-xs" onclick="alert('Transfer bagi hasil Rp 87.048.000 ke BSI UPZ Setda berhasil diverifikasi.');">Salurkan</button>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="hover:bg-[#f8fafc] transition-colors">
+              <td class="px-5 py-3.5">
+                <div class="font-bold text-[#09090b]">UPZ Dinas Pendidikan (Disdik)</div>
+                <div class="font-mono text-[11px] text-[#71717a]">BJB Syariah • 5040109283 (an. Bendahara UPZ Disdik)</div>
+              </td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">3.240.000.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">405.000.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#064e3b]">194.400.000</td>
+              <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">210.600.000</td>
+              <td class="px-5 py-3.5 text-center">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 text-[11px] font-semibold border border-amber-200">
+                  Verifikasi Pajak
+                </span>
+              </td>
+              <td class="px-5 py-3.5 text-right">
+                <button class="px-3 py-1.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-[#52525b] hover:text-[#09090b] text-xs font-semibold transition-all" onclick="alert('Menunggu bukti potong PPh 21 amil UPZ Disdik.');">Detail</button>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="hover:bg-[#f8fafc] transition-colors">
+              <td class="px-5 py-3.5">
+                <div class="font-bold text-[#09090b]">UPZ Kantor Kecamatan Baleendah</div>
+                <div class="font-mono text-[11px] text-[#71717a]">BSI • 7192837411 (an. UPZ Kec. Baleendah)</div>
+              </td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">645.800.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">80.725.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#064e3b]">38.748.000</td>
+              <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">41.977.000</td>
+              <td class="px-5 py-3.5 text-center">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/15">
+                  Tersalurkan
+                </span>
+              </td>
+              <td class="px-5 py-3.5 text-right">
+                <button class="px-3 py-1.5 rounded-xl bg-[#f4f4f5] text-[#71717a] text-xs font-semibold" disabled>Selesai</button>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr class="hover:bg-[#f8fafc] transition-colors">
+              <td class="px-5 py-3.5">
+                <div class="font-bold text-[#09090b]">UPZ Kantor Kecamatan Soreang</div>
+                <div class="font-mono text-[11px] text-[#71717a]">BSI • 7109283741 (an. UPZ Kec. Soreang)</div>
+              </td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">580.400.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">72.550.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#064e3b]">34.824.000</td>
+              <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">37.726.000</td>
+              <td class="px-5 py-3.5 text-center">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/15">
+                  Tersalurkan
+                </span>
+              </td>
+              <td class="px-5 py-3.5 text-right">
+                <button class="px-3 py-1.5 rounded-xl bg-[#f4f4f5] text-[#71717a] text-xs font-semibold" disabled>Selesai</button>
+              </td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr class="hover:bg-[#f8fafc] transition-colors">
+              <td class="px-5 py-3.5">
+                <div class="font-bold text-[#09090b]">UPZ Perumda Air Minum Tirta Raharja (BUMD)</div>
+                <div class="font-mono text-[11px] text-[#71717a]">Bank Mandiri • 130002938491 (an. UPZ Tirta Raharja)</div>
+              </td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#09090b]">890.500.000</td>
+              <td class="px-5 py-3.5 text-right font-mono font-bold text-[#064e3b]">111.312.500</td>
+              <td class="px-5 py-3.5 text-right font-mono font-semibold text-[#064e3b]">53.430.000</td>
+              <td class="px-5 py-3.5 text-right font-mono text-[#52525b]">57.882.500</td>
+              <td class="px-5 py-3.5 text-center">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-semibold border border-[#064e3b]/15">
+                  Siap Salur
+                </span>
+              </td>
+              <td class="px-5 py-3.5 text-right">
+                <button class="px-3 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold hover:bg-[#006a4e] transition-all shadow-xs" onclick="alert('Transfer bagi hasil Rp 53.430.000 ke Mandiri UPZ Perumda Tirta Raharja disetujui.');">Salurkan</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script is:inline>
+    const inputHimpunan = document.getElementById('input-himpunan');
+    const calcTotalAmil = document.getElementById('calc-total-amil');
+    const calcPorsiUpz = document.getElementById('calc-porsi-upz');
+    const calcPorsiKab = document.getElementById('calc-porsi-kab');
+    const calcNetTransfer = document.getElementById('calc-net-transfer');
+
+    function formatRupiah(num) {
+      return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+    }
+
+    if (inputHimpunan) {
+      inputHimpunan.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value) || 0;
+        const amilTotal = val * 0.125;
+        const upzShare = val * 0.06;
+        const kabShare = val * 0.0625;
+
+        if (calcTotalAmil) calcTotalAmil.textContent = formatRupiah(amilTotal);
+        if (calcPorsiUpz) calcPorsiUpz.textContent = formatRupiah(upzShare);
+        if (calcPorsiKab) calcPorsiKab.textContent = formatRupiah(kabShare);
+        if (calcNetTransfer) calcNetTransfer.textContent = formatRupiah(upzShare);
+      });
+    }
+  </script>
+</AdminLayout>

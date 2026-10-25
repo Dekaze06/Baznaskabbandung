@@ -1,0 +1,17 @@
+---
+import AdminLayout from '../layouts/AdminLayout.astro';
+import CommandCenterView from '../components/admin/CommandCenterView.astro';
+import AsesmenLapanganView from '../components/admin/AsesmenLapanganView.astro';
+import KeuanganPsakView from '../components/admin/KeuanganPsakView.astro';
+import UpzDaerahView from '../components/admin/UpzDaerahView.astro';
+---
+
+<AdminLayout>
+  <!-- VIEWS CONTAINER (4 SCREEN OPERASIONAL AMIL) -->
+  <main id="app-views" class="relative flex-1 min-w-0">
+    <CommandCenterView />
+    <AsesmenLapanganView />
+    <KeuanganPsakView />
+    <UpzDaerahView />
+  </main>
+</AdminLayout>

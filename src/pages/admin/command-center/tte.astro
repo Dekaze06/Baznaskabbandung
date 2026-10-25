@@ -1,0 +1,310 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Otorisasi & Disposisi TTE BSrE - Panel Admin BAZNAS" sectionName="Ringkasan Strategis" pageTitle="Otorisasi & Disposisi TTE BSrE" activeRoute="command-center/tte">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi ringkasan eksekutif">
+      <a href="/admin/command-center" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar Eksekutif</span>
+      </a>
+      <a href="/admin/command-center/tte" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">signature</span>
+        <span>Otorisasi &amp; Disposisi TTE</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ff5a00] text-white text-[10px] font-bold">8</span>
+      </a>
+      <a href="/admin/command-center/radar-wilayah" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">map</span>
+        <span>Radar Sebaran 31 Kec.</span>
+      </a>
+      <a href="/admin/command-center/rkat" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">trending_up</span>
+        <span>Capaian RKAT 2026</span>
+      </a>
+    </nav>
+
+    <!-- Certificate & Authority Header Card -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] border border-[#064e3b]/20 flex items-center justify-center text-[#064e3b] shrink-0">
+          <span class="material-symbols-outlined text-2xl">verified_user</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg font-bold text-[#09090b]">Antrean Disposisi TTE Elektronik Balai Sertifikasi (BSrE BSSN)</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-xs font-bold border border-[#064e3b]/20">X.509 RSA-4096</span>
+          </div>
+          <p class="text-xs text-[#71717a] mt-1">
+            Penandatangan Berwenang: <strong>Drs. H. M. Yusuf (Ketua BAZNAS Kab. Bandung)</strong> • Hash SHA-256 Otentik &amp; Sah di Pengadilan
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button type="button" data-action="open-tte" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-2 shadow-xs transition-all">
+          <span class="material-symbols-outlined text-base">signature</span>
+          <span>Buka Dialog TTE</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Filter and Actions Toolbar -->
+    <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-[#ececee] shadow-xs">
+      <div class="flex items-center gap-2 flex-wrap">
+        <button class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm">gavel</span>
+          <span>Semua Berkas (8)</span>
+        </button>
+        <button class="px-3.5 py-1.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-medium transition-colors">
+          Tier 3: &gt; Rp 15 Jt (5)
+        </button>
+        <button class="px-3.5 py-1.5 rounded-xl bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-medium transition-colors">
+          Tier 2: Rp 2,5 Jt - 15 Jt (3)
+        </button>
+      </div>
+      <div class="text-xs font-mono text-[#71717a]">
+        Total Nilai Disposisi: <strong class="text-[#09090b] font-bold">Rp 125.800.000</strong>
+      </div>
+    </div>
+
+    <!-- 8 Detailed Dossier Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      <!-- Dossier 1 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] text-[11px] font-bold">MENDESAK (RAWAN LONGSOR)</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0891</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Bantuan Rutilahu Darurat Rumah Roboh Ciwidey</h3>
+          <p class="text-xs text-[#71717a] mt-1">Mustahik: <strong>Ibu Aminah (48 Thn)</strong> • NIK: 3204121908750003 • Desa Lebakmuncang, Ciwidey</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 25.000.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Skor Had Kifayah:</span>
+            <span class="font-bold text-[#ff5a00] font-mono">0.31 (Fakir Ekstrem)</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Ahmad Fauzi • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 2 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] text-[11px] font-bold">MEDIS KRITIS</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0892</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Bantuan Biaya Operasi Ginjal Akut RSUD Al-Ihsan</h3>
+          <p class="text-xs text-[#71717a] mt-1">Mustahik: <strong>Bpk. Suryana (52 Thn)</strong> • NIK: 3204051104720005 • Baleendah</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 18.500.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Skor Had Kifayah:</span>
+            <span class="font-bold text-[#ff5a00] font-mono">0.38 (Fakir Medis)</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Dr. Rian • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 3 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-bold">PENDIDIKAN SKSS</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0893</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Beasiswa Satu Keluarga Satu Sarjana (SKSS) ITB</h3>
+          <p class="text-xs text-[#71717a] mt-1">Mustahik: <strong>Neng Siti Rohimah</strong> • NIK: 3204195508020001 • Cicalengka</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 16.000.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Status Verifikasi:</span>
+            <span class="font-bold text-[#064e3b] font-mono">IPK 3.84 • Dhuafa Non-PKH</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Ust. Hilman • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 4 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[11px] font-bold">EKONOMI PRODUKTIF</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0894</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Pemberdayaan Modal Z-Chicken Majalaya (4 Gerobak)</h3>
+          <p class="text-xs text-[#71717a] mt-1">Penerima: <strong>Kelompok Usaha Bersama Majalaya</strong> • 4 Mustahik Binaan</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 20.000.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Rasio Keberlanjutan:</span>
+            <span class="font-bold text-[#064e3b] font-mono">CIBEST II (Potensi Mandiri)</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Hendra • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 5 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#ff5a00]/10 text-[#ff5a00] text-[11px] font-bold">TANGGAP BENCANA</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0895</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Rehabilitasi Tanggul Citarum &amp; Sanitasi Dayeuhkolot</h3>
+          <p class="text-xs text-[#71717a] mt-1">Lokasi: <strong>Desa Dayeuhkolot RW 07</strong> • Dampak Banjir 140 KK</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 30.000.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Asnaf Penyaluran:</span>
+            <span class="font-bold text-[#064e3b] font-mono">Fakir Miskin &amp; Fisabilillah</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Satgas BTB BAZNAS • Rekomendasi Pleno</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 6 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#f4f4f5] text-[#52525b] text-[11px] font-bold">TIER 2 • LANSIA</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0896</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Kursi Roda Adaptif &amp; Santunan Lansia Bedridden</h3>
+          <p class="text-xs text-[#71717a] mt-1">Mustahik: <strong>Abah Sukarna (79 Thn)</strong> • NIK: 3204211506450002 • Banjaran</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 4.500.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Skor Had Kifayah:</span>
+            <span class="font-bold text-[#ff5a00] font-mono">0.24 (Fakir Mutlak)</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Ahmad Fauzi • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 7 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#f4f4f5] text-[#52525b] text-[11px] font-bold">TIER 2 • PENDIDIKAN</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0897</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Pelunasan Tunggakan Ijazah SMK Swasta Katapang</h3>
+          <p class="text-xs text-[#71717a] mt-1">Mustahik: <strong>Randi Gunawan (19 Thn)</strong> • NIK: 3204281203050004 • Katapang</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 3.800.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Tujuan Pengambilan:</span>
+            <span class="font-bold text-[#09090b] font-mono">Syarat Lamaran Kerja</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Siti Maryam • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dossier 8 -->
+      <article class="bg-white rounded-3xl border border-[#ececee] p-6 space-y-4 shadow-xs card-hover-lift">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-1 rounded-full bg-[#f4f4f5] text-[#52525b] text-[11px] font-bold">TIER 2 • GHARIMIN</span>
+          <span class="font-mono text-xs text-[#71717a]">#DISB-2026-0898</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[#09090b]">Penyelamatan Gharimin Jeratan Rentenir Pangalengan</h3>
+          <p class="text-xs text-[#71717a] mt-1">Mustahik: <strong>Ibu Wiwin (44 Thn)</strong> • NIK: 3204172409800007 • Pangalengan</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[#f8fafc] border border-[#ececee] grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-[#71717a] block">Nominal Disposisi:</span>
+            <span class="font-bold text-base font-mono text-[#064e3b]">Rp 7.500.000</span>
+          </div>
+          <div>
+            <span class="text-[#71717a] block">Klasifikasi Asnaf:</span>
+            <span class="font-bold text-[#064e3b] font-mono">Gharimin Syar'i</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-[#ececee]">
+          <span class="text-[11px] text-[#71717a]">Asesor: Ahmad Fauzi • Rekomendasi Layak</span>
+          <button type="button" data-action="open-tte" class="px-3.5 py-1.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center gap-1 hover:bg-[#006a4e]">
+            <span class="material-symbols-outlined text-sm">signature</span>
+            <span>Tandatangani TTE</span>
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+</AdminLayout>

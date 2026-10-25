@@ -1,0 +1,211 @@
+<!-- ==================== HEADER PUBLIK PORTAL ==================== -->
+  <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#ececee] shadow-xs">
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center gap-3.5 group shrink-0" aria-label="Beranda BAZNAS Kabupaten Bandung">
+        <img alt="Logo Resmi BAZNAS Kab Bandung" class="h-11 w-auto object-contain group-hover:scale-105 transition-transform" src="/logo-baznas-navbar.webp" width="144" height="44" loading="eager"/>
+        <div class="border-l border-[#d4d4d8] pl-3.5 flex flex-col">
+          <span class="text-base sm:text-lg font-bold tracking-tight text-[#09090b] leading-tight">BAZNAS</span>
+          <span class="text-[11px] font-semibold tracking-wide text-[#064e3b] uppercase">Kabupaten Bandung</span>
+        </div>
+      </a>
+
+      <!-- 5 Nav Menu Items (Desktop Pill Container) -->
+      <nav class="hidden lg:flex items-center gap-1 bg-[#f4f4f5] p-1.5 rounded-full border border-[#ececee] text-xs font-medium">
+        
+        <!-- 1. Program -->
+        <div class="relative group">
+          <button class="pub-nav-btn flex items-center gap-1.5 px-4 py-2 rounded-full transition-all" aria-haspopup="true" aria-expanded="false">
+            <span>Program</span>
+            <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="pub-dropdown-menu invisible opacity-0 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100 group-focus-within:pointer-events-auto absolute left-0 top-full pt-2 z-50 transition-all duration-200">
+            <div class="w-72 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 space-y-1">
+              <a href="/program/zis" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">payments</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Zakat Infaq Sedekah (ZIS)</div>
+                  <div class="text-[11px] text-[#71717a]">5 Pilar: Makmur, Cerdas, Sehat, Taqwa &amp; Peduli</div>
+                </div>
+              </a>
+              <a href="/program/campaign" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#ea580c] mt-0.5">volunteer_activism</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Campaign Kemanusiaan</div>
+                  <div class="text-[11px] text-[#71717a]">Bandung Peduli, Bedah 340 Rutilahu &amp; Kebencanaan</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Layanan -->
+        <div class="relative group">
+          <button class="pub-nav-btn flex items-center gap-1.5 px-4 py-2 rounded-full transition-all" aria-haspopup="true" aria-expanded="false">
+            <span>Layanan</span>
+            <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="pub-dropdown-menu invisible opacity-0 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100 group-focus-within:pointer-events-auto absolute left-0 top-full pt-2 z-50 transition-all duration-200">
+            <div class="w-72 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 space-y-1">
+              <a href="/layanan/bantuan" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">person_search</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Pengajuan Bantuan</div>
+                  <div class="text-[11px] text-[#71717a]">Layanan hak 8 asnaf &amp; lacak status NIK</div>
+                </div>
+              </a>
+              <a href="/layanan/mitra" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">handshake</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Kolaborasi Mitra</div>
+                  <div class="text-[11px] text-[#71717a]">Kemitraan CSR BUMD, DKM, &amp; Lembaga</div>
+                </div>
+              </a>
+              <a href="/layanan/kantor" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">storefront</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Kantor Layanan</div>
+                  <div class="text-[11px] text-[#71717a]">Sekretariat Soreang &amp; Layanan 31 Kecamatan</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Dashboard -->
+        <div class="relative group">
+          <button class="pub-nav-btn flex items-center gap-1.5 px-4 py-2 rounded-full transition-all" aria-haspopup="true" aria-expanded="false">
+            <span>Dashboard</span>
+            <span class="material-symbols-outlined text-sm transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+          </button>
+          <div class="pub-dropdown-menu invisible opacity-0 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100 group-focus-within:pointer-events-auto absolute left-0 top-full pt-2 z-50 transition-all duration-200">
+            <div class="w-72 bg-white rounded-2xl border border-[#ececee] shadow-xl p-2 space-y-1">
+              <a href="/dashboard/penghimpunan" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">trending_up</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Penghimpunan Dana</div>
+                  <div class="text-[11px] text-[#71717a]">Realisasi ZIS Rp 48.72 M &amp; PSAK 109</div>
+                </div>
+              </a>
+              <a href="/dashboard/penyaluran" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f4f4f5] transition-colors text-left">
+                <span class="material-symbols-outlined text-lg text-[#064e3b] mt-0.5">pie_chart</span>
+                <div>
+                  <div class="font-bold text-[#09090b] text-xs">Penyaluran &amp; Manfaat</div>
+                  <div class="text-[11px] text-[#71717a]">Sebaran 8 asnaf &amp; peta 31 kecamatan</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Berita -->
+        <a href="/berita" class="pub-nav-btn px-4 py-2 rounded-full transition-all">
+          Berita
+        </a>
+
+        <!-- 5. Tentang Kami -->
+        <a href="/tentang" class="pub-nav-btn px-4 py-2 rounded-full transition-all">
+          Tentang Kami
+        </a>
+
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-2.5">
+
+        <!-- Tombol Masuk Akun / Login Google -->
+        <a href="/login" class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] border border-[#e4e4e7] text-xs font-semibold text-[#09090b] transition-all shadow-xs" title="Masuk atau Daftar Akun BAZNAS">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">account_circle</span>
+          <span>Masuk</span>
+        </a>
+
+        <!-- Dedicated Button to Admin Panel -->
+        <a href="/admin" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-[14px] bg-white hover:bg-[#f4f4f5] border border-[#e4e4e7] text-xs font-semibold text-[#52525b] hover:text-[#09090b] transition-all" title="Buka Panel Admin &amp; Dashboard Operasional Amil">
+          <span class="material-symbols-outlined text-base text-[#71717a]">lock</span>
+          <span>Admin</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="pub-btn-mobile-toggle" class="lg:hidden p-2 rounded-[12px] bg-[#f4f4f5] text-[#18181b] hover:bg-[#ececee] transition-colors" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer / Expandable Menu -->
+    <div id="pub-mobile-drawer" class="hidden lg:hidden border-t border-[#ececee] bg-white px-6 py-4 space-y-3 text-xs max-h-[80vh] overflow-y-auto">
+      <!-- 1. Program -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">1. Program</div>
+        <a href="/program/zis" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">payments</span>
+          <span>Zakat Infaq Sedekah (ZIS)</span>
+        </a>
+        <a href="/program/campaign" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#ea580c]">volunteer_activism</span>
+          <span>Campaign Kemanusiaan</span>
+        </a>
+      </div>
+
+      <!-- 2. Layanan -->
+      <div class="space-y-1 border-t border-[#ececee] pt-2">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">2. Layanan</div>
+        <a href="/layanan/bantuan" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">person_search</span>
+          <span>Pengajuan Bantuan (NIK)</span>
+        </a>
+        <a href="/layanan/mitra" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">handshake</span>
+          <span>Kolaborasi Mitra</span>
+        </a>
+        <a href="/layanan/kantor" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">storefront</span>
+          <span>Kantor Layanan</span>
+        </a>
+      </div>
+
+      <!-- 3. Dashboard -->
+      <div class="space-y-1 border-t border-[#ececee] pt-2">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">3. Dashboard</div>
+        <a href="/dashboard/penghimpunan" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">trending_up</span>
+          <span>Penghimpunan Dana</span>
+        </a>
+        <a href="/dashboard/penyaluran" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">pie_chart</span>
+          <span>Penyaluran &amp; Manfaat</span>
+        </a>
+      </div>
+
+      <!-- 4. Berita & 5. Tentang Kami -->
+      <div class="space-y-1 border-t border-[#ececee] pt-2">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Informasi &amp; Profil</div>
+        <a href="/berita" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">newspaper</span>
+          <span>4. Berita</span>
+        </a>
+        <a href="/tentang" class="flex items-center gap-2.5 py-2 px-3 rounded-lg hover:bg-[#f4f4f5] text-[#09090b] font-medium">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">info</span>
+          <span>5. Tentang Kami</span>
+        </a>
+      </div>
+
+      <!-- Akun & Portal Masuk Mobile -->
+      <div class="border-t border-[#ececee] pt-3 flex items-center gap-2">
+        <a href="/login" class="flex-1 py-2.5 rounded-xl bg-[#064e3b] text-white text-xs font-semibold flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-base">account_circle</span>
+          <span>Masuk / Daftar</span>
+        </a>
+        <a href="/akun" class="py-2.5 px-3 rounded-xl bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold flex items-center justify-center gap-1" title="Buka Panel Akun Publik">
+          <span class="material-symbols-outlined text-sm text-[#064e3b]">person</span>
+          <span>Akun Saya</span>
+        </a>
+        <a href="/admin" class="py-2.5 px-3 rounded-xl bg-[#f4f4f5] border border-[#e4e4e7] text-[#09090b] text-xs font-semibold flex items-center justify-center gap-1">
+          <span class="material-symbols-outlined text-sm">lock</span>
+          <span>Admin</span>
+        </a>
+      </div>
+    </div>
+  </header>

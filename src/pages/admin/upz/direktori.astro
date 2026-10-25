@@ -1,0 +1,289 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Direktori 487 UPZ Daerah - Panel Admin BAZNAS" sectionName="Jaringan Penghimpunan" pageTitle="Direktori Lengkap 487 UPZ Daerah Kabupaten Bandung" activeRoute="upz/direktori">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 4 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi UPZ">
+      <a href="/admin/upz" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar UPZ</span>
+      </a>
+      <a href="/admin/upz/direktori" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">folder_shared</span>
+        <span>Direktori 487 UPZ</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ff5a00] text-white text-[10px] font-bold">487</span>
+      </a>
+      <a href="/admin/upz/registrasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">domain_add</span>
+        <span>Registrasi &amp; SK UPZ</span>
+      </a>
+      <a href="/admin/upz/setoran" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">cloud_upload</span>
+        <span>Pemrosesan Setoran ASN</span>
+      </a>
+      <a href="/admin/upz/hak-kelola" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">price_check</span>
+        <span>Bagi Hasil Hak Amil 12.5%</span>
+      </a>
+    </nav>
+
+    <!-- Toolbar & Search -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 space-y-5 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-lg font-bold text-[#09090b]">Direktori Jaringan 487 UPZ Daerah</h1>
+          <p class="text-xs text-[#71717a] mt-0.5">Seluruh unit pengumpul zakat di Kabupaten Bandung dengan legalitas SK resmi &amp; Virtual Account</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative w-72">
+            <input type="text" id="upz-search-input" placeholder="Cari Kode UPZ, Nama Unit, atau Camat..." class="w-full pl-9 pr-4 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] text-xs font-medium focus:outline-none focus:border-[#064e3b]"/>
+            <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-base text-[#71717a]">search</span>
+          </div>
+          <a href="/admin/upz/registrasi" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
+            <span class="material-symbols-outlined text-sm">add_circle</span>
+            <span>Tambah UPZ Baru</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#ececee]" id="upz-category-pills">
+        <button class="px-3.5 py-1.5 rounded-full bg-[#064e3b] text-white text-xs font-bold upz-cat-btn active" data-category="all">Semua Kategori (487)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold upz-cat-btn" data-category="kecamatan">Kecamatan (31)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold upz-cat-btn" data-category="dinas">Dinas / OPD (42)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold upz-cat-btn" data-category="sekolah">Disdik &amp; Sekolah (94)</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-[#f4f4f5] hover:bg-[#ececee] text-[#52525b] text-xs font-semibold upz-cat-btn" data-category="masjid">DKM Masjid (320)</button>
+      </div>
+
+      <!-- UPZ Directory Table -->
+      <div class="overflow-x-auto rounded-2xl border border-[#ececee]">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-[#f8fafc] text-[#71717a] uppercase font-bold text-[10px] tracking-wider border-b border-[#ececee]">
+            <tr>
+              <th class="py-3 px-4">Kode &amp; Nama UPZ</th>
+              <th class="py-3 px-4">Kategori Unit</th>
+              <th class="py-3 px-4">Pengurus (Ketua &amp; Bendahara)</th>
+              <th class="py-3 px-4">Nomor SK BAZNAS</th>
+              <th class="py-3 px-4">Virtual Account Bank</th>
+              <th class="py-3 px-4 text-right">Himpunan YTD (Rp)</th>
+              <th class="py-3 px-4 text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ececee] bg-white text-[#18181b]" id="upz-table-body">
+            
+            <!-- 1 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="kecamatan">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Kecamatan Soreang</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-KEC-01</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Kecamatan</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">Drs. Haris Taufik (Camat)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Hj. Imas (Kesra)</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-01/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BJB Syariah • 988-3204-0101</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">412.500.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 2 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="dinas">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Dinas Pendidikan</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-OPD-05</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[10px]">Dinas / OPD</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">H. Agus Firman, M.Pd. (Kadisdik)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Drs. H. Dedi Kusnadi</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-05/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BSI • 988-3204-0501</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">3.840.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif (Top)</span></td>
+            </tr>
+
+            <!-- 3 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="dinas">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Sekretariat Daerah (Setda)</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-OPD-12</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[10px]">Dinas / OPD</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">Drs. H. Cakra Amiyana (Sekda)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: H. Yayan (Bagian Kesra)</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-12/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BJB Syariah • 988-3204-1201</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">1.450.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 4 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="masjid">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Masjid Agung Soreang</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-DKM-08</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] font-bold text-[10px]">DKM Masjid</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">KH. Ahmad Sodikin (Ketua DKM)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Ust. Rahmat Hidayat</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-88/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BSI • 988-3204-8801</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">380.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 5 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="kecamatan">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Kecamatan Pasirjambu</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-KEC-14</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Kecamatan</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">Drs. H. Rahmat (Camat)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Siti Aisyah</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-14/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BSI • 988-3204-1401</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">295.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 6 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="dinas">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ RSUD Otista Soreang</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-OPD-08</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[10px]">Dinas / OPD</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">dr. H. Riantony (Direktur)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Hj. Nani (Keuangan)</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-08/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BJB Syariah • 988-3204-0801</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">890.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 7 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="sekolah">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ SMAN 1 Soreang</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-SEK-22</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Disdik &amp; Sekolah</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">Drs. H. Dedi (Kepala Sekolah)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Ust. Hilman (Guru PAI)</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-94/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BSI • 988-3204-9401</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">165.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 8 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="masjid">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Masjid Al-Fathu Pemkab</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-DKM-45</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#f4f4f5] text-[#52525b] font-bold text-[10px]">DKM Masjid</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">KH. Ali Imron (Ketua DKM)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: H. Nandang</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-145/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BJB Syariah • 988-3204-1451</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">520.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 9 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="dinas">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Dinas Kesehatan</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-OPD-18</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#d97706] font-bold text-[10px]">Dinas / OPD</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">dr. Hj. Yuli (Kadinkes)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Endang (Keuangan)</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-18/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BSI • 988-3204-1801</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#064e3b]">1.120.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+            <!-- 10 -->
+            <tr class="hover:bg-[#ecfdf5]/40 transition-colors upz-row" data-category="kecamatan">
+              <td class="py-3.5 px-4">
+                <div class="font-bold text-[#09090b]">UPZ Kecamatan Majalaya</div>
+                <span class="font-mono text-[11px] text-[#71717a]">UPZ-KEC-21</span>
+              </td>
+              <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-bold text-[10px]">Kecamatan</span></td>
+              <td class="py-3.5 px-4">
+                <div class="text-[#09090b]">Drs. Gugum Gumilar (Camat)</div>
+                <div class="text-[11px] text-[#71717a]">Bendahara: Hj. Euis (Kesra)</div>
+              </td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#52525b]">451.12/SK-21/BAZNAS/2023</td>
+              <td class="py-3.5 px-4 font-mono text-[11px] text-[#064e3b]">BJB Syariah • 988-3204-2101</td>
+              <td class="py-3.5 px-4 text-right font-mono font-bold text-[#09090b]">385.000.000</td>
+              <td class="py-3.5 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">Aktif</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script is:inline>
+    const searchInput = document.getElementById('upz-search-input');
+    const pillsGroup = document.getElementById('upz-category-pills');
+    const tableBody = document.getElementById('upz-table-body');
+
+    if (searchInput && tableBody) {
+      searchInput.addEventListener('input', () => {
+        const q = searchInput.value.toLowerCase().trim();
+        tableBody.querySelectorAll('tr.upz-row').forEach((row) => {
+          const match = !q || row.textContent.toLowerCase().includes(q);
+          row.style.display = match ? '' : 'none';
+        });
+      });
+    }
+
+    if (pillsGroup && tableBody) {
+      pillsGroup.addEventListener('click', (e) => {
+        const btn = e.target.closest('.upz-cat-btn');
+        if (!btn) return;
+
+        pillsGroup.querySelectorAll('.upz-cat-btn').forEach((b) => {
+          b.classList.remove('active', 'bg-[#064e3b]', 'text-white');
+          b.classList.add('bg-[#f4f4f5]', 'text-[#52525b]');
+        });
+        btn.classList.add('active', 'bg-[#064e3b]', 'text-white');
+        btn.classList.remove('bg-[#f4f4f5]', 'text-[#52525b]');
+
+        const cat = btn.dataset.category;
+        tableBody.querySelectorAll('tr.upz-row').forEach((row) => {
+          if (cat === 'all') row.style.display = '';
+          else row.style.display = row.dataset.category === cat ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</AdminLayout>

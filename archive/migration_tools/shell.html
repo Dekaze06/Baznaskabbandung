@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BAZNAS Kabupaten Bandung - Sistem Tata Kelola Zakat Terpadu</title>
+  <meta name="description" content="Portal publik dan panel admin terpadu BAZNAS Kabupaten Bandung: transparansi real-time, kalkulator & pembayaran ZIS, lacak mustahik, asesmen had kifayah, keuangan PSAK 109, manajemen UPZ, dan executive command center."/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: /*TAILWIND_EXTEND*/{}
+      }
+    };
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f5;
+      font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+      color: #18181b;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+    /* ---- SPA View Caching (Faster View Transitions) ---- */
+    .spa-view { width: 100%; outline: none; }
+    .spa-view.inactive {
+      content-visibility: hidden;
+      position: absolute;
+      inset: 0 auto auto 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    @supports not (content-visibility: hidden) {
+      .spa-view.inactive { display: none; }
+    }
+
+    /* ---- Navigasi aktif di sidebar ---- */
+    .app-nav-item { color: #3f3f46; }
+    .app-nav-item:hover { background-color: #f4f4f5; color: #09090b; }
+    .app-nav-item.active { background-color: #064e3b; color: #ffffff; font-weight: 600; }
+    .app-nav-item.active .app-nav-icon { color: #a7f3d0; }
+
+    /* ---- Navigasi aktif di public header pill menu ---- */
+    .pub-nav-item.active {
+      background-color: #064e3b;
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(6,78,59,0.2);
+    }
+    .pub-nav-item:not(.active) {
+      color: #52525b;
+    }
+    .pub-nav-item:not(.active):hover {
+      color: #09090b;
+      background-color: #ececee;
+    }
+
+    /* ---- Layout: Mode Publik vs Mode Dashboard Amil ---- */
+    #app-sidebar { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+    #app-main { transition: padding .3s cubic-bezier(.4,0,.2,1); }
+    
+    /* Mode Publik: sidebar tersembunyi, topbar admin tersembunyi, header publik tampil */
+    body.public-mode #app-sidebar { transform: translateX(-100%); }
+    body.public-mode #app-main { padding-left: 0; }
+    body.public-mode #app-admin-header { display: none !important; }
+    body.public-mode #app-public-header { display: block !important; }
+
+    /* Mode Dashboard Amil: sidebar tampil (desktop), header admin tampil, header publik tersembunyi */
+    body:not(.public-mode) #app-public-header { display: none !important; }
+    body:not(.public-mode) #app-admin-header { display: flex !important; }
+
+    @media (max-width: 1023px) {
+      #app-sidebar { transform: translateX(-100%); }
+      #app-sidebar.open { transform: translateX(0); }
+      #app-main { padding-left: 0 !important; }
+    }
+
+    /* ---- View Transitions ---- */
+    ::view-transition-old(root) { animation: 140ms ease-in both app-fade-out; }
+    ::view-transition-new(root) { animation: 200ms ease-out both app-fade-in; }
+    @keyframes app-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    @keyframes app-fade-out { from { opacity: 1; } to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    }
+
+    /* ===== Style asli per layar ===== */
+    /*SCREEN_STYLES*/
+  </style>
+</head>
+<body class="public-mode bg-[#f4f4f5] text-[#18181b] min-h-screen selection:bg-[#064e3b] selection:text-white">
+
+  <!-- ==================== HEADER PUBLIK (PORTAL WARGA & MUZAKI) ==================== -->
+  <header id="app-public-header" class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#ececee] shadow-xs">
+    <!-- Top Live Ticker Bar -->
+    <div class="border-b border-[#ececee] bg-[#f8fafc] px-6 py-2 text-xs">
+      <div class="max-w-[1400px] mx-auto flex items-center justify-between font-mono text-[#52525b]">
+        <div class="flex items-center gap-4 overflow-x-auto text-[11px] sm:text-xs">
+          <span class="inline-flex items-center gap-1.5 text-[#064e3b] font-semibold whitespace-nowrap">
+            <span class="w-2 h-2 rounded-full bg-[#064e3b] animate-pulse"></span> SIMBA BAZNAS RI Live
+          </span>
+          <span class="text-[#d4d4d8]">|</span>
+          <span class="whitespace-nowrap">Nisab Emas Soreang: <strong class="text-[#09090b] font-bold">Rp 82.350.000 / thn</strong></span>
+          <span class="text-[#d4d4d8]">|</span>
+          <span class="whitespace-nowrap">Beras Fitrah: <strong class="text-[#09090b] font-bold">Rp 40.000 / jiwa</strong></span>
+        </div>
+        <div class="hidden md:flex items-center gap-3 text-xs">
+          <span class="text-[#71717a]">Audit Syariah &amp; Keuangan:</span>
+          <span class="bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-[6px] font-bold border border-[#064e3b]/15">KAP WTP 5 Tahun</span>
+          <span class="bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-[6px] font-bold border border-[#064e3b]/15">PSAK 109</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#transparansi" class="flex items-center gap-3.5 group">
+        <img alt="Logo Resmi BAZNAS Kab Bandung" class="h-10 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+        <div class="border-l border-[#d4d4d8] pl-3.5 flex flex-col">
+          <span class="text-base sm:text-lg font-bold tracking-tight text-[#09090b] leading-tight">BAZNAS</span>
+          <span class="text-[11px] font-semibold tracking-wide text-[#064e3b] uppercase">Kabupaten Bandung</span>
+        </div>
+      </a>
+
+      <!-- Pill Menu Items (Desktop Public Portal) -->
+      <nav class="hidden xl:flex items-center gap-1 bg-[#f4f4f5] p-1.5 rounded-full border border-[#ececee] text-xs">
+        <a href="#transparansi" data-route="transparansi" class="pub-nav-item px-4 py-2 rounded-full font-medium transition-all">Beranda &amp; Transparansi</a>
+        <a href="#kalkulator" data-route="kalkulator" class="pub-nav-item px-4 py-2 rounded-full font-medium transition-all">Kalkulator &amp; Kasir ZIS</a>
+        <a href="#mustahik" data-route="mustahik" class="pub-nav-item px-4 py-2 rounded-full font-medium transition-all">Layanan Mustahik (NIK)</a>
+        <a href="#command-center" data-route="command-center" class="pub-nav-item px-4 py-2 rounded-full font-medium transition-all">Executive Center</a>
+        <a href="#asesmen" data-route="asesmen" class="pub-nav-item px-4 py-2 rounded-full font-medium transition-all">Asesmen Had Kifayah</a>
+        <a href="#upz" data-route="upz" class="pub-nav-item px-4 py-2 rounded-full font-medium transition-all">Manajemen UPZ</a>
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <!-- Quick Bayar ZIS -->
+        <button id="pub-btn-quick-zis" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all shadow-sm active:scale-95">
+          <span class="material-symbols-outlined text-base">payments</span>
+          <span class="hidden sm:inline">Bayar Zakat Cepat</span>
+          <span class="sm:hidden">Bayar ZIS</span>
+        </button>
+
+        <!-- Switch to Dashboard Amil -->
+        <button id="pub-btn-goto-dashboard" class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-xs font-bold text-[#09090b] transition-all" title="Buka Panel Admin &amp; Dashboard Operasional Amil">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">dashboard</span>
+          <span class="hidden md:inline">Dashboard Amil (SaaS)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Backdrop for Sidebar -->
+  <div id="app-sidebar-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden lg:hidden"></div>
+
+  <!-- ==================== SIDEBAR TERPADU (MODE DASHBOARD AMIL) ==================== -->
+  <aside id="app-sidebar" class="fixed left-0 top-0 h-screen w-72 bg-white z-50 flex flex-col border-r border-[#ececee]">
+    <!-- Brand / Node Status Header -->
+    <div class="h-20 px-6 flex items-center justify-between border-b border-[#ececee] shrink-0">
+      <a href="#transparansi" class="flex items-center gap-3 min-w-0">
+        <img alt="Logo BAZNAS Kabupaten Bandung" class="h-10 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWTSDqjDuojo31U3B1_pbesLA2gBtm53tuahtGfkDR6Rr5zbUleBxv4D6hZ4A60KdC44-sPYy81PgpqwcG3uuMhoIHsWm62c6fuh2d_ZWVn2oRl2Qm_ICtaHWtBvvfGoZTByKs0Bh6tUVLxnzpX4c5kAD3iWVCJI3TTaMZlbrZ_ZTAoq3D1sg2jLKCAaFbY1ClKB-0a_3FecyTo3rZTfd8SgiYGGPw6lGutNz0_-wL76NeXOds-gstw"/>
+        <div class="flex flex-col min-w-0">
+          <span class="font-bold text-[15px] tracking-tight leading-tight text-[#064e3b] truncate">BAZNAS Bandung</span>
+          <span class="font-mono text-[10px] uppercase tracking-wider text-[#71717a] font-semibold">SaaS Terpadu v2.0</span>
+        </div>
+      </a>
+      <button id="app-btn-close-sidebar" class="lg:hidden p-1.5 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup menu">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+
+    <!-- Simba Sync Status Pill -->
+    <div class="px-5 pt-3 pb-2 shrink-0">
+      <div class="px-3.5 py-2 rounded-xl bg-[#f4f4f5] border border-[#ececee] flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#064e3b] animate-pulse"></span>
+          <span class="text-xs font-semibold">SIMBA Node 3204</span>
+        </div>
+        <span class="font-mono text-[10px] font-bold text-[#064e3b] bg-[#ecfdf5] px-2 py-0.5 rounded border border-[#064e3b]/15">PSAK 109</span>
+      </div>
+    </div>
+
+    <!-- Role Switcher -->
+    <div class="px-5 py-2 shrink-0">
+      <label for="app-role-selector" class="block text-[10px] font-bold uppercase tracking-wider text-[#71717a] mb-1">Peran Akses (Multi-Role)</label>
+      <select id="app-role-selector" class="w-full bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold rounded-xl px-3 py-2 cursor-pointer focus:ring-1 focus:ring-[#064e3b] focus:border-[#064e3b]">
+        <option value="pimpinan">👔 Pimpinan (Ketua / Waka)</option>
+        <option value="keuangan">🏛️ Staf / Kabag Keuangan</option>
+        <option value="surveyor">📋 Asesor Pendistribusian</option>
+        <option value="upz">🏢 Operator UPZ Daerah</option>
+        <option value="muzaki">💚 Muzaki / Publik</option>
+      </select>
+    </div>
+
+    <!-- Navigation List (All 7 Screens) -->
+    <nav id="app-nav" class="flex-1 px-4 py-2 space-y-1 overflow-y-auto" aria-label="Navigasi admin">
+      <div class="px-3 pt-2 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Operasional &amp; Pimpinan</div>
+      <a href="#command-center" data-route="command-center" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">dashboard</span>
+        <span class="flex-1 truncate">Executive Command</span>
+      </a>
+      <a href="#asesmen" data-route="asesmen" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">verified_user</span>
+        <span class="flex-1 truncate">Asesmen &amp; Penyaluran</span>
+      </a>
+      <a href="#keuangan" data-route="keuangan" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">account_balance</span>
+        <span class="flex-1 truncate">Keuangan &amp; PSAK 109</span>
+      </a>
+      <a href="#upz" data-route="upz" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">corporate_fare</span>
+        <span class="flex-1 truncate">Manajemen UPZ Daerah</span>
+      </a>
+
+      <div class="px-3 pt-4 pb-1 text-[10px] font-mono uppercase tracking-wider text-[#71717a] font-bold">Layanan Publik &amp; Donatur</div>
+      <a href="#transparansi" data-route="transparansi" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">public</span>
+        <span class="flex-1 truncate">Beranda &amp; Transparansi</span>
+      </a>
+      <a href="#kalkulator" data-route="kalkulator" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">payments</span>
+        <span class="flex-1 truncate">Kalkulator &amp; Bayar ZIS</span>
+      </a>
+      <a href="#mustahik" data-route="mustahik" class="app-nav-item flex items-center gap-3 px-3.5 py-2.5 rounded-[14px] text-sm font-medium">
+        <span class="material-symbols-outlined text-[19px] app-nav-icon">person_search</span>
+        <span class="flex-1 truncate">Layanan &amp; Lacak Mustahik</span>
+      </a>
+    </nav>
+
+    <!-- Sidebar Profile Footer -->
+    <div class="p-4 border-t border-[#ececee] shrink-0">
+      <div class="flex items-center gap-3 p-2 rounded-[20px] bg-[#f4f4f5] border border-[#ececee]">
+        <img alt="Foto profil" class="w-9 h-9 rounded-full object-cover ring-2 ring-[#064e3b]/20 shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5_vswhNgakvjE2MiNKtezFqpKKnK7V4Ja_WsS2kQnv68P_8zja3-sALo6As4Wd9fTsDuNJJuU5MYiMA8z_uYfZZCLCbWFWnX_tthIYqKDset-I1oVa1-O-6m4mMRk8NDR66I_STrshog7sPUgLMCpkZuIJa3tKgXyzdK4Zh5QIPANVwWqZoX7n3IqVC7bMzind1dVN829686UB0OCsnjIr4hpy1cQnoV2jA7qG39TEnXTbhYuv_YBw"/>
+        <div class="flex flex-col min-w-0">
+          <span id="app-profile-name" class="text-xs font-bold truncate">Drs. H. M. Yusuf</span>
+          <span id="app-profile-role" class="text-[10px] font-mono font-semibold text-[#064e3b] uppercase truncate">Ketua BAZNAS Kab. Bandung</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== KONTEN UTAMA ==================== -->
+  <div id="app-main" class="lg:pl-72 min-h-screen flex flex-col min-w-0 transition-all duration-300">
+
+    <!-- Topbar Admin (Hanya tampil saat di Mode Dashboard Amil) -->
+    <header id="app-admin-header" class="h-20 bg-white/90 backdrop-blur-md border-b border-[#ececee] px-5 lg:px-8 flex items-center justify-between gap-4 sticky top-0 z-40 shrink-0">
+      <div class="flex items-center gap-3 min-w-0">
+        <button id="app-btn-open-sidebar" class="lg:hidden p-2 rounded-[14px] bg-[#f4f4f5] text-[#52525b]" aria-label="Buka menu">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-1.5 text-[11px] text-[#71717a] font-medium">
+            <span>BAZNAS Kab. Bandung</span><span>/</span>
+            <span id="app-section-name" class="text-[#064e3b] font-semibold truncate">Operasional &amp; Pimpinan</span>
+          </div>
+          <h1 id="app-page-title" class="text-base lg:text-lg font-bold tracking-tight text-[#09090b] truncate">Executive Command Center</h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5 shrink-0">
+        <!-- Quick Bayar ZIS -->
+        <button id="app-btn-quick-zis" class="inline-flex items-center gap-2 px-4 py-2 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors active:scale-95">
+          <span class="material-symbols-outlined text-base">add_circle</span>
+          <span class="hidden sm:inline">Penerimaan ZIS Cepat</span>
+        </button>
+
+        <!-- Toggle to Public Portal -->
+        <button id="app-btn-public-mode" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-[14px] bg-[#f4f4f5] hover:bg-[#ececee] border border-[#ececee] text-xs font-semibold text-[#09090b] transition-all" title="Buka Portal Publik &amp; Landing Page Beranda">
+          <span class="material-symbols-outlined text-base text-[#064e3b]">public</span>
+          <span class="hidden md:inline">Lihat Portal Publik</span>
+        </button>
+
+        <!-- Notifications -->
+        <div class="relative">
+          <button id="app-btn-notif" class="relative flex items-center justify-center w-9 h-9 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#09090b]" aria-label="Notifikasi" aria-expanded="false">
+            <span class="material-symbols-outlined text-lg">notifications</span>
+            <span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[#ff5a00] animate-pulse"></span>
+          </button>
+          <div id="app-notif-popover" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-3xl border border-[#ececee] shadow-xl p-4 z-50">
+            <div class="flex items-center justify-between pb-2 border-b border-[#ececee]">
+              <span class="text-xs font-bold uppercase tracking-wider">Notifikasi Sistem</span>
+              <span class="text-[10px] font-mono bg-[#ecfdf5] text-[#064e3b] px-2 py-0.5 rounded-full font-bold">3 baru</span>
+            </div>
+            <ul class="space-y-2 pt-3 text-xs">
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5]"><b>Setoran ASN Disdik Masuk</b><br/><span class="text-[#71717a]">Rp 348.650.000 tervalidasi BPKAD</span></li>
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5]"><b>Peringatan SK UPZ Masjid</b><br/><span class="text-[#71717a]">DKM Al-Fathu sisa masa berlaku 30 hari</span></li>
+              <li class="p-2.5 rounded-xl bg-[#f4f4f5]"><b>8 Tiket Menunggu TTE Ketua</b><br/><a href="#command-center" class="text-[#064e3b] font-semibold hover:underline">Buka antrean disposisi</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- VIEWS CONTAINER (SEMUA 7 MODUL) -->
+    <div id="app-views" class="relative flex-1 min-w-0">
+      <!--VIEWS-->
+    </div>
+
+    <!-- Master Footer -->
+    <footer class="mt-auto border-t border-[#ececee] bg-white px-6 sm:px-8 py-6 text-xs text-[#71717a] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-[#09090b]">BAZNAS Kabupaten Bandung</span>
+        <span>•</span>
+        <span>Sistem Tata Kelola Zakat Terpadu (Amanah Civic Governance SaaS)</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] font-mono">
+        <span>PSAK 109 Terakreditasi A</span>
+        <span>•</span>
+        <span class="text-[#064e3b] font-semibold">SIMBA RI Node 3204 Online</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification Shell -->
+  <div id="app-toast" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-[60] translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-5 py-3.5 rounded-[14px] bg-[#09090b] text-white shadow-2xl text-xs font-medium max-w-sm">
+    <span id="app-toast-icon" class="material-symbols-outlined text-[#a7f3d0] text-lg">check_circle</span>
+    <span id="app-toast-msg">Operasi berhasil.</span>
+  </div>
+
+  <!-- Modal Penerimaan ZIS Cepat (Global) -->
+  <div id="app-zis-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="app-zis-title">
+    <form id="app-zis-form" class="bg-white rounded-[36px] border border-[#ececee] shadow-2xl max-w-lg w-full p-7 flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ececee]">
+        <div>
+          <h2 id="app-zis-title" class="text-base font-bold text-[#09090b]">Penerimaan ZIS Kilat (e-BSZ)</h2>
+          <p class="text-[11px] text-[#71717a]">Terhubung langsung ke Buku Kas &amp; SIMBA BAZNAS RI</p>
+        </div>
+        <button type="button" data-close-zis class="p-1 rounded-lg text-[#71717a] hover:bg-[#f4f4f5]" aria-label="Tutup">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Jenis Dana ZIS
+        <select id="app-zis-type" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold normal-case tracking-normal text-[#18181b] px-3.5 py-2.5">
+          <option>Zakat Penghasilan / Profesi</option>
+          <option>Zakat Maal (Tabungan / Emas)</option>
+          <option>Zakat Fitrah (Rp 40.000 / jiwa)</option>
+          <option>Infak / Sedekah Program</option>
+          <option>Fidyah (Rp 30.000 / hari)</option>
+        </select>
+      </label>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nama Muzaki / Donatur
+        <input id="app-zis-name" required autocomplete="name" class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-semibold normal-case tracking-normal text-[#18181b] px-3.5 py-2.5" placeholder="Contoh: H. Dadan Setiawan"/>
+      </label>
+      <label class="text-[11px] font-bold uppercase tracking-wider text-[#71717a]">Nominal ZIS (Rp)
+        <input id="app-zis-amount" type="number" min="1000" step="1000" required class="mt-1 w-full bg-[#f4f4f5] border-[#ececee] rounded-[14px] text-xs font-mono font-bold text-[#064e3b] px-3.5 py-2.5" placeholder="500000"/>
+      </label>
+      <div class="flex gap-3 pt-3 border-t border-[#ececee]">
+        <button type="button" data-close-zis class="flex-1 py-2.5 rounded-[14px] bg-[#f4f4f5] border border-[#ececee] text-xs font-semibold text-[#09090b]">Batal</button>
+        <button type="submit" class="flex-1 py-2.5 rounded-[14px] bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-colors">Terbitkan e-BSZ</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Script Asli Tiap Layar -->
+  <!--SCREEN_SCRIPTS-->
+
+  <!-- Master Application Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

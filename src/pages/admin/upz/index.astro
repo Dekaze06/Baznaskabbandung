@@ -1,0 +1,155 @@
+---
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Manajemen UPZ Daerah - Panel Admin BAZNAS" sectionName="Jaringan Penghimpunan" pageTitle="Manajemen Unit Pengumpul Zakat (UPZ) 31 Kecamatan" activeRoute="upz">
+  <main class="p-6 lg:p-8 space-y-7">
+
+    <!-- Top Sub-Nav Pills for Module 4 -->
+    <nav class="flex items-center gap-2 overflow-x-auto pb-1" aria-label="Sub navigasi UPZ">
+      <a href="/admin/upz" class="px-4 py-2 rounded-full text-xs font-bold bg-[#064e3b] text-white flex items-center gap-1.5 shrink-0 shadow-xs">
+        <span class="material-symbols-outlined text-sm">dashboard</span>
+        <span>Ikhtisar UPZ</span>
+      </a>
+      <a href="/admin/upz/direktori" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">folder_shared</span>
+        <span>Direktori 487 UPZ</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-[#ecfdf5] text-[#064e3b] text-[10px] font-bold">487</span>
+      </a>
+      <a href="/admin/upz/registrasi" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">domain_add</span>
+        <span>Registrasi &amp; SK UPZ</span>
+      </a>
+      <a href="/admin/upz/setoran" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">cloud_upload</span>
+        <span>Pemrosesan Setoran ASN</span>
+      </a>
+      <a href="/admin/upz/hak-kelola" class="px-4 py-2 rounded-full text-xs font-medium bg-white hover:bg-[#f4f4f5] border border-[#ececee] text-[#52525b] hover:text-[#064e3b] flex items-center gap-1.5 shrink-0 transition-all">
+        <span class="material-symbols-outlined text-sm text-[#064e3b]">price_check</span>
+        <span>Bagi Hasil Hak Amil 12.5%</span>
+      </a>
+    </nav>
+
+    <!-- Operational Header Banner -->
+    <section class="bg-white rounded-[32px] border border-[#ececee] p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="flex items-center gap-5">
+        <div class="w-14 h-14 rounded-2xl bg-[#064e3b] flex items-center justify-center text-white shrink-0 shadow-md">
+          <span class="material-symbols-outlined text-[28px]">corporate_fare</span>
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <h1 class="text-xl font-bold text-[#09090b] tracking-tight">Portal Terpadu Manajemen UPZ Kabupaten Bandung</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-[#ecfdf5] text-[#064e3b] font-mono text-[11px] font-bold border border-[#064e3b]/20">SIMBA NODE 3204</span>
+          </div>
+          <p class="text-xs text-[#71717a] mt-1">
+            Penetapan SK Resmi • Integrasi Payroll Gaji ASN Pemkab • Hak Kelola 12.5% Fatwa MUI • Bukti Setor e-BSZ Massal
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/admin/upz/registrasi" class="px-4 py-2 rounded-xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs transition-all">
+          <span class="material-symbols-outlined text-base">domain_add</span>
+          <span>Registrasi UPZ Baru</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4 Summary KPI Cards -->
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+      <div class="p-6 rounded-[28px] bg-white border border-[#ececee] shadow-xs flex flex-col justify-between card-hover-lift">
+        <div>
+          <span class="text-xs font-bold text-[#71717a] uppercase">Total Himpunan UPZ 2026</span>
+          <strong class="text-2xl font-bold font-mono text-[#064e3b] mt-2 block">Rp 18,42 M</strong>
+          <span class="text-xs text-[#064e3b] font-semibold mt-1 block">+14.8% YoY • 86.4% RKAT</span>
+        </div>
+        <div class="w-full bg-[#f4f4f5] h-2 rounded-full overflow-hidden mt-4">
+          <div class="bg-[#064e3b] h-full rounded-full" style="width: 86.4%"></div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-[28px] bg-white border border-[#ececee] shadow-xs flex flex-col justify-between card-hover-lift">
+        <div>
+          <span class="text-xs font-bold text-[#71717a] uppercase">Setoran Zakat ASN (42 OPD)</span>
+          <strong class="text-2xl font-bold font-mono text-[#09090b] mt-2 block">Rp 12,18 M</strong>
+          <span class="text-xs text-[#71717a] mt-1 block">66.1% Dari Total Perolehan UPZ</span>
+        </div>
+        <span class="text-xs text-[#064e3b] font-bold mt-4 pt-2 border-t border-[#ececee] block">Payroll Terintegrasi Setda</span>
+      </div>
+
+      <div class="p-6 rounded-[28px] bg-white border border-[#ececee] shadow-xs flex flex-col justify-between card-hover-lift">
+        <div>
+          <span class="text-xs font-bold text-[#71717a] uppercase">Jaringan UPZ Terdaftar</span>
+          <strong class="text-2xl font-bold font-mono text-[#09090b] mt-2 block">487 Unit</strong>
+          <span class="text-xs text-[#71717a] mt-1 block">31 Kec, 42 Dinas, 94 Sekolah, 320 DKM</span>
+        </div>
+        <span class="text-xs text-[#064e3b] font-bold mt-4 pt-2 border-t border-[#ececee] block">100% Ber-SK Aktif</span>
+      </div>
+
+      <div class="p-6 rounded-[28px] bg-white border border-[#ececee] shadow-xs flex flex-col justify-between card-hover-lift">
+        <div>
+          <span class="text-xs font-bold text-[#71717a] uppercase">Bagi Hasil Hak Amil (12.5%)</span>
+          <strong class="text-2xl font-bold font-mono text-[#d97706] mt-2 block">Rp 2,30 M</strong>
+          <span class="text-xs text-[#71717a] mt-1 block">Disalurkan Sesuai Fatwa DSN-MUI</span>
+        </div>
+        <span class="text-xs text-[#d97706] font-bold mt-4 pt-2 border-t border-[#ececee] block">Kliring H2H BI-FAST</span>
+      </div>
+    </section>
+
+    <!-- Hub 4 Sub Menu Terpisah UPZ -->
+    <section class="space-y-4">
+      <h2 class="text-base font-bold text-[#09090b]">Navigasi 4 Sub Menu Pengelolaan UPZ Daerah</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <a href="/admin/upz/direktori" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">folder_shared</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Direktori 487 UPZ Daerah</h3>
+          <p class="text-xs text-[#71717a] mt-1">Daftar lengkap UPZ Kecamatan, Dinas/OPD, Sekolah, dan Masjid Besar dengan Virtual Account &amp; nomor SK.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Buka Direktori</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/upz/registrasi" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">domain_add</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Registrasi &amp; SK UPZ Baru</h3>
+          <p class="text-xs text-[#71717a] mt-1">Formulir pendaftaran unit baru, penerbitan nomor SK resmi BAZNAS Kab. Bandung, dan alokasi rekening VA bank mitra.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Daftarkan UPZ</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/upz/setoran" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">cloud_upload</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Pemrosesan Setoran ASN (Payroll)</h3>
+          <p class="text-xs text-[#71717a] mt-1">Upload CSV potongan gaji ASN 2.5%, rekonsiliasi setoran batch kolektif, dan penerbitan e-BSZ massal.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Proses Setoran ASN</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="/admin/upz/hak-kelola" class="p-6 rounded-3xl bg-white border border-[#ececee] shadow-xs hover:border-[#064e3b] transition-all card-hover-lift group">
+          <div class="w-12 h-12 rounded-2xl bg-[#ecfdf5] text-[#064e3b] flex items-center justify-center mb-4 group-hover:bg-[#064e3b] group-hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">price_check</span>
+          </div>
+          <h3 class="font-bold text-base text-[#09090b]">Bagi Hasil Hak Amil Syar'i (12.5%)</h3>
+          <p class="text-xs text-[#71717a] mt-1">Kalkulator bagi hasil amil (6.5% unit UPZ vs 6.0% BAZNAS Kabupaten) serta ledger pencairan rekening.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-[#064e3b] mt-4">
+            <span>Hitung Bagi Hasil</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+</AdminLayout>
