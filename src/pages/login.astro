@@ -1,5 +1,7 @@
 ---
 // src/pages/login.astro
+import '../styles/global.css';
+import '../styles/animations.css';
 ---
 
 <!doctype html>
@@ -19,8 +21,6 @@
     
     <!-- Google Material Symbols Outlined -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
 
   <body class="h-full bg-[#fcfcfc] text-[#09090b] font-sans antialiased selection:bg-[#064e3b] selection:text-white">
@@ -138,6 +138,17 @@
                 <input type="checkbox" id="remember-me" checked class="w-4 h-4 rounded border-[#e4e4e7] text-[#064e3b] focus:ring-[#064e3b]" />
                 <span>Ingat sesi masuk pada perangkat ini</span>
               </label>
+            </div>
+
+            <!-- Quick Demo Credentials for Fast Testing -->
+            <div class="flex flex-wrap items-center gap-2 pt-0.5 text-[11px] text-[#71717a]">
+              <span>Contoh Akun:</span>
+              <button type="button" id="btn-fill-muzaki" class="px-2 py-1 rounded-lg bg-[#f4f4f5] hover:bg-[#ecfdf5] hover:text-[#064e3b] hover:border-[#064e3b]/30 text-[#52525b] font-medium border border-[#e4e4e7] transition-all">
+                Muzaki (Warga)
+              </button>
+              <button type="button" id="btn-fill-admin" class="px-2 py-1 rounded-lg bg-[#f4f4f5] hover:bg-[#ecfdf5] hover:text-[#064e3b] hover:border-[#064e3b]/30 text-[#52525b] font-medium border border-[#e4e4e7] transition-all">
+                Amil (Admin)
+              </button>
             </div>
 
             <button type="submit" class="w-full py-3.5 rounded-2xl bg-[#064e3b] hover:bg-[#006a4e] text-white text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-sm active:scale-[0.99]">
@@ -399,6 +410,24 @@
           if (icon) icon.textContent = isPass ? 'visibility_off' : 'visibility';
         });
 
+        // Quick Demo Accounts Helper
+        const btnMuzaki = document.getElementById('btn-fill-muzaki');
+        const btnAdmin = document.getElementById('btn-fill-admin');
+        const inId = document.getElementById('login-identifier');
+        const inPw = document.getElementById('login-password');
+
+        btnMuzaki?.addEventListener('click', () => {
+          if (inId) inId.value = 'muzaki.bandung@gmail.com';
+          if (inPw) inPw.value = 'Muzaki2026!';
+          showToast('Akun demo Muzaki terisi. Silakan klik Masuk.', 'check_circle');
+        });
+
+        btnAdmin?.addEventListener('click', () => {
+          if (inId) inId.value = 'admin.baznas@kabbandung.go.id';
+          if (inPw) inPw.value = 'AmilBandung2026!';
+          showToast('Akun demo Amil/Admin terisi. Silakan klik Masuk.', 'shield_person');
+        });
+
         // Google Sign-In Action
         btnGoogle?.addEventListener('click', () => {
           showToast('Menghubungkan ke Akun Google...', 'sync');
@@ -406,18 +435,27 @@
             showToast('Autentikasi Google berhasil! Membuka Panel Akun Publik...', 'check_circle');
             setTimeout(() => {
               window.location.href = '/akun';
-            }, 1000);
-          }, 800);
+            }, 800);
+          }, 600);
         });
 
         // Submit Login Form
         formLogin?.addEventListener('submit', (e) => {
           e.preventDefault();
-          const identifier = document.getElementById('login-identifier')?.value;
-          showToast(`Selamat datang! Membuka sesi untuk ${identifier}...`, 'check_circle');
-          setTimeout(() => {
-            window.location.href = '/akun';
-          }, 900);
+          const identifier = (inId?.value || '').trim();
+          const isAdmin = identifier.toLowerCase().includes('admin') || identifier.toLowerCase().includes('amil') || identifier.toLowerCase().includes('kabbandung.go.id');
+          
+          if (isAdmin) {
+            showToast(`Autentikasi Amil berhasil (${identifier}). Membuka Panel Admin...`, 'shield_person');
+            setTimeout(() => {
+              window.location.href = '/admin';
+            }, 800);
+          } else {
+            showToast(`Autentikasi berhasil (${identifier}). Membuka Panel Akun Publik...`, 'check_circle');
+            setTimeout(() => {
+              window.location.href = '/akun';
+            }, 800);
+          }
         });
 
         // Submit Register Form
